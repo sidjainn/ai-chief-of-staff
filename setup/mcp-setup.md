@@ -19,7 +19,7 @@ Approve the requested permissions and you're done.
 ## Connect Google Calendar
 
 ```bash
-claude mcp add --transport http gcal https://gcal.mcp.claude.com/mcp
+claude mcp add --transport http gcal https://calendarmcp.googleapis.com/mcp/v1
 ```
 
 Same flow — browser opens, approve, done.

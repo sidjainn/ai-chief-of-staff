@@ -1,8 +1,8 @@
 ---
 name: email-reply
-description: Draft a reply to an email in Alex's voice — direct, concise, relationship-aware
+description: Draft a reply to an email in sid's voice — direct, concise, relationship-aware
 version: 1.0
-author: Alex Johnson
+author: sid 
 referenced_files:
   - .claude/context/communication-style.md
   - .claude/context/my-team.md
@@ -21,7 +21,8 @@ Then read `.claude/context/my-team.md` to understand who I'm writing to.
 
 The user will provide the email to reply to, either by pasting it or referencing it from triage.
 Ask one clarifying question if the intent is ambiguous: "What's the outcome you want from this reply?"
-Otherwise, draft immediately.
+Otherwise, draft immediately. 
+When asked to draft a response, place the draft in the same thread.
 
 ---
 
