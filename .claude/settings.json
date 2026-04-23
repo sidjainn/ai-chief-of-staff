@@ -3,10 +3,11 @@
     "gmail": {
       "type": "http",
       "url": "https://gmail.mcp.claude.com/mcp"
-    },
-    "gcal": {
-      "type": "http",
-      "url": "https://gcal.mcp.claude.com/mcp"
+    }
+  },
+  "skills": {
+    "email-reply": {
+      "path": "skills/email-reply"
     }
   },
   "hooks": {

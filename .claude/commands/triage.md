@@ -6,7 +6,7 @@ Use the Gmail MCP to fetch:
 - All unread emails from the last 24 hours
 - Any emails marked important or starred
 
-Use the Google Calendar MCP to fetch:
+Use the Google Calendar MCP to fetch if available:
 - Today's meetings and events
 - Any events in the next 48 hours that need prep
 
