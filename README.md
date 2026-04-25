@@ -134,7 +134,11 @@ See [`setup/mcp-setup.md`](setup/mcp-setup.md) for the full guide (~2 minutes).
 If you skip this: paste email content manually when running `/triage`.
 Everything else — the skill, the hook, the context — still works.
 
-### 4. Run your first triage
+### 4. Set up PostHog analytics (optional)
+
+See [`setup/posthog-setup.md`](setup/posthog-setup.md) to wire up the PostHog MCP and the `triage_run` telemetry hook. This gives the system an observability layer — daily triage trends, P0/P1/P2 mix over time, and a dashboard regenerable via MCP.
+
+### 5. Run your first triage
 
 ```
 /triage
@@ -178,6 +182,7 @@ Morning                     Afternoon / Evening
 
 - Demo walkthrough: see the `demo/` folder
 - MCP setup: [`setup/mcp-setup.md`](setup/mcp-setup.md)
+- PostHog analytics setup: [`setup/posthog-setup.md`](setup/posthog-setup.md)
 
 ---
 

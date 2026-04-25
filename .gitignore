@@ -1,5 +1,6 @@
 # Auto-generated triage logs — local only
 logs/weekly-log.md
+logs/*.log
 
 # Environment variables — never commit
 .env
