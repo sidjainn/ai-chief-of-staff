@@ -10,6 +10,18 @@
       "headers": {
         "Authorization": "Bearer ${POSTHOG_PERSONAL_API_KEY}"
       }
+    },
+    "granola": {
+      "type": "http",
+      "url": "https://mcp.granola.ai/mcp"
+    },
+    "playwright": {
+      "command": "npx",
+      "args": [
+        "@playwright/mcp@latest",
+        "--user-data-dir",
+        "/Users/sid-j/.claude-playwright-profile"
+      ]
     }
   }
 }
