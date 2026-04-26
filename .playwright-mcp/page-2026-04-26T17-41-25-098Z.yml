@@ -1,0 +1,1013 @@
+- generic [active] [ref=e1]:
+  - generic:
+    - region "Toast message":
+      - heading "0 notifications total" [level=2] [ref=e3]
+      - alert
+  - generic [ref=e4]:
+    - generic [ref=e6]:
+      - button "Skip to search" [ref=e7] [cursor=pointer]:
+        - generic [ref=e8]: Skip to search
+      - button "Skip to main content" [ref=e9] [cursor=pointer]:
+        - generic [ref=e10]: Skip to main content
+      - button "Keyboard shortcuts" [ref=e11] [cursor=pointer]:
+        - generic [ref=e12]: Keyboard shortcuts
+      - button "Close jump menu" [ref=e13] [cursor=pointer]:
+        - img [ref=e14]
+        - generic [ref=e16]: Close jump menu
+    - banner "Global Navigation" [ref=e17]:
+      - generic [ref=e18]:
+        - link "LinkedIn" [ref=e19] [cursor=pointer]:
+          - /url: https://www.linkedin.com/feed/?nis=true
+          - img "LinkedIn" [ref=e22]:
+            - img [ref=e23]
+        - generic [ref=e27]:
+          - combobox "Search" [ref=e28]
+          - generic:
+            - img
+        - navigation "Primary Navigation" [ref=e29]:
+          - list [ref=e30]:
+            - listitem [ref=e31]:
+              - link "new feed updates notifications Home" [ref=e32] [cursor=pointer]:
+                - /url: https://www.linkedin.com/feed/?nis=true&
+                - generic [ref=e33]:
+                  - generic [ref=e36]: new feed updates notifications
+                  - img [ref=e40]
+                - generic "Home" [ref=e42]
+            - listitem [ref=e43]:
+              - link "My Network" [ref=e44] [cursor=pointer]:
+                - /url: https://www.linkedin.com/mynetwork/?
+                - img [ref=e48]
+                - generic "My Network" [ref=e50]
+            - listitem [ref=e51]:
+              - link "Jobs" [ref=e52] [cursor=pointer]:
+                - /url: https://www.linkedin.com/jobs/?
+                - img [ref=e56]
+                - generic "Jobs" [ref=e58]
+            - listitem [ref=e59]:
+              - link "Messaging" [ref=e60] [cursor=pointer]:
+                - /url: https://www.linkedin.com/messaging/?
+                - img [ref=e64]
+                - generic "Messaging" [ref=e66]
+            - listitem [ref=e67]:
+              - link "Notifications" [ref=e68] [cursor=pointer]:
+                - /url: https://www.linkedin.com/notifications/?
+                - img [ref=e72]
+                - generic "Notifications" [ref=e74]
+            - listitem [ref=e75]:
+              - button "Rekha Jain Me" [ref=e77] [cursor=pointer]:
+                - img "Rekha Jain" [ref=e78]
+                - generic [ref=e79]:
+                  - text: Me
+                  - img [ref=e80]
+            - listitem [ref=e82]:
+              - button "For Business" [ref=e84] [cursor=pointer]:
+                - img [ref=e88]
+                - generic "For Business" [ref=e90]:
+                  - text: For Business
+                  - img [ref=e91]
+            - listitem [ref=e93]:
+              - link "Try Premium for ₹0" [ref=e95] [cursor=pointer]:
+                - /url: javascript:void(0)
+                - generic [ref=e96]:
+                  - img [ref=e97]
+                  - generic [ref=e99]: Try Premium for ₹0
+    - generic [ref=e102]:
+      - generic [ref=e105]:
+        - main [ref=e106]:
+          - generic [ref=e107]:
+            - button "Background Image" [ref=e110] [cursor=pointer]
+            - generic [ref=e111]:
+              - button "open profile picture" [ref=e115] [cursor=pointer]:
+                - img "Ashish Khandelwal" [ref=e116]
+              - generic [ref=e118]:
+                - generic [ref=e119]:
+                  - link "Ashish Khandelwal" [ref=e122] [cursor=pointer]:
+                    - /url: /in/ashish-khandelwal01907/overlay/about-this-profile/
+                    - heading "Ashish Khandelwal" [level=1] [ref=e123]
+                    - img [ref=e463]
+                  - generic [ref=e124]: Product | Building Plum
+                - list [ref=e465]:
+                  - listitem [ref=e466]:
+                    - 'button "Education: Indian Institute of Technology Kanpur. Click to skip to education card" [ref=e467] [cursor=pointer]':
+                      - generic [ref=e469]: Indian Institute of Technology Kanpur
+                - generic [ref=e125]:
+                  - generic [ref=e126]: Bengaluru, Karnataka, India
+                  - generic [ref=e127]:
+                    - text: ·
+                    - link "Contact info" [ref=e128] [cursor=pointer]:
+                      - /url: /in/ashish-khandelwal01907/overlay/contact-info/
+              - list [ref=e470]:
+                - listitem [ref=e471]:
+                  - generic [ref=e472]: 500+ connections
+              - generic [ref=e473]:
+                - button "Invite Ashish Khandelwal to connect" [ref=e474] [cursor=pointer]:
+                  - img [ref=e475]
+                  - generic [ref=e477]: Add
+                - button "Message Ashish" [ref=e479] [cursor=pointer]:
+                  - generic [ref=e480]: Message
+                - button "More actions" [ref=e482] [cursor=pointer]:
+                  - generic [ref=e483]: More
+          - generic [ref=e484]:
+            - generic [ref=e488]:
+              - heading "Activity" [level=2] [ref=e489]:
+                - generic [ref=e490]: Activity
+                - generic [ref=e491]: Activity
+              - paragraph [ref=e492]:
+                - generic [ref=e493]: 6,712 followers
+                - generic [ref=e494]: 6,712 followers
+            - group "Select type of recent activity" [ref=e497]:
+              - button "Posts" [pressed] [ref=e498] [cursor=pointer]:
+                - generic [ref=e499]: Posts
+              - button "Comments" [ref=e500] [cursor=pointer]:
+                - generic [ref=e501]: Comments
+              - button "Videos" [ref=e502] [cursor=pointer]:
+                - generic [ref=e503]: Videos
+              - button "Images" [ref=e504] [cursor=pointer]:
+                - generic [ref=e505]: Images
+            - generic [ref=e509]:
+              - generic [ref=e510]: Loaded 9 Posts posts
+              - generic [ref=e511]:
+                - list [ref=e515]:
+                  - listitem [ref=e516]:
+                    - article [ref=e520]:
+                      - generic [ref=e523]:
+                        - generic [ref=e525]:
+                          - link "View Ashish Khandelwal’s graphic link" [ref=e526] [cursor=pointer]:
+                            - /url: https://www.linkedin.com/in/ashish-khandelwal01907?miniProfileUrn=urn%3Ali%3Afsd_profile%3AACoAAAzq7uABv6w5V-10SZYxzuchut87EWR3UcU
+                            - generic [ref=e531]: Ashish Khandelwal
+                          - generic [ref=e532]:
+                            - 'link "View: Ashish Khandelwal Verified • 3rd+ Product | Building Plum" [ref=e533] [cursor=pointer]':
+                              - /url: https://www.linkedin.com/in/ashish-khandelwal01907?miniProfileUrn=urn%3Ali%3Afsd_profile%3AACoAAAzq7uABv6w5V-10SZYxzuchut87EWR3UcU
+                              - generic [ref=e534]:
+                                - generic [ref=e536]:
+                                  - generic [ref=e537]: Ashish Khandelwal
+                                  - generic [ref=e538]: Ashish Khandelwal
+                                - generic [ref=e539]:
+                                  - generic [ref=e540]:
+                                    - img [ref=e541]
+                                    - text: • 3rd+
+                                  - generic [ref=e543]: Verified • 3rd+
+                              - generic [ref=e544]:
+                                - generic [ref=e545]: Product | Building Plum
+                                - generic [ref=e546]: Product | Building Plum
+                            - generic [ref=e547]:
+                              - generic [ref=e548]:
+                                - text: 1mo •
+                                - img [ref=e551]
+                              - generic [ref=e553]: 1 month ago • Visible to anyone on or off LinkedIn
+                        - button "Open control menu for post by Ashish Khandelwal" [ref=e556] [cursor=pointer]:
+                          - img [ref=e557]
+                        - generic [ref=e559]:
+                          - link [ref=e561] [cursor=pointer]:
+                            - /url: /feed/update/urn:li:activity:7442886652600971264/
+                            - generic [ref=e562]:
+                              - generic [ref=e565]:
+                                - text: When I joined
+                                - link "Plum" [ref=e566]:
+                                  - /url: https://www.linkedin.com/company/plumhq/
+                                  - generic [ref=e568]: Plum
+                                - text: ", I didn't think I'd end up caring this deeply about health insurance claims."
+                                - text: But claims is the only moment in insurance where the product actually has to work. Everything before it is a pitch. Everything after it is a memory. The claim itself is the product.
+                                - text: That's the moment we've been building for.
+                                - text: "Over the last 4 years, our team has quietly shipped some of the most challenging product work I've been part of:"
+                                - text: → Replaced paper claim forms with a digital flow that takes 2 minutes
+                                - text: → Built real-time API integrations with insurers so you're never in the dark
+                                - text: → Launched ClaimLens - AI that catches your document errors before the insurer does
+                                - text: → Created a dispute system that recovered ₹10 Cr+ for users from rejected claims
+                                - text: The result? Claims NPS of 79. Automation from 26% to 78%. Reimbursements closing in 36 hours.
+                                - text: Today,
+                                - link "Plum" [ref=e569]:
+                                  - /url: https://www.linkedin.com/company/plumhq/
+                                  - generic [ref=e571]: Plum
+                                - text: announced its Series B and it's squarely built on the promise that claims can be better. Much better.
+                                - text: I'm deeply grateful to the people I've built this alongside —
+                                - link "Abhishek Poddar" [ref=e573]:
+                                  - /url: /in/abhishek24/
+                                - text: ","
+                                - link "Saurabh Arora" [ref=e575]:
+                                  - /url: /in/saurabhplum/
+                                - text: ","
+                                - link "Debankur Biswas" [ref=e577]:
+                                  - /url: /in/debankurbiswas/
+                                - text: ","
+                                - link "Harikumar P M" [ref=e579]:
+                                  - /url: /in/harikumar-p-m-45b4aa8/
+                                - text: ","
+                                - link "Sugato Banerjee" [ref=e581]:
+                                  - /url: /in/sugatob/
+                                - text: ","
+                                - link "Shubhanshu Soni" [ref=e583]:
+                                  - /url: /in/shubhanshusoni/
+                                - text: ","
+                                - link "Shubham Khandalkar" [ref=e585]:
+                                  - /url: /in/shubham-khandalkar/
+                                - text: ","
+                                - link "Ankush Chugh" [ref=e587]:
+                                  - /url: /in/ankush38u/
+                                - text: ", and every engineer, designer, and ops person who refused to ship anything half-baked."
+                                - text: We're still just getting started.
+                                - link "plumhq.com/claims" [ref=e588]:
+                                  - /url: http://plumhq.com/claims
+                              - link "see more, visually reveals content which is already detected by screen readers" [ref=e589]:
+                                - generic [ref=e590]: …more
+                          - generic [ref=e592]:
+                            - button "Activate to view larger image, No alternative text description for this image" [ref=e594] [cursor=pointer]:
+                              - generic [ref=e595]: Activate to view larger image,
+                              - img "No alternative text description for this image" [ref=e599]
+                            - generic [ref=e600]: Activate to view larger image,
+                        - generic [ref=e601]:
+                          - list [ref=e605]:
+                            - listitem [ref=e606]:
+                              - link "168 reactions" [ref=e607] [cursor=pointer]:
+                                - img "like" [ref=e608]
+                                - img "love" [ref=e609]
+                                - img "celebrate" [ref=e610]
+                                - generic [ref=e611]: "168"
+                              - text: ·
+                            - listitem [ref=e612]:
+                              - list [ref=e613]:
+                                - listitem [ref=e614]:
+                                  - link "7 comments on Ashish Khandelwal’s post" [ref=e615] [cursor=pointer]:
+                                    - generic [ref=e616]: 7 comments
+                                  - text: ·
+                                - listitem [ref=e617]:
+                                  - link "1 repost of Ashish Khandelwal’s post" [ref=e618] [cursor=pointer]:
+                                    - generic [ref=e619]: 1 repost
+                          - generic [ref=e620]:
+                            - generic [ref=e621]:
+                              - button "React Like" [ref=e622] [cursor=pointer]:
+                                - img [ref=e625]
+                              - button "Open reactions menu":
+                                - img [ref=e628] [cursor=pointer]
+                            - link "Comment" [ref=e632] [cursor=pointer]:
+                              - img [ref=e633]
+                            - button "Repost" [ref=e636] [cursor=pointer]:
+                              - img [ref=e637]
+                            - button "Send in a private message" [ref=e641] [cursor=pointer]:
+                              - img [ref=e642]
+                  - listitem [ref=e644]:
+                    - article [ref=e648]:
+                      - generic [ref=e651]:
+                        - generic [ref=e653]:
+                          - link "View Ashish Khandelwal’s graphic link" [ref=e654] [cursor=pointer]:
+                            - /url: https://www.linkedin.com/in/ashish-khandelwal01907?miniProfileUrn=urn%3Ali%3Afsd_profile%3AACoAAAzq7uABv6w5V-10SZYxzuchut87EWR3UcU
+                            - generic [ref=e659]: Ashish Khandelwal
+                          - generic [ref=e660]:
+                            - 'link "View: Ashish Khandelwal Verified • 3rd+ Product | Building Plum" [ref=e661] [cursor=pointer]':
+                              - /url: https://www.linkedin.com/in/ashish-khandelwal01907?miniProfileUrn=urn%3Ali%3Afsd_profile%3AACoAAAzq7uABv6w5V-10SZYxzuchut87EWR3UcU
+                              - generic [ref=e662]:
+                                - generic [ref=e664]:
+                                  - generic [ref=e665]: Ashish Khandelwal
+                                  - generic [ref=e666]: Ashish Khandelwal
+                                - generic [ref=e667]:
+                                  - generic [ref=e668]:
+                                    - img [ref=e669]
+                                    - text: • 3rd+
+                                  - generic [ref=e671]: Verified • 3rd+
+                              - generic [ref=e672]:
+                                - generic [ref=e673]: Product | Building Plum
+                                - generic [ref=e674]: Product | Building Plum
+                            - generic [ref=e675]:
+                              - generic [ref=e676]:
+                                - text: 1mo •
+                                - img [ref=e679]
+                              - generic [ref=e681]: 1 month ago • Visible to anyone on or off LinkedIn
+                        - button "Open control menu for post by Ashish Khandelwal" [ref=e684] [cursor=pointer]:
+                          - img [ref=e685]
+                        - generic [ref=e687]:
+                          - 'link "At Plum, PMs ship features. Not wireframes. Features. When the cost of building drops to near zero, the only thing that matters is: do you understand the problem deeply enough to solve it? That''s the bet we''re making with our Builder''s Residency. Cohort 1. 12 months. Bengaluru. ₹40L. Real ownership on real problems. If that''s you, or someone you know, apply → https://lnkd.in/gDydW-_3 Abhishek Poddar Saurabh Arora see more, visually reveals content which is already detected by screen readers" [ref=e689] [cursor=pointer]':
+                            - /url: /feed/update/urn:li:activity:7440347525959725056/
+                            - generic [ref=e690]:
+                              - generic [ref=e693]:
+                                - text: At
+                                - link "Plum" [ref=e694]:
+                                  - /url: https://www.linkedin.com/company/plumhq/
+                                  - generic [ref=e696]: Plum
+                                - text: ", PMs ship features. Not wireframes. Features."
+                                - text: "When the cost of building drops to near zero, the only thing that matters is: do you understand the problem deeply enough to solve it?"
+                                - text: That's the bet we're making with our Builder's Residency.
+                                - text: Cohort 1. 12 months. Bengaluru. ₹40L.
+                                - text: Real ownership on real problems.
+                                - text: If that's you, or someone you know, apply →
+                                - link "https://lnkd.in/gDydW-_3" [ref=e697]:
+                                  - /url: https://lnkd.in/gDydW-_3
+                                - link "Abhishek Poddar" [ref=e699]:
+                                  - /url: /in/abhishek24/
+                                - link "Saurabh Arora" [ref=e701]:
+                                  - /url: /in/saurabhplum/
+                              - link "see more, visually reveals content which is already detected by screen readers" [ref=e702]:
+                                - generic [ref=e703]: …more
+                          - generic [ref=e705]:
+                            - button "Activate to view larger image, No alternative text description for this image" [ref=e707] [cursor=pointer]:
+                              - generic [ref=e708]: Activate to view larger image,
+                              - img "No alternative text description for this image" [ref=e712]
+                            - generic [ref=e713]: Activate to view larger image,
+                        - generic [ref=e714]:
+                          - list [ref=e718]:
+                            - listitem [ref=e719]:
+                              - link "47 reactions" [ref=e720] [cursor=pointer]:
+                                - img "like" [ref=e721]
+                                - img "celebrate" [ref=e722]
+                                - img "love" [ref=e723]
+                                - generic [ref=e724]: "47"
+                          - generic [ref=e725]:
+                            - generic [ref=e726]:
+                              - button "React Like" [ref=e727] [cursor=pointer]:
+                                - img [ref=e730]
+                              - button "Open reactions menu":
+                                - img [ref=e733] [cursor=pointer]
+                            - link "Comment" [ref=e737] [cursor=pointer]:
+                              - img [ref=e738]
+                            - button "Repost" [ref=e741] [cursor=pointer]:
+                              - img [ref=e742]
+                            - button "Send in a private message" [ref=e746] [cursor=pointer]:
+                              - img [ref=e747]
+                  - listitem [ref=e749]
+                  - listitem [ref=e751]
+                  - listitem [ref=e753]
+                  - listitem [ref=e755]
+                  - listitem [ref=e757]
+                  - listitem [ref=e759]
+                  - listitem [ref=e761]
+                - button "Navigate to next update" [ref=e764] [cursor=pointer]:
+                  - img [ref=e765]
+            - link "Show all posts" [ref=e769] [cursor=pointer]:
+              - /url: https://www.linkedin.com/in/ashish-khandelwal01907/recent-activity/all/
+              - img [ref=e770]
+              - generic [ref=e772]: Show all posts
+          - generic [ref=e773]:
+            - heading "Experience" [level=2] [ref=e778]:
+              - generic [ref=e779]: Experience
+              - generic [ref=e780]: Experience
+            - generic [ref=e781]:
+              - list [ref=e782]:
+                - listitem [ref=e783]:
+                  - generic [ref=e784]:
+                    - link "Plum logo" [ref=e786] [cursor=pointer]:
+                      - /url: https://www.linkedin.com/company/28689540/
+                      - img "Plum logo" [ref=e789]
+                    - link "Director of Product Management Plum · Full-time Aug 2022 to Present · 3 yrs 9 mos Bangalore Urban, Karnataka, India" [ref=e792] [cursor=pointer]:
+                      - /url: https://www.linkedin.com/company/28689540/
+                      - generic [ref=e796]:
+                        - generic [ref=e797]: Director of Product Management
+                        - generic [ref=e798]: Director of Product Management
+                      - generic [ref=e799]:
+                        - generic [ref=e800]: Plum · Full-time
+                        - generic [ref=e801]: Plum · Full-time
+                      - generic [ref=e802]:
+                        - generic [ref=e803]: Aug 2022 - Present · 3 yrs 9 mos
+                        - generic [ref=e804]: Aug 2022 to Present · 3 yrs 9 mos
+                      - generic [ref=e805]:
+                        - generic [ref=e806]: Bangalore Urban, Karnataka, India
+                        - generic [ref=e807]: Bangalore Urban, Karnataka, India
+                - listitem [ref=e808]:
+                  - generic [ref=e809]:
+                    - link "Unacademy logo" [ref=e811] [cursor=pointer]:
+                      - /url: https://www.linkedin.com/company/10369067/
+                      - img "Unacademy logo" [ref=e814]
+                    - link "Associate Director, Product Unacademy · Full-time Sep 2021 to May 2022 · 9 mos Bengaluru, Karnataka, India" [ref=e817] [cursor=pointer]:
+                      - /url: https://www.linkedin.com/company/10369067/
+                      - generic [ref=e821]:
+                        - generic [ref=e822]: Associate Director, Product
+                        - generic [ref=e823]: Associate Director, Product
+                      - generic [ref=e824]:
+                        - generic [ref=e825]: Unacademy · Full-time
+                        - generic [ref=e826]: Unacademy · Full-time
+                      - generic [ref=e827]:
+                        - generic [ref=e828]: Sep 2021 - May 2022 · 9 mos
+                        - generic [ref=e829]: Sep 2021 to May 2022 · 9 mos
+                      - generic [ref=e830]:
+                        - generic [ref=e831]: Bengaluru, Karnataka, India
+                        - generic [ref=e832]: Bengaluru, Karnataka, India
+                - listitem [ref=e833]:
+                  - generic [ref=e834]:
+                    - link "Flipkart logo" [ref=e836] [cursor=pointer]:
+                      - /url: https://www.linkedin.com/company/321062/
+                      - img "Flipkart logo" [ref=e839]
+                    - link "Product Flipkart May 2019 to Aug 2021 · 2 yrs 4 mos Greater Bengaluru Area" [ref=e842] [cursor=pointer]:
+                      - /url: https://www.linkedin.com/company/321062/
+                      - generic [ref=e846]:
+                        - generic [ref=e847]: Product
+                        - generic [ref=e848]: Product
+                      - generic [ref=e849]:
+                        - generic [ref=e850]: Flipkart
+                        - generic [ref=e851]: Flipkart
+                      - generic [ref=e852]:
+                        - generic [ref=e853]: May 2019 - Aug 2021 · 2 yrs 4 mos
+                        - generic [ref=e854]: May 2019 to Aug 2021 · 2 yrs 4 mos
+                      - generic [ref=e855]:
+                        - generic [ref=e856]: Greater Bengaluru Area
+                        - generic [ref=e857]: Greater Bengaluru Area
+                - listitem [ref=e858]:
+                  - generic [ref=e859]:
+                    - link "Ola logo" [ref=e861] [cursor=pointer]:
+                      - /url: https://www.linkedin.com/company/2580522/
+                      - img "Ola logo" [ref=e864]
+                    - generic [ref=e865]:
+                      - link "Ola (ANI Technologies Pvt. Ltd) 2 yrs 3 mos Bengaluru, Karnataka, India" [ref=e867] [cursor=pointer]:
+                        - /url: https://www.linkedin.com/company/2580522/
+                        - generic [ref=e871]:
+                          - generic [ref=e872]: Ola (ANI Technologies Pvt. Ltd)
+                          - generic [ref=e873]: Ola (ANI Technologies Pvt. Ltd)
+                        - generic [ref=e874]:
+                          - generic [ref=e875]: 2 yrs 3 mos
+                          - generic [ref=e876]: 2 yrs 3 mos
+                        - generic [ref=e877]:
+                          - generic [ref=e878]: Bengaluru, Karnataka, India
+                          - generic [ref=e879]: Bengaluru, Karnataka, India
+                      - list [ref=e881]:
+                        - listitem [ref=e882]:
+                          - link "Senior Product Manager Apr 2018 to Apr 2019 · 1 yr 1 mo" [ref=e887] [cursor=pointer]:
+                            - /url: https://www.linkedin.com/company/2580522/
+                            - generic [ref=e891]:
+                              - generic [ref=e892]: Senior Product Manager
+                              - generic [ref=e893]: Senior Product Manager
+                            - generic [ref=e894]:
+                              - generic [ref=e895]: Apr 2018 - Apr 2019 · 1 yr 1 mo
+                              - generic [ref=e896]: Apr 2018 to Apr 2019 · 1 yr 1 mo
+                        - listitem [ref=e897]:
+                          - generic [ref=e900]:
+                            - link "Product Manager Feb 2017 to Mar 2018 · 1 yr 2 mos" [ref=e902] [cursor=pointer]:
+                              - /url: https://www.linkedin.com/company/2580522/
+                              - generic [ref=e906]:
+                                - generic [ref=e907]: Product Manager
+                                - generic [ref=e908]: Product Manager
+                              - generic [ref=e909]:
+                                - generic [ref=e910]: Feb 2017 - Mar 2018 · 1 yr 2 mos
+                                - generic [ref=e911]: Feb 2017 to Mar 2018 · 1 yr 2 mos
+                            - list [ref=e913]:
+                              - listitem [ref=e914]:
+                                - list [ref=e916]:
+                                  - listitem [ref=e917]:
+                                    - generic [ref=e921]:
+                                      - generic [ref=e922]: Consumer Experience for Ola's connected car platform, Ola Play
+                                      - generic [ref=e923]: Consumer Experience for Ola's connected car platform, Ola Play
+                - listitem [ref=e924]:
+                  - generic [ref=e925]:
+                    - link "Voonik logo" [ref=e927] [cursor=pointer]:
+                      - /url: https://www.linkedin.com/company/2905042/
+                      - img "Voonik logo" [ref=e930]
+                    - link "Product VOONIK - Every Woman's Personal Stylist Feb 2016 to Feb 2017 · 1 yr 1 mo Bengaluru, Karnataka, India" [ref=e933] [cursor=pointer]:
+                      - /url: https://www.linkedin.com/company/2905042/
+                      - generic [ref=e937]:
+                        - generic [ref=e938]: Product
+                        - generic [ref=e939]: Product
+                      - generic [ref=e940]:
+                        - generic [ref=e941]: VOONIK - Every Woman's Personal Stylist
+                        - generic [ref=e942]: VOONIK - Every Woman's Personal Stylist
+                      - generic [ref=e943]:
+                        - generic [ref=e944]: Feb 2016 - Feb 2017 · 1 yr 1 mo
+                        - generic [ref=e945]: Feb 2016 to Feb 2017 · 1 yr 1 mo
+                      - generic [ref=e946]:
+                        - generic [ref=e947]: Bengaluru, Karnataka, India
+                        - generic [ref=e948]: Bengaluru, Karnataka, India
+              - link "Show all 11 experiences" [ref=e952] [cursor=pointer]:
+                - /url: https://www.linkedin.com/in/ashish-khandelwal01907/details/experience?profileUrn=urn%3Ali%3Afsd_profile%3AACoAAAzq7uABv6w5V-10SZYxzuchut87EWR3UcU
+                - generic [ref=e953]: Show all 11 experiences
+                - img [ref=e955]
+          - generic [ref=e957]:
+            - heading "Education" [level=2] [ref=e962]:
+              - generic [ref=e963]: Education
+              - generic [ref=e964]: Education
+            - list [ref=e966]:
+              - listitem [ref=e967]:
+                - generic [ref=e968]:
+                  - link "Indian Institute of Technology, Kanpur logo" [ref=e970] [cursor=pointer]:
+                    - /url: https://www.linkedin.com/company/157268/
+                    - img "Indian Institute of Technology, Kanpur logo" [ref=e973]
+                  - generic [ref=e974]:
+                    - link "Indian Institute of Technology, Kanpur Bachelor’s Degree, Chemical Engineering 2009 - 2013" [ref=e976] [cursor=pointer]:
+                      - /url: https://www.linkedin.com/company/157268/
+                      - generic [ref=e980]:
+                        - generic [ref=e981]: Indian Institute of Technology, Kanpur
+                        - generic [ref=e982]: Indian Institute of Technology, Kanpur
+                      - generic [ref=e983]:
+                        - generic [ref=e984]: Bachelor’s Degree, Chemical Engineering
+                        - generic [ref=e985]: Bachelor’s Degree, Chemical Engineering
+                      - generic [ref=e986]:
+                        - generic [ref=e987]: 2009 - 2013
+                        - generic [ref=e988]: 2009 - 2013
+                    - list [ref=e990]:
+                      - listitem [ref=e991]:
+                        - generic [ref=e997]:
+                          - generic [ref=e998]: "Grade: 8.5/10"
+                          - generic [ref=e999]: "Grade: 8.5/10"
+                      - listitem [ref=e1000]:
+                        - generic [ref=e1006]:
+                          - generic [ref=e1007]: "Activities and societies: Electronics Club activities in 2009-10"
+                          - generic [ref=e1008]: "Activities and societies: Electronics Club activities in 2009-10"
+                      - listitem [ref=e1009]:
+                        - list [ref=e1011]:
+                          - listitem [ref=e1012]:
+                            - generic [ref=e1016]:
+                              - generic [ref=e1017]: Assistant Coordinator, Workshops Techkriti’11  Administered ARM processor workshop organized by ARM for first time & Robotic arm workshop attended by nearly 500 students from various colleges  Involved in hospitality of sponsors Cypress semiconductors, ARM etc.  Organized and managed 10 workshops attended by 1000 students from all over India by being in a team of 10 people Alumni Contact Program, IIT Kanpur  Member of a team responsible for connecting alumni and promoting them towards contribution to the institute  Planned and Organized alumni sessions for interaction with students with over 200 participants
+                              - generic [ref=e1018]: Assistant Coordinator, Workshops Techkriti’11  Administered ARM processor workshop organized by ARM for first time & Robotic arm workshop attended by nearly 500 students from various colleges  Involved in hospitality of sponsors Cypress semiconductors, ARM etc.  Organized and managed 10 workshops attended by 1000 students from all over India by being in a team of 10 people Alumni Contact Program, IIT Kanpur  Member of a team responsible for connecting alumni and promoting them towards contribution to the institute  Planned and Organized alumni sessions for interaction with students with over 200 participants
+          - generic [ref=e1019]:
+            - heading "Licenses & certifications" [level=2] [ref=e1024]:
+              - generic [ref=e1025]: Licenses & certifications
+              - generic [ref=e1026]: Licenses & certifications
+            - list [ref=e1028]:
+              - listitem [ref=e1029]:
+                - generic [ref=e1030]:
+                  - link "Blanchard logo" [ref=e1032] [cursor=pointer]:
+                    - /url: https://www.linkedin.com/company/12169/
+                    - img "Blanchard logo" [ref=e1035]
+                  - generic [ref=e1038]:
+                    - generic [ref=e1042]:
+                      - generic [ref=e1043]: Situational Leadership II
+                      - generic [ref=e1044]: Situational Leadership II
+                    - generic [ref=e1045]:
+                      - generic [ref=e1046]: Blanchard
+                      - generic [ref=e1047]: Blanchard
+                    - generic [ref=e1048]:
+                      - generic [ref=e1049]: Issued Feb 2015 · Expired Feb 2015
+                      - generic [ref=e1050]: Issued Feb 2015 · Expired Feb 2015
+          - generic [ref=e1051]:
+            - heading "Skills" [level=2] [ref=e1056]:
+              - generic [ref=e1057]: Skills
+              - generic [ref=e1058]: Skills
+            - generic [ref=e1059]:
+              - list [ref=e1060]:
+                - listitem [ref=e1061]:
+                  - generic [ref=e1063]:
+                    - link "Business Strategy" [ref=e1065] [cursor=pointer]:
+                      - /url: https://www.linkedin.com/search/results/all/?keywords=Business+Strategy&origin=PROFILE_PAGE_SKILL_NAVIGATION
+                      - generic [ref=e1069]:
+                        - generic [ref=e1070]: Business Strategy
+                        - generic [ref=e1071]: Business Strategy
+                    - list [ref=e1073]:
+                      - listitem [ref=e1074]:
+                        - link "Mayank Gaur profile picture Endorsed by Mayank Gaur who is highly skilled at this" [ref=e1076] [cursor=pointer]:
+                          - /url: https://www.linkedin.com/in/ashish-khandelwal01907/overlay/urn:li:fsd_skill:(ACoAAAzq7uABv6w5V-10SZYxzuchut87EWR3UcU,2)/endorsers?profileUrn=urn%3Ali%3Afsd_profile%3AACoAAAzq7uABv6w5V-10SZYxzuchut87EWR3UcU&tabIndex=1&modalTabIndex=1
+                          - list [ref=e1078]:
+                            - listitem [ref=e1079]:
+                              - img "Mayank Gaur profile picture" [ref=e1081]
+                          - generic [ref=e1085]:
+                            - generic [ref=e1086]: Endorsed by Mayank Gaur who is highly skilled at this
+                            - generic [ref=e1087]: Endorsed by Mayank Gaur who is highly skilled at this
+                      - listitem [ref=e1088]:
+                        - link "Ola logo Endorsed by 2 colleagues at Ola" [ref=e1090] [cursor=pointer]:
+                          - /url: https://www.linkedin.com/in/ashish-khandelwal01907/overlay/urn:li:fsd_skill:(ACoAAAzq7uABv6w5V-10SZYxzuchut87EWR3UcU,2)/endorsers?profileUrn=urn%3Ali%3Afsd_profile%3AACoAAAzq7uABv6w5V-10SZYxzuchut87EWR3UcU&tabIndex=2&modalTabIndex=2
+                          - list [ref=e1092]:
+                            - listitem [ref=e1093]:
+                              - img "Ola logo" [ref=e1095]
+                          - generic [ref=e1099]:
+                            - generic [ref=e1100]: Endorsed by 2 colleagues at Ola
+                            - generic [ref=e1101]: Endorsed by 2 colleagues at Ola
+                      - listitem [ref=e1102]:
+                        - link "19 endorsements" [ref=e1104] [cursor=pointer]:
+                          - /url: https://www.linkedin.com/in/ashish-khandelwal01907/details/skills/urn:li:fsd_skill:(ACoAAAzq7uABv6w5V-10SZYxzuchut87EWR3UcU,2)/endorsers?profileUrn=urn%3Ali%3Afsd_profile%3AACoAAAzq7uABv6w5V-10SZYxzuchut87EWR3UcU&tabIndex=0&modalTabIndex=0&detailScreenTabIndex=0
+                          - list [ref=e1106]:
+                            - listitem [ref=e1107]:
+                              - img [ref=e1109]
+                          - generic [ref=e1113]:
+                            - generic [ref=e1114]: 19 endorsements
+                            - generic [ref=e1115]: 19 endorsements
+                - listitem [ref=e1116]:
+                  - generic [ref=e1118]:
+                    - link "Product Management" [ref=e1120] [cursor=pointer]:
+                      - /url: https://www.linkedin.com/search/results/all/?keywords=Product+Management&origin=PROFILE_PAGE_SKILL_NAVIGATION
+                      - generic [ref=e1124]:
+                        - generic [ref=e1125]: Product Management
+                        - generic [ref=e1126]: Product Management
+                    - list [ref=e1128]:
+                      - listitem [ref=e1129]:
+                        - link "Sambit Mishra profile picture Endorsed by 1 person in the last 6 months" [ref=e1131] [cursor=pointer]:
+                          - /url: https://www.linkedin.com/in/ashish-khandelwal01907/overlay/urn:li:fsd_skill:(ACoAAAzq7uABv6w5V-10SZYxzuchut87EWR3UcU,22)/endorsers?profileUrn=urn%3Ali%3Afsd_profile%3AACoAAAzq7uABv6w5V-10SZYxzuchut87EWR3UcU&tabIndex=1&modalTabIndex=1
+                          - list [ref=e1133]:
+                            - listitem [ref=e1134]:
+                              - img "Sambit Mishra profile picture" [ref=e1136]
+                          - generic [ref=e1140]:
+                            - generic [ref=e1141]: Endorsed by 1 person in the last 6 months
+                            - generic [ref=e1142]: Endorsed by 1 person in the last 6 months
+                      - listitem [ref=e1143]:
+                        - link "4 endorsements" [ref=e1145] [cursor=pointer]:
+                          - /url: https://www.linkedin.com/in/ashish-khandelwal01907/details/skills/urn:li:fsd_skill:(ACoAAAzq7uABv6w5V-10SZYxzuchut87EWR3UcU,22)/endorsers?profileUrn=urn%3Ali%3Afsd_profile%3AACoAAAzq7uABv6w5V-10SZYxzuchut87EWR3UcU&tabIndex=0&modalTabIndex=0&detailScreenTabIndex=0
+                          - list [ref=e1147]:
+                            - listitem [ref=e1148]:
+                              - img [ref=e1150]
+                          - generic [ref=e1154]:
+                            - generic [ref=e1155]: 4 endorsements
+                            - generic [ref=e1156]: 4 endorsements
+              - link "Show all 26 skills" [ref=e1160] [cursor=pointer]:
+                - /url: https://www.linkedin.com/in/ashish-khandelwal01907/details/skills?profileUrn=urn%3Ali%3Afsd_profile%3AACoAAAzq7uABv6w5V-10SZYxzuchut87EWR3UcU
+                - generic [ref=e1161]: Show all 26 skills
+                - img [ref=e1163]
+          - generic [ref=e1165]:
+            - heading "Recommendations" [level=2] [ref=e1170]:
+              - generic [ref=e1171]: Recommendations
+              - generic [ref=e1172]: Recommendations
+            - generic [ref=e1173]:
+              - tablist [ref=e1174]:
+                - tab "Received" [selected] [ref=e1175] [cursor=pointer]:
+                  - generic [ref=e1176]: Received
+                  - generic [ref=e1177]: Received
+                - tab "Given" [ref=e1178] [cursor=pointer]:
+                  - generic [ref=e1179]: Given
+                  - generic [ref=e1180]: Given
+              - tabpanel "Received" [ref=e1181]:
+                - generic [ref=e1185]:
+                  - generic [ref=e1189]:
+                    - generic [ref=e1190]: Nothing to see for now
+                    - generic [ref=e1191]: Nothing to see for now
+                  - generic [ref=e1192]:
+                    - generic [ref=e1193]: Recommendations that Ashish receives will appear here.
+                    - generic [ref=e1194]: Recommendations that Ashish receives will appear here.
+          - generic [ref=e1195]:
+            - heading "Honors & awards" [level=2] [ref=e1200]:
+              - generic [ref=e1201]: Honors & awards
+              - generic [ref=e1202]: Honors & awards
+            - list [ref=e1204]:
+              - listitem [ref=e1205]:
+                - generic [ref=e1207]:
+                  - generic [ref=e1209]:
+                    - generic [ref=e1213]:
+                      - generic [ref=e1214]: Academic Excellence Award
+                      - generic [ref=e1215]: Academic Excellence Award
+                    - generic [ref=e1216]:
+                      - generic [ref=e1217]: Issued by IIT Kanpur · Jan 2013
+                      - generic [ref=e1218]: Issued by IIT Kanpur · Jan 2013
+                  - list [ref=e1220]:
+                    - listitem [ref=e1221]:
+                      - generic [ref=e1223]:
+                        - list [ref=e1225]:
+                          - listitem [ref=e1226]:
+                            - img "Indian Institute of Technology Kanpur logo" [ref=e1228]
+                        - generic [ref=e1231]:
+                          - generic [ref=e1232]: Associated with Indian Institute of Technology Kanpur
+                          - generic [ref=e1233]: Associated with Indian Institute of Technology Kanpur
+          - generic [ref=e1234]:
+            - heading "Test scores" [level=2] [ref=e1239]:
+              - generic [ref=e1240]: Test scores
+              - generic [ref=e1241]: Test scores
+            - list [ref=e1243]:
+              - listitem [ref=e1244]:
+                - generic [ref=e1248]:
+                  - generic [ref=e1252]:
+                    - generic [ref=e1253]: CAT
+                    - generic [ref=e1254]: CAT
+                  - generic [ref=e1255]:
+                    - generic [ref=e1256]: "Score: 99.54 · Oct 2013"
+                    - generic [ref=e1257]: "Score: 99.54 · Oct 2013"
+          - generic [ref=e1258]:
+            - heading "Languages" [level=2] [ref=e1263]:
+              - generic [ref=e1264]: Languages
+              - generic [ref=e1265]: Languages
+            - list [ref=e1267]:
+              - listitem [ref=e1268]:
+                - generic [ref=e1276]:
+                  - generic [ref=e1277]: English
+                  - generic [ref=e1278]: English
+              - listitem [ref=e1279]:
+                - generic [ref=e1287]:
+                  - generic [ref=e1288]: Hindi
+                  - generic [ref=e1289]: Hindi
+          - generic [ref=e1290]:
+            - heading "Interests" [level=2] [ref=e1295]:
+              - generic [ref=e1296]: Interests
+              - generic [ref=e1297]: Interests
+            - generic [ref=e1298]:
+              - tablist [ref=e1299]:
+                - tab "Top Voices" [selected] [ref=e1300] [cursor=pointer]:
+                  - generic [ref=e1301]: Top Voices
+                  - generic [ref=e1302]: Top Voices
+                - tab "Companies" [ref=e1303] [cursor=pointer]:
+                  - generic [ref=e1304]: Companies
+                  - generic [ref=e1305]: Companies
+                - tab "Groups" [ref=e1306] [cursor=pointer]:
+                  - generic [ref=e1307]: Groups
+                  - generic [ref=e1308]: Groups
+                - tab "Newsletters" [ref=e1309] [cursor=pointer]:
+                  - generic [ref=e1310]: Newsletters
+                  - generic [ref=e1311]: Newsletters
+                - tab "Schools" [ref=e1312] [cursor=pointer]:
+                  - generic [ref=e1313]: Schools
+                  - generic [ref=e1314]: Schools
+              - tabpanel "Top Voices" [ref=e1315]:
+                - generic [ref=e1316]:
+                  - list [ref=e1317]:
+                    - listitem [ref=e1318]:
+                      - generic [ref=e1319]:
+                        - link "Satya Nadella" [ref=e1321] [cursor=pointer]:
+                          - /url: https://www.linkedin.com/in/satyanadella
+                          - img "Satya Nadella" [ref=e1324]
+                        - generic [ref=e1325]:
+                          - link "Satya Nadella Chairman and CEO at Microsoft 11,958,783 followers" [ref=e1327] [cursor=pointer]:
+                            - /url: https://www.linkedin.com/in/satyanadella
+                            - generic [ref=e1328]:
+                              - generic [ref=e1331]:
+                                - generic [ref=e1332]: Satya Nadella
+                                - generic [ref=e1333]: Satya Nadella
+                              - img [ref=e1337]
+                            - generic [ref=e1339]:
+                              - generic [ref=e1340]: Chairman and CEO at Microsoft
+                              - generic [ref=e1341]: Chairman and CEO at Microsoft
+                            - generic [ref=e1342]:
+                              - generic [ref=e1343]: 11,958,783 followers
+                              - generic [ref=e1344]: 11,958,783 followers
+                          - list [ref=e1346]:
+                            - listitem [ref=e1347]:
+                              - button "Follow Satya Nadella" [ref=e1349] [cursor=pointer]:
+                                - img [ref=e1350]
+                                - generic [ref=e1352]: Follow
+                    - listitem [ref=e1353]:
+                      - generic [ref=e1354]:
+                        - link "Geoffrey Moore" [ref=e1356] [cursor=pointer]:
+                          - /url: https://www.linkedin.com/in/geoffreyamoore
+                          - img "Geoffrey Moore" [ref=e1359]
+                        - generic [ref=e1360]:
+                          - link "Geoffrey Moore Author, speaker, advisor, best known for Crossing the Chasm, Zone to Win and The Infinite Staircase. Board Member of nLight, WorkFusion, and Phaidra. Chairman Emeritus Chasm Group & Chasm Institute. 656,709 followers" [ref=e1362] [cursor=pointer]:
+                            - /url: https://www.linkedin.com/in/geoffreyamoore
+                            - generic [ref=e1363]:
+                              - generic [ref=e1366]:
+                                - generic [ref=e1367]: Geoffrey Moore
+                                - generic [ref=e1368]: Geoffrey Moore
+                              - img [ref=e1372]
+                            - generic [ref=e1374]:
+                              - generic [ref=e1375]: Author, speaker, advisor, best known for Crossing the Chasm, Zone to Win and The Infinite Staircase. Board Member of nLight, WorkFusion, and Phaidra. Chairman Emeritus Chasm Group & Chasm Institute.
+                              - generic [ref=e1376]: Author, speaker, advisor, best known for Crossing the Chasm, Zone to Win and The Infinite Staircase. Board Member of nLight, WorkFusion, and Phaidra. Chairman Emeritus Chasm Group & Chasm Institute.
+                            - generic [ref=e1377]:
+                              - generic [ref=e1378]: 656,709 followers
+                              - generic [ref=e1379]: 656,709 followers
+                          - list [ref=e1381]:
+                            - listitem [ref=e1382]:
+                              - button "Follow Geoffrey Moore" [ref=e1384] [cursor=pointer]:
+                                - img [ref=e1385]
+                                - generic [ref=e1387]: Follow
+                  - link "Show all Top Voices" [ref=e1391] [cursor=pointer]:
+                    - /url: https://www.linkedin.com/in/ashish-khandelwal01907/details/interests?profileUrn=urn%3Ali%3Afsd_profile%3AACoAAAzq7uABv6w5V-10SZYxzuchut87EWR3UcU&tabIndex=0&detailScreenTabIndex=0
+                    - generic [ref=e1392]: Show all Top Voices
+                    - img [ref=e1394]
+          - generic [ref=e1396]:
+            - heading "Causes" [level=2] [ref=e1401]:
+              - generic [ref=e1402]: Causes
+              - generic [ref=e1403]: Causes
+            - generic [ref=e1407]:
+              - generic [ref=e1408]: Economic Empowerment • Health • Human Rights • Science and Technology
+              - generic [ref=e1409]: Economic Empowerment • Health • Human Rights • Science and Technology
+        - complementary [ref=e355]:
+          - generic [ref=e1410]:
+            - heading "More profiles for you" [level=2] [ref=e1415]:
+              - generic [ref=e1416]: More profiles for you
+              - generic [ref=e1417]: More profiles for you
+            - generic [ref=e1418]:
+              - list [ref=e1419]:
+                - listitem [ref=e1420]:
+                  - generic [ref=e1421]:
+                    - link "Saurabh Arora" [ref=e1423] [cursor=pointer]:
+                      - /url: https://www.linkedin.com/in/saurabhplum?miniProfileUrn=urn%3Ali%3Afs_miniProfile%3AACoAAACx3kQB4erGXjlYByDdatJTyl0WK7mN8S0
+                      - img "Saurabh Arora" [ref=e1426]
+                    - generic [ref=e1427]:
+                      - link "Saurabh Arora 3rd+ degree connection co-founder Plum. We're hiring across product & engineering roles. plumhq.com/careers" [ref=e1429] [cursor=pointer]:
+                        - /url: https://www.linkedin.com/in/saurabhplum?miniProfileUrn=urn%3Ali%3Afs_miniProfile%3AACoAAACx3kQB4erGXjlYByDdatJTyl0WK7mN8S0
+                        - generic [ref=e1430]:
+                          - generic [ref=e1433]:
+                            - generic [ref=e1434]: Saurabh Arora
+                            - generic [ref=e1435]: Saurabh Arora
+                          - img [ref=e1438]
+                          - generic [ref=e1440]:
+                            - generic [ref=e1441]: · 3rd+
+                            - generic [ref=e1442]: 3rd+ degree connection
+                        - generic [ref=e1446]:
+                          - generic [ref=e1447]: co-founder Plum. We're hiring across product & engineering roles. plumhq.com/careers
+                          - generic [ref=e1448]: co-founder Plum. We're hiring across product & engineering roles. plumhq.com/careers
+                      - list [ref=e1450]:
+                        - listitem [ref=e1451]:
+                          - button "Follow Saurabh Arora" [ref=e1453] [cursor=pointer]:
+                            - img [ref=e1454]
+                            - generic [ref=e1456]: Follow
+                - listitem [ref=e1457]:
+                  - generic [ref=e1458]:
+                    - link "Abhishek Poddar" [ref=e1460] [cursor=pointer]:
+                      - /url: https://www.linkedin.com/in/abhishek24?miniProfileUrn=urn%3Ali%3Afs_miniProfile%3AACoAAAGEgt0BFigQRzC_4Z2rIcr5_bGURxYDQTw
+                      - img "Abhishek Poddar" [ref=e1463]
+                    - generic [ref=e1464]:
+                      - link "Abhishek Poddar 3rd+ degree connection Founder at Plum. Are you a founder/people leader? Go to plumhq.com." [ref=e1466] [cursor=pointer]:
+                        - /url: https://www.linkedin.com/in/abhishek24?miniProfileUrn=urn%3Ali%3Afs_miniProfile%3AACoAAAGEgt0BFigQRzC_4Z2rIcr5_bGURxYDQTw
+                        - generic [ref=e1467]:
+                          - generic [ref=e1470]:
+                            - generic [ref=e1471]: Abhishek Poddar
+                            - generic [ref=e1472]: Abhishek Poddar
+                          - img [ref=e1475]:
+                            - img [ref=e1476]
+                          - generic [ref=e1478]:
+                            - generic [ref=e1479]: · 3rd+
+                            - generic [ref=e1480]: 3rd+ degree connection
+                        - generic [ref=e1484]:
+                          - generic [ref=e1485]: Founder at Plum. Are you a founder/people leader? Go to plumhq.com.
+                          - generic [ref=e1486]: Founder at Plum. Are you a founder/people leader? Go to plumhq.com.
+                      - list [ref=e1488]:
+                        - listitem [ref=e1489]:
+                          - button "Follow Abhishek Poddar" [ref=e1491] [cursor=pointer]:
+                            - img [ref=e1492]
+                            - generic [ref=e1494]: Follow
+                - listitem [ref=e1495]:
+                  - generic [ref=e1496]:
+                    - link "Sathvik Kamath" [ref=e1498] [cursor=pointer]:
+                      - /url: https://www.linkedin.com/in/sathvik-kamath?miniProfileUrn=urn%3Ali%3Afs_miniProfile%3AACoAACgWfyABMT-J_U45gFMh1ttBUhi-Kg3OVpo
+                      - img "Sathvik Kamath" [ref=e1501]
+                    - generic [ref=e1502]:
+                      - link "Sathvik Kamath 3rd+ degree connection Product @ Plum | GrowthX Alum" [ref=e1504] [cursor=pointer]:
+                        - /url: https://www.linkedin.com/in/sathvik-kamath?miniProfileUrn=urn%3Ali%3Afs_miniProfile%3AACoAACgWfyABMT-J_U45gFMh1ttBUhi-Kg3OVpo
+                        - generic [ref=e1505]:
+                          - generic [ref=e1508]:
+                            - generic [ref=e1509]: Sathvik Kamath
+                            - generic [ref=e1510]: Sathvik Kamath
+                          - img [ref=e1513]
+                          - generic [ref=e1515]:
+                            - generic [ref=e1516]: · 3rd+
+                            - generic [ref=e1517]: 3rd+ degree connection
+                        - generic [ref=e1521]:
+                          - generic [ref=e1522]: Product @ Plum | GrowthX Alum
+                          - generic [ref=e1523]: Product @ Plum | GrowthX Alum
+                      - list [ref=e1525]:
+                        - listitem [ref=e1526]:
+                          - button "Message" [ref=e1529] [cursor=pointer]:
+                            - generic [ref=e1530]: Message
+                - listitem [ref=e1531]:
+                  - generic [ref=e1532]:
+                    - link "Sugato Banerjee" [ref=e1534] [cursor=pointer]:
+                      - /url: https://www.linkedin.com/in/sugatob?miniProfileUrn=urn%3Ali%3Afs_miniProfile%3AACoAAAIq8hYBqOTyqhdcvEFyksBfGncPonuQNEY
+                      - img "Sugato Banerjee" [ref=e1537]
+                    - generic [ref=e1538]:
+                      - link "Sugato Banerjee 3rd+ degree connection Product Manager at Plum | Setting the standard for Employee Health & Insurance" [ref=e1540] [cursor=pointer]:
+                        - /url: https://www.linkedin.com/in/sugatob?miniProfileUrn=urn%3Ali%3Afs_miniProfile%3AACoAAAIq8hYBqOTyqhdcvEFyksBfGncPonuQNEY
+                        - generic [ref=e1541]:
+                          - generic [ref=e1544]:
+                            - generic [ref=e1545]: Sugato Banerjee
+                            - generic [ref=e1546]: Sugato Banerjee
+                          - img [ref=e1549]
+                          - generic [ref=e1551]:
+                            - generic [ref=e1552]: · 3rd+
+                            - generic [ref=e1553]: 3rd+ degree connection
+                        - generic [ref=e1557]:
+                          - generic [ref=e1558]: Product Manager at Plum | Setting the standard for Employee Health & Insurance
+                          - generic [ref=e1559]: Product Manager at Plum | Setting the standard for Employee Health & Insurance
+                      - list [ref=e1561]:
+                        - listitem [ref=e1562]:
+                          - button "Follow Sugato Banerjee" [ref=e1564] [cursor=pointer]:
+                            - img [ref=e1565]
+                            - generic [ref=e1567]: Follow
+                - listitem [ref=e1568]:
+                  - generic [ref=e1569]:
+                    - link "atul mishra" [ref=e1571] [cursor=pointer]:
+                      - /url: https://www.linkedin.com/in/atulism?miniProfileUrn=urn%3Ali%3Afs_miniProfile%3AACoAAAJUYg8BfkBEyf_BI_sUGzrfK2BSDBDF7L0
+                      - img "atul mishra" [ref=e1574]
+                    - generic [ref=e1575]:
+                      - link "atul mishra 3rd+ degree connection building Plum Personal" [ref=e1577] [cursor=pointer]:
+                        - /url: https://www.linkedin.com/in/atulism?miniProfileUrn=urn%3Ali%3Afs_miniProfile%3AACoAAAJUYg8BfkBEyf_BI_sUGzrfK2BSDBDF7L0
+                        - generic [ref=e1578]:
+                          - generic [ref=e1581]:
+                            - generic [ref=e1582]: atul mishra
+                            - generic [ref=e1583]: atul mishra
+                          - img [ref=e1586]
+                          - generic [ref=e1588]:
+                            - generic [ref=e1589]: · 3rd+
+                            - generic [ref=e1590]: 3rd+ degree connection
+                        - generic [ref=e1594]:
+                          - generic [ref=e1595]: building Plum Personal
+                          - generic [ref=e1596]: building Plum Personal
+                      - list [ref=e1598]:
+                        - listitem [ref=e1599]:
+                          - button "Follow atul mishra" [ref=e1601] [cursor=pointer]:
+                            - img [ref=e1602]
+                            - generic [ref=e1604]: Follow
+              - link "Show all other similar profiles" [ref=e1608] [cursor=pointer]:
+                - /url: https://www.linkedin.com/in/ashish-khandelwal01907/overlay/browsemap-recommendations?isPrefetched=true&profileUrn=urn%3Ali%3Afsd_profile%3AACoAAAzq7uABv6w5V-10SZYxzuchut87EWR3UcU
+                - generic [ref=e1609]: Show all
+          - generic [ref=e1610]:
+            - generic [ref=e1614]:
+              - heading "People you may know" [level=2] [ref=e1615]:
+                - generic [ref=e1616]: People you may know
+                - generic [ref=e1617]: People you may know
+              - paragraph [ref=e1618]:
+                - generic [ref=e1619]: From Ashish's school
+                - generic [ref=e1620]: From Ashish's school
+            - generic [ref=e1621]:
+              - list [ref=e1622]:
+                - listitem [ref=e1623]:
+                  - generic [ref=e1624]:
+                    - link "Gungun Jain" [ref=e1626] [cursor=pointer]:
+                      - /url: https://www.linkedin.com/in/gungun-jain-3b6962338
+                      - img "Gungun Jain" [ref=e1629]
+                    - generic [ref=e1630]:
+                      - link "Gungun Jain Pursuing my studies at Indian Institute of Technology, Kanpur" [ref=e1632] [cursor=pointer]:
+                        - /url: https://www.linkedin.com/in/gungun-jain-3b6962338?miniProfileUrn=urn%3Ali%3Afs_miniProfile%3AACoAAFTb4boBWdR6MBnOVAnJsccaIMRKboTDF_U
+                        - generic [ref=e1636]:
+                          - generic [ref=e1637]: Gungun Jain
+                          - generic [ref=e1638]: Gungun Jain
+                        - generic [ref=e1642]:
+                          - generic [ref=e1643]: Pursuing my studies at Indian Institute of Technology, Kanpur
+                          - generic [ref=e1644]: Pursuing my studies at Indian Institute of Technology, Kanpur
+                      - list [ref=e1646]:
+                        - listitem [ref=e1647]:
+                          - button "Invite Gungun Jain to connect" [ref=e1649] [cursor=pointer]:
+                            - img [ref=e1650]
+                            - generic [ref=e1652]: Add
+                - listitem [ref=e1653]:
+                  - generic [ref=e1654]:
+                    - link "Chethana Kotla" [ref=e1656] [cursor=pointer]:
+                      - /url: https://www.linkedin.com/in/chethana-kotla-4b8111375
+                      - img "Chethana Kotla" [ref=e1659]
+                    - generic [ref=e1660]:
+                      - link "Chethana Kotla Freshman at Indian Institute of Technology, Kanpur, Btech ME’29" [ref=e1662] [cursor=pointer]:
+                        - /url: https://www.linkedin.com/in/chethana-kotla-4b8111375?miniProfileUrn=urn%3Ali%3Afs_miniProfile%3AACoAAFy-NowB9ii5Oicd0z00zNaWMz3SlRLaKtk
+                        - generic [ref=e1666]:
+                          - generic [ref=e1667]: Chethana Kotla
+                          - generic [ref=e1668]: Chethana Kotla
+                        - generic [ref=e1672]:
+                          - generic [ref=e1673]: Freshman at Indian Institute of Technology, Kanpur, Btech ME’29
+                          - generic [ref=e1674]: Freshman at Indian Institute of Technology, Kanpur, Btech ME’29
+                      - list [ref=e1676]:
+                        - listitem [ref=e1677]:
+                          - button "Invite Chethana Kotla to connect" [ref=e1679] [cursor=pointer]:
+                            - img [ref=e1680]
+                            - generic [ref=e1682]: Add
+                - listitem [ref=e1683]:
+                  - generic [ref=e1684]:
+                    - link "Praneet Ayush Lakra" [ref=e1686] [cursor=pointer]:
+                      - /url: https://www.linkedin.com/in/praneet-ayush-lakra-113963376
+                      - img "Praneet Ayush Lakra" [ref=e1689]
+                    - generic [ref=e1690]:
+                      - link "Praneet Ayush Lakra Student at Indian Institute of Technology, Kanpur" [ref=e1692] [cursor=pointer]:
+                        - /url: https://www.linkedin.com/in/praneet-ayush-lakra-113963376?miniProfileUrn=urn%3Ali%3Afs_miniProfile%3AACoAAF0Lxt8BIObXGG1j4vLN2N46Ii71FWqjjS0
+                        - generic [ref=e1693]:
+                          - generic [ref=e1696]:
+                            - generic [ref=e1697]: Praneet Ayush Lakra
+                            - generic [ref=e1698]: Praneet Ayush Lakra
+                          - img [ref=e1701]
+                        - generic [ref=e1706]:
+                          - generic [ref=e1707]: Student at Indian Institute of Technology, Kanpur
+                          - generic [ref=e1708]: Student at Indian Institute of Technology, Kanpur
+                      - list [ref=e1710]:
+                        - listitem [ref=e1711]:
+                          - button "Invite Praneet Ayush Lakra to connect" [ref=e1713] [cursor=pointer]:
+                            - img [ref=e1714]
+                            - generic [ref=e1716]: Add
+                - listitem [ref=e1717]:
+                  - generic [ref=e1718]:
+                    - link "Ishaan Gupta" [ref=e1720] [cursor=pointer]:
+                      - /url: https://www.linkedin.com/in/ishaan-gupta-399058372
+                      - img "Ishaan Gupta" [ref=e1723]
+                    - generic [ref=e1724]:
+                      - link "Ishaan Gupta Student at Indian Institute of Technology, Kanpur" [ref=e1726] [cursor=pointer]:
+                        - /url: https://www.linkedin.com/in/ishaan-gupta-399058372?miniProfileUrn=urn%3Ali%3Afs_miniProfile%3AACoAAFwzLSUBL_7bVnoHTgIZupsLFgGdY22nUzE
+                        - generic [ref=e1727]:
+                          - generic [ref=e1730]:
+                            - generic [ref=e1731]: Ishaan Gupta
+                            - generic [ref=e1732]: Ishaan Gupta
+                          - img [ref=e1735]
+                        - generic [ref=e1740]:
+                          - generic [ref=e1741]: Student at Indian Institute of Technology, Kanpur
+                          - generic [ref=e1742]: Student at Indian Institute of Technology, Kanpur
+                      - list [ref=e1744]:
+                        - listitem [ref=e1745]:
+                          - button "Invite Ishaan Gupta to connect" [ref=e1747] [cursor=pointer]:
+                            - img [ref=e1748]
+                            - generic [ref=e1750]: Add
+                - listitem [ref=e1751]:
+                  - generic [ref=e1752]:
+                    - link "Gopal Moranya" [ref=e1754] [cursor=pointer]:
+                      - /url: https://www.linkedin.com/in/gopal-moranya-796005368
+                      - img "Gopal Moranya" [ref=e1757]
+                    - generic [ref=e1758]:
+                      - link "Gopal Moranya Sophomore @IIT Kanpur, Mechanical Engineering | Interested in Agri-Tech, Sustainable Farming & Indigenous Dairy Breeds" [ref=e1760] [cursor=pointer]:
+                        - /url: https://www.linkedin.com/in/gopal-moranya-796005368?miniProfileUrn=urn%3Ali%3Afs_miniProfile%3AACoAAFsgJiIBBvSb8qADBN--SeNx4s_-ESKZgzk
+                        - generic [ref=e1764]:
+                          - generic [ref=e1765]: Gopal Moranya
+                          - generic [ref=e1766]: Gopal Moranya
+                        - generic [ref=e1770]:
+                          - generic [ref=e1771]: Sophomore @IIT Kanpur, Mechanical Engineering | Interested in Agri-Tech, Sustainable Farming & Indigenous Dairy Breeds
+                          - generic [ref=e1772]: Sophomore @IIT Kanpur, Mechanical Engineering | Interested in Agri-Tech, Sustainable Farming & Indigenous Dairy Breeds
+                      - list [ref=e1774]:
+                        - listitem [ref=e1775]:
+                          - button "Invite Gopal Moranya to connect" [ref=e1777] [cursor=pointer]:
+                            - img [ref=e1778]
+                            - generic [ref=e1780]: Add
+              - link "Show all people you may know" [ref=e1784] [cursor=pointer]:
+                - /url: https://www.linkedin.com/in/ashish-khandelwal01907/overlay/pymk-recommendations-from-school?isPrefetched=true&profileUrn=urn%3Ali%3Afsd_profile%3AACoAAAzq7uABv6w5V-10SZYxzuchut87EWR3UcU
+                - generic [ref=e1785]: Show all
+      - contentinfo [ref=e436]
+    - generic:
+      - generic:
+        - complementary:
+          - generic [ref=e439]:
+            - generic [ref=e441] [cursor=pointer]:
+              - generic [ref=e442]:
+                - img "Rekha Jain" [ref=e443]
+                - generic [ref=e1787]: Status is online
+              - button "You are on the messaging overlay. Press enter to open the list of conversations." [ref=e444]:
+                - generic [ref=e445]:
+                  - generic [ref=e446]: Messaging
+                  - generic [ref=e447]: You are on the messaging overlay. Press enter to open the list of conversations.
+            - generic [ref=e448]:
+              - button "Open messenger dropdown menu" [ref=e450] [cursor=pointer]:
+                - img "Open messenger dropdown menu" [ref=e451]
+              - button "Compose message" [ref=e454] [cursor=pointer]:
+                - img [ref=e455]
+                - generic [ref=e457]: Compose message
+              - button "You are on the messaging overlay. Press enter to open the list of conversations." [ref=e458] [cursor=pointer]:
+                - img [ref=e459]
+                - generic [ref=e461]: You are on the messaging overlay. Press enter to open the list of conversations.
+        - complementary "AI-powered assistant to get help with your career, jobs etc"
+  - region [ref=e462]

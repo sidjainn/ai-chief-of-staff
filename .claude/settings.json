@@ -10,6 +10,10 @@
           {
             "type": "command",
             "command": "bash .claude/hooks/posthog-capture.sh"
+          },
+          {
+            "type": "command",
+            "command": "bash .claude/hooks/posthog-job-research-capture.sh"
           }
         ]
       }
@@ -24,6 +28,10 @@
           {
             "type": "command",
             "command": "bash .claude/hooks/posthog-capture.sh"
+          },
+          {
+            "type": "command",
+            "command": "bash .claude/hooks/posthog-job-research-capture.sh"
           }
         ]
       }
@@ -44,6 +52,9 @@
   "skills": {
     "email-reply": {
       "path": "skills/email-reply"
+    },
+    "job-research": {
+      "path": "skills/job-research"
     }
   }
 }

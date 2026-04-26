@@ -1,0 +1,1242 @@
+- generic [active] [ref=e1]:
+  - generic:
+    - region "Toast message":
+      - heading "0 notifications total" [level=2] [ref=e3]
+      - alert
+  - generic [ref=e4]:
+    - generic [ref=e6]:
+      - button "Skip to search" [ref=e7] [cursor=pointer]:
+        - generic [ref=e8]: Skip to search
+      - button "Skip to main content" [ref=e9] [cursor=pointer]:
+        - generic [ref=e10]: Skip to main content
+      - button "Keyboard shortcuts" [ref=e11] [cursor=pointer]:
+        - generic [ref=e12]: Keyboard shortcuts
+      - button "Close jump menu" [ref=e13] [cursor=pointer]:
+        - img [ref=e14]
+        - generic [ref=e16]: Close jump menu
+    - banner "Global Navigation" [ref=e17]:
+      - generic [ref=e18]:
+        - link "LinkedIn" [ref=e19] [cursor=pointer]:
+          - /url: https://www.linkedin.com/feed/?nis=true
+          - img "LinkedIn" [ref=e22]:
+            - img [ref=e23]
+        - generic [ref=e27]:
+          - combobox "Search" [ref=e28]
+          - generic:
+            - img
+        - navigation "Primary Navigation" [ref=e29]:
+          - list [ref=e30]:
+            - listitem [ref=e31]:
+              - link "new feed updates notifications Home" [ref=e32] [cursor=pointer]:
+                - /url: https://www.linkedin.com/feed/?nis=true&
+                - generic [ref=e33]:
+                  - generic [ref=e36]: new feed updates notifications
+                  - img [ref=e40]
+                - generic "Home" [ref=e42]
+            - listitem [ref=e43]:
+              - link "My Network" [ref=e44] [cursor=pointer]:
+                - /url: https://www.linkedin.com/mynetwork/?
+                - img [ref=e48]
+                - generic "My Network" [ref=e50]
+            - listitem [ref=e51]:
+              - link "Jobs" [ref=e52] [cursor=pointer]:
+                - /url: https://www.linkedin.com/jobs/?
+                - img [ref=e56]
+                - generic "Jobs" [ref=e58]
+            - listitem [ref=e59]:
+              - link "Messaging" [ref=e60] [cursor=pointer]:
+                - /url: https://www.linkedin.com/messaging/?
+                - img [ref=e64]
+                - generic "Messaging" [ref=e66]
+            - listitem [ref=e67]:
+              - link "Notifications" [ref=e68] [cursor=pointer]:
+                - /url: https://www.linkedin.com/notifications/?
+                - img [ref=e72]
+                - generic "Notifications" [ref=e74]
+            - listitem [ref=e75]:
+              - button "Rekha Jain Me" [ref=e77] [cursor=pointer]:
+                - img "Rekha Jain" [ref=e78]
+                - generic [ref=e79]:
+                  - text: Me
+                  - img [ref=e80]
+            - listitem [ref=e82]:
+              - button "For Business" [ref=e84] [cursor=pointer]:
+                - img [ref=e88]
+                - generic "For Business" [ref=e90]:
+                  - text: For Business
+                  - img [ref=e91]
+            - listitem [ref=e93]:
+              - link "Try Premium for ₹0" [ref=e95] [cursor=pointer]:
+                - /url: javascript:void(0)
+                - generic [ref=e96]:
+                  - img [ref=e97]
+                  - generic [ref=e99]: Try Premium for ₹0
+    - generic [ref=e102]:
+      - generic [ref=e105]:
+        - main [ref=e106]:
+          - generic [ref=e107]:
+            - button "Background Image" [ref=e110] [cursor=pointer]:
+              - img "Background Image" [ref=e112]
+            - generic [ref=e113]:
+              - button "open profile picture" [ref=e117] [cursor=pointer]:
+                - img "atul mishra" [ref=e118]
+              - generic [ref=e120]:
+                - generic [ref=e121]:
+                  - link "atul mishra" [ref=e124] [cursor=pointer]:
+                    - /url: /in/atulism/overlay/about-this-profile/
+                    - heading "atul mishra" [level=1] [ref=e125]
+                    - img [ref=e126]
+                  - generic [ref=e127]: building Plum Personal
+                - list [ref=e128]:
+                  - listitem [ref=e129]:
+                    - 'button "Current company: Plum. Click to skip to experience card" [ref=e130] [cursor=pointer]':
+                      - generic [ref=e132]: Plum
+                  - listitem [ref=e133]:
+                    - 'button "Education: Indian Institute of Management, Calcutta. Click to skip to education card" [ref=e134] [cursor=pointer]':
+                      - generic [ref=e136]: Indian Institute of Management, Calcutta
+                - generic [ref=e137]:
+                  - generic [ref=e138]: Bengaluru, Karnataka, India
+                  - generic [ref=e139]:
+                    - text: ·
+                    - link "Contact info" [ref=e140] [cursor=pointer]:
+                      - /url: /in/atulism/overlay/contact-info/
+              - link "plan life beyond work too" [ref=e142] [cursor=pointer]:
+                - /url: https://plumhq.com/personal
+                - strong [ref=e143]: plan life beyond work too
+                - img [ref=e145]
+              - list [ref=e147]:
+                - listitem [ref=e148]: 9,164 followers ·
+                - listitem [ref=e149]:
+                  - generic [ref=e150]: 500+ connections
+              - generic [ref=e152]:
+                - button "Follow atul mishra" [ref=e153] [cursor=pointer]:
+                  - img [ref=e154]
+                  - generic [ref=e155]: Follow
+                - button "Message atul" [ref=e476] [cursor=pointer]:
+                  - generic [ref=e477]: Message
+                - button "More actions" [ref=e159] [cursor=pointer]:
+                  - generic [ref=e160]: More
+          - generic [ref=e478]:
+            - heading "Featured" [level=2] [ref=e483]:
+              - generic [ref=e484]: Featured
+              - generic [ref=e485]: Featured
+            - list [ref=e489]:
+              - listitem [ref=e490]:
+                - generic [ref=e493]:
+                  - link "Post" [ref=e494] [cursor=pointer]:
+                    - /url: https://www.linkedin.com/feed/update/urn:li:activity:7425402226682105856?updateEntityUrn=urn%3Ali%3Afs_feedUpdate%3A%28V2%2Curn%3Ali%3Aactivity%3A7425402226682105856%29
+                    - generic [ref=e496]:
+                      - generic [ref=e497]: Post
+                      - generic [ref=e498]: Post
+                  - 'link "No alternative text description for this image bootstrapping passion-led venture to profitable 8 figure revenue demands intelligence along with courage, perseverance along with hustle, and an unshakeable belief in the purpose. i feel extremely lucky, proud and privileged to observe, learn from, and admire Richa over the last 24 months as she operated with a singular focus of building travel like her. 100''s of women have now experienced the remote villages of Kashmir, Samurai trails in Nakasendo, Georgia’s glaciers, Bundelkhand''s forests, valleys of Bhutan, dancing in deserts of Leh, etc. safely, comfortably and forging genuine connection with local women. women in my network: Follow travel like her for upcoming journeys this year men: gift one to the women in your life (magic awaits, thank me later) travellikeher.com Richa" [ref=e499] [cursor=pointer]':
+                    - /url: https://www.linkedin.com/feed/update/urn:li:activity:7425402226682105856?updateEntityUrn=urn%3Ali%3Afs_feedUpdate%3A%28V2%2Curn%3Ali%3Aactivity%3A7425402226682105856%29
+                    - generic [ref=e500]:
+                      - generic [ref=e501]:
+                        - img [ref=e502]:
+                          - img [ref=e503]
+                        - img "No alternative text description for this image" [ref=e505]
+                      - generic [ref=e511]:
+                        - text: bootstrapping passion-led venture to profitable 8 figure revenue demands intelligence along with courage, perseverance along with hustle, and an unshakeable belief in the purpose.
+                        - text: i feel extremely lucky, proud and privileged to observe, learn from, and admire
+                        - link "Richa" [ref=e512]:
+                          - /url: /in/richa-tiwari-71589616/
+                        - text: over the last 24 months as she operated with a singular focus of building
+                        - link "travel like her" [ref=e513]:
+                          - /url: https://www.linkedin.com/company/travellikeher/
+                          - generic [ref=e514]: travel like her
+                        - text: .
+                        - text: 100's of women have now experienced the remote villages of Kashmir, Samurai trails in Nakasendo, Georgia’s glaciers, Bundelkhand's forests, valleys of Bhutan, dancing in deserts of Leh, etc. safely, comfortably and forging genuine connection with local women.
+                        - text: "women in my network: Follow"
+                        - link "travel like her" [ref=e515]:
+                          - /url: https://www.linkedin.com/company/travellikeher/
+                          - generic [ref=e516]: travel like her
+                        - text: for upcoming journeys this year
+                        - text: "men: gift one to the women in your life (magic awaits, thank me later)"
+                        - link "travellikeher.com" [ref=e517]:
+                          - /url: http://travellikeher.com
+                        - link "Richa" [ref=e518]:
+                          - /url: /in/richa-tiwari-71589616/
+                  - link "128 reactions 7 comments" [ref=e519] [cursor=pointer]:
+                    - /url: https://www.linkedin.com/feed/update/urn:li:activity:7425402226682105856?updateEntityUrn=urn%3Ali%3Afs_feedUpdate%3A%28V2%2Curn%3Ali%3Aactivity%3A7425402226682105856%29
+                    - list [ref=e523]:
+                      - listitem [ref=e524]:
+                        - button "128 reactions" [disabled] [ref=e525]:
+                          - img "like" [ref=e526]
+                          - img "love" [ref=e527]
+                          - img "celebrate" [ref=e528]
+                          - generic [ref=e529]: "128"
+                      - listitem [ref=e530]:
+                        - list [ref=e531]:
+                          - listitem [ref=e532]:
+                            - button "7 comments" [disabled] [ref=e533]:
+                              - generic [ref=e534]: 7 comments
+          - generic [ref=e536]:
+            - generic [ref=e539]:
+              - generic [ref=e540]:
+                - heading "Activity" [level=2] [ref=e541]:
+                  - generic [ref=e542]: Activity
+                  - generic [ref=e543]: Activity
+                - paragraph [ref=e544]:
+                  - generic [ref=e545]: 9,164 followers
+                  - generic [ref=e546]: 9,164 followers
+              - button "Follow atul mishra" [ref=e549] [cursor=pointer]:
+                - img [ref=e550]
+                - generic [ref=e552]: Follow
+            - group "Select type of recent activity" [ref=e555]:
+              - button "Posts" [pressed] [ref=e556] [cursor=pointer]:
+                - generic [ref=e557]: Posts
+              - button "Comments" [ref=e558] [cursor=pointer]:
+                - generic [ref=e559]: Comments
+              - button "Images" [ref=e560] [cursor=pointer]:
+                - generic [ref=e561]: Images
+            - generic [ref=e565]:
+              - generic [ref=e566]: Loaded 9 Posts posts
+              - generic [ref=e567]:
+                - list [ref=e571]:
+                  - listitem [ref=e572]:
+                    - article [ref=e576]:
+                      - generic [ref=e579]:
+                        - generic [ref=e581]:
+                          - link "View atul mishra’s graphic link" [ref=e582] [cursor=pointer]:
+                            - /url: https://www.linkedin.com/in/atulism?miniProfileUrn=urn%3Ali%3Afsd_profile%3AACoAAAJUYg8BfkBEyf_BI_sUGzrfK2BSDBDF7L0
+                            - img "View atul mishra’s graphic link" [ref=e586]
+                          - generic [ref=e587]:
+                            - 'link "View: atul mishra Verified • 3rd+ building Plum Personal" [ref=e588] [cursor=pointer]':
+                              - /url: https://www.linkedin.com/in/atulism?miniProfileUrn=urn%3Ali%3Afsd_profile%3AACoAAAJUYg8BfkBEyf_BI_sUGzrfK2BSDBDF7L0
+                              - generic [ref=e589]:
+                                - generic [ref=e591]:
+                                  - generic [ref=e592]: atul mishra
+                                  - generic [ref=e593]: atul mishra
+                                - generic [ref=e594]:
+                                  - generic [ref=e595]:
+                                    - img [ref=e596]
+                                    - text: • 3rd+
+                                  - generic [ref=e598]: Verified • 3rd+
+                              - generic [ref=e599]:
+                                - generic [ref=e600]: building Plum Personal
+                                - generic [ref=e601]: building Plum Personal
+                            - generic [ref=e602]:
+                              - generic [ref=e603]:
+                                - text: 1mo • Edited •
+                                - img [ref=e606]
+                              - generic [ref=e608]: 1 month ago • Edited • Visible to anyone on or off LinkedIn
+                        - button "Open control menu for post by atul mishra" [ref=e611] [cursor=pointer]:
+                          - img [ref=e612]
+                        - generic [ref=e614]:
+                          - link [ref=e616] [cursor=pointer]:
+                            - /url: /feed/update/urn:li:activity:7442832913148231680/
+                            - generic [ref=e617]:
+                              - generic [ref=e620]:
+                                - text: today, at
+                                - link "Plum" [ref=e621]:
+                                  - /url: https://www.linkedin.com/company/plumhq/
+                                  - generic [ref=e623]: Plum
+                                - text: "we announce our Series B. since 2021, we have focused on making insurance work better where most people first experience it: at work."
+                                - text: insurance is not only a work problem. it is needed equally in life beyond work .
+                                - text: for a lot of people in our generation, the real questions begin outside the workplace.
+                                - text: how do I protect myself beyond my company cover? parents, siblings, spouse..
+                                - text: what happens with healthcare inflation, sabbaticals or a job loss?
+                                - text: the risks & mitigations (read insurance) in the life I'm still building over the next 30–40 years?
+                                - text: the job and the life are not the same thing. and the coverage most of us have today is only as strong as our current employment - and thats a risk !
+                                - text: that's the gap we want to fix at Plum Personal. its our attempt to bring the same clarity, experience and trust we built for companies, directly to people & their loved ones.
+                                - text: no expiry and the Plum promise forever (irrespective of your work status)
+                                - text: this funding lets us go deeper on that.
+                                - text: congratulations to all of us and thank you to everyone who's trusted us.
+                                - text: we're just getting started. 💪
+                                - link "plumhq.com/claims" [ref=e624]:
+                                  - /url: http://plumhq.com/claims
+                                - link "Abhishek" [ref=e626]:
+                                  - /url: /in/abhishek24/
+                                - text: ","
+                                - link "Saurabh" [ref=e628]:
+                                  - /url: /in/saurabhplum/
+                                - text: ","
+                                - link "Debankur" [ref=e630]:
+                                  - /url: /in/debankurbiswas/
+                                - text: ","
+                                - link "Avik" [ref=e632]:
+                                  - /url: /in/avikbhandari/
+                                - text: ","
+                                - link "Akshay" [ref=e634]:
+                                  - /url: /in/akshaygolechha/
+                                - text: ","
+                                - link "Aditya" [ref=e636]:
+                                  - /url: /in/adityabagarka/
+                                - text: ","
+                                - link "Ashish" [ref=e638]:
+                                  - /url: /in/ashish-khandelwal01907/
+                                - text: ","
+                                - link "Chaitaanya" [ref=e640]:
+                                  - /url: /in/chaitaanya-pravin-05493b41/
+                                - text: ","
+                                - link "Mukul" [ref=e642]:
+                                  - /url: /in/mukulkanchan/
+                                - text: ","
+                                - link "Prayat" [ref=e644]:
+                                  - /url: /in/prayat-shah-3b992429/
+                                - text: ","
+                                - link "Priya" [ref=e646]:
+                                  - /url: /in/priya-sunil-srinivasan-she-her-04546b8/
+                                - text: ","
+                                - link "Sankaralingam" [ref=e648]:
+                                  - /url: /in/sankaralingamt/
+                                - text: ","
+                                - link "Shreyas" [ref=e650]:
+                                  - /url: /in/shreyasachar/
+                              - link "see more, visually reveals content which is already detected by screen readers" [ref=e651]:
+                                - generic [ref=e652]: …more
+                          - generic [ref=e654]:
+                            - button "Activate to view larger image, No alternative text description for this image" [ref=e656] [cursor=pointer]:
+                              - generic [ref=e657]: Activate to view larger image,
+                              - img "No alternative text description for this image" [ref=e661]
+                            - generic [ref=e662]: Activate to view larger image,
+                        - generic [ref=e663]:
+                          - list [ref=e667]:
+                            - listitem [ref=e668]:
+                              - link "155 reactions" [ref=e669] [cursor=pointer]:
+                                - img "like" [ref=e670]
+                                - img "love" [ref=e671]
+                                - img "celebrate" [ref=e672]
+                                - generic [ref=e673]: "155"
+                              - text: ·
+                            - listitem [ref=e674]:
+                              - list [ref=e675]:
+                                - listitem [ref=e676]:
+                                  - link "4 comments on atul mishra’s post" [ref=e677] [cursor=pointer]:
+                                    - generic [ref=e678]: 4 comments
+                                  - text: ·
+                                - listitem [ref=e679]:
+                                  - link "1 repost of atul mishra’s post" [ref=e680] [cursor=pointer]:
+                                    - generic [ref=e681]: 1 repost
+                          - generic [ref=e682]:
+                            - generic [ref=e683]:
+                              - button "React Like" [ref=e684] [cursor=pointer]:
+                                - img [ref=e687]
+                              - button "Open reactions menu":
+                                - img [ref=e690] [cursor=pointer]
+                            - link "Comment" [ref=e694] [cursor=pointer]:
+                              - img [ref=e695]
+                            - button "Repost" [ref=e698] [cursor=pointer]:
+                              - img [ref=e699]
+                            - button "Send in a private message" [ref=e703] [cursor=pointer]:
+                              - img [ref=e704]
+                  - listitem [ref=e706]:
+                    - article [ref=e710]:
+                      - generic [ref=e713]:
+                        - generic [ref=e715]:
+                          - link "atul’s profile photo" [ref=e716] [cursor=pointer]:
+                            - /url: https://www.linkedin.com/in/atulism?miniProfileUrn=urn%3Ali%3Afsd_profile%3AACoAAAJUYg8BfkBEyf_BI_sUGzrfK2BSDBDF7L0
+                            - img "atul’s profile photo" [ref=e719]
+                          - generic [ref=e720]: atul mishra reposted this
+                        - button "Open control menu for post by Navneeth Ramprasad" [ref=e723] [cursor=pointer]:
+                          - img [ref=e724]
+                        - generic [ref=e727]:
+                          - link "View Navneeth Ramprasad’s graphic link" [ref=e728] [cursor=pointer]:
+                            - /url: https://www.linkedin.com/in/navneethar?miniProfileUrn=urn%3Ali%3Afsd_profile%3AACoAABRmgkIB3Lx3FL3-c2vAX9YXiVmXm8TOlpI
+                            - img "View Navneeth Ramprasad’s graphic link" [ref=e732]
+                          - generic [ref=e733]:
+                            - 'link "View: Navneeth Ramprasad Premium • 3rd+ Founder, Praan Health | Reimagining Chronic Care For Our Parents | Former Netflix, Meta" [ref=e734] [cursor=pointer]':
+                              - /url: https://www.linkedin.com/in/navneethar?miniProfileUrn=urn%3Ali%3Afsd_profile%3AACoAABRmgkIB3Lx3FL3-c2vAX9YXiVmXm8TOlpI
+                              - generic [ref=e735]:
+                                - generic [ref=e737]:
+                                  - generic [ref=e738]: Navneeth Ramprasad
+                                  - generic [ref=e739]: Navneeth Ramprasad
+                                - generic [ref=e740]:
+                                  - generic [ref=e741]:
+                                    - img [ref=e742]:
+                                      - img [ref=e743]
+                                    - text: • 3rd+
+                                  - generic [ref=e745]: Premium • 3rd+
+                              - generic [ref=e746]:
+                                - generic [ref=e747]: Founder, Praan Health | Reimagining Chronic Care For Our Parents | Former Netflix, Meta
+                                - generic [ref=e748]: Founder, Praan Health | Reimagining Chronic Care For Our Parents | Former Netflix, Meta
+                            - link "Book an appointment" [ref=e749] [cursor=pointer]:
+                              - /url: https://cal.id/team/advisor/consultation-with-praan?utm_medium=story&utm_source=instagram&utm_campaign=consultation&utm_term=navneeth&utm_content=5%20min
+                              - generic [ref=e750]: Book an appointment
+                            - generic [ref=e751]:
+                              - generic [ref=e752]:
+                                - text: 2mo •
+                                - img [ref=e755]
+                              - generic [ref=e757]: 2 months ago • Visible to anyone on or off LinkedIn
+                        - generic [ref=e758]:
+                          - link "Praan Health × Plum — now live. If your company is on Plum, you can now enroll your parents into Praan's chronic care program at up to 45% off. > Physician-led care. > Daily strength training. > Nutritional guidance. > Clinical monitoring. > Real-time health tracking So you know your parents are getting stronger, not just older. 85% of our members are adult children caring for ageing parents from a distance. This partnership makes that easier and more affordable for thousands of families across Plum's partner companies. Check the Plum app → Praan Health → Book now. Excited to partner with Plum 🧡 Abhishek Poddar Prayat Shah Nihit Jain Akash Joshi Suryansh Tomar hashtag PraanHealth hashtag PlumInsurance hashtag ElderCare hashtag ChronicCare see more, visually reveals content which is already detected by screen readers" [ref=e760] [cursor=pointer]:
+                            - /url: /feed/update/urn:li:activity:7432782348708118529/
+                            - generic [ref=e761]:
+                              - generic [ref=e764]:
+                                - link "Praan Health" [ref=e765]:
+                                  - /url: https://www.linkedin.com/company/praanhealth/
+                                  - generic [ref=e767]: Praan Health
+                                - text: ×
+                                - link "Plum" [ref=e768]:
+                                  - /url: https://www.linkedin.com/company/plumhq/
+                                  - generic [ref=e770]: Plum
+                                - text: — now live.
+                                - text: If your company is on Plum, you can now enroll your parents into Praan's chronic care program at up to 45% off.
+                                - text: "> Physician-led care."
+                                - text: "> Daily strength training."
+                                - text: "> Nutritional guidance."
+                                - text: "> Clinical monitoring."
+                                - text: "> Real-time health tracking"
+                                - text: So you know your parents are getting stronger, not just older.
+                                - text: 85% of our members are adult children caring for ageing parents from a distance. This partnership makes that easier and more affordable for thousands of families across Plum's partner companies.
+                                - text: Check the Plum app → Praan Health → Book now.
+                                - text: Excited to partner with Plum 🧡
+                                - link "Abhishek Poddar" [ref=e772]:
+                                  - /url: /in/abhishek24/
+                                - link "Prayat Shah" [ref=e774]:
+                                  - /url: /in/prayat-shah-3b992429/
+                                - link "Nihit Jain" [ref=e776]:
+                                  - /url: /in/nihit-jain-/
+                                - link "Akash Joshi" [ref=e778]:
+                                  - /url: /in/akashjoshi9/
+                                - link "Suryansh Tomar" [ref=e780]:
+                                  - /url: /in/sutoverse/
+                                - link "hashtag PraanHealth" [ref=e781]:
+                                  - /url: https://www.linkedin.com/search/results/all/?keywords=%23praanhealth&origin=HASH_TAG_FROM_FEED
+                                  - generic [ref=e782]: hashtag
+                                  - generic [ref=e783]: "#PraanHealth"
+                                - link "hashtag PlumInsurance" [ref=e784]:
+                                  - /url: https://www.linkedin.com/search/results/all/?keywords=%23pluminsurance&origin=HASH_TAG_FROM_FEED
+                                  - generic [ref=e785]: hashtag
+                                  - generic [ref=e786]: "#PlumInsurance"
+                                - link "hashtag ElderCare" [ref=e787]:
+                                  - /url: https://www.linkedin.com/search/results/all/?keywords=%23eldercare&origin=HASH_TAG_FROM_FEED
+                                  - generic [ref=e788]: hashtag
+                                  - generic [ref=e789]: "#ElderCare"
+                                - link "hashtag ChronicCare" [ref=e790]:
+                                  - /url: https://www.linkedin.com/search/results/all/?keywords=%23chroniccare&origin=HASH_TAG_FROM_FEED
+                                  - generic [ref=e791]: hashtag
+                                  - generic [ref=e792]: "#ChronicCare"
+                              - link "see more, visually reveals content which is already detected by screen readers" [ref=e793]:
+                                - generic [ref=e794]: …more
+                          - generic [ref=e796]:
+                            - button "Activate to view larger image, graphical user interface, text, application, chat or text message" [ref=e798] [cursor=pointer]:
+                              - generic [ref=e799]: Activate to view larger image,
+                              - img "graphical user interface, text, application, chat or text message" [ref=e803]
+                            - generic [ref=e804]: Activate to view larger image,
+                        - generic [ref=e805]:
+                          - list [ref=e809]:
+                            - listitem [ref=e810]:
+                              - link "176 reactions" [ref=e811] [cursor=pointer]:
+                                - img "like" [ref=e812]
+                                - img "love" [ref=e813]
+                                - img "celebrate" [ref=e814]
+                                - generic [ref=e815]: "176"
+                              - text: ·
+                            - listitem [ref=e816]:
+                              - list [ref=e817]:
+                                - listitem [ref=e818]:
+                                  - link "11 comments on Navneeth Ramprasad’s post" [ref=e819] [cursor=pointer]:
+                                    - generic [ref=e820]: 11 comments
+                                  - text: ·
+                                - listitem [ref=e821]:
+                                  - link "4 reposts of Navneeth Ramprasad’s post" [ref=e822] [cursor=pointer]:
+                                    - generic [ref=e823]: 4 reposts
+                          - generic [ref=e824]:
+                            - generic [ref=e825]:
+                              - button "React Like" [ref=e826] [cursor=pointer]:
+                                - img [ref=e829]
+                              - button "Open reactions menu":
+                                - img [ref=e832] [cursor=pointer]
+                            - link "Comment" [ref=e836] [cursor=pointer]:
+                              - img [ref=e837]
+                            - button "Repost" [ref=e840] [cursor=pointer]:
+                              - img [ref=e841]
+                            - button "Send in a private message" [ref=e845] [cursor=pointer]:
+                              - img [ref=e846]
+                  - listitem [ref=e848]
+                  - listitem [ref=e850]
+                  - listitem [ref=e852]
+                  - listitem [ref=e854]
+                  - listitem [ref=e856]
+                  - listitem [ref=e858]
+                  - listitem [ref=e860]
+                - button "Navigate to next update" [ref=e863] [cursor=pointer]:
+                  - img [ref=e864]
+            - link "Show all posts" [ref=e868] [cursor=pointer]:
+              - /url: https://www.linkedin.com/in/atulism/recent-activity/all/
+              - img [ref=e869]
+              - generic [ref=e871]: Show all posts
+          - generic [ref=e872]:
+            - heading "Experience" [level=2] [ref=e877]:
+              - generic [ref=e878]: Experience
+              - generic [ref=e879]: Experience
+            - generic [ref=e880]:
+              - list [ref=e881]:
+                - listitem [ref=e882]:
+                  - generic [ref=e883]:
+                    - link "Plum logo" [ref=e885] [cursor=pointer]:
+                      - /url: https://www.linkedin.com/company/28689540/
+                      - img "Plum logo" [ref=e888]
+                    - generic [ref=e889]:
+                      - link "building Plum Personal (for the life beyond work) Plum · Full-time Nov 2024 to Present · 1 yr 6 mos Bengaluru, Karnataka, India · On-site" [ref=e891] [cursor=pointer]:
+                        - /url: https://www.linkedin.com/company/28689540/
+                        - generic [ref=e895]:
+                          - generic [ref=e896]: building Plum Personal (for the life beyond work)
+                          - generic [ref=e897]: building Plum Personal (for the life beyond work)
+                        - generic [ref=e898]:
+                          - generic [ref=e899]: Plum · Full-time
+                          - generic [ref=e900]: Plum · Full-time
+                        - generic [ref=e901]:
+                          - generic [ref=e902]: Nov 2024 - Present · 1 yr 6 mos
+                          - generic [ref=e903]: Nov 2024 to Present · 1 yr 6 mos
+                        - generic [ref=e904]:
+                          - generic [ref=e905]: Bengaluru, Karnataka, India · On-site
+                          - generic [ref=e906]: Bengaluru, Karnataka, India · On-site
+                      - list [ref=e908]:
+                        - listitem [ref=e909]:
+                          - list [ref=e911]:
+                            - listitem [ref=e912]:
+                              - generic [ref=e916]:
+                                - generic [ref=e917]: "work is important. it gives us a title, a paycheck, maybe even a sense of purpose, but life is deeply personal. it's the people we love, passions we chase. the quiet wins/losses no one else sees. the smiles, the tears + everything else in between and that life deserves something more and thats what we are building - Plum Personal. Plum Personal, where your life beyond work gets the protection it deserves. corporate/company insurance protects employees, personal insurance protects people you care for ! read more : https://www.plumhq.com/blog/life-beyond-work"
+                                - generic [ref=e918]: "work is important. it gives us a title, a paycheck, maybe even a sense of purpose, but life is deeply personal. it's the people we love, passions we chase. the quiet wins/losses no one else sees. the smiles, the tears + everything else in between and that life deserves something more and thats what we are building - Plum Personal. Plum Personal, where your life beyond work gets the protection it deserves. corporate/company insurance protects employees, personal insurance protects people you care for ! read more : https://www.plumhq.com/blog/life-beyond-work"
+                        - listitem [ref=e919]:
+                          - list [ref=e921]:
+                            - listitem [ref=e922]:
+                              - generic [ref=e924]:
+                                - link "Thumbnail for Plum forays into personal insurance sector, to invest $6 million in 2 years" [ref=e925] [cursor=pointer]:
+                                  - /url: https://www.etnownews.com/companies/plum-forays-into-this-sector-to-invest-6-million-in-2-years-article-118452681
+                                  - figure [ref=e926]:
+                                    - img [ref=e928]
+                                - link "Thumbnail for Work's great, but life means more" [ref=e930] [cursor=pointer]:
+                                  - /url: https://www.linkedin.com/in/atulism/overlay/experience/2524272933/multiple-media-viewer?profileId=ACoAAAJUYg8BfkBEyf_BI_sUGzrfK2BSDBDF7L0&treasuryMediaId=1758611127276&type=LINK
+                                  - figure [ref=e931]
+                - listitem [ref=e932]:
+                  - generic [ref=e933]:
+                    - link "Life Beyond Work logo" [ref=e935] [cursor=pointer]:
+                      - /url: https://www.linkedin.com/company/108756025/
+                      - img "Life Beyond Work logo" [ref=e938]
+                    - generic [ref=e939]:
+                      - link "Life Beyond Work 16 yrs 4 mos Remote" [ref=e941] [cursor=pointer]:
+                        - /url: https://www.linkedin.com/company/108756025/
+                        - generic [ref=e945]:
+                          - generic [ref=e946]: Life Beyond Work
+                          - generic [ref=e947]: Life Beyond Work
+                        - generic [ref=e948]:
+                          - generic [ref=e949]: 16 yrs 4 mos
+                          - generic [ref=e950]: 16 yrs 4 mos
+                        - generic [ref=e951]:
+                          - generic [ref=e952]: Remote
+                          - generic [ref=e953]: Remote
+                      - list [ref=e955]:
+                        - listitem [ref=e956]:
+                          - generic [ref=e959]:
+                            - link "chief cheerleader & unpaid intern Full-time Aug 2023 to Present · 2 yrs 9 mos somewhere on earth" [ref=e961] [cursor=pointer]:
+                              - /url: https://www.linkedin.com/company/108756025/
+                              - generic [ref=e965]:
+                                - generic [ref=e966]: chief cheerleader & unpaid intern
+                                - generic [ref=e967]: chief cheerleader & unpaid intern
+                              - generic [ref=e968]:
+                                - generic [ref=e969]: Full-time
+                                - generic [ref=e970]: Full-time
+                              - generic [ref=e971]:
+                                - generic [ref=e972]: Aug 2023 - Present · 2 yrs 9 mos
+                                - generic [ref=e973]: Aug 2023 to Present · 2 yrs 9 mos
+                              - generic [ref=e974]:
+                                - generic [ref=e975]: somewhere on earth
+                                - generic [ref=e976]: somewhere on earth
+                            - list [ref=e978]:
+                              - listitem [ref=e979]:
+                                - list [ref=e981]:
+                                  - listitem [ref=e982]:
+                                    - generic [ref=e986]:
+                                      - generic [ref=e987]:
+                                        - text: i’m the loudest cheerleader, biggest fan, and a constant believer in what Richa is building at travel like her❤️ . Check out travellikeher.com
+                                        - text: i also pitch in with random tasks which get assigned to me :)
+                                      - generic [ref=e989]: i’m the loudest cheerleader, biggest fan, and a constant believer in what Richa is building at travel like her❤️ . Check out travellikeher.com i also pitch in with random tasks which get assigned to me :)
+                              - listitem [ref=e990]:
+                                - list [ref=e992]:
+                                  - listitem [ref=e993]:
+                                    - link "Thumbnail for Travel Like Her Travel Like Her She explores beyond the usual" [ref=e994] [cursor=pointer]:
+                                      - /url: https://www.linkedin.com/in/atulism/overlay/1758609631788/single-media-viewer?type=LINK&profileId=ACoAAAJUYg8BfkBEyf_BI_sUGzrfK2BSDBDF7L0
+                                      - generic [ref=e995]:
+                                        - generic "Thumbnail for Travel Like Her" [ref=e997]:
+                                          - figure [ref=e998]
+                                        - generic [ref=e999]:
+                                          - generic [ref=e1000]:
+                                            - generic [ref=e1001]: Travel Like Her
+                                            - generic [ref=e1002]: Travel Like Her
+                                          - generic [ref=e1006]:
+                                            - generic [ref=e1007]: She explores beyond the usual
+                                            - generic [ref=e1008]: She explores beyond the usual
+                        - listitem [ref=e1009]:
+                          - generic [ref=e1012]:
+                            - link "gardener & aspiring plant artist Self-employed Jan 2015 to Present · 11 yrs 4 mos Balcony" [ref=e1014] [cursor=pointer]:
+                              - /url: https://www.linkedin.com/company/108756025/
+                              - generic [ref=e1018]:
+                                - generic [ref=e1019]: gardener & aspiring plant artist
+                                - generic [ref=e1020]: gardener & aspiring plant artist
+                              - generic [ref=e1021]:
+                                - generic [ref=e1022]: Self-employed
+                                - generic [ref=e1023]: Self-employed
+                              - generic [ref=e1024]:
+                                - generic [ref=e1025]: Jan 2015 - Present · 11 yrs 4 mos
+                                - generic [ref=e1026]: Jan 2015 to Present · 11 yrs 4 mos
+                              - generic [ref=e1027]:
+                                - generic [ref=e1028]: Balcony
+                                - generic [ref=e1029]: Balcony
+                            - list [ref=e1031]:
+                              - listitem [ref=e1032]:
+                                - list [ref=e1034]:
+                                  - listitem [ref=e1035]:
+                                    - generic [ref=e1039]:
+                                      - generic [ref=e1040]: experimenting methods of plant growth like hydroponics, soil less, grow lights, soil & terrarium ecosystems
+                                      - generic [ref=e1041]: experimenting methods of plant growth like hydroponics, soil less, grow lights, soil & terrarium ecosystems
+                        - listitem [ref=e1042]:
+                          - generic [ref=e1045]:
+                            - link "book collector Freelance Jan 2010 to Present · 16 yrs 4 mos Everywhere" [ref=e1047] [cursor=pointer]:
+                              - /url: https://www.linkedin.com/company/108756025/
+                              - generic [ref=e1051]:
+                                - generic [ref=e1052]: book collector
+                                - generic [ref=e1053]: book collector
+                              - generic [ref=e1054]:
+                                - generic [ref=e1055]: Freelance
+                                - generic [ref=e1056]: Freelance
+                              - generic [ref=e1057]:
+                                - generic [ref=e1058]: Jan 2010 - Present · 16 yrs 4 mos
+                                - generic [ref=e1059]: Jan 2010 to Present · 16 yrs 4 mos
+                              - generic [ref=e1060]:
+                                - generic [ref=e1061]: Everywhere
+                                - generic [ref=e1062]: Everywhere
+                            - list [ref=e1064]:
+                              - listitem [ref=e1065]:
+                                - list [ref=e1067]:
+                                  - listitem [ref=e1068]:
+                                    - generic [ref=e1072]:
+                                      - generic [ref=e1073]: acquiring great books, reading a few :)
+                                      - generic [ref=e1074]: acquiring great books, reading a few :)
+                - listitem [ref=e1075]:
+                  - generic [ref=e1076]:
+                    - link "Wayground (formerly Quizizz) logo" [ref=e1078] [cursor=pointer]:
+                      - /url: https://www.linkedin.com/company/10238074/
+                      - img "Wayground (formerly Quizizz) logo" [ref=e1081]
+                    - generic [ref=e1082]:
+                      - link "International Growth Partnerships Quizizz · Part-time Nov 2023 to Sep 2024 · 11 mos Greater Bengaluru Area · On-site" [ref=e1084] [cursor=pointer]:
+                        - /url: https://www.linkedin.com/company/10238074/
+                        - generic [ref=e1088]:
+                          - generic [ref=e1089]: International Growth Partnerships
+                          - generic [ref=e1090]: International Growth Partnerships
+                        - generic [ref=e1091]:
+                          - generic [ref=e1092]: Quizizz · Part-time
+                          - generic [ref=e1093]: Quizizz · Part-time
+                        - generic [ref=e1094]:
+                          - generic [ref=e1095]: Nov 2023 - Sep 2024 · 11 mos
+                          - generic [ref=e1096]: Nov 2023 to Sep 2024 · 11 mos
+                        - generic [ref=e1097]:
+                          - generic [ref=e1098]: Greater Bengaluru Area · On-site
+                          - generic [ref=e1099]: Greater Bengaluru Area · On-site
+                      - list [ref=e1101]:
+                        - listitem [ref=e1102]:
+                          - list [ref=e1104]:
+                            - listitem [ref=e1105]:
+                              - generic [ref=e1109]:
+                                - generic [ref=e1110]: solving for international growth via meaningful partnerships in education
+                                - generic [ref=e1111]: solving for international growth via meaningful partnerships in education
+                - listitem [ref=e1112]:
+                  - generic [ref=e1113]:
+                    - link "Plum logo" [ref=e1115] [cursor=pointer]:
+                      - /url: https://www.linkedin.com/company/28689540/
+                      - img "Plum logo" [ref=e1118]
+                    - generic [ref=e1119]:
+                      - link "People Success Plum · Part-time Nov 2023 to Apr 2024 · 6 mos Greater Bengaluru Area · On-site" [ref=e1121] [cursor=pointer]:
+                        - /url: https://www.linkedin.com/company/28689540/
+                        - generic [ref=e1125]:
+                          - generic [ref=e1126]: People Success
+                          - generic [ref=e1127]: People Success
+                        - generic [ref=e1128]:
+                          - generic [ref=e1129]: Plum · Part-time
+                          - generic [ref=e1130]: Plum · Part-time
+                        - generic [ref=e1131]:
+                          - generic [ref=e1132]: Nov 2023 - Apr 2024 · 6 mos
+                          - generic [ref=e1133]: Nov 2023 to Apr 2024 · 6 mos
+                        - generic [ref=e1134]:
+                          - generic [ref=e1135]: Greater Bengaluru Area · On-site
+                          - generic [ref=e1136]: Greater Bengaluru Area · On-site
+                      - list [ref=e1138]:
+                        - listitem [ref=e1139]:
+                          - list [ref=e1141]:
+                            - listitem [ref=e1142]:
+                              - generic [ref=e1146]:
+                                - generic [ref=e1147]: building practices & rituals for bringing care to plumbers currently hiring - https://www.plumhq.com/careers
+                                - generic [ref=e1148]: building practices & rituals for bringing care to plumbers currently hiring - https://www.plumhq.com/careers
+                - listitem [ref=e1149]:
+                  - generic [ref=e1150]:
+                    - link "Explorer" [ref=e1152] [cursor=pointer]:
+                      - /url: https://www.linkedin.com/search/results/all/?keywords=Career+break
+                      - generic [ref=e1156]: Explorer
+                    - generic [ref=e1157]:
+                      - link "Explorer Career break · Full-time May 2023 to Oct 2023 · 6 mos Remote · Remote" [ref=e1159] [cursor=pointer]:
+                        - /url: https://www.linkedin.com/search/results/all/?keywords=Career+break
+                        - generic [ref=e1163]:
+                          - generic [ref=e1164]: Explorer
+                          - generic [ref=e1165]: Explorer
+                        - generic [ref=e1166]:
+                          - generic [ref=e1167]: Career break · Full-time
+                          - generic [ref=e1168]: Career break · Full-time
+                        - generic [ref=e1169]:
+                          - generic [ref=e1170]: May 2023 - Oct 2023 · 6 mos
+                          - generic [ref=e1171]: May 2023 to Oct 2023 · 6 mos
+                        - generic [ref=e1172]:
+                          - generic [ref=e1173]: Remote · Remote
+                          - generic [ref=e1174]: Remote · Remote
+                      - list [ref=e1176]:
+                        - listitem [ref=e1177]:
+                          - list [ref=e1179]:
+                            - listitem [ref=e1180]:
+                              - link "Travel, Hiker and +1 skill" [ref=e1182] [cursor=pointer]:
+                                - /url: https://www.linkedin.com/in/atulism/overlay/urn:li:fsd_profilePosition:(ACoAAAJUYg8BfkBEyf_BI_sUGzrfK2BSDBDF7L0,2222848958)/skill-associations-details?profileUrn=urn%3Ali%3Afsd_profile%3AACoAAAJUYg8BfkBEyf_BI_sUGzrfK2BSDBDF7L0
+                                - list [ref=e1184]:
+                                  - listitem [ref=e1185]:
+                                    - img [ref=e1187]
+                                - strong [ref=e1192]: Travel, Hiker and +1 skill
+              - link "Show all 15 experiences" [ref=e1196] [cursor=pointer]:
+                - /url: https://www.linkedin.com/in/atulism/details/experience?profileUrn=urn%3Ali%3Afsd_profile%3AACoAAAJUYg8BfkBEyf_BI_sUGzrfK2BSDBDF7L0
+                - generic [ref=e1197]: Show all 15 experiences
+                - img [ref=e1199]
+          - generic [ref=e1201]:
+            - heading "Education" [level=2] [ref=e1206]:
+              - generic [ref=e1207]: Education
+              - generic [ref=e1208]: Education
+            - list [ref=e1210]:
+              - listitem [ref=e1211]:
+                - generic [ref=e1212]:
+                  - link "Indian Institute of Management, Calcutta logo" [ref=e1214] [cursor=pointer]:
+                    - /url: https://www.linkedin.com/company/157274/
+                    - img "Indian Institute of Management, Calcutta logo" [ref=e1217]
+                  - link "Indian Institute of Management, Calcutta EPGM 2009" [ref=e1220] [cursor=pointer]:
+                    - /url: https://www.linkedin.com/company/157274/
+                    - generic [ref=e1224]:
+                      - generic [ref=e1225]: Indian Institute of Management, Calcutta
+                      - generic [ref=e1226]: Indian Institute of Management, Calcutta
+                    - generic [ref=e1227]:
+                      - generic [ref=e1228]: EPGM
+                      - generic [ref=e1229]: EPGM
+                    - generic [ref=e1230]:
+                      - generic [ref=e1231]: "2009"
+                      - generic [ref=e1232]: "2009"
+              - listitem [ref=e1233]:
+                - generic [ref=e1234]:
+                  - link "University of Calcutta logo" [ref=e1236] [cursor=pointer]:
+                    - /url: https://www.linkedin.com/company/633270/
+                    - img "University of Calcutta logo" [ref=e1239]
+                  - link "University of Calcutta Physics 2004" [ref=e1242] [cursor=pointer]:
+                    - /url: https://www.linkedin.com/company/633270/
+                    - generic [ref=e1246]:
+                      - generic [ref=e1247]: University of Calcutta
+                      - generic [ref=e1248]: University of Calcutta
+                    - generic [ref=e1249]:
+                      - generic [ref=e1250]: Physics
+                      - generic [ref=e1251]: Physics
+                    - generic [ref=e1252]:
+                      - generic [ref=e1253]: "2004"
+                      - generic [ref=e1254]: "2004"
+          - generic [ref=e1255]:
+            - heading "Skills" [level=2] [ref=e1260]:
+              - generic [ref=e1261]: Skills
+              - generic [ref=e1262]: Skills
+            - generic [ref=e1263]:
+              - list [ref=e1264]:
+                - listitem [ref=e1265]:
+                  - generic [ref=e1267]:
+                    - link "Travel" [ref=e1269] [cursor=pointer]:
+                      - /url: https://www.linkedin.com/search/results/all/?keywords=Travel&origin=PROFILE_PAGE_SKILL_NAVIGATION
+                      - generic [ref=e1273]:
+                        - generic [ref=e1274]: Travel
+                        - generic [ref=e1275]: Travel
+                    - list [ref=e1277]:
+                      - listitem [ref=e1278]:
+                        - generic [ref=e1280]:
+                          - list [ref=e1282]:
+                            - listitem [ref=e1283]
+                          - generic [ref=e1289]:
+                            - generic [ref=e1290]: Explorer at Career break
+                            - generic [ref=e1291]: Explorer at Career break
+                - listitem [ref=e1292]:
+                  - generic [ref=e1294]:
+                    - link "Hiker" [ref=e1296] [cursor=pointer]:
+                      - /url: https://www.linkedin.com/search/results/all/?keywords=Hiker&origin=PROFILE_PAGE_SKILL_NAVIGATION
+                      - generic [ref=e1300]:
+                        - generic [ref=e1301]: Hiker
+                        - generic [ref=e1302]: Hiker
+                    - list [ref=e1304]:
+                      - listitem [ref=e1305]:
+                        - generic [ref=e1307]:
+                          - list [ref=e1309]:
+                            - listitem [ref=e1310]
+                          - generic [ref=e1316]:
+                            - generic [ref=e1317]: Explorer at Career break
+                            - generic [ref=e1318]: Explorer at Career break
+              - link "Show all 28 skills" [ref=e1322] [cursor=pointer]:
+                - /url: https://www.linkedin.com/in/atulism/details/skills?profileUrn=urn%3Ali%3Afsd_profile%3AACoAAAJUYg8BfkBEyf_BI_sUGzrfK2BSDBDF7L0
+                - generic [ref=e1323]: Show all 28 skills
+                - img [ref=e1325]
+          - generic [ref=e1327]:
+            - heading "Recommendations" [level=2] [ref=e1332]:
+              - generic [ref=e1333]: Recommendations
+              - generic [ref=e1334]: Recommendations
+            - generic [ref=e1335]:
+              - tablist [ref=e1336]:
+                - tab "Received" [selected] [ref=e1337] [cursor=pointer]:
+                  - generic [ref=e1338]: Received
+                  - generic [ref=e1339]: Received
+                - tab "Given" [ref=e1340] [cursor=pointer]:
+                  - generic [ref=e1341]: Given
+                  - generic [ref=e1342]: Given
+              - tabpanel "Received" [ref=e1343]:
+                - generic [ref=e1344]:
+                  - list [ref=e1345]:
+                    - listitem [ref=e1346]:
+                      - generic [ref=e1347]:
+                        - link "Paul De Boer" [ref=e1349] [cursor=pointer]:
+                          - /url: https://www.linkedin.com/in/paul-deboer
+                          - img "Paul De Boer" [ref=e1352]
+                        - generic [ref=e1353]:
+                          - link "Paul De Boer Premium member Driving the Energy Transition through Operational Excellence June 8, 2010, Paul was senior to atul but didn't manage atul directly" [ref=e1355] [cursor=pointer]:
+                            - /url: https://www.linkedin.com/in/paul-deboer
+                            - generic [ref=e1356]:
+                              - generic [ref=e1359]:
+                                - generic [ref=e1360]: Paul De Boer
+                                - generic [ref=e1361]: Paul De Boer
+                              - img "Premium member" [ref=e1364]:
+                                - img [ref=e1365]
+                            - generic [ref=e1368]:
+                              - generic [ref=e1369]: Driving the Energy Transition through Operational Excellence
+                              - generic [ref=e1370]: Driving the Energy Transition through Operational Excellence
+                            - generic [ref=e1371]:
+                              - generic [ref=e1372]: June 8, 2010, Paul was senior to atul but didn't manage atul directly
+                              - generic [ref=e1373]: June 8, 2010, Paul was senior to atul but didn't manage atul directly
+                          - list [ref=e1375]:
+                            - listitem [ref=e1376]:
+                              - list [ref=e1378]:
+                                - listitem [ref=e1379]:
+                                  - generic [ref=e1383]:
+                                    - generic [ref=e1384]: Atul is very responsive to customer requests and keeps driving to a good solid solution. He is a real teamplayer and result-driven.
+                                    - generic [ref=e1385]: Atul is very responsive to customer requests and keeps driving to a good solid solution. He is a real teamplayer and result-driven.
+                    - listitem [ref=e1386]:
+                      - generic [ref=e1387]:
+                        - link "Vinita Shrivastav" [ref=e1389] [cursor=pointer]:
+                          - /url: https://www.linkedin.com/in/vinitashrivastav
+                          - img "Vinita Shrivastav" [ref=e1392]
+                        - generic [ref=e1393]:
+                          - link "Vinita Shrivastav Staff Vice President at Elevance Health November 21, 2009, Vinita managed atul directly" [ref=e1395] [cursor=pointer]:
+                            - /url: https://www.linkedin.com/in/vinitashrivastav
+                            - generic [ref=e1399]:
+                              - generic [ref=e1400]: Vinita Shrivastav
+                              - generic [ref=e1401]: Vinita Shrivastav
+                            - generic [ref=e1402]:
+                              - generic [ref=e1403]: Staff Vice President at Elevance Health
+                              - generic [ref=e1404]: Staff Vice President at Elevance Health
+                            - generic [ref=e1405]:
+                              - generic [ref=e1406]: November 21, 2009, Vinita managed atul directly
+                              - generic [ref=e1407]: November 21, 2009, Vinita managed atul directly
+                          - list [ref=e1409]:
+                            - listitem [ref=e1410]:
+                              - list [ref=e1412]:
+                                - listitem [ref=e1413]:
+                                  - generic [ref=e1417]:
+                                    - generic [ref=e1418]: Atul is an extremely sharp individual who has a knack for problem solving. He is one of the very few team members one can have who don't just highlight problems, but bring solutions along. His approach is very practical, commonsensical & logical at the same time he is an extremely good people's manager with quick learning abilities. Extremely good people handling, client handling, project management & problem solving skills which is a rare combination to have in one individual. He certainly has a long way to go in his professional career.
+                                    - generic [ref=e1419]: Atul is an extremely sharp individual who has a knack for problem solving. He is one of the very few team members one can have who don't just highlight problems, but bring solutions along. His approach is very practical, commonsensical & logical at the same time he is an extremely good people's manager with quick learning abilities. Extremely good people handling, client handling, project management & problem solving skills which is a rare combination to have in one individual. He certainly has a long way to go in his professional career.
+                  - link "Show all 10 received" [ref=e1423] [cursor=pointer]:
+                    - /url: https://www.linkedin.com/in/atulism/details/recommendations?profileUrn=urn%3Ali%3Afsd_profile%3AACoAAAJUYg8BfkBEyf_BI_sUGzrfK2BSDBDF7L0&tabIndex=0&detailScreenTabIndex=0
+                    - generic [ref=e1424]: Show all 10 received
+                    - img [ref=e1426]
+          - generic [ref=e1428]:
+            - heading "Interests" [level=2] [ref=e1433]:
+              - generic [ref=e1434]: Interests
+              - generic [ref=e1435]: Interests
+            - generic [ref=e1436]:
+              - tablist [ref=e1437]:
+                - tab "Top Voices" [selected] [ref=e1438] [cursor=pointer]:
+                  - generic [ref=e1439]: Top Voices
+                  - generic [ref=e1440]: Top Voices
+                - tab "Companies" [ref=e1441] [cursor=pointer]:
+                  - generic [ref=e1442]: Companies
+                  - generic [ref=e1443]: Companies
+                - tab "Groups" [ref=e1444] [cursor=pointer]:
+                  - generic [ref=e1445]: Groups
+                  - generic [ref=e1446]: Groups
+                - tab "Newsletters" [ref=e1447] [cursor=pointer]:
+                  - generic [ref=e1448]: Newsletters
+                  - generic [ref=e1449]: Newsletters
+                - tab "Schools" [ref=e1450] [cursor=pointer]:
+                  - generic [ref=e1451]: Schools
+                  - generic [ref=e1452]: Schools
+              - tabpanel "Top Voices" [ref=e1453]:
+                - generic [ref=e1454]:
+                  - list [ref=e1455]:
+                    - listitem [ref=e1456]:
+                      - generic [ref=e1457]:
+                        - link "Craig Newmark" [ref=e1459] [cursor=pointer]:
+                          - /url: https://www.linkedin.com/in/craignewmark
+                          - img "Craig Newmark" [ref=e1462]
+                        - generic [ref=e1463]:
+                          - link "Craig Newmark Craig Newmark Philanthropies, founder & CSR 950,084 followers" [ref=e1465] [cursor=pointer]:
+                            - /url: https://www.linkedin.com/in/craignewmark
+                            - generic [ref=e1466]:
+                              - generic [ref=e1469]:
+                                - generic [ref=e1470]: Craig Newmark
+                                - generic [ref=e1471]: Craig Newmark
+                              - img [ref=e1475]
+                            - generic [ref=e1477]:
+                              - generic [ref=e1478]: Craig Newmark Philanthropies, founder & CSR
+                              - generic [ref=e1479]: Craig Newmark Philanthropies, founder & CSR
+                            - generic [ref=e1480]:
+                              - generic [ref=e1481]: 950,084 followers
+                              - generic [ref=e1482]: 950,084 followers
+                          - list [ref=e1484]:
+                            - listitem [ref=e1485]:
+                              - button "Follow Craig Newmark" [ref=e1487] [cursor=pointer]:
+                                - img [ref=e1488]
+                                - generic [ref=e1490]: Follow
+                    - listitem [ref=e1491]:
+                      - generic [ref=e1492]:
+                        - link "Satya Nadella" [ref=e1494] [cursor=pointer]:
+                          - /url: https://www.linkedin.com/in/satyanadella
+                          - img "Satya Nadella" [ref=e1497]
+                        - generic [ref=e1498]:
+                          - link "Satya Nadella Chairman and CEO at Microsoft 11,958,779 followers" [ref=e1500] [cursor=pointer]:
+                            - /url: https://www.linkedin.com/in/satyanadella
+                            - generic [ref=e1501]:
+                              - generic [ref=e1504]:
+                                - generic [ref=e1505]: Satya Nadella
+                                - generic [ref=e1506]: Satya Nadella
+                              - img [ref=e1510]
+                            - generic [ref=e1512]:
+                              - generic [ref=e1513]: Chairman and CEO at Microsoft
+                              - generic [ref=e1514]: Chairman and CEO at Microsoft
+                            - generic [ref=e1515]:
+                              - generic [ref=e1516]: 11,958,779 followers
+                              - generic [ref=e1517]: 11,958,779 followers
+                          - list [ref=e1519]:
+                            - listitem [ref=e1520]:
+                              - button "Follow Satya Nadella" [ref=e1522] [cursor=pointer]:
+                                - img [ref=e1523]
+                                - generic [ref=e1525]: Follow
+                  - link "Show all Top Voices" [ref=e1529] [cursor=pointer]:
+                    - /url: https://www.linkedin.com/in/atulism/details/interests?profileUrn=urn%3Ali%3Afsd_profile%3AACoAAAJUYg8BfkBEyf_BI_sUGzrfK2BSDBDF7L0&tabIndex=0&detailScreenTabIndex=0
+                    - generic [ref=e1530]: Show all Top Voices
+                    - img [ref=e1532]
+        - complementary [ref=e386]:
+          - generic [ref=e1534]:
+            - heading "More profiles for you" [level=2] [ref=e1539]:
+              - generic [ref=e1540]: More profiles for you
+              - generic [ref=e1541]: More profiles for you
+            - generic [ref=e1542]:
+              - list [ref=e1543]:
+                - listitem [ref=e1544]:
+                  - generic [ref=e1545]:
+                    - link "Vivek Singh" [ref=e1547] [cursor=pointer]:
+                      - /url: https://www.linkedin.com/in/vivek-singh-52358111?miniProfileUrn=urn%3Ali%3Afs_miniProfile%3AACoAAAJl3asBQJRwFdqfjpDVZWHk6mlHhV8qzVI
+                      - img "Vivek Singh" [ref=e1550]
+                    - generic [ref=e1551]:
+                      - link "Vivek Singh 3rd+ degree connection Enterprise Sales @Plum | Strategic Evangelist at BSCubes | SaaS & ERP Solutions | Driving Market Expansion & Client Success" [ref=e1553] [cursor=pointer]:
+                        - /url: https://www.linkedin.com/in/vivek-singh-52358111?miniProfileUrn=urn%3Ali%3Afs_miniProfile%3AACoAAAJl3asBQJRwFdqfjpDVZWHk6mlHhV8qzVI
+                        - generic [ref=e1554]:
+                          - generic [ref=e1557]:
+                            - generic [ref=e1558]: Vivek Singh
+                            - generic [ref=e1559]: Vivek Singh
+                          - img [ref=e1562]:
+                            - img [ref=e1563]
+                          - generic [ref=e1565]:
+                            - generic [ref=e1566]: · 3rd+
+                            - generic [ref=e1567]: 3rd+ degree connection
+                        - generic [ref=e1571]:
+                          - generic [ref=e1572]: Enterprise Sales @Plum | Strategic Evangelist at BSCubes | SaaS & ERP Solutions | Driving Market Expansion & Client Success
+                          - generic [ref=e1573]: Enterprise Sales @Plum | Strategic Evangelist at BSCubes | SaaS & ERP Solutions | Driving Market Expansion & Client Success
+                      - list [ref=e1575]:
+                        - listitem [ref=e1576]:
+                          - button "Message" [ref=e1579] [cursor=pointer]:
+                            - img [ref=e1580]
+                            - text: Message
+                - listitem [ref=e1582]:
+                  - generic [ref=e1583]:
+                    - link "Tejas Pathi" [ref=e1585] [cursor=pointer]:
+                      - /url: https://www.linkedin.com/in/tejaspathi?miniProfileUrn=urn%3Ali%3Afs_miniProfile%3AACoAAAq07nwBepLIxXDUiZ6kVtNqS_uRml4ispE
+                      - img "Tejas Pathi" [ref=e1588]
+                    - generic [ref=e1589]:
+                      - link "Tejas Pathi 3rd+ degree connection Building Plum" [ref=e1591] [cursor=pointer]:
+                        - /url: https://www.linkedin.com/in/tejaspathi?miniProfileUrn=urn%3Ali%3Afs_miniProfile%3AACoAAAq07nwBepLIxXDUiZ6kVtNqS_uRml4ispE
+                        - generic [ref=e1592]:
+                          - generic [ref=e1595]:
+                            - generic [ref=e1596]: Tejas Pathi
+                            - generic [ref=e1597]: Tejas Pathi
+                          - img [ref=e1600]
+                          - generic [ref=e1602]:
+                            - generic [ref=e1603]: · 3rd+
+                            - generic [ref=e1604]: 3rd+ degree connection
+                        - generic [ref=e1608]:
+                          - generic [ref=e1609]: Building Plum
+                          - generic [ref=e1610]: Building Plum
+                      - list [ref=e1612]:
+                        - listitem [ref=e1613]:
+                          - button "Message" [ref=e1616] [cursor=pointer]:
+                            - generic [ref=e1617]: Message
+                - listitem [ref=e1618]:
+                  - generic [ref=e1619]:
+                    - link "Mokshita ." [ref=e1621] [cursor=pointer]:
+                      - /url: https://www.linkedin.com/in/mokshitaaaa?miniProfileUrn=urn%3Ali%3Afs_miniProfile%3AACoAADEhqoIB3Wjjm8O2R_BaCr5peiPPqZxadwc
+                      - img "Mokshita ." [ref=e1624]
+                    - generic [ref=e1625]:
+                      - link "Mokshita . 3rd+ degree connection Intern @ Plum | Game Design & Development | BE-CSE (2022-26)" [ref=e1627] [cursor=pointer]:
+                        - /url: https://www.linkedin.com/in/mokshitaaaa?miniProfileUrn=urn%3Ali%3Afs_miniProfile%3AACoAADEhqoIB3Wjjm8O2R_BaCr5peiPPqZxadwc
+                        - generic [ref=e1628]:
+                          - generic [ref=e1631]:
+                            - generic [ref=e1632]: Mokshita .
+                            - generic [ref=e1633]: Mokshita .
+                          - img [ref=e1636]
+                          - generic [ref=e1638]:
+                            - generic [ref=e1639]: · 3rd+
+                            - generic [ref=e1640]: 3rd+ degree connection
+                        - generic [ref=e1644]:
+                          - generic [ref=e1645]: Intern @ Plum | Game Design & Development | BE-CSE (2022-26)
+                          - generic [ref=e1646]: Intern @ Plum | Game Design & Development | BE-CSE (2022-26)
+                      - list [ref=e1648]:
+                        - listitem [ref=e1649]:
+                          - button "Message" [ref=e1652] [cursor=pointer]:
+                            - generic [ref=e1653]: Message
+                - listitem [ref=e1654]:
+                  - generic [ref=e1655]:
+                    - link "Shadil Pariyarath" [ref=e1657] [cursor=pointer]:
+                      - /url: https://www.linkedin.com/in/shadil-pariyarath-99b32b237?miniProfileUrn=urn%3Ali%3Afs_miniProfile%3AACoAADr1hccBsBPAc19h3TcxlB-hNM86263avkU
+                      - img "Shadil Pariyarath" [ref=e1660]
+                    - generic [ref=e1661]:
+                      - link "Shadil Pariyarath 3rd+ degree connection BUILDING PLUM" [ref=e1663] [cursor=pointer]:
+                        - /url: https://www.linkedin.com/in/shadil-pariyarath-99b32b237?miniProfileUrn=urn%3Ali%3Afs_miniProfile%3AACoAADr1hccBsBPAc19h3TcxlB-hNM86263avkU
+                        - generic [ref=e1664]:
+                          - generic [ref=e1667]:
+                            - generic [ref=e1668]: Shadil Pariyarath
+                            - generic [ref=e1669]: Shadil Pariyarath
+                          - img [ref=e1672]
+                          - generic [ref=e1674]:
+                            - generic [ref=e1675]: · 3rd+
+                            - generic [ref=e1676]: 3rd+ degree connection
+                        - generic [ref=e1680]:
+                          - generic [ref=e1681]: BUILDING PLUM
+                          - generic [ref=e1682]: BUILDING PLUM
+                      - list [ref=e1684]:
+                        - listitem [ref=e1685]:
+                          - button "Message" [ref=e1688] [cursor=pointer]:
+                            - generic [ref=e1689]: Message
+                - listitem [ref=e1690]:
+                  - generic [ref=e1691]:
+                    - link "Anushka Sharma" [ref=e1693] [cursor=pointer]:
+                      - /url: https://www.linkedin.com/in/anushka-sharma1?miniProfileUrn=urn%3Ali%3Afs_miniProfile%3AACoAAEDMiVsBr2_vbISXX8hJB7BJzS7uJxJnhIU
+                      - img "Anushka Sharma" [ref=e1696]
+                    - generic [ref=e1697]:
+                      - link "Anushka Sharma 3rd+ degree connection Building Plum | Are you a founder/people leader? Go to plumhq.com" [ref=e1699] [cursor=pointer]:
+                        - /url: https://www.linkedin.com/in/anushka-sharma1?miniProfileUrn=urn%3Ali%3Afs_miniProfile%3AACoAAEDMiVsBr2_vbISXX8hJB7BJzS7uJxJnhIU
+                        - generic [ref=e1700]:
+                          - generic [ref=e1703]:
+                            - generic [ref=e1704]: Anushka Sharma
+                            - generic [ref=e1705]: Anushka Sharma
+                          - img [ref=e1708]
+                          - generic [ref=e1710]:
+                            - generic [ref=e1711]: · 3rd+
+                            - generic [ref=e1712]: 3rd+ degree connection
+                        - generic [ref=e1716]:
+                          - generic [ref=e1717]: Building Plum | Are you a founder/people leader? Go to plumhq.com
+                          - generic [ref=e1718]: Building Plum | Are you a founder/people leader? Go to plumhq.com
+                      - list [ref=e1720]:
+                        - listitem [ref=e1721]:
+                          - button "Follow Anushka Sharma" [ref=e1723] [cursor=pointer]:
+                            - img [ref=e1724]
+                            - generic [ref=e1726]: Follow
+              - link "Show all other similar profiles" [ref=e1730] [cursor=pointer]:
+                - /url: https://www.linkedin.com/in/atulism/overlay/browsemap-recommendations?isPrefetched=true&profileUrn=urn%3Ali%3Afsd_profile%3AACoAAAJUYg8BfkBEyf_BI_sUGzrfK2BSDBDF7L0
+                - generic [ref=e1731]: Show all
+          - generic [ref=e1732]:
+            - generic [ref=e1736]:
+              - heading "People you may know" [level=2] [ref=e1737]:
+                - generic [ref=e1738]: People you may know
+                - generic [ref=e1739]: People you may know
+              - paragraph [ref=e1740]:
+                - generic [ref=e1741]: From atul's company
+                - generic [ref=e1742]: From atul's company
+            - generic [ref=e1743]:
+              - list [ref=e1744]:
+                - listitem [ref=e1745]:
+                  - generic [ref=e1746]:
+                    - link "Charu Vishwanath" [ref=e1748] [cursor=pointer]:
+                      - /url: https://www.linkedin.com/in/charu-vishwanath-873a4723a
+                      - img "Charu Vishwanath" [ref=e1751]
+                    - generic [ref=e1752]:
+                      - link "Charu Vishwanath Aspiring Operations Professional | Customer Success Intern at Plum| Final Year ETE Student @MSRIT" [ref=e1754] [cursor=pointer]:
+                        - /url: https://www.linkedin.com/in/charu-vishwanath-873a4723a?miniProfileUrn=urn%3Ali%3Afs_miniProfile%3AACoAADuZUBcBwI2CIB15kPSR1AYkwQSn7vppXqY
+                        - generic [ref=e1758]:
+                          - generic [ref=e1759]: Charu Vishwanath
+                          - generic [ref=e1760]: Charu Vishwanath
+                        - generic [ref=e1764]:
+                          - generic [ref=e1765]: Aspiring Operations Professional | Customer Success Intern at Plum| Final Year ETE Student @MSRIT
+                          - generic [ref=e1766]: Aspiring Operations Professional | Customer Success Intern at Plum| Final Year ETE Student @MSRIT
+                      - list [ref=e1768]:
+                        - listitem [ref=e1769]:
+                          - button "Invite Charu Vishwanath to connect" [ref=e1771] [cursor=pointer]:
+                            - img [ref=e1772]
+                            - generic [ref=e1774]: Add
+                - listitem [ref=e1775]:
+                  - generic [ref=e1776]:
+                    - link "Amodini A P" [ref=e1778] [cursor=pointer]:
+                      - /url: https://www.linkedin.com/in/amodiniap
+                      - img "Amodini A P" [ref=e1781]
+                    - generic [ref=e1782]:
+                      - link "Amodini A P AI Intern @ Plum || Ex-AI Research Fellow @ People+ai || Final-year Undergrad @ IIIT Sri City || Placement Co-ordinator @ IIIT Sri City" [ref=e1784] [cursor=pointer]:
+                        - /url: https://www.linkedin.com/in/amodiniap?miniProfileUrn=urn%3Ali%3Afs_miniProfile%3AACoAAEEfrO4Brar2qg9lVrtMGBkLMzRyx2hipQs
+                        - generic [ref=e1785]:
+                          - generic [ref=e1788]:
+                            - generic [ref=e1789]: Amodini A P
+                            - generic [ref=e1790]: Amodini A P
+                          - img [ref=e1793]
+                        - generic [ref=e1798]:
+                          - generic [ref=e1799]: AI Intern @ Plum || Ex-AI Research Fellow @ People+ai || Final-year Undergrad @ IIIT Sri City || Placement Co-ordinator @ IIIT Sri City
+                          - generic [ref=e1800]: AI Intern @ Plum || Ex-AI Research Fellow @ People+ai || Final-year Undergrad @ IIIT Sri City || Placement Co-ordinator @ IIIT Sri City
+                      - list [ref=e1802]:
+                        - listitem [ref=e1803]:
+                          - button "Invite Amodini A P to connect" [ref=e1805] [cursor=pointer]:
+                            - img [ref=e1806]
+                            - generic [ref=e1808]: Add
+                - listitem [ref=e1809]:
+                  - generic [ref=e1810]:
+                    - link "Vijendhar P" [ref=e1812] [cursor=pointer]:
+                      - /url: https://www.linkedin.com/in/vijendhar-p-109b2a194
+                      - img "Vijendhar P" [ref=e1815]
+                    - generic [ref=e1816]:
+                      - link "Vijendhar P Data Analyst| ex- TCS" [ref=e1818] [cursor=pointer]:
+                        - /url: https://www.linkedin.com/in/vijendhar-p-109b2a194?miniProfileUrn=urn%3Ali%3Afs_miniProfile%3AACoAAC26qhkBl6_cqI16QZmsF_P6PxMuyeEXraw
+                        - generic [ref=e1819]:
+                          - generic [ref=e1822]:
+                            - generic [ref=e1823]: Vijendhar P
+                            - generic [ref=e1824]: Vijendhar P
+                          - img [ref=e1827]
+                        - generic [ref=e1832]:
+                          - generic [ref=e1833]: Data Analyst| ex- TCS
+                          - generic [ref=e1834]: Data Analyst| ex- TCS
+                      - list [ref=e1836]:
+                        - listitem [ref=e1837]:
+                          - button "Invite Vijendhar P to connect" [ref=e1839] [cursor=pointer]:
+                            - img [ref=e1840]
+                            - generic [ref=e1842]: Add
+                - listitem [ref=e1843]:
+                  - generic [ref=e1844]:
+                    - link "Aditya Kumar" [ref=e1846] [cursor=pointer]:
+                      - /url: https://www.linkedin.com/in/adityakumarm17
+                      - img "Aditya Kumar" [ref=e1849]
+                    - generic [ref=e1850]:
+                      - link "Aditya Kumar Personal Insurance Sales @ Plum | Banking and Finance Student | Joint Secretary – REVA Student Council" [ref=e1852] [cursor=pointer]:
+                        - /url: https://www.linkedin.com/in/adityakumarm17?miniProfileUrn=urn%3Ali%3Afs_miniProfile%3AACoAAEf_hp0B3nhCZanTfiopOHQAYOocBWi0Huo
+                        - generic [ref=e1853]:
+                          - generic [ref=e1856]:
+                            - generic [ref=e1857]: Aditya Kumar
+                            - generic [ref=e1858]: Aditya Kumar
+                          - img [ref=e1861]
+                        - generic [ref=e1866]:
+                          - generic [ref=e1867]: Personal Insurance Sales @ Plum | Banking and Finance Student | Joint Secretary – REVA Student Council
+                          - generic [ref=e1868]: Personal Insurance Sales @ Plum | Banking and Finance Student | Joint Secretary – REVA Student Council
+                      - list [ref=e1870]:
+                        - listitem [ref=e1871]:
+                          - button "Invite Aditya Kumar to connect" [ref=e1873] [cursor=pointer]:
+                            - img [ref=e1874]
+                            - generic [ref=e1876]: Add
+                - listitem [ref=e1877]:
+                  - generic [ref=e1878]:
+                    - link "Wasim A." [ref=e1880] [cursor=pointer]:
+                      - /url: https://www.linkedin.com/in/wasim-a-126756211
+                      - img "Wasim A." [ref=e1883]
+                    - generic [ref=e1884]:
+                      - link "Wasim A. Driving B2B Success in SaaS and Insure-Tech" [ref=e1886] [cursor=pointer]:
+                        - /url: https://www.linkedin.com/in/wasim-a-126756211?miniProfileUrn=urn%3Ali%3Afs_miniProfile%3AACoAADWuoi4BURB_f_C4VRvftHBM74W7jxa3kpU
+                        - generic [ref=e1887]:
+                          - generic [ref=e1890]:
+                            - generic [ref=e1891]: Wasim A.
+                            - generic [ref=e1892]: Wasim A.
+                          - img [ref=e1895]:
+                            - img [ref=e1896]
+                        - generic [ref=e1901]:
+                          - generic [ref=e1902]: Driving B2B Success in SaaS and Insure-Tech
+                          - generic [ref=e1903]: Driving B2B Success in SaaS and Insure-Tech
+                      - list [ref=e1905]:
+                        - listitem [ref=e1906]:
+                          - button "Invite Wasim A. to connect" [ref=e1908] [cursor=pointer]:
+                            - img [ref=e1909]
+                            - generic [ref=e1911]: Add
+              - link "Show all people you may know" [ref=e1915] [cursor=pointer]:
+                - /url: https://www.linkedin.com/in/atulism/overlay/pymk-recommendations-from-company?isPrefetched=true&profileUrn=urn%3Ali%3Afsd_profile%3AACoAAAJUYg8BfkBEyf_BI_sUGzrfK2BSDBDF7L0
+                - generic [ref=e1916]: Show all
+          - generic [ref=e1917]:
+            - generic [ref=e1921]:
+              - heading "You might like" [level=2] [ref=e1922]:
+                - generic [ref=e1923]: You might like
+                - generic [ref=e1924]: You might like
+              - paragraph [ref=e1925]:
+                - generic [ref=e1926]: Courses for you
+                - generic [ref=e1927]: Courses for you
+            - generic [ref=e1928]:
+              - list [ref=e1929]:
+                - listitem [ref=e1930]:
+                  - generic [ref=e1931]:
+                    - link "Image for Ethics in the Age of Generative AI" [ref=e1933] [cursor=pointer]:
+                      - /url: https://www.linkedin.com/learning/ethics-in-the-age-of-generative-ai?courseClaim=AQE1WaUxMcFfqQAAAZ3K4Bud2v56723H4ESj2q1aN3GlH__LHZkKhgQ2Ib2yuQHlfOkUr8fyYFPtUMtU2SpX9_H7m5K_V6DwsSNBzjZXZFgq2vNfrszzW8gEVPyyAPFUo5Ok1xxB2ocgAtrDaptIMXGArK0oO_iIihzoEpMW95ZDOzOItZt9bT7dBJAuZOD-xH7BUkjfvNcsjRw6dUIY7cim5m-ZNfNHn1kZsdHO-IgfPiHbCcWl0pVKvw7_F3dcaiiU19pVjRKInhxLVS7zAiy2H32MXhEghDycNNoaCCI2H7reugf7rCeH-5rdxfnX8fTw6Waj-Kk_9lgmh_90RIvAeFEeAbLMy_6I2uskC4kQaDwdA1CNHJ4yWguxR0xyAIa8MnIl2s5FoH_JH3iRq797T5XaBvIAlSJaBSUp_VPtXok1Y4-EmXfyrNTAw5JTcViLgBeBfSRlmHwIjfktmRfGLV7WLcL8-gGO9mFhxzxbadeozL1RwJ6dtFejHrzxTfWs62OGomhj5fmhoYmSol5yJHMenZLMoRyufM_GL7OnLhj9NA5cMPYQUGflDULfCLPnF1BYRVtWHz7xs1i22CWFaPWGY1Vuei3qArD4vCWFtICC2PaLxDEspP1QA4rIYqUmf150pM4XvJ2vS6aSFl70BoAKIAciXIQK7ckva8FELPgQEwuQD7u56Qpies-NocUxSaPdjbJHGmkS1wy4ifO_y8lXiOpgvxh8H4fh5maVmmwiZ-SFYgXIqk4rKUcmf-860U5T6bklvRSrUhMQ7lzRk7QdYXxHULsSKeN69imXBM7P--jxAV-9lyqCo1UEMIFfcBASqoWd4vM9i6-rakGLdy70A7juvm57FAi3eTKBszEbAJEZiHnswZBBOiB_mcejpj3aB5BYqHypsmVFHJxa219H_yN73BHudxT4MoZpfwNQ8SB4NfTn2xwh6t_BhBFBFHeQDnoWpS0PyN4cjLtsIfe_uHkQGJKswK6qrKIkxgiSPzRp8c9xheNwLtaXQEmjmgN26Ri32vT1mk9uy0i_ox-1M3eVYGVRAd9qn3iJulwmZSMCf9SJJbeqi8I2CNUryZYuJu-9F5FjaZN6f9zjU7yhUK-PTdK3IPW8DY1lxK9tNAXuJ0Bsuc6FY-hUZLO9OyXaQ1UoTPwf9I9UxU6fmcZC5DqhdRIyb4KkHXLFIH0x4QDZs_kQBVpFnOUNv8huhrms&isLearningSubscriber=false&trk=profile_nonself_widget_learning
+                      - img "Image for Ethics in the Age of Generative AI" [ref=e1936]
+                    - generic [ref=e1937]:
+                      - 'link "Ethics in the Age of Generative AI Skills: Responsible AI, Generative AI, Computer Ethics, Artificial Intelligence (AI) 45min" [ref=e1939] [cursor=pointer]':
+                        - /url: https://www.linkedin.com/learning/ethics-in-the-age-of-generative-ai?courseClaim=AQE1WaUxMcFfqQAAAZ3K4Bud2v56723H4ESj2q1aN3GlH__LHZkKhgQ2Ib2yuQHlfOkUr8fyYFPtUMtU2SpX9_H7m5K_V6DwsSNBzjZXZFgq2vNfrszzW8gEVPyyAPFUo5Ok1xxB2ocgAtrDaptIMXGArK0oO_iIihzoEpMW95ZDOzOItZt9bT7dBJAuZOD-xH7BUkjfvNcsjRw6dUIY7cim5m-ZNfNHn1kZsdHO-IgfPiHbCcWl0pVKvw7_F3dcaiiU19pVjRKInhxLVS7zAiy2H32MXhEghDycNNoaCCI2H7reugf7rCeH-5rdxfnX8fTw6Waj-Kk_9lgmh_90RIvAeFEeAbLMy_6I2uskC4kQaDwdA1CNHJ4yWguxR0xyAIa8MnIl2s5FoH_JH3iRq797T5XaBvIAlSJaBSUp_VPtXok1Y4-EmXfyrNTAw5JTcViLgBeBfSRlmHwIjfktmRfGLV7WLcL8-gGO9mFhxzxbadeozL1RwJ6dtFejHrzxTfWs62OGomhj5fmhoYmSol5yJHMenZLMoRyufM_GL7OnLhj9NA5cMPYQUGflDULfCLPnF1BYRVtWHz7xs1i22CWFaPWGY1Vuei3qArD4vCWFtICC2PaLxDEspP1QA4rIYqUmf150pM4XvJ2vS6aSFl70BoAKIAciXIQK7ckva8FELPgQEwuQD7u56Qpies-NocUxSaPdjbJHGmkS1wy4ifO_y8lXiOpgvxh8H4fh5maVmmwiZ-SFYgXIqk4rKUcmf-860U5T6bklvRSrUhMQ7lzRk7QdYXxHULsSKeN69imXBM7P--jxAV-9lyqCo1UEMIFfcBASqoWd4vM9i6-rakGLdy70A7juvm57FAi3eTKBszEbAJEZiHnswZBBOiB_mcejpj3aB5BYqHypsmVFHJxa219H_yN73BHudxT4MoZpfwNQ8SB4NfTn2xwh6t_BhBFBFHeQDnoWpS0PyN4cjLtsIfe_uHkQGJKswK6qrKIkxgiSPzRp8c9xheNwLtaXQEmjmgN26Ri32vT1mk9uy0i_ox-1M3eVYGVRAd9qn3iJulwmZSMCf9SJJbeqi8I2CNUryZYuJu-9F5FjaZN6f9zjU7yhUK-PTdK3IPW8DY1lxK9tNAXuJ0Bsuc6FY-hUZLO9OyXaQ1UoTPwf9I9UxU6fmcZC5DqhdRIyb4KkHXLFIH0x4QDZs_kQBVpFnOUNv8huhrms&isLearningSubscriber=false&trk=profile_nonself_widget_learning
+                        - generic [ref=e1943]:
+                          - generic [ref=e1944]: Ethics in the Age of Generative AI
+                          - generic [ref=e1945]: Ethics in the Age of Generative AI
+                        - generic [ref=e1949]:
+                          - generic [ref=e1950]: "Skills: Responsible AI, Generative AI, Computer Ethics, Artificial Intelligence (AI)"
+                          - generic [ref=e1951]: "Skills: Responsible AI, Generative AI, Computer Ethics, Artificial Intelligence (AI)"
+                        - generic [ref=e1952]:
+                          - generic [ref=e1953]: 45min
+                          - generic [ref=e1954]: 45min
+                      - list [ref=e1956]:
+                        - listitem [ref=e1957]:
+                          - button "Save Ethics in the Age of Generative AI" [ref=e1959] [cursor=pointer]:
+                            - generic [ref=e1960]: Save
+                - listitem [ref=e1961]:
+                  - generic [ref=e1962]:
+                    - link "Image for Developing Your Emotional Intelligence" [ref=e1964] [cursor=pointer]:
+                      - /url: https://www.linkedin.com/learning/developing-your-emotional-intelligence-22196221?courseClaim=AQH2k2l5DlxJUgAAAZ3K4BueOcO4Ztg6mEEMDDJeiRvZH0gJxxvZzGrFG_cMPPwXXPOG-7Ygtj2OohaVFNptAm4lSPvH0OUjtc_hq045jCSOaSA16ZkSbO50_b7BaVld3HEbVRcV7oeO92TM8dm9_52C44fXu2f5mKo_WOnsizSHFbZT5sVZ-AbB02QZHFnnOZsaBgZHDF3aOoSN-r8T-crsfOoV2dg55Jh2aFxON_DDQEETxLbSQvY4HzdL0Rv_yhxu7zifpwoPuHCaJKF8DSB_Nib00WBp9BmwUrYO0iuu8ehnDm0_LZmv6aZvtvaxCN7cUb0qiaK6nx6yrX6lzQ9tIANJgwGBGAk1OF3wpWoW4dSAqDhNpf3bVdYk9M2rBfNC0QkjbqaCJAj0_hXY37x1w8SzwGSLOqMo9N6lBe_JdwtUp_ox2U8GDpnCXNaf4NNWwQRtZudfY4I3D5kTzh0bnNKOO1j-kFHCQ6J-AnPV_RuiIqh3J_a4Mb1nWkJbUYSrHhwT9baOgj68qbif4-XVSstWHR8jO-LoGxAClU7awzVRUgNiNv853TInBtGt8KfIxG6ukHPxSsd3X_tUxKVjJetSyE7qO-IBJiaIGLgDTPvT3ZooxPg3cBHqYHqmAD-XAGz2CVabCbP9PqIj0DWff1ADNNB-OoU2gLW0kv3P6NruMzAP1987vIVnBG4mFwQK-C7ZiA10lxpkrC8uylJ-sRDeO7ksH9b8fBagLYPXI-FywiLLTv-JzJiAdCQqcyUHPvbLx-Z4xeV9pyuB3-Br30fez3fR9aOSpE1mGJFG0_5B7qqjYRP9NqQB87Et55ZndIAZPvV-4Vw0VdiUBll4TxIyihTBBAqv1toVxgbQDi4nehtg168X9DoDrXdjrk2Pxf0VMbUi2H4p0X9WMPmtIk5hPpGA6Op51OXvRX76r5xn0Sfd4MRW8k7ZZyX1_90r-uYLd6xU5W-ohTOlv5rXTXcni-gz4ARHrejcal1eAK9q_gLuydE03tLbbeIrSD0ktERYi6XQUnbXRqTT9QbjgAKh47gLjKKvQmxg5_KTZPm8FdcrvsBAuf8kMZrCMf-Ldn3R8hf0eucRV6Gpzr3v_WSt4fCMJnnGgfEpCn_-o4P0lXfWg0Tf9nvtBnu207m0r-1JK2fbpJ2_zxZcK_0lEnWcOBtOLl_czd-QpozpD3om8m7R9yR6h3cJvXgWBfiiy8KvpYw&isLearningSubscriber=false&trk=profile_nonself_widget_learning
+                      - img "Image for Developing Your Emotional Intelligence" [ref=e1967]
+                    - generic [ref=e1968]:
+                      - 'link "Developing Your Emotional Intelligence Skills: Emotional Intelligence 42min" [ref=e1970] [cursor=pointer]':
+                        - /url: https://www.linkedin.com/learning/developing-your-emotional-intelligence-22196221?courseClaim=AQH2k2l5DlxJUgAAAZ3K4BueOcO4Ztg6mEEMDDJeiRvZH0gJxxvZzGrFG_cMPPwXXPOG-7Ygtj2OohaVFNptAm4lSPvH0OUjtc_hq045jCSOaSA16ZkSbO50_b7BaVld3HEbVRcV7oeO92TM8dm9_52C44fXu2f5mKo_WOnsizSHFbZT5sVZ-AbB02QZHFnnOZsaBgZHDF3aOoSN-r8T-crsfOoV2dg55Jh2aFxON_DDQEETxLbSQvY4HzdL0Rv_yhxu7zifpwoPuHCaJKF8DSB_Nib00WBp9BmwUrYO0iuu8ehnDm0_LZmv6aZvtvaxCN7cUb0qiaK6nx6yrX6lzQ9tIANJgwGBGAk1OF3wpWoW4dSAqDhNpf3bVdYk9M2rBfNC0QkjbqaCJAj0_hXY37x1w8SzwGSLOqMo9N6lBe_JdwtUp_ox2U8GDpnCXNaf4NNWwQRtZudfY4I3D5kTzh0bnNKOO1j-kFHCQ6J-AnPV_RuiIqh3J_a4Mb1nWkJbUYSrHhwT9baOgj68qbif4-XVSstWHR8jO-LoGxAClU7awzVRUgNiNv853TInBtGt8KfIxG6ukHPxSsd3X_tUxKVjJetSyE7qO-IBJiaIGLgDTPvT3ZooxPg3cBHqYHqmAD-XAGz2CVabCbP9PqIj0DWff1ADNNB-OoU2gLW0kv3P6NruMzAP1987vIVnBG4mFwQK-C7ZiA10lxpkrC8uylJ-sRDeO7ksH9b8fBagLYPXI-FywiLLTv-JzJiAdCQqcyUHPvbLx-Z4xeV9pyuB3-Br30fez3fR9aOSpE1mGJFG0_5B7qqjYRP9NqQB87Et55ZndIAZPvV-4Vw0VdiUBll4TxIyihTBBAqv1toVxgbQDi4nehtg168X9DoDrXdjrk2Pxf0VMbUi2H4p0X9WMPmtIk5hPpGA6Op51OXvRX76r5xn0Sfd4MRW8k7ZZyX1_90r-uYLd6xU5W-ohTOlv5rXTXcni-gz4ARHrejcal1eAK9q_gLuydE03tLbbeIrSD0ktERYi6XQUnbXRqTT9QbjgAKh47gLjKKvQmxg5_KTZPm8FdcrvsBAuf8kMZrCMf-Ldn3R8hf0eucRV6Gpzr3v_WSt4fCMJnnGgfEpCn_-o4P0lXfWg0Tf9nvtBnu207m0r-1JK2fbpJ2_zxZcK_0lEnWcOBtOLl_czd-QpozpD3om8m7R9yR6h3cJvXgWBfiiy8KvpYw&isLearningSubscriber=false&trk=profile_nonself_widget_learning
+                        - generic [ref=e1974]:
+                          - generic [ref=e1975]: Developing Your Emotional Intelligence
+                          - generic [ref=e1976]: Developing Your Emotional Intelligence
+                        - generic [ref=e1980]:
+                          - generic [ref=e1981]: "Skills: Emotional Intelligence"
+                          - generic [ref=e1982]: "Skills: Emotional Intelligence"
+                        - generic [ref=e1983]:
+                          - generic [ref=e1984]: 42min
+                          - generic [ref=e1985]: 42min
+                      - list [ref=e1987]:
+                        - listitem [ref=e1988]:
+                          - button "Save Developing Your Emotional Intelligence" [ref=e1990] [cursor=pointer]:
+                            - generic [ref=e1991]: Save
+              - link "Show all you might like" [ref=e1995] [cursor=pointer]:
+                - /url: https://www.linkedin.com/in/atulism/overlay/learning-recommendations?isPrefetched=true&profileUrn=urn%3Ali%3Afsd_profile%3AACoAAAJUYg8BfkBEyf_BI_sUGzrfK2BSDBDF7L0
+                - generic [ref=e1996]: Show all
+      - contentinfo [ref=e445]
+    - generic:
+      - generic:
+        - complementary:
+          - generic [ref=e448]:
+            - generic [ref=e450] [cursor=pointer]:
+              - generic [ref=e451]:
+                - img "Rekha Jain" [ref=e452]
+                - generic [ref=e454]: Status is online
+              - button "You are on the messaging overlay. Press enter to open the list of conversations." [ref=e455]:
+                - generic [ref=e456]:
+                  - generic [ref=e457]: Messaging
+                  - generic [ref=e458]: You are on the messaging overlay. Press enter to open the list of conversations.
+            - generic [ref=e459]:
+              - button "Open messenger dropdown menu" [ref=e461] [cursor=pointer]:
+                - img "Open messenger dropdown menu" [ref=e462]
+              - button "Compose message" [ref=e465] [cursor=pointer]:
+                - img [ref=e466]
+                - generic [ref=e468]: Compose message
+              - button "You are on the messaging overlay. Press enter to open the list of conversations." [ref=e469] [cursor=pointer]:
+                - img [ref=e470]
+                - generic [ref=e472]: You are on the messaging overlay. Press enter to open the list of conversations.
+        - complementary "AI-powered assistant to get help with your career, jobs etc"
+  - region [ref=e473]

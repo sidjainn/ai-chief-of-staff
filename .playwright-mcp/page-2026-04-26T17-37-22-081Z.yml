@@ -1,0 +1,925 @@
+- generic [active] [ref=e1]:
+  - generic:
+    - region "Toast message":
+      - heading "0 notifications total" [level=2] [ref=e3]
+      - alert
+  - region [ref=e21]
+  - generic [ref=e34]:
+    - generic [ref=e36]:
+      - button "Skip to search" [ref=e967] [cursor=pointer]:
+        - generic [ref=e38]: Skip to search
+      - button "Skip to main content" [ref=e968] [cursor=pointer]:
+        - generic [ref=e40]: Skip to main content
+      - button "Keyboard shortcuts" [ref=e969] [cursor=pointer]:
+        - generic [ref=e42]: Keyboard shortcuts
+      - button "Close jump menu" [ref=e970] [cursor=pointer]:
+        - img [ref=e44]
+        - generic [ref=e46]: Close jump menu
+    - banner "Global Navigation" [ref=e971]:
+      - generic [ref=e48]:
+        - link "LinkedIn" [ref=e972] [cursor=pointer]:
+          - /url: https://www.linkedin.com/feed/?nis=true
+          - img "LinkedIn" [ref=e973]:
+            - img [ref=e53]
+        - generic [ref=e57]:
+          - combobox "Search" [ref=e974]
+          - generic:
+            - img
+        - navigation "Primary Navigation" [ref=e975]:
+          - list [ref=e60]:
+            - listitem [ref=e61]:
+              - link "new feed updates notifications Home" [ref=e976] [cursor=pointer]:
+                - /url: https://www.linkedin.com/feed/?nis=true&
+                - generic [ref=e63]:
+                  - generic [ref=e66]: new feed updates notifications
+                  - img [ref=e978]
+                - generic "Home" [ref=e980]
+            - listitem [ref=e73]:
+              - link "My Network" [ref=e981] [cursor=pointer]:
+                - /url: https://www.linkedin.com/mynetwork/?
+                - img [ref=e983]
+                - generic "My Network" [ref=e985]
+            - listitem [ref=e81]:
+              - link "Jobs" [ref=e986] [cursor=pointer]:
+                - /url: https://www.linkedin.com/jobs/?
+                - img [ref=e988]
+                - generic "Jobs" [ref=e990]
+            - listitem [ref=e89]:
+              - link "Messaging" [ref=e991] [cursor=pointer]:
+                - /url: https://www.linkedin.com/messaging/?
+                - img [ref=e993]
+                - generic "Messaging" [ref=e995]
+            - listitem [ref=e97]:
+              - link "Notifications" [ref=e996] [cursor=pointer]:
+                - /url: https://www.linkedin.com/notifications/?
+                - img [ref=e998]
+                - generic "Notifications" [ref=e1000]
+            - listitem [ref=e105]:
+              - button "Rekha Jain Me" [ref=e1001] [cursor=pointer]:
+                - img "Rekha Jain" [ref=e1002]
+                - generic [ref=e109]:
+                  - text: Me
+                  - img [ref=e110]
+            - listitem [ref=e112]:
+              - button "For Business" [ref=e1003] [cursor=pointer]:
+                - img [ref=e118]
+                - generic "For Business" [ref=e1004]:
+                  - text: For Business
+                  - img [ref=e121]
+            - listitem [ref=e123]:
+              - link "Try Premium for ₹0" [ref=e1005] [cursor=pointer]:
+                - /url: javascript:void(0)
+                - generic [ref=e126]:
+                  - img [ref=e127]
+                  - generic [ref=e129]: Try Premium for ₹0
+    - generic [ref=e1009]:
+      - main "Organization page for Plum" [ref=e1010]:
+        - generic [ref=e1013]:
+          - button [ref=e1016]
+          - generic [ref=e1019]:
+            - generic "This Page is a Premium Page" [ref=e1020]:
+              - img [ref=e1021]:
+                - img [ref=e1022]
+            - generic [ref=e1025]:
+              - generic [ref=e1026]:
+                - img "Plum logo" [ref=e1027]
+                - generic [ref=e1029]:
+                  - heading "Plum" [level=1] [ref=e1030]
+                  - link "Verified" [ref=e1031] [cursor=pointer]:
+                    - /url: /company/plumhq/about/
+                    - img [ref=e1032]
+                  - paragraph [ref=e1034]: Insurance and health benefits for companies that care.
+                  - generic [ref=e1035]:
+                    - generic [ref=e1036]: · Insurance
+                    - generic [ref=e1037]:
+                      - generic [ref=e1038]: · Bengaluru, Karnataka
+                      - generic [ref=e1039]: · 111K followers
+                      - link "· 501-1K employees" [ref=e1040] [cursor=pointer]:
+                        - /url: /search/results/people/?currentCompany=%5B%2228689540%22%5D&origin=COMPANY_PAGE_CANNED_SEARCH
+                        - text: ·
+                        - generic [ref=e1041]: 501-1K employees
+              - generic [ref=e1042]:
+                - link "Forbes Asia 100 To Watch" [ref=e1045] [cursor=pointer]:
+                  - /url: https://www.forbes.com/sites/forbesasiateam/2024/08/26/forbes-asia-100-to-watch-2024/
+                  - generic [ref=e1046]:
+                    - img [ref=e1048]
+                    - generic [ref=e1053]: Forbes Asia 100 To Watch
+                - link "Karthik Janardhan 1 company alum works here" [ref=e1056] [cursor=pointer]:
+                  - /url: http://www.linkedin.com/in/karthik-janardhan-ab4a43196
+                  - img "Karthik Janardhan" [ref=e1059]
+                  - heading "1 company alum works here" [level=2] [ref=e1060]
+              - generic [ref=e1061]:
+                - button "\"Thanks to Plum's consultative process, I know what benefits help me stand out in a competitive market.\" - Monika Gunalan, Postman" [ref=e1062] [cursor=pointer]:
+                  - generic [ref=e1063]:
+                    - img [ref=e1064]
+                    - generic [ref=e1066]:
+                      - img [ref=e1067]
+                      - generic [ref=e1068]: "\"Thanks to Plum's consultative process, I know what benefits help me stand out in a competitive market.\" - Monika Gunalan, Postman"
+                - generic [ref=e1069]:
+                  - region [ref=e1071]:
+                    - button "Follow" [ref=e1072] [cursor=pointer]:
+                      - img [ref=e1073]
+                      - generic [ref=e1075]: Follow
+                    - button "Message Plum" [ref=e1076] [cursor=pointer]:
+                      - img [ref=e1077]
+                      - generic [ref=e1079]: Message
+                    - link "Contact us" [ref=e1080] [cursor=pointer]:
+                      - /url: https://www.plumhq.com/get-quote
+                      - generic [ref=e1081]:
+                        - text: Contact us
+                        - img [ref=e1082]
+                  - button "Overflow Actions" [ref=e1087] [cursor=pointer]:
+                    - img "Overflow Actions" [ref=e1088]
+            - navigation "Organization’s page navigation" [ref=e1091]:
+              - list [ref=e1092]:
+                - listitem [ref=e1093]:
+                  - link "Home" [ref=e1094] [cursor=pointer]:
+                    - /url: /company/plumhq/
+                - listitem [ref=e1095]:
+                  - link "About" [ref=e1096] [cursor=pointer]:
+                    - /url: /company/plumhq/about/
+                - listitem [ref=e1097]:
+                  - link "Posts" [ref=e1098] [cursor=pointer]:
+                    - /url: /company/plumhq/posts/
+                - listitem [ref=e1099]:
+                  - link "Products" [ref=e1100] [cursor=pointer]:
+                    - /url: /company/plumhq/products/
+                - listitem [ref=e1101]:
+                  - link "Jobs" [ref=e1102] [cursor=pointer]:
+                    - /url: /company/plumhq/jobs/
+                - listitem [ref=e1103]:
+                  - link "People" [ref=e1104] [cursor=pointer]:
+                    - /url: /company/plumhq/people/
+        - generic [ref=e1107]:
+          - generic [ref=e1109]:
+            - generic [ref=e1110]:
+              - heading "Overview" [level=2] [ref=e1112]
+              - generic [ref=e1113]:
+                - generic [ref=e1115]:
+                  - text: Plum is creating the new standard of insurance & health benefits. The company, backed by Sequoia and Tiger Global, has helped over 6,000 organizations like Atlassian, Twilio and Zomato take care of the
+                  - generic [ref=e1116]: health of their talent.
+                - generic [ref=e1117]:
+                  - img "Premium" [ref=e1118]:
+                    - img [ref=e1119]
+                  - heading "Highlights from Plum" [level=3] [ref=e1121]
+                  - link "Ranked on LinkedIn Top Startups" [ref=e1124] [cursor=pointer]:
+                    - /url: http://www.linkedin.com/pulse/linkedin-top-startups-2024-20-indian-companies-rise-jjbie
+                    - generic [ref=e1125]:
+                      - img [ref=e1127]
+                      - generic [ref=e1132]: Ranked on LinkedIn Top Startups
+                  - link "Insurtech Solution Of The Year" [ref=e1135] [cursor=pointer]:
+                    - /url: https://www.globalfintechfest.com/
+                    - generic [ref=e1136]:
+                      - img [ref=e1138]
+                      - generic [ref=e1143]: Insurtech Solution Of The Year
+                  - link "Most Effective Real Time Response to Customer Queries" [ref=e1147] [cursor=pointer]:
+                    - /url: https://cxexcellenceawards.in/6th-edition-cx-excellence-awards-2025/
+                    - generic [ref=e1148]:
+                      - img [ref=e1150]
+                      - generic [ref=e1155]: Most Effective Real Time Response to Customer Queries
+            - link "See all details about Plum" [ref=e1158] [cursor=pointer]:
+              - /url: /company/plumhq/about/
+              - generic [ref=e1159]: Show all details
+              - img [ref=e1161]
+          - article [ref=e1169]:
+            - generic [ref=e1171]:
+              - heading "Feed post number 1" [level=2] [ref=e1172]
+              - generic [ref=e1175]:
+                - generic [ref=e1176]:
+                  - heading "Featured" [level=2] [ref=e1182]
+                  - generic [ref=e1184]:
+                    - generic [ref=e1185]: Page 1 of 3
+                    - button "Show previous featured" [disabled] [ref=e1186]:
+                      - img
+                      - generic: Previous
+                    - button "Show next featured" [ref=e1187] [cursor=pointer]:
+                      - img [ref=e1188]
+                      - generic [ref=e1190]: Next
+                - list [ref=e1192]:
+                  - listitem [ref=e1193]:
+                    - article [ref=e1197]:
+                      - generic [ref=e1200]:
+                        - generic [ref=e1203]: Post
+                        - button "Open control menu for post by Plum" [ref=e1206] [cursor=pointer]:
+                          - img [ref=e1207]
+                        - generic [ref=e1210]:
+                          - link "Plum, graphic." [ref=e1211] [cursor=pointer]:
+                            - /url: https://www.linkedin.com/company/plumhq/posts
+                          - generic [ref=e1215]:
+                            - 'link "View: Plum 111,482 followers" [ref=e1216] [cursor=pointer]':
+                              - /url: https://www.linkedin.com/company/plumhq/posts
+                              - generic [ref=e1219]:
+                                - generic [ref=e1221]: Plum
+                                - generic [ref=e1223]: Plum
+                              - generic [ref=e1224]:
+                                - generic [ref=e1225]: 111,482 followers
+                                - generic [ref=e1226]: 111,482 followers
+                            - link "Contact us" [ref=e1227] [cursor=pointer]:
+                              - /url: https://www.plumhq.com/get-quote
+                              - generic [ref=e1228]: Contact us
+                            - generic [ref=e1229]:
+                              - generic [ref=e1230]:
+                                - text: 1mo • Edited •
+                                - img [ref=e1233]
+                              - generic [ref=e1235]: 1 month ago • Edited • Visible to anyone on or off LinkedIn
+                        - link [ref=e1237] [cursor=pointer]:
+                          - /url: /feed/update/urn:li:activity:7442815235830427648/
+                          - generic [ref=e1238]:
+                            - generic [ref=e1241]:
+                              - text: 📢 We’re excited to share that we’ve just closed our Series B round, led by
+                              - link "Peak XV Partners" [ref=e1242]:
+                                - /url: https://www.linkedin.com/company/peakxvpartners/
+                                - generic [ref=e1244]: Peak XV Partners
+                              - text: ", after our first full year of profitability."
+                              - text: "This milestone is all in the service of one thing, truly - to help us further scale what we believe is the most important part of insurance: the claims experience."
+                              - text: For the last 6 years, we’ve been obsessed with improving the claims journey, because we believe it's the moment that matters most for anyone who gets insurance. And after 500,000+ claims, we're at an NPS of 79.
+                              - text: This round empowers us to deliver this experience to the next million Indians.
+                              - text: We’re extremely grateful to our customers for trusting us to care for their teams, our investors (
+                              - link "Peak XV Partners" [ref=e1245]:
+                                - /url: https://www.linkedin.com/company/peakxvpartners/
+                                - generic [ref=e1247]: Peak XV Partners
+                              - text: ","
+                              - link "Tanglin Venture Partners" [ref=e1248]:
+                                - /url: https://www.linkedin.com/company/tanglin-venture-partners/
+                                - generic [ref=e1250]: Tanglin Venture Partners
+                              - text: ", and"
+                              - link "GMO VenturePartners,Inc." [ref=e1251]:
+                                - /url: https://www.linkedin.com/company/gmo-venturepartners-inc-/
+                                - generic [ref=e1253]: GMO VenturePartners,Inc.
+                              - text: ) for believing in our mission, and the 500-odd Plum-bers who’ve built this with relentless care.
+                              - text: To know more, visit
+                              - link "plumhq.com/claims" [ref=e1254]:
+                                - /url: http://plumhq.com/claims
+                            - link "see more, visually reveals content which is already detected by screen readers" [ref=e1255]:
+                              - generic [ref=e1256]: …more
+                        - link "Play video" [ref=e1260] [cursor=pointer]:
+                          - /url: /feed/update/urn:li:activity:7442815235830427648/
+                          - button "Play video" [ref=e1261]:
+                            - paragraph [ref=e1262]:
+                              - img "Play video" [ref=e1263]
+                        - generic [ref=e1265]:
+                          - list [ref=e1269]:
+                            - listitem [ref=e1270]:
+                              - link "478 reactions" [ref=e1271] [cursor=pointer]:
+                                - img "like" [ref=e1272]
+                                - img "love" [ref=e1273]
+                                - img "celebrate" [ref=e1274]
+                                - generic [ref=e1275]: "478"
+                              - text: ·
+                            - listitem [ref=e1276]:
+                              - list [ref=e1277]:
+                                - listitem [ref=e1278]:
+                                  - link "29 comments on Plum’s post" [ref=e1279] [cursor=pointer]:
+                                    - generic [ref=e1280]: 29 comments
+                                  - text: ·
+                                - listitem [ref=e1281]:
+                                  - link "73 reposts of Plum’s post" [ref=e1282] [cursor=pointer]:
+                                    - generic [ref=e1283]: 73 reposts
+                          - generic [ref=e1284]:
+                            - generic [ref=e1285]:
+                              - button "React Like" [ref=e1286] [cursor=pointer]:
+                                - img [ref=e1289]
+                              - button "Open reactions menu":
+                                - img [ref=e1292] [cursor=pointer]
+                            - link "Comment" [ref=e1296] [cursor=pointer]:
+                              - img [ref=e1297]
+                            - button "Repost" [ref=e1300] [cursor=pointer]:
+                              - img [ref=e1301]
+                            - button "Send in a private message" [ref=e1305] [cursor=pointer]:
+                              - img [ref=e1306]
+                  - listitem [ref=e1308]:
+                    - article [ref=e1312]:
+                      - generic [ref=e1315]:
+                        - generic [ref=e1318]: Post
+                        - button "Open control menu for post by Plum" [ref=e1321] [cursor=pointer]:
+                          - img [ref=e1322]
+                        - generic [ref=e1325]:
+                          - link "Plum, graphic." [ref=e1326] [cursor=pointer]:
+                            - /url: https://www.linkedin.com/company/plumhq/posts
+                          - generic [ref=e1330]:
+                            - 'link "View: Plum 111,482 followers" [ref=e1331] [cursor=pointer]':
+                              - /url: https://www.linkedin.com/company/plumhq/posts
+                              - generic [ref=e1334]:
+                                - generic [ref=e1336]: Plum
+                                - generic [ref=e1338]: Plum
+                              - generic [ref=e1339]:
+                                - generic [ref=e1340]: 111,482 followers
+                                - generic [ref=e1341]: 111,482 followers
+                            - link "Contact us" [ref=e1342] [cursor=pointer]:
+                              - /url: https://www.plumhq.com/get-quote
+                              - generic [ref=e1343]: Contact us
+                            - generic [ref=e1344]:
+                              - generic [ref=e1345]:
+                                - text: 2mo • Edited •
+                                - img [ref=e1348]
+                              - generic [ref=e1350]: 2 months ago • Edited • Visible to anyone on or off LinkedIn
+                        - link "Here’s a gentle reminder from all of us at Plum – your talent cares, and so should you. The best talent cares deeply about their work, their growth, and how they contribute. But they also care just as much about the roles they play outside of work. The best companies show up for them everywhere. Tell us about your favourite seat at work or anywhere else, in the comments 👇 see more, visually reveals content which is already detected by screen readers" [ref=e1352] [cursor=pointer]:
+                          - /url: /feed/update/urn:li:activity:7429403256029716480/
+                          - generic [ref=e1353]:
+                            - generic [ref=e1356]:
+                              - text: Here’s a gentle reminder from all of us at Plum – your talent cares, and so should you.
+                              - text: The best talent cares deeply about their work, their growth, and how they contribute. But they also care just as much about the roles they play outside of work.
+                              - text: The best companies show up for them everywhere.
+                              - text: Tell us about your favourite seat at work or anywhere else, in the comments 👇
+                            - link "see more, visually reveals content which is already detected by screen readers" [ref=e1357]:
+                              - generic [ref=e1358]: …more
+                        - link "Play video" [ref=e1362] [cursor=pointer]:
+                          - /url: /feed/update/urn:li:activity:7429403256029716480/
+                          - button "Play video" [ref=e1363]:
+                            - paragraph [ref=e1364]:
+                              - img "Play video" [ref=e1365]
+                        - generic [ref=e1367]:
+                          - list [ref=e1371]:
+                            - listitem [ref=e1372]:
+                              - link "191 reactions" [ref=e1373] [cursor=pointer]:
+                                - img "like" [ref=e1374]
+                                - img "love" [ref=e1375]
+                                - img "celebrate" [ref=e1376]
+                                - generic [ref=e1377]: "191"
+                              - text: ·
+                            - listitem [ref=e1378]:
+                              - list [ref=e1379]:
+                                - listitem [ref=e1380]:
+                                  - link "46 comments on Plum’s post" [ref=e1381] [cursor=pointer]:
+                                    - generic [ref=e1382]: 46 comments
+                                  - text: ·
+                                - listitem [ref=e1383]:
+                                  - link "18 reposts of Plum’s post" [ref=e1384] [cursor=pointer]:
+                                    - generic [ref=e1385]: 18 reposts
+                          - generic [ref=e1386]:
+                            - generic [ref=e1387]:
+                              - button "React Like" [ref=e1388] [cursor=pointer]:
+                                - img [ref=e1391]
+                              - button "Open reactions menu":
+                                - img [ref=e1394] [cursor=pointer]
+                            - link "Comment" [ref=e1398] [cursor=pointer]:
+                              - img [ref=e1399]
+                            - button "Repost" [ref=e1402] [cursor=pointer]:
+                              - img [ref=e1403]
+                            - button "Send in a private message" [ref=e1407] [cursor=pointer]:
+                              - img [ref=e1408]
+                  - listitem [ref=e1410]
+                - list [ref=e1414]:
+                  - listitem [ref=e1415]:
+                    - button "Page 1" [ref=e1416] [cursor=pointer]:
+                      - generic [ref=e1417]: "1"
+                  - listitem [ref=e1418]:
+                    - button "Page 2" [ref=e1419] [cursor=pointer]:
+                      - generic [ref=e1420]: "2"
+                  - listitem [ref=e1421]:
+                    - button "Page 3" [ref=e1422] [cursor=pointer]:
+                      - generic [ref=e1423]: "3"
+          - generic [ref=e1428]:
+            - article [ref=e1431]:
+              - generic [ref=e1433]:
+                - heading "Feed post number 1" [level=2] [ref=e1434]
+                - generic [ref=e1437]:
+                  - generic [ref=e1438]:
+                    - heading "Page posts" [level=2] [ref=e1444]
+                    - generic [ref=e1446]:
+                      - generic [ref=e1447]: Page 1 of 4
+                      - button "Previous" [disabled] [ref=e1448]:
+                        - img
+                        - generic: Previous
+                      - button "Next" [ref=e1449] [cursor=pointer]:
+                        - img [ref=e1450]
+                        - generic [ref=e1452]: Next
+                  - list [ref=e1454]:
+                    - listitem [ref=e1455]:
+                      - article [ref=e1459]:
+                        - generic [ref=e1462]:
+                          - generic [ref=e1464]:
+                            - link "Plum, graphic." [ref=e1465] [cursor=pointer]:
+                              - /url: https://www.linkedin.com/company/plumhq/posts
+                            - generic [ref=e1469]:
+                              - 'link "View: Plum 111,482 followers" [ref=e1470] [cursor=pointer]':
+                                - /url: https://www.linkedin.com/company/plumhq/posts
+                                - generic [ref=e1473]:
+                                  - generic [ref=e1475]: Plum
+                                  - generic [ref=e1477]: Plum
+                                - generic [ref=e1478]:
+                                  - generic [ref=e1479]: 111,482 followers
+                                  - generic [ref=e1480]: 111,482 followers
+                              - link "Contact us" [ref=e1481] [cursor=pointer]:
+                                - /url: https://www.plumhq.com/get-quote
+                                - generic [ref=e1482]: Contact us
+                              - generic [ref=e1483]:
+                                - generic [ref=e1484]:
+                                  - text: 2d •
+                                  - img [ref=e1487]
+                                - generic [ref=e1489]: 2 days ago • Visible to anyone on or off LinkedIn
+                          - button "Open control menu for post by Plum" [ref=e1492] [cursor=pointer]:
+                            - img [ref=e1493]
+                          - link "Happy weekend, folks! Get your health checked." [ref=e1496] [cursor=pointer]:
+                            - /url: /feed/update/urn:li:activity:7453405089823690752/
+                            - generic [ref=e1500]:
+                              - text: Happy weekend, folks!
+                              - text: Get your health checked.
+                          - generic [ref=e1502]:
+                            - generic [ref=e1503]:
+                              - button "Activate to view larger image, No alternative text description for this image" [ref=e1504] [cursor=pointer]:
+                                - generic [ref=e1505]: Activate to view larger image,
+                                - img "No alternative text description for this image" [ref=e1508]
+                              - generic [ref=e1509]: 1/6
+                            - generic [ref=e1510]: Activate to view larger image,
+                          - generic [ref=e1511]:
+                            - list [ref=e1515]:
+                              - listitem [ref=e1516]:
+                                - link "61 reactions" [ref=e1517] [cursor=pointer]:
+                                  - img "like" [ref=e1518]
+                                  - img "funny" [ref=e1519]
+                                  - img "love" [ref=e1520]
+                                  - generic [ref=e1521]: "61"
+                                - text: ·
+                              - listitem [ref=e1522]:
+                                - list [ref=e1523]:
+                                  - listitem [ref=e1524]:
+                                    - link "4 comments on Plum’s post" [ref=e1525] [cursor=pointer]:
+                                      - generic [ref=e1526]: 4 comments
+                            - generic [ref=e1527]:
+                              - generic [ref=e1528]:
+                                - button "React Like" [ref=e1529] [cursor=pointer]:
+                                  - img [ref=e1532]
+                                - button "Open reactions menu":
+                                  - img [ref=e1535] [cursor=pointer]
+                              - link "Comment" [ref=e1539] [cursor=pointer]:
+                                - img [ref=e1540]
+                              - button "Repost" [ref=e1543] [cursor=pointer]:
+                                - img [ref=e1544]
+                              - button "Send in a private message" [ref=e1548] [cursor=pointer]:
+                                - img [ref=e1549]
+                    - listitem [ref=e1551]:
+                      - article [ref=e1555]:
+                        - generic [ref=e1558]:
+                          - generic [ref=e1560]:
+                            - link "Plum, graphic." [ref=e1561] [cursor=pointer]:
+                              - /url: https://www.linkedin.com/company/plumhq/posts
+                            - generic [ref=e1565]:
+                              - 'link "View: Plum 111,482 followers" [ref=e1566] [cursor=pointer]':
+                                - /url: https://www.linkedin.com/company/plumhq/posts
+                                - generic [ref=e1569]:
+                                  - generic [ref=e1571]: Plum
+                                  - generic [ref=e1573]: Plum
+                                - generic [ref=e1574]:
+                                  - generic [ref=e1575]: 111,482 followers
+                                  - generic [ref=e1576]: 111,482 followers
+                              - link "Contact us" [ref=e1577] [cursor=pointer]:
+                                - /url: https://www.plumhq.com/get-quote
+                                - generic [ref=e1578]: Contact us
+                              - generic [ref=e1579]:
+                                - generic [ref=e1580]:
+                                  - text: 2d •
+                                  - img [ref=e1583]
+                                - generic [ref=e1585]: 2 days ago • Visible to anyone on or off LinkedIn
+                          - button "Open control menu for post by Plum" [ref=e1588] [cursor=pointer]:
+                            - img [ref=e1589]
+                          - 'link "The goal is to get millions of Indians insured. Abhishek talks about this on CNBC. He points out that: ➡️ 9 out of 10 people have had a bad claims experience. It''s either too slow or their claims get rejected. We focused on these issues and have solved the claims experience. ➡️ Only ~25% of Indians are adequately covered. Which means most people have insurance, but not the kind that can help them when they need it. ➡️ People form opinions on insurance when they experience a claim. That’s why employee group health insurance matters. It creates the first, low-friction claim experience. see more, visually reveals content which is already detected by screen readers" [ref=e1592] [cursor=pointer]':
+                            - /url: /feed/update/urn:li:activity:7453327510387261440/
+                            - generic [ref=e1593]:
+                              - generic [ref=e1596]:
+                                - text: The goal is to get millions of Indians insured.
+                                - link "Abhishek" [ref=e1598]:
+                                  - /url: /in/abhishek24/
+                                - text: talks about this on
+                                - link "CNBC" [ref=e1599]:
+                                  - /url: https://www.linkedin.com/company/cnbc/
+                                  - generic [ref=e1601]: CNBC
+                                - text: .
+                                - text: "He points out that:"
+                                - text: ➡️ 9 out of 10 people have had a bad claims experience. It's either too slow or their claims get rejected. We focused on these issues and have solved the claims experience.
+                                - text: ➡️ Only ~25% of Indians are adequately covered. Which means most people have insurance, but not the kind that can help them when they need it.
+                                - text: ➡️ People form opinions on insurance when they experience a claim.
+                                - text: That’s why employee group health insurance matters. It creates the first, low-friction claim experience.
+                              - link "see more, visually reveals content which is already detected by screen readers" [ref=e1602]:
+                                - generic [ref=e1603]: …more
+                          - link "Play video" [ref=e1607] [cursor=pointer]:
+                            - /url: /feed/update/urn:li:activity:7453327510387261440/
+                            - button "Play video" [ref=e1608]:
+                              - paragraph [ref=e1609]:
+                                - img "Play video" [ref=e1610]
+                          - generic [ref=e1612]:
+                            - list [ref=e1616]:
+                              - listitem [ref=e1617]:
+                                - link "71 reactions" [ref=e1618] [cursor=pointer]:
+                                  - img "like" [ref=e1619]
+                                  - img "love" [ref=e1620]
+                                  - img "insightful" [ref=e1621]
+                                  - generic [ref=e1622]: "71"
+                                - text: ·
+                              - listitem [ref=e1623]:
+                                - list [ref=e1624]:
+                                  - listitem [ref=e1625]:
+                                    - link "3 reposts of Plum’s post" [ref=e1626] [cursor=pointer]:
+                                      - generic [ref=e1627]: 3 reposts
+                            - generic [ref=e1628]:
+                              - generic [ref=e1629]:
+                                - button "React Like" [ref=e1630] [cursor=pointer]:
+                                  - img [ref=e1633]
+                                - button "Open reactions menu":
+                                  - img [ref=e1636] [cursor=pointer]
+                              - link "Comment" [ref=e1640] [cursor=pointer]:
+                                - img [ref=e1641]
+                              - button "Repost" [ref=e1644] [cursor=pointer]:
+                                - img [ref=e1645]
+                              - button "Send in a private message" [ref=e1649] [cursor=pointer]:
+                                - img [ref=e1650]
+                    - listitem [ref=e1652]
+                    - listitem [ref=e1654]
+                  - list [ref=e1658]:
+                    - listitem [ref=e1659]:
+                      - button "Page 1" [ref=e1660] [cursor=pointer]:
+                        - generic [ref=e1661]: "1"
+                    - listitem [ref=e1662]:
+                      - button "Page 2" [ref=e1663] [cursor=pointer]:
+                        - generic [ref=e1664]: "2"
+                    - listitem [ref=e1665]:
+                      - button "Page 3" [ref=e1666] [cursor=pointer]:
+                        - generic [ref=e1667]: "3"
+                    - listitem [ref=e1668]:
+                      - button "Page 4" [ref=e1669] [cursor=pointer]:
+                        - generic [ref=e1670]: "4"
+            - link "Show all posts" [ref=e1674] [cursor=pointer]:
+              - /url: https://www.linkedin.com/company/plumhq/posts?viewAsMember=true
+              - img [ref=e1675]
+              - generic [ref=e1677]: Show all posts
+          - generic [ref=e1679]:
+            - heading "Products" [level=2] [ref=e1685]
+            - generic [ref=e1688]:
+              - link "Plum Group Health Insurance page logo" [ref=e1690] [cursor=pointer]:
+                - /url: https://www.linkedin.com/products/plumhq-plum-insure/
+                - generic "Plum Group Health Insurance page logo" [ref=e1691]:
+                  - img "Plum Group Health Insurance page logo" [ref=e1693]
+              - generic [ref=e1694]:
+                - generic [ref=e1695]:
+                  - link "Plum Group Health Insurance Products" [ref=e1696] [cursor=pointer]:
+                    - /url: https://www.linkedin.com/products/plumhq-plum-insure/
+                    - heading "Plum Group Health Insurance" [level=4] [ref=e1698]
+                    - paragraph [ref=e1699]: Products
+                  - button "Add Plum Group Health Insurance as skill" [ref=e1701] [cursor=pointer]:
+                    - img [ref=e1702]
+                    - generic [ref=e1706]: Add as skill
+                - link "A digital platform for comprehensive health benefits, including best-in-class insurance, built for companies that care. Plum's neat, intuitive dashboards and app make accessing benefits easy for teams." [ref=e1707] [cursor=pointer]:
+                  - /url: https://www.linkedin.com/products/plumhq-plum-insure/
+                  - generic [ref=e1708]: A digital platform for comprehensive health benefits, including best-in-class insurance, built for companies that care. Plum's neat, intuitive dashboards and app make accessing benefits easy for teams.
+          - generic [ref=e1710]:
+            - generic [ref=e1712]:
+              - generic [ref=e1713]:
+                - heading "Past events" [level=2] [ref=e1716]
+                - generic [ref=e1718]:
+                  - generic [ref=e1719]: Page 1 of 5
+                  - button "Previous" [disabled] [ref=e1720]:
+                    - img
+                    - generic: Previous
+                  - button "Next" [ref=e1721] [cursor=pointer]:
+                    - img [ref=e1722]
+                    - generic [ref=e1724]: Next
+              - list [ref=e1725]:
+                - listitem [ref=e1726]:
+                  - generic [ref=e1728]:
+                    - link "Cover image for Build your employee benefits plan" [ref=e1729] [cursor=pointer]:
+                      - /url: /events/buildyouremployeebenefitsplan7290330515813896193/
+                    - generic [ref=e1731]:
+                      - generic [ref=e1732]:
+                        - generic [ref=e1734]: Wed, Feb 12, 2025, 5:00 PM
+                        - link "Build your employee benefits plan" [ref=e1735] [cursor=pointer]:
+                          - /url: /events/buildyouremployeebenefitsplan7290330515813896193/
+                          - paragraph [ref=e1736]: Build your employee benefits plan
+                      - generic [ref=e1737]:
+                        - generic [ref=e1738]:
+                          - generic [ref=e1739]: Plum •
+                          - generic [ref=e1740]: 41 attendees
+                        - generic [ref=e1741]:
+                          - link "View Build your employee benefits plan" [ref=e1743] [cursor=pointer]:
+                            - /url: /events/buildyouremployeebenefitsplan7290330515813896193/
+                            - text: View
+                          - button "Share Build your employee benefits plan" [ref=e1747] [cursor=pointer]:
+                            - img [ref=e1748]
+                - listitem [ref=e1750]:
+                  - generic [ref=e1752]:
+                    - 'link "Cover image for Fi-nessing Performance: Building Accountable Teams" [ref=e1753] [cursor=pointer]':
+                      - /url: /events/fi-nessingperformance-buildinga7239160754510163968/
+                    - generic [ref=e1755]:
+                      - generic [ref=e1756]:
+                        - generic [ref=e1757]:
+                          - generic [ref=e1758]: Thu, Sep 19, 2024, 3:00 PM
+                          - generic [ref=e1759]: • Live Video
+                        - 'link "Fi-nessing Performance: Building Accountable Teams" [ref=e1760] [cursor=pointer]':
+                          - /url: /events/fi-nessingperformance-buildinga7239160754510163968/
+                          - paragraph [ref=e1761]: "Fi-nessing Performance: Building Accountable Teams"
+                      - generic [ref=e1762]:
+                        - generic [ref=e1763]:
+                          - generic [ref=e1764]: Plum •
+                          - generic [ref=e1765]: 50 attendees
+                        - generic [ref=e1766]:
+                          - 'link "View Fi-nessing Performance: Building Accountable Teams" [ref=e1768] [cursor=pointer]':
+                            - /url: /events/fi-nessingperformance-buildinga7239160754510163968/
+                            - text: View
+                          - 'button "Share Fi-nessing Performance: Building Accountable Teams" [ref=e1772] [cursor=pointer]':
+                            - img [ref=e1773]
+                - listitem [ref=e1775]:
+                  - generic [ref=e1777]:
+                    - link "Cover image for Why Ather does not conduct employee engagement surveys" [ref=e1778] [cursor=pointer]:
+                      - /url: /events/whyatherdoesnotconductemployeee7230106775000117250/
+                    - generic [ref=e1780]:
+                      - generic [ref=e1781]:
+                        - generic [ref=e1782]:
+                          - generic [ref=e1783]: Thu, Aug 22, 2024, 5:00 PM
+                          - generic [ref=e1784]: • Live Video
+                        - link "Why Ather does not conduct employee engagement surveys" [ref=e1785] [cursor=pointer]:
+                          - /url: /events/whyatherdoesnotconductemployeee7230106775000117250/
+                          - paragraph [ref=e1786]: Why Ather does not conduct employee engagement surveys
+                      - generic [ref=e1787]:
+                        - generic [ref=e1788]:
+                          - generic [ref=e1789]: Plum •
+                          - generic [ref=e1790]: 128 attendees
+                        - generic [ref=e1791]:
+                          - link "View Why Ather does not conduct employee engagement surveys" [ref=e1793] [cursor=pointer]:
+                            - /url: /events/whyatherdoesnotconductemployeee7230106775000117250/
+                            - text: View
+                          - button "Share Why Ather does not conduct employee engagement surveys" [ref=e1797] [cursor=pointer]:
+                            - img [ref=e1798]
+                - listitem [ref=e1800]
+                - listitem [ref=e1802]
+              - list [ref=e1806]:
+                - listitem [ref=e1807]:
+                  - button "Page 1" [ref=e1808] [cursor=pointer]:
+                    - generic [ref=e1809]: "1"
+                - listitem [ref=e1810]:
+                  - button "Page 2" [ref=e1811] [cursor=pointer]:
+                    - generic [ref=e1812]: "2"
+                - listitem [ref=e1813]:
+                  - button "Page 3" [ref=e1814] [cursor=pointer]:
+                    - generic [ref=e1815]: "3"
+                - listitem [ref=e1816]:
+                  - button "Page 4" [ref=e1817] [cursor=pointer]:
+                    - generic [ref=e1818]: "4"
+                - listitem [ref=e1819]:
+                  - button "Page 5" [ref=e1820] [cursor=pointer]:
+                    - generic [ref=e1821]: "5"
+            - link "Show all events" [ref=e1825] [cursor=pointer]:
+              - /url: https://www.linkedin.com/company/plumhq/events?viewAsMember=true
+              - img [ref=e1826]
+              - generic [ref=e1828]: Show all events
+          - generic [ref=e1830]:
+            - heading "Recent job openings" [level=2] [ref=e1836]
+            - generic [ref=e1838]:
+              - generic [ref=e1840]:
+                - link "Medical Evaluation Specialist page logo" [ref=e1842] [cursor=pointer]:
+                  - /url: https://www.linkedin.com/jobs/view/4404959897/
+                  - generic "Medical Evaluation Specialist page logo" [ref=e1844]:
+                    - img "Medical Evaluation Specialist page logo" [ref=e1846]
+                - link "Medical Evaluation Specialist Verified Bangalore Urban" [ref=e1849] [cursor=pointer]:
+                  - /url: https://www.linkedin.com/jobs/view/4404959897/
+                  - generic [ref=e1850]:
+                    - generic [ref=e1852]:
+                      - generic [ref=e1853]:
+                        - text: Medical Evaluation Specialist
+                        - img [ref=e1855]
+                      - generic [ref=e1857]: Medical Evaluation Specialist Verified
+                    - generic [ref=e1859]: Bangalore Urban
+              - generic [ref=e1861]:
+                - link "Executive Assistant to CEO &amp; CTO page logo" [ref=e1863] [cursor=pointer]:
+                  - /url: https://www.linkedin.com/jobs/view/4390946197/
+                  - generic "Executive Assistant to CEO &amp; CTO page logo" [ref=e1865]:
+                    - img "Executive Assistant to CEO &amp; CTO page logo" [ref=e1867]
+                - link "Executive Assistant to CEO & CTO Bengaluru" [ref=e1870] [cursor=pointer]:
+                  - /url: https://www.linkedin.com/jobs/view/4390946197/
+                  - generic [ref=e1871]:
+                    - generic [ref=e1873]: Executive Assistant to CEO & CTO
+                    - generic [ref=e1875]: Bengaluru
+            - link "Show all 16 jobs" [ref=e1878] [cursor=pointer]:
+              - /url: https://www.linkedin.com/company/plumhq/jobs?viewAsMember=true
+              - img [ref=e1879]
+              - generic [ref=e1881]: Show all 16 jobs
+          - generic [ref=e1883]:
+            - heading "Unlock insights on Plum" [level=2] [ref=e1889]
+            - generic [ref=e1891]:
+              - generic [ref=e1892]:
+                - generic [ref=e1893]:
+                  - heading "The latest hiring trends" [level=3] [ref=e1894]
+                  - region "Chart. Highcharts interactive chart." [ref=e1898]:
+                    - region "Chart screen reader information.":
+                      - generic [ref=e1899]:
+                        - heading "Chart" [level=4] [ref=e1900]
+                        - generic [ref=e1901]: Chart with 13 data points.
+                        - generic [ref=e1902]: "The chart has 1 X axis displaying values. Range: 1740355200000 to 1778198400000."
+                        - generic [ref=e1903]: "The chart has 1 Y axis displaying values. Range: 0 to 1000."
+                    - img "Interactive chart" [ref=e1908]:
+                      - generic [ref=e1919]:
+                        - img "1. x, 1743508800000," [ref=e1920]
+                        - img "2. x, 1746100800000," [ref=e1921]
+                        - img "3. x, 1748779200000," [ref=e1922]
+                        - img "4. x, 1751371200000," [ref=e1923]
+                        - img "5. x, 1754049600000," [ref=e1924]
+                        - img "6. x, 1756728000000," [ref=e1925]
+                        - img "7. x, 1759320000000," [ref=e1926]
+                        - img "8. x, 1761998400000," [ref=e1927]
+                        - img "9. x, 1764590400000," [ref=e1928]
+                        - img "10. x, 1767268800000," [ref=e1929]
+                        - img "11. x, 1769947200000," [ref=e1930]
+                        - img "12. x, 1772366400000," [ref=e1931]
+                        - img "13. x, 1775044800000," [ref=e1932]
+                      - generic [ref=e1933]:
+                        - generic [ref=e1934]: Apr 2025
+                        - generic [ref=e1935]: Oct 2025
+                        - generic [ref=e1936]: Apr 2026
+                    - generic [ref=e1938]: End of interactive chart.
+                - generic [ref=e1939]:
+                  - heading "Growth trends" [level=3] [ref=e1940]
+                  - generic [ref=e1941]:
+                    - paragraph [ref=e1942]:
+                      - generic [ref=e1944]: 23%
+                      - generic [ref=e1945]: "23"
+                    - paragraph [ref=e1946]:
+                      - generic [ref=e1947]: Employee growth
+                  - generic [ref=e1948]: And more hiring trends
+                - generic [ref=e1949]:
+                  - heading "Recent hires" [level=3] [ref=e1950]
+                  - list [ref=e1952]:
+                    - listitem [ref=e1953]
+                    - listitem [ref=e1954]
+                    - listitem [ref=e1955]
+                  - generic [ref=e1956]: Sahil and 2 others
+              - generic [ref=e1960]:
+                - link "Try Premium for ₹0" [ref=e1961] [cursor=pointer]:
+                  - /url: http://www.linkedin.com/premium/products/?upsellOrderOrigin=Tracking%3Av1%3Apremium_company_research_upsell_company_page%3ACompany+Research%3AIn-Product&referenceId=Tb%2BHrDrgQ4GWVWQDhT0j3A%3D%3D&isSS=false&upsellSlotId=ORGANIZATION_COMPANY_INSIGHTS&destRedirectURL=https%3A%2F%2Fwww.linkedin.com%2Fcompany%2Fplumhq%2F
+                - paragraph [ref=e1962]: 1-month free with 24/7 support. Cancel anytime. We’ll remind you 7 days before your trial ends.
+          - generic [ref=e1963]:
+            - heading "Newsletter" [level=3] [ref=e1965]
+            - generic [ref=e1966]:
+              - link "The Plum Jam logo" [ref=e1967] [cursor=pointer]:
+                - /url: /newsletters/7038480991937564672/
+                - img "The Plum Jam logo" [ref=e1968]
+              - generic [ref=e1969]:
+                - link "The Plum Jam Published monthly · 23,466 subscribers Work and life updates from Plum, narrated monthly with wit (debatable). Written by the marketing team." [ref=e1970] [cursor=pointer]:
+                  - /url: /newsletters/7038480991937564672/
+                  - generic [ref=e1971]:
+                    - heading "The Plum Jam" [level=4] [ref=e1972]
+                    - paragraph [ref=e1973]:
+                      - generic [ref=e1974]: Published monthly
+                      - text: ·
+                      - generic [ref=e1975]: 23,466 subscribers
+                    - paragraph [ref=e1976]: Work and life updates from Plum, narrated monthly with wit (debatable). Written by the marketing team.
+                - button "Subscribe to The Plum Jam newsletter" [ref=e1977] [cursor=pointer]:
+                  - img [ref=e1978]
+                  - generic [ref=e1980]: Subscribe
+      - complementary "Advertisement" [ref=e1983]:
+        - generic [ref=e1986]:
+          - generic [ref=e1990]:
+            - generic [ref=e1991]:
+              - heading "Pages people also viewed" [level=3] [ref=e1993]
+              - list [ref=e1995]:
+                - listitem [ref=e1996]:
+                  - generic [ref=e1997]:
+                    - generic [ref=e1998]:
+                      - link "Loop page logo" [ref=e2000] [cursor=pointer]:
+                        - /url: https://www.linkedin.com/company/loop-health/
+                        - generic "Loop page logo" [ref=e2002]:
+                          - img "Loop page logo" [ref=e2004]
+                      - link "Loop Hospitals and Health Care 43,256 followers" [ref=e2007] [cursor=pointer]:
+                        - /url: https://www.linkedin.com/company/loop-health/
+                        - generic [ref=e2008]:
+                          - generic [ref=e2010]: Loop
+                          - generic [ref=e2012]: Hospitals and Health Care
+                          - generic [ref=e2014]: 43,256 followers
+                    - button "Follow Loop" [ref=e2016] [cursor=pointer]:
+                      - img [ref=e2017]
+                      - generic [ref=e2019]: Follow
+                - listitem [ref=e2020]:
+                  - generic [ref=e2021]:
+                    - generic [ref=e2022]:
+                      - link "Plum page logo" [ref=e2024] [cursor=pointer]:
+                        - /url: https://www.linkedin.com/company/plum-goodness/
+                        - generic "Plum page logo" [ref=e2026]:
+                          - img "Plum page logo" [ref=e2028]
+                      - link "Plum Personal Care Product Manufacturing 134,630 followers" [ref=e2031] [cursor=pointer]:
+                        - /url: https://www.linkedin.com/company/plum-goodness/
+                        - generic [ref=e2032]:
+                          - generic [ref=e2034]: Plum
+                          - generic [ref=e2036]: Personal Care Product Manufacturing
+                          - generic [ref=e2038]: 134,630 followers
+                    - button "Follow Plum" [ref=e2040] [cursor=pointer]:
+                      - img [ref=e2041]
+                      - generic [ref=e2043]: Follow
+                - listitem [ref=e2044]:
+                  - generic [ref=e2045]:
+                    - generic [ref=e2046]:
+                      - link "Even page logo" [ref=e2048] [cursor=pointer]:
+                        - /url: https://www.linkedin.com/company/even-healthcare/
+                        - generic "Even page logo" [ref=e2050]:
+                          - img "Even page logo" [ref=e2052]
+                      - generic [ref=e2053]:
+                        - link "Even Health and Human Services 112,063 followers" [ref=e2055] [cursor=pointer]:
+                          - /url: https://www.linkedin.com/company/even-healthcare/
+                          - generic [ref=e2056]:
+                            - generic [ref=e2058]: Even
+                            - generic [ref=e2060]: Health and Human Services
+                            - generic [ref=e2062]: 112,063 followers
+                        - link "ANIL DWIVEDI 1 company alum works here" [ref=e2064] [cursor=pointer]:
+                          - /url: http://www.linkedin.com/in/anil-dwivedi-b21a141ab
+                          - img "ANIL DWIVEDI" [ref=e2067]
+                          - generic [ref=e2068]: 1 company alum works here
+                    - button "Follow Even" [ref=e2070] [cursor=pointer]:
+                      - img [ref=e2071]
+                      - generic [ref=e2073]: Follow
+            - button "Show all similar pages" [ref=e2075] [cursor=pointer]:
+              - img [ref=e2076]
+              - generic [ref=e2078]: Show all
+          - generic [ref=e2082]:
+            - generic [ref=e2083]:
+              - heading "People also follow" [level=3] [ref=e2085]
+              - list [ref=e2087]:
+                - listitem [ref=e2088]:
+                  - generic [ref=e2089]:
+                    - generic [ref=e2090]:
+                      - link "Startup Pedia page logo" [ref=e2092] [cursor=pointer]:
+                        - /url: https://www.linkedin.com/company/startup-pedia/
+                        - generic "Startup Pedia page logo" [ref=e2094]:
+                          - img "Startup Pedia page logo" [ref=e2096]
+                      - link "Startup Pedia Technology, Information and Media 650,840 followers" [ref=e2099] [cursor=pointer]:
+                        - /url: https://www.linkedin.com/company/startup-pedia/
+                        - generic [ref=e2100]:
+                          - generic [ref=e2102]: Startup Pedia
+                          - generic [ref=e2104]: Technology, Information and Media
+                          - generic [ref=e2106]: 650,840 followers
+                    - button "Follow Startup Pedia" [ref=e2108] [cursor=pointer]:
+                      - img [ref=e2109]
+                      - generic [ref=e2111]: Follow
+                - listitem [ref=e2112]:
+                  - generic [ref=e2113]:
+                    - generic [ref=e2114]:
+                      - link "AI for productivity page logo" [ref=e2116] [cursor=pointer]:
+                        - /url: https://www.linkedin.com/company/javascript-notes/
+                        - generic "AI for productivity page logo" [ref=e2118]:
+                          - img "AI for productivity page logo" [ref=e2120]
+                      - link "AI for productivity Education 420,219 followers" [ref=e2123] [cursor=pointer]:
+                        - /url: https://www.linkedin.com/company/javascript-notes/
+                        - generic [ref=e2124]:
+                          - generic [ref=e2126]: AI for productivity
+                          - generic [ref=e2128]: Education
+                          - generic [ref=e2130]: 420,219 followers
+                    - button "Follow AI for productivity" [ref=e2132] [cursor=pointer]:
+                      - img [ref=e2133]
+                      - generic [ref=e2135]: Follow
+                - listitem [ref=e2136]:
+                  - generic [ref=e2137]:
+                    - generic [ref=e2138]:
+                      - link "Snabbit page logo" [ref=e2140] [cursor=pointer]:
+                        - /url: https://www.linkedin.com/company/justsnabbit/
+                        - generic "Snabbit page logo" [ref=e2142]:
+                          - img "Snabbit page logo" [ref=e2144]
+                      - link "Snabbit Technology, Information and Internet 62,685 followers" [ref=e2147] [cursor=pointer]:
+                        - /url: https://www.linkedin.com/company/justsnabbit/
+                        - generic [ref=e2148]:
+                          - generic [ref=e2150]: Snabbit
+                          - generic [ref=e2152]: Technology, Information and Internet
+                          - generic [ref=e2154]: 62,685 followers
+                    - button "Follow Snabbit" [ref=e2156] [cursor=pointer]:
+                      - img [ref=e2157]
+                      - generic [ref=e2159]: Follow
+            - button "Show all recommended pages" [ref=e2161] [cursor=pointer]:
+              - img [ref=e2162]
+              - generic [ref=e2164]: Show all
+          - generic [ref=e2171]:
+            - heading "Ex-coworkers that work here" [level=3] [ref=e2173]
+            - list [ref=e2175]:
+              - listitem [ref=e2176]:
+                - generic [ref=e2177]:
+                  - generic [ref=e2178]:
+                    - link "Karthik Janardhan profile picture" [ref=e2180] [cursor=pointer]:
+                      - /url: https://www.linkedin.com/in/karthik-janardhan-ab4a43196
+                      - generic "Karthik Janardhan profile picture" [ref=e2182]:
+                        - img "Karthik Janardhan" [ref=e2184]
+                    - link "Karthik Janardhan 3rd+ Driving Cx Delight @PLUM - | Business Ops| Customer Success" [ref=e2187] [cursor=pointer]:
+                      - /url: https://www.linkedin.com/in/karthik-janardhan-ab4a43196
+                      - generic [ref=e2188]:
+                        - generic [ref=e2189]:
+                          - generic [ref=e2190]: Karthik Janardhan
+                          - generic [ref=e2191]:
+                            - generic [ref=e2192]: 3rd+
+                            - generic [ref=e2193]: · 3rd+
+                        - generic [ref=e2195]: Driving Cx Delight @PLUM - | Business Ops| Customer Success
+                  - button "Karthik Janardhan Message" [ref=e2198] [cursor=pointer]:
+                    - generic [ref=e2199]: Message
+    - generic:
+      - generic:
+        - complementary:
+          - generic [ref=e259]:
+            - generic [ref=e261] [cursor=pointer]:
+              - generic [ref=e262]:
+                - img "Rekha Jain" [ref=e2201]
+                - generic [ref=e966]: Status is online
+              - button "You are on the messaging overlay. Press enter to open the list of conversations." [ref=e2202]:
+                - generic [ref=e265]:
+                  - generic [ref=e266]: Messaging
+                  - generic [ref=e267]: You are on the messaging overlay. Press enter to open the list of conversations.
+            - generic [ref=e268]:
+              - button "Open messenger dropdown menu" [ref=e2203] [cursor=pointer]:
+                - img "Open messenger dropdown menu" [ref=e2204]
+              - button "Compose message" [ref=e2205] [cursor=pointer]:
+                - img [ref=e275]
+                - generic [ref=e277]: Compose message
+              - button "You are on the messaging overlay. Press enter to open the list of conversations." [ref=e2206] [cursor=pointer]:
+                - img [ref=e279]
+                - generic [ref=e281]: You are on the messaging overlay. Press enter to open the list of conversations.
+        - complementary "AI-powered assistant to get help with your career, jobs etc"
