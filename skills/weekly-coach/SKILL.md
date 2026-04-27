@@ -1,15 +1,17 @@
 ---
 name: weekly-coach
-description: Weekly reflection + next-week planning coach for sid. Triggers on /weekly-coach, "weekly review", "plan my week", "Monday planning", "let's reflect on the week", or when sid says he wants to think through the past week and plan ahead. Pulls annual charter, weekly to-do sheet (last 6 tabs), daily logs (last 14 days) via gdrive MCP, then surfaces multi-week patterns (avoidance, breakthroughs, charter drift), writes reflection + plan to weeks/<ISO-week>/, and asks 3 sharp coach questions back. Plan is rendered as a markdown table in sid's exact sheet column format so he can paste into a new sheet tab.
-version: 1.0
+description: Weekly reflection + next-week planning coach for sid. Triggers on /weekly-coach, "weekly review", "plan my week", "Monday planning", "let's reflect on the week", or when sid says he wants to think through the past week and plan ahead. Pulls annual charter, weekly to-do sheet (all dated tabs), daily-log monthly docs via public Google export endpoints (no MCP, no GCP project — sid's docs are shared "anyone with the link"). Surfaces multi-week patterns (avoidance, breakthroughs, charter drift), writes reflection + plan to weeks/<ISO-week>/, asks 3 sharp coach questions back. Plan rendered as a markdown table in sid's exact sheet column format for paste into a new sheet tab.
+version: 1.1
 author: sid
-referenced_files:
-  - .claude/context/my-priorities.md
-  - .claude/context/my-team.md
+fetcher_script: .claude/scripts/fetch-coach-sources.sh
 sources:
-  charter_doc_id: 1oKQnv4qZ6fQDl7-wWNbqhRrTeFQE1ATHjHqNBEgauUQ
-  weekly_sheet_id: 1FjLBxDeZn0zWV4Wcp3XLautaQoJrN1_vleX9siijBlU
-  daily_log_folder_id: 1q2SGgLg8ZadSpZ580vTg_eFmsHU1zLRG
+  charter_doc_id_env: WEEKLY_COACH_CHARTER_DOC_ID
+  weekly_sheet_id_env: WEEKLY_COACH_SHEET_ID
+  daily_log_folder_id_env: WEEKLY_COACH_DAILY_LOG_FOLDER_ID
+  config_file: .env (gitignored — never commit)
+notes:
+  - Sheet tabs are named by week-start date (DD-MM-YYYY). Skip non-weekly tabs ("Learning resources", "Curiosities").
+  - Daily-log docs are one Google Doc per month titled "<Mon> daily log YYYY". Each doc uses the Google Docs Tabs feature (one tab per day). Plain-text export concatenates all tabs.
 ---
 
 # Weekly Coach Skill
@@ -45,17 +47,26 @@ Length budget:
 
 ## Workflow
 
-### Step 1 — Pull source data via gdrive MCP (parallel)
+### Step 1 — Pull source data via fetch script
 
-In a single message, read in parallel:
+Run the helper script in a single Bash call:
 
-1. **Annual charter** — `mcp__gdrive__*` read doc id `1oKQnv4qZ6fQDl7-wWNbqhRrTeFQE1ATHjHqNBEgauUQ`. Extract the focus areas verbatim. These are the **pillars** every plan item must map to.
+```bash
+bash .claude/scripts/fetch-coach-sources.sh
+```
 
-2. **Weekly to-do sheet** — list tabs of sheet id `1FjLBxDeZn0zWV4Wcp3XLautaQoJrN1_vleX9siijBlU`. Identify the last 6 weekly tabs by name (assume tab names are week identifiers). Read each tab's content. The most recent tab = prior week (the one being reflected on). The 5 before = lookback for patterns.
+It exits with the manifest path on stdout (e.g. `/tmp/weekly-coach/<UTC-ts>/manifest.json`). The manifest points to:
+- `charter.txt` — annual charter (plain text)
+- `sheet/_tabs.json` — list of every sheet tab (name, gid, local CSV path, byte count)
+- `daily/_docs.json` — list of monthly daily-log docs (title, doc id, local txt path)
 
-3. **Daily logs** — list files in folder id `1q2SGgLg8ZadSpZ580vTg_eFmsHU1zLRG`. Identify current month doc + previous month doc. Read both. Each doc has tabs per day. Focus parsing on the last 14 days.
+**Read the manifest first**, then load only the files you need:
 
-If gdrive MCP is not yet authenticated, stop and tell sid to complete OAuth first. Don't proceed without source data.
+- **Charter:** read `charter.txt` end-to-end. Extract focus areas / pillars verbatim. These are the lens for every observation and plan item.
+- **Sheet:** from `_tabs.json`, filter to **dated weekly tabs only** (name matches `DD-MM-YYYY`). Sort by date desc. The most recent tab = prior week (reflection target). Take the next 5 = lookback. Skip "Learning resources", "Curiosities", and any non-date tabs unless sid asks. Read each tab's CSV.
+- **Daily logs:** from `_docs.json`, identify the current month + previous month docs by title (e.g. "Apr daily log 2026", "Mar daily log 2026"). Read both. Focus parsing on entries within the 6-week window.
+
+If the script fails (manifest missing, all fetches 0 bytes), stop and tell sid: docs may have been un-shared or the share-link permission downgraded. Don't proceed without source data.
 
 ### Step 2 — Detect sheet column schema
 

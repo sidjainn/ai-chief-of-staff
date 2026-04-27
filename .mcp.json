@@ -15,10 +15,6 @@
       "type": "http",
       "url": "https://mcp.granola.ai/mcp"
     },
-    "gdrive": {
-      "type": "http",
-      "url": "https://gdrive.mcp.claude.com/mcp"
-    },
     "playwright": {
       "command": "npx",
       "args": [
