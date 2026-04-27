@@ -1,6 +1,6 @@
 ---
 name: job-research
-description: Deep research on a job + company whenever sid pastes a JD, a job link (Greenhouse/Lever/Ashby/Workday/LinkedIn etc.), mentions interviewing somewhere, asks "what should I know about <company>" in a hiring context, OR says anything that sounds like a meeting/call recap with a company already in jobs/ ("had a call with <co>", "met <interviewer-name>", "<co> debrief", pasted meeting notes mentioning a tracked co). Pulls company info, role breakdown, comp triangulation, interviewer profiles, Granola meeting context, and questions to ask — all written into a per-company folder under jobs/. On meeting/recap signals, uses the lighter §Update Workflow that pulls fresh Granola + folds in sid's notes + appends a dated update — no full re-research. Use this skill any time the conversation is about evaluating, preparing for, interviewing at, or following up on a specific company, even when sid doesn't say "research this job" explicitly.
+description: Deep research on a job + company whenever sid pastes a JD, a job link (Greenhouse/Lever/Ashby/Workday/LinkedIn etc.), mentions interviewing somewhere, asks "what should I know about [company]" in a hiring context, OR says anything that sounds like a meeting/call recap with a company already in jobs/ ("had a call with [co]", "met [interviewer-name]", "[co] debrief", pasted meeting notes mentioning a tracked co). Pulls company info, role breakdown, comp triangulation, interviewer profiles, Granola meeting context, and questions to ask — all written into a per-company folder under jobs/. On meeting/recap signals, uses the lighter §Update Workflow that pulls fresh Granola + folds in sid's notes + appends a dated update — no full re-research. Use this skill any time the conversation is about evaluating, preparing for, interviewing at, or following up on a specific company, even when sid doesn't say "research this job" explicitly.
 version: 1.0
 author: sid
 referenced_files:
@@ -25,7 +25,7 @@ The user will give one of:
 - A job URL (Greenhouse, Lever, Ashby, Workday, Workable, LinkedIn, company careers page, etc.)
 - Raw JD text pasted into chat
 - A company name + role title in conversation
-- A meeting reference like "I'm interviewing at <company> tomorrow"
+- A meeting reference like "I'm interviewing at [company] tomorrow"
 
 Trigger the skill in all of these cases — don't wait for the user to say "research this job."
 
@@ -128,7 +128,7 @@ Rules:
 
 5. **Re-running on an existing folder?** Verification still mandatory. Compare new artifacts against existing README claims and flag any drift in a "## Update — YYYY-MM-DD: Corrections" section. Don't silently overwrite — sid needs to see what changed.
 
-6. **Confidence labels.** When the README state a fact, label confidence inline where uncertainty matters: `(high confidence — primary source)`, `(medium — single secondary source)`, `(low — estimated)`. This is non-negotiable for funding numbers, comp numbers, and headcount.
+6. **Confidence labels.** When the README states a fact, label confidence inline where uncertainty matters: `(high confidence — primary source)`, `(medium — single secondary source)`, `(low — estimated)`. This is non-negotiable for funding numbers, comp numbers, and headcount.
 
 If verification surfaces issues, fix them in the artifact files first (with inline correction notes), then synthesize. Never hide a correction inside the synthesis silently — sid needs to be able to trust the running doc as a memory.
 
@@ -212,7 +212,7 @@ After synthesis, use AskUserQuestion to fill the gaps the research couldn't reac
 - Known interviewer names (only if not in the JD/recruiter email)
 - Target comp / range sid is anchoring on
 - Recruiter context (cold inbound vs sid applied vs warm intro)
-- Anything sid already knows that didn't surface (e.g. "I talked to <ex-employee>")
+- Anything sid already knows that didn't surface (e.g. "I talked to [ex-employee]")
 
 Keep it to **2-4 questions max** — don't pepper. Skip this step entirely if everything important is already in the doc.
 
@@ -260,7 +260,7 @@ For post-meeting recaps, ad-hoc notes, or any signal that an existing `jobs/<slu
 
 ### When to enter this path
 
-- User says: "had a call with <co>", "met <interviewer-name>", "<co> recap/debrief", "<co> follow-up", "update my Plum doc"
+- User says: "had a call with [co]", "met [interviewer-name]", "[co] recap/debrief", "[co] follow-up", "update my Plum doc"
 - User pastes meeting notes that mention a company already in `jobs/`
 - `/update-job <slug-or-notes>` is invoked
 - A Granola sync surfaced new meetings with a tracked company
