@@ -25,3 +25,6 @@ Thumbs.db
 
 # Job research — personal, not for repo
 jobs/
+
+# Playwright MCP scratch dir
+.playwright-mcp/
