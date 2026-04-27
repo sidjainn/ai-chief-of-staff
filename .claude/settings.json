@@ -14,6 +14,10 @@
           {
             "type": "command",
             "command": "bash .claude/hooks/posthog-job-research-capture.sh"
+          },
+          {
+            "type": "command",
+            "command": "bash .claude/hooks/posthog-weekly-coach-capture.sh"
           }
         ]
       }
@@ -32,6 +36,10 @@
           {
             "type": "command",
             "command": "bash .claude/hooks/posthog-job-research-capture.sh"
+          },
+          {
+            "type": "command",
+            "command": "bash .claude/hooks/posthog-weekly-coach-capture.sh"
           }
         ]
       }

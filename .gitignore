@@ -26,5 +26,8 @@ Thumbs.db
 # Job research — personal, not for repo
 jobs/
 
+# Weekly coach — personal, not for repo
+weeks/
+
 # Playwright MCP scratch dir
 .playwright-mcp/
