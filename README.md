@@ -8,11 +8,13 @@ Top-level: a personal assistant that lives in this repo. Underneath: discrete **
 
 ## Use cases
 
-| Use case | Status | Trigger | What it does |
-|---|---|---|---|
-| **Email Chief of Staff** | shipped | `/triage` | Daily triage across Gmail + Calendar. P0/P1/P2 brief tuned to your priorities, team, voice. Draft replies activate the `email-reply` skill — voice-matched, banned-phrase-aware, correct CCs. Hook auto-logs every run for monthly pattern review. |
-| **Job Researcher** | shipped | `/research-job <jd-or-link>` · `/update-job <slug>` · pasted JD / "interviewing at X" / "had a call w/ <co>" | Deep research per company w/ parallel subagents (company / role / comp / interviewers / Granola). Verification pass cross-checks numbers. Synthesizes candidate-personalized doc under `jobs/<slug>/`. Re-runs append dated updates — running doc as memory. Light update path pulls fresh Granola (w/ deeplink) + folds in notes, no re-research. |
-| **Growth Buddy** | shipped | `/weekly-coach` | Monday reflection + planning coach. Pulls annual charter, weekly to-do sheet, daily-log monthly Docs via public Google export endpoints (no GCP, no MCP). Surfaces 6-week patterns — avoidance, drift, breakthroughs. Writes `weeks/<ISO>/` (reflection / plan / patterns). Plan rendered in your exact sheet column format. Stop-hook posts `weekly_coach_run` event to PostHog w/ counts. |
+
+| Use case                       | Trigger                                                                                                  | What it does                                                                                                                                                                                                                                                                                                                                                                                |
+| ------------------------------ | -------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Email Chief of Staff (WIP)** | `/triage`                                                                                                | Daily triage across Gmail + Calendar. P0/P1/P2 brief tuned to your priorities, team, voice. Draft replies activate the `email-reply` skill — voice-matched, banned-phrase-aware, correct CCs. Hook auto-logs every run for monthly pattern review. Context refinement pending, gcal mcp connection pending.                                                                                 |
+| **Job Researcher**             | `/research-job <jd-or-link>` · `/update-job <slug>` · pasted JD / "interviewing at X" / "had a call w/ " | Deep research per company w/ parallel subagents (company / role / comp / interviewers / Granola). Verification pass cross-checks numbers. Synthesizes candidate-personalized doc under `jobs/<slug>/`. Re-runs append dated updates — running doc as memory. Light update path pulls fresh Granola (w/ deeplink) + folds in notes, no re-research.                                          |
+| **Weekly Coach**               | `/weekly-coach`                                                                                          | Monday reflection + planning coach. Pulls annual charter, weekly to-do sheet, daily-log monthly Docs via public Google export endpoints (no GCP, no MCP). Surfaces 6-week patterns — avoidance, drift, breakthroughs. Writes `weeks/<ISO>/` (reflection / plan / patterns). Plan rendered in your exact sheet column format. Stop-hook posts `weekly_coach_run` event to PostHog w/ counts. |
+
 
 ---
 
@@ -24,14 +26,15 @@ Every use case follows the same pattern:
 context/        # what Claude needs to know about you (priorities, voice, team, resume)
 commands/       # /slash entrypoints
 skills/         # auto-triggered behavior on natural-language signals
-hooks/          # silent persistence — logs, telemetry
+hooks/          # silent persistence — logs, telemetry.
 artifacts/      # running docs (logs/, jobs/<slug>/, ...) — memory, not snapshots
 ```
 
 The split matters:
+
 - **Commands** = explicit. You type them.
-- **Skills** = implicit. They fire on phrases ("draft a reply", "interviewing at X", "had a call w/ <co>").
-- **Hooks** = invisible. Run after tool calls, persist state.
+- **Skills** = implicit. They fire on phrases ("draft a reply", "interviewing at X", "had a call w/ ").
+- **Hooks** = invisible. Run after tool calls, persist state. Useful for transmitting events to posthog.
 - **Artifacts** = append-only. Re-runs add dated sections, never overwrite.
 
 ---
@@ -96,7 +99,7 @@ Pulls Gmail (Gmail MCP) + Calendar (Google Calendar MCP), reads `context/` files
 After triage flags an email:
 
 ```
-draft a reply to the Hartwell email
+draft a reply to the manoj email
 ```
 
 `email-reply` skill activates. Reads `communication-style.md` + `my-team.md` before writing. Output: short, direct, voice-matched, correct CCs. Banned phrases blocked.
@@ -108,7 +111,7 @@ Every triage fires a `PostToolUse` hook → `logs/weekly-log.md`. After a month:
  that doesn't match my stated priorities?"
 ```
 
-See [`demo/triage-before.md`](demo/triage-before.md) vs [`demo/triage-after.md`](demo/triage-after.md), [`demo/email-draft-before.md`](demo/email-draft-before.md) vs [`demo/email-draft-after.md`](demo/email-draft-after.md).
+See `[demo/triage-before.md](demo/triage-before.md)` vs `[demo/triage-after.md](demo/triage-after.md)`, `[demo/email-draft-before.md](demo/email-draft-before.md)` vs `[demo/email-draft-after.md](demo/email-draft-after.md)`.
 
 ---
 
@@ -133,9 +136,10 @@ Auto-triggers on JDs, job URLs, "interviewing at X", or pasted recruiter mail.
 /update-job plum
 ```
 
-Or natural: "had a call w/ Plum", "Plum debrief". Pulls fresh Granola (w/ deeplink), folds in pasted notes, appends `## Update — DATE` block. No re-research. Doc accumulates.
+Or natural: "had a call w/ Posthog", "Posthog debrief". Pulls fresh Granola (w/ deeplink), folds in pasted notes, appends `## Update — DATE` block. No re-research. Doc accumulates.
 
 **Hard rules:**
+
 - Auth-walled sources (LinkedIn, Levels.fyi) escalate to sandboxed Playwright profile at `~/.claude-playwright-profile`.
 - Every external reference embeds inline URL — no bare titles.
 - Every URL validated before write — no dead links propagated across artifacts.
@@ -186,9 +190,9 @@ claude
 
 Replace dummy data:
 
-- [`.claude/context/my-priorities.md`](.claude/context/my-priorities.md) — quarterly goals
-- [`.claude/context/my-team.md`](.claude/context/my-team.md) — manager, reports, stakeholders
-- [`.claude/context/communication-style.md`](.claude/context/communication-style.md) — voice + rules
+- `[.claude/context/my-priorities.md](.claude/context/my-priorities.md)` — quarterly goals
+- `[.claude/context/my-team.md](.claude/context/my-team.md)` — manager, reports, stakeholders
+- `[.claude/context/communication-style.md](.claude/context/communication-style.md)` — voice + rules
 
 For job-researcher: also seed `jobs/me/resume.md` + `jobs/me/interests.md` (skill auto-fetches from your site if missing).
 
@@ -198,8 +202,8 @@ Highest-leverage 20 minutes you'll spend.
 
 ### 3. Set up MCPs (optional)
 
-- Gmail + Calendar: [`setup/mcp-setup.md`](setup/mcp-setup.md) (~2 min)
-- PostHog telemetry: [`setup/posthog-setup.md`](setup/posthog-setup.md)
+- Gmail + Calendar: `[setup/mcp-setup.md](setup/mcp-setup.md)` (~2 min)
+- PostHog telemetry: `[setup/posthog-setup.md](setup/posthog-setup.md)`
 - Granola (job-researcher meeting pull): MCP entry already in `.mcp.json` — sign in once.
 - Playwright profile (auth-walled research): `~/.claude-playwright-profile` — sid logs into LinkedIn / Levels.fyi once, sessions persist.
 - Growth-buddy: no MCP needed. Public Google export endpoints used directly.
@@ -218,7 +222,7 @@ Highest-leverage 20 minutes you'll spend.
 ## Updating the system
 
 - **Daily:** `/triage` (email-cos). Hook auto-logs.
-- **Post-meeting:** `/update-job <slug>` or "had a call w/ <co>" — running doc accumulates.
+- **Post-meeting:** `/update-job <slug>` or "had a call w/ " — running doc accumulates.
 - **Weekly (Mon):** `/weekly-coach` — patterns file gets richer w/ every week of data.
 - **Monthly:** review `logs/weekly-log.md` vs `my-priorities.md`. Adjust context files where output drifted.
 - **Quarterly:** update `my-priorities.md` + annual charter. Whole system reorients.
@@ -228,10 +232,9 @@ Highest-leverage 20 minutes you'll spend.
 
 ## Resources
 
-- Demo: [`demo/`](demo/)
-- MCP setup: [`setup/mcp-setup.md`](setup/mcp-setup.md)
-- PostHog setup: [`setup/posthog-setup.md`](setup/posthog-setup.md)
+- MCP setup: `[setup/mcp-setup.md](setup/mcp-setup.md)`
+- PostHog setup: `[setup/posthog-setup.md](setup/posthog-setup.md)`
 
 ---
 
-Built by [Akshat Kharbanda](https://www.linkedin.com/in/akshatkharbanda/) · [@akshat2430](https://github.com/Akshat2430)
+Built by [siddharth](https://www.linkedin.com/in/siddharth-j/) with inspiration from [@akshat2430](https://github.com/Akshat2430) · [other projects](https://sidjainn.github.io)

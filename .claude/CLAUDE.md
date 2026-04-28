@@ -52,6 +52,7 @@ It uses commands, skills, and hooks together as a system — not one feature at 
 | `logs/weekly-log.md` | Auto-generated, gitignored |
 | `.claude/commands/weekly-coach.md` | The /weekly-coach command |
 | `skills/weekly-coach/SKILL.md` | Weekly reflection + planning skill (gdrive MCP) |
+| `.claude/context/charter-pillar-modes.md` | Pillar-mode tags (cadence/episodic/hybrid) — coach lens for charter coverage |
 | `.claude/hooks/posthog-weekly-coach-capture.sh` | PostHog event hook for weekly-coach |
 | `weeks/<ISO>/` | Per-week reflection, plan, patterns (gitignored) |
 | `logs/weekly-coach-log.md` | Append-only summary log (gitignored) |

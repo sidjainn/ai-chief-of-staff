@@ -13,14 +13,7 @@ Resolve via `date` command (the system shell, not memory):
 
 If sid passes a specific week argument (e.g. `/weekly-coach 2026-W17`), treat that as the prior week and the next ISO week as the planning week.
 
-## Step 2 — Load context
-
-Read in parallel:
-- `.claude/context/my-priorities.md` — current quarter focus
-- `.claude/context/my-team.md` — stakeholders
-- `.claude/context/communication-style.md` — voice rules
-
-## Step 3 — Activate skill
+## Step 2 — Activate skill
 
 Activate the `weekly-coach` skill at `skills/weekly-coach/SKILL.md`. Skill handles:
 - Pulling annual charter, weekly sheet (last 6 tabs), daily logs (last 14 days) via gdrive MCP
@@ -29,7 +22,7 @@ Activate the `weekly-coach` skill at `skills/weekly-coach/SKILL.md`. Skill handl
 - Writing `weeks/<ISO-week>/{reflection,plan,patterns}.md`
 - Appending summary to `logs/weekly-coach-log.md`
 
-## Step 4 — Output to chat
+## Step 3 — Output to chat
 
 Do NOT dump full plan or reflection inline. Show:
 
@@ -39,7 +32,7 @@ Do NOT dump full plan or reflection inline. Show:
 4. **3 coach questions back to sid** — sharp, specific, tied to a real pattern (not generic)
 5. Prompt: "Want to refine focus areas before I lock the plan?"
 
-## Step 5 — Iterate after sid responds
+## Step 4 — Iterate after sid responds
 
 If sid answers questions / pushes back / changes priorities:
 - Update `weeks/<ISO-week>/plan.md` accordingly.

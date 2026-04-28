@@ -127,11 +127,15 @@ path = sys.argv[1]
 hint_iso = sys.argv[2] if len(sys.argv) > 2 else ""
 result = {
     "iso_week": hint_iso or "",
-    "patterns_count": 0,
     "next_week_items": 0,
-    "charter_areas_covered": 0,
-    "avoidance_items": 0,
-    "breakthroughs": 0,
+    "rolled_over_items": 0,
+    "pillars_served": 0,
+    "pillars_total": 0,
+    "pillars_at_risk_count": 0,
+    "pillars_at_risk": [],
+    "pillars_episodic_due_count": 0,
+    "pillars_episodic_due": [],
+    "top_question": "",
     "intent": "",
 }
 
@@ -157,42 +161,68 @@ if not sections:
 
 last = sections[-1]
 result["iso_week"] = last.group(1)
-start = last.start()
-end = sections[-1].end() if len(sections) == 1 else len(text)
 # block = from this section header to next section header
 next_header = re.search(r"^## ", text[last.end():], flags=re.MULTILINE)
 block_end = last.end() + next_header.start() if next_header else len(text)
-block = text[start:block_end]
+block = text[last.start():block_end]
 
 def grab_int(key):
     m = re.search(rf"{key}\s*:\s*(\d+)", block, flags=re.IGNORECASE)
     return int(m.group(1)) if m else 0
 
-def grab_intent():
-    m = re.search(r"intent\s*:\s*(.+)", block, flags=re.IGNORECASE)
-    return m.group(1).strip()[:200] if m else ""
+def grab_string(key, max_len=400):
+    # Stop at end of line; strip surrounding quotes.
+    m = re.search(rf"{key}\s*:\s*(.+)", block, flags=re.IGNORECASE)
+    if not m:
+        return ""
+    val = m.group(1).strip()
+    if (val.startswith('"') and val.endswith('"')) or (val.startswith("'") and val.endswith("'")):
+        val = val[1:-1]
+    return val[:max_len]
 
 def grab_ratio(key):
     m = re.search(rf"{key}\s*:\s*(\d+)\s*/\s*(\d+)", block, flags=re.IGNORECASE)
-    return int(m.group(1)) if m else grab_int(key)
+    if m:
+        return int(m.group(1)), int(m.group(2))
+    return 0, 0
 
-result["patterns_count"] = grab_int("patterns_count")
+def grab_list(key):
+    # Match `key: [a, b, c]` — capture inside brackets, split on commas.
+    m = re.search(rf"{key}\s*:\s*\[([^\]]*)\]", block, flags=re.IGNORECASE)
+    if not m:
+        return []
+    raw = m.group(1).strip()
+    if not raw:
+        return []
+    items = [x.strip().strip('"').strip("'") for x in raw.split(",")]
+    return [x for x in items if x]
+
 result["next_week_items"] = grab_int("next_week_items")
-result["charter_areas_covered"] = grab_ratio("charter_areas_covered")
-result["avoidance_items"] = grab_int("avoidance_items")
-result["breakthroughs"] = grab_int("breakthroughs")
-result["intent"] = grab_intent()
+result["rolled_over_items"] = grab_int("rolled_over_items")
+served, total = grab_ratio("pillars_served")
+result["pillars_served"] = served
+result["pillars_total"] = total
+at_risk = grab_list("pillars_at_risk")
+result["pillars_at_risk"] = at_risk
+result["pillars_at_risk_count"] = len(at_risk)
+ep_due = grab_list("pillars_episodic_due")
+result["pillars_episodic_due"] = ep_due
+result["pillars_episodic_due_count"] = len(ep_due)
+result["top_question"] = grab_string("top_question")
+result["intent"] = grab_string("intent", 200)
 
 print(json.dumps(result))
 EOF
 )
 
 ISO_WEEK=$(echo "$COUNTS" | python3 -c "import sys, json; print(json.load(sys.stdin).get('iso_week') or '')")
-PATTERNS_COUNT=$(echo "$COUNTS" | python3 -c "import sys, json; print(json.load(sys.stdin).get('patterns_count') or 0)")
 NEXT_WEEK_ITEMS=$(echo "$COUNTS" | python3 -c "import sys, json; print(json.load(sys.stdin).get('next_week_items') or 0)")
-CHARTER_AREAS=$(echo "$COUNTS" | python3 -c "import sys, json; print(json.load(sys.stdin).get('charter_areas_covered') or 0)")
-AVOIDANCE_ITEMS=$(echo "$COUNTS" | python3 -c "import sys, json; print(json.load(sys.stdin).get('avoidance_items') or 0)")
-BREAKTHROUGHS=$(echo "$COUNTS" | python3 -c "import sys, json; print(json.load(sys.stdin).get('breakthroughs') or 0)")
+ROLLED_OVER_ITEMS=$(echo "$COUNTS" | python3 -c "import sys, json; print(json.load(sys.stdin).get('rolled_over_items') or 0)")
+PILLARS_SERVED=$(echo "$COUNTS" | python3 -c "import sys, json; print(json.load(sys.stdin).get('pillars_served') or 0)")
+PILLARS_TOTAL=$(echo "$COUNTS" | python3 -c "import sys, json; print(json.load(sys.stdin).get('pillars_total') or 0)")
+PILLARS_AT_RISK_COUNT=$(echo "$COUNTS" | python3 -c "import sys, json; print(json.load(sys.stdin).get('pillars_at_risk_count') or 0)")
+PILLARS_EPISODIC_DUE_COUNT=$(echo "$COUNTS" | python3 -c "import sys, json; print(json.load(sys.stdin).get('pillars_episodic_due_count') or 0)")
+TOP_QUESTION=$(echo "$COUNTS" | python3 -c "import sys, json; print(json.load(sys.stdin).get('top_question') or '')")
 INTENT=$(echo "$COUNTS" | python3 -c "import sys, json; print(json.load(sys.stdin).get('intent') or '')")
 
 # Idempotency: skip if (iso_week, date) already sent.
@@ -201,22 +231,27 @@ if [ -f "$SENT_LOG" ] && grep -qF "$SENT_KEY" "$SENT_LOG"; then
     exit 0
 fi
 
-log "Capturing weekly_coach_run (iso=$ISO_WEEK patterns=$PATTERNS_COUNT items=$NEXT_WEEK_ITEMS)"
+log "Capturing weekly_coach_run (iso=$ISO_WEEK items=$NEXT_WEEK_ITEMS rolled=$ROLLED_OVER_ITEMS pillars=$PILLARS_SERVED/$PILLARS_TOTAL at_risk=$PILLARS_AT_RISK_COUNT)"
 
-export POSTHOG_API_KEY DISTINCT_ID ISO_WEEK PATTERNS_COUNT NEXT_WEEK_ITEMS CHARTER_AREAS AVOIDANCE_ITEMS BREAKTHROUGHS INTENT DATE WEEK DOW
+export POSTHOG_API_KEY DISTINCT_ID ISO_WEEK NEXT_WEEK_ITEMS ROLLED_OVER_ITEMS PILLARS_SERVED PILLARS_TOTAL PILLARS_AT_RISK_COUNT PILLARS_EPISODIC_DUE_COUNT TOP_QUESTION INTENT DATE WEEK DOW COUNTS
 PAYLOAD=$(python3 -c "
 import json, os
+counts = json.loads(os.environ.get('COUNTS') or '{}')
 payload = {
     'api_key': os.environ['POSTHOG_API_KEY'],
     'event': 'weekly_coach_run',
     'distinct_id': os.environ['DISTINCT_ID'],
     'properties': {
         'iso_week': os.environ['ISO_WEEK'] or None,
-        'patterns_count': int(os.environ['PATTERNS_COUNT']),
         'next_week_items': int(os.environ['NEXT_WEEK_ITEMS']),
-        'charter_areas_covered': int(os.environ['CHARTER_AREAS']),
-        'avoidance_items': int(os.environ['AVOIDANCE_ITEMS']),
-        'breakthroughs': int(os.environ['BREAKTHROUGHS']),
+        'rolled_over_items': int(os.environ['ROLLED_OVER_ITEMS']),
+        'pillars_served': int(os.environ['PILLARS_SERVED']),
+        'pillars_total': int(os.environ['PILLARS_TOTAL']),
+        'pillars_at_risk_count': int(os.environ['PILLARS_AT_RISK_COUNT']),
+        'pillars_at_risk': counts.get('pillars_at_risk') or [],
+        'pillars_episodic_due_count': int(os.environ['PILLARS_EPISODIC_DUE_COUNT']),
+        'pillars_episodic_due': counts.get('pillars_episodic_due') or [],
+        'top_question': os.environ['TOP_QUESTION'] or None,
         'intent': os.environ['INTENT'] or None,
         'date': os.environ['DATE'],
         'week': os.environ['WEEK'],
