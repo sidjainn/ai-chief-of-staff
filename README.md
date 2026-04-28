@@ -23,11 +23,11 @@ Top-level: a personal assistant that lives in this repo. Underneath: discrete **
 Every use case follows the same pattern:
 
 ```
-context/        # what Claude needs to know about you (priorities, voice, team, resume)
-commands/       # /slash entrypoints
-skills/         # auto-triggered behavior on natural-language signals
-hooks/          # silent persistence — logs, telemetry.
-artifacts/      # running docs (logs/, jobs/<slug>/, ...) — memory, not snapshots
+.claude/context/   # what Claude needs to know about you (priorities, voice, team, resume)
+.claude/commands/  # /slash entrypoints
+.claude/skills/    # auto-triggered behavior on natural-language signals
+.claude/hooks/     # silent persistence — logs, telemetry.
+artifacts/         # running docs (logs/, jobs/<slug>/, ...) — memory, not snapshots
 ```
 
 The split matters:
@@ -55,16 +55,16 @@ ai-chief-of-staff/
 │   │   ├── research-job.md             # /research-job     (job-researcher)
 │   │   ├── update-job.md               # /update-job       (job-researcher)
 │   │   └── weekly-coach.md             # /weekly-coach     (growth-buddy)
+│   ├── skills/
+│   │   ├── email-reply/SKILL.md        # email-cos
+│   │   ├── job-research/SKILL.md       # job-researcher (full + light update)
+│   │   └── weekly-coach/SKILL.md       # growth-buddy (reflection + planning)
 │   ├── scripts/
 │   │   └── fetch-coach-sources.sh      # Pulls charter/sheet/daily-log via public export
 │   └── hooks/
 │       ├── post-triage-log.sh          # Auto-log after Gmail MCP
 │       ├── posthog-capture.sh          # Triage telemetry → PostHog
 │       └── posthog-weekly-coach-capture.sh  # Weekly-coach telemetry → PostHog
-├── skills/
-│   ├── email-reply/SKILL.md            # email-cos
-│   ├── job-research/SKILL.md           # job-researcher (full + light update)
-│   └── weekly-coach/SKILL.md           # growth-buddy (reflection + planning)
 ├── jobs/                               # job-researcher artifacts
 │   ├── me/
 │   │   ├── resume.md                   # Candidate lens

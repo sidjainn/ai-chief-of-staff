@@ -56,13 +56,5 @@
       "type": "http",
       "url": "https://gmail.mcp.claude.com/mcp"
     }
-  },
-  "skills": {
-    "email-reply": {
-      "path": "skills/email-reply"
-    },
-    "job-research": {
-      "path": "skills/job-research"
-    }
   }
 }

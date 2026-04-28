@@ -1,17 +1,16 @@
 ---
-
-## name: weekly-coach  
-description: Weekly reflection + next-week planning coach for sid. Triggers on /weekly-coach, "weekly review", "plan my week", "Monday planning", "let's reflect on the week", or when sid says he wants to think through the past week and plan ahead. Pulls annual charter, weekly to-do sheet (all dated tabs), daily-log monthly docs via public Google export endpoints (no MCP, no GCP project — sid's docs are shared "anyone with the link"). Surfaces multi-week patterns (avoidance, breakthroughs, charter coverage), writes reflection + plan to weeks, asks 3 sharp coach questions back. Plan rendered as a markdown table in sid's exact sheet column format for paste into a new sheet tab.  
-version: 1.1  
-author: sid  
-fetcher_script: .claude/scripts/fetch-coach-sources.sh  
-sources:  
-  charter_doc_id_env: WEEKLY_COACH_CHARTER_DOC_ID  
-  weekly_sheet_id_env: WEEKLY_COACH_SHEET_ID  
-  daily_log_folder_id_env: WEEKLY_COACH_DAILY_LOG_FOLDER_ID  
-  config_file: .env (gitignored — never commit)  
-notes:  
-  - Sheet tabs are named by week-start date (DD-MM-YYYY). Skip non-weekly tabs ("Learning resources", "Curiosities").  
+name: weekly-coach
+description: Weekly reflection + next-week planning coach for sid. Triggers on /weekly-coach, "weekly review", "plan my week", "Monday planning", "let's reflect on the week", or when sid says he wants to think through the past week and plan ahead. Pulls annual charter, weekly to-do sheet (all dated tabs), daily-log monthly docs via public Google export endpoints (no MCP, no GCP project — sid's docs are shared "anyone with the link"). Surfaces multi-week patterns (avoidance, breakthroughs, charter coverage), writes reflection + plan to weeks, asks 3 sharp coach questions back. Plan rendered as a markdown table in sid's exact sheet column format for paste into a new sheet tab.
+version: 1.1
+author: sid
+fetcher_script: .claude/scripts/fetch-coach-sources.sh
+sources:
+  charter_doc_id_env: WEEKLY_COACH_CHARTER_DOC_ID
+  weekly_sheet_id_env: WEEKLY_COACH_SHEET_ID
+  daily_log_folder_id_env: WEEKLY_COACH_DAILY_LOG_FOLDER_ID
+  config_file: .env (gitignored — never commit)
+notes:
+  - Sheet tabs are named by week-start date (DD-MM-YYYY). Skip non-weekly tabs ("Learning resources", "Curiosities").
   - Daily-log docs are one Google Doc per month titled " daily log YYYY". Each doc uses the Google Docs Tabs feature (one tab per day). Plain-text export concatenates all tabs.
 ---
 

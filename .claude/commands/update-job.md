@@ -8,7 +8,7 @@ You are running a **light update** on an existing job-research folder. Treat the
 
 ## What to do
 
-Activate the **`job-research`** skill in `skills/job-research/SKILL.md`. Follow the **§Update Workflow** section (not the full workflow).
+Activate the **`job-research`** skill in `.claude/skills/job-research/SKILL.md`. Follow the **§Update Workflow** section (not the full workflow).
 
 ## Input handling
 

@@ -42,16 +42,16 @@ It uses commands, skills, and hooks together as a system — not one feature at 
 | `.claude/context/my-team.md` | Who people are and how to handle them |
 | `.claude/context/communication-style.md` | How I write — voice and rules |
 | `.claude/commands/triage.md` | The /triage command |
-| `skills/email-reply/SKILL.md` | Email drafting skill |
+| `.claude/skills/email-reply/SKILL.md` | Email drafting skill |
 | `.claude/commands/research-job.md` | The /research-job command |
 | `.claude/commands/update-job.md` | The /update-job command (light post-meeting updates) |
-| `skills/job-research/SKILL.md` | Job research skill (auto-triggers on JDs/job URLs + meeting recaps) |
+| `.claude/skills/job-research/SKILL.md` | Job research skill (auto-triggers on JDs/job URLs + meeting recaps) |
 | `jobs/me/resume.md` | Sid's resume — read every job-research invocation |
 | `jobs/me/interests.md` | What sid wants in a role — used to score fit |
 | `.claude/hooks/post-triage-log.sh` | Auto-log hook |
 | `logs/weekly-log.md` | Auto-generated, gitignored |
 | `.claude/commands/weekly-coach.md` | The /weekly-coach command |
-| `skills/weekly-coach/SKILL.md` | Weekly reflection + planning skill (gdrive MCP) |
+| `.claude/skills/weekly-coach/SKILL.md` | Weekly reflection + planning skill (gdrive MCP) |
 | `.claude/context/charter-pillar-modes.md` | Pillar-mode tags (cadence/episodic/hybrid) — coach lens for charter coverage |
 | `.claude/hooks/posthog-weekly-coach-capture.sh` | PostHog event hook for weekly-coach |
 | `weeks/<ISO>/` | Per-week reflection, plan, patterns (gitignored) |

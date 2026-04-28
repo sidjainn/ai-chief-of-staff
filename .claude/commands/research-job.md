@@ -2,7 +2,7 @@ You are running deep job research for sid. Treat the user message after `/resear
 
 ## What to do
 
-Activate the **`job-research`** skill in `skills/job-research/SKILL.md` and follow it end-to-end. The skill defines the full workflow: bootstrap candidate context → parse input → create the per-company folder under `jobs/` → dispatch parallel subagents (company / role / comp / interviewers / Granola) → synthesize the running doc → ask follow-ups → re-synthesize.
+Activate the **`job-research`** skill in `.claude/skills/job-research/SKILL.md` and follow it end-to-end. The skill defines the full workflow: bootstrap candidate context → parse input → create the per-company folder under `jobs/` → dispatch parallel subagents (company / role / comp / interviewers / Granola) → synthesize the running doc → ask follow-ups → re-synthesize.
 
 Do not duplicate the skill's instructions here. The skill is the source of truth so command and skill stay in sync.
 

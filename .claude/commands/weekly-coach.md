@@ -15,7 +15,7 @@ If sid passes a specific week argument (e.g. `/weekly-coach 2026-W17`), treat th
 
 ## Step 2 — Activate skill
 
-Activate the `weekly-coach` skill at `skills/weekly-coach/SKILL.md`. Skill handles:
+Activate the `weekly-coach` skill at `.claude/skills/weekly-coach/SKILL.md`. Skill handles:
 - Pulling annual charter, weekly sheet (last 6 tabs), daily logs (last 14 days) via gdrive MCP
 - Detecting sheet column schema dynamically
 - Pattern analysis (repeats / drift / breakthroughs / energy / cadence)

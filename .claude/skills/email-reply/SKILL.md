@@ -1,13 +1,13 @@
 ---
-
-## name: email-reply
+name: email-reply
 description: Draft a reply to an email in sid's voice — direct, concise, relationship-aware
 version: 1.0
-author: sid 
+author: sid
 referenced_files:
   - .claude/context/communication-style.md
   - .claude/context/my-team.md
   - .claude/context/my-priorities.md
+---
 
 # Email Reply Skill
 
