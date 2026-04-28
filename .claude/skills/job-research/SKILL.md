@@ -85,7 +85,7 @@ If the input is just a company name with no role, ask which role. If it's just a
 
 ### Step 3.5 — Auth-walled sources (Playwright escalation)
 
-LinkedIn, X / Twitter, Glassdoor, Levels.fyi, and similar sources frequently block plain `WebFetch` with 403 / login walls. The project ships a Playwright MCP with a persistent Chrome profile at `/Users/sid-j/.claude-playwright-profile` — sid logs in once per source, sessions persist across runs.
+LinkedIn, X / Twitter, Glassdoor, Levels.fyi, and similar sources frequently block plain `WebFetch` with 403 / login walls. The project ships a Playwright MCP with a persistent Chrome profile at `~/.claude-playwright-profile` (resolved from `${HOME}` in `.mcp.json`) — log in once per source, sessions persist across runs.
 
 Rules for subagents (especially `interviewer-profiler`, `comp-triangulator`, `company-researcher`):
 

@@ -20,7 +20,7 @@
       "args": [
         "@playwright/mcp@latest",
         "--user-data-dir",
-        "/Users/sid-j/.claude-playwright-profile"
+        "${HOME}/.claude-playwright-profile"
       ]
     }
   }
