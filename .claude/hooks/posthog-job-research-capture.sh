@@ -18,8 +18,9 @@ TS=$(date +"%s")
 mkdir -p "$PROJECT_ROOT/logs"
 log() { echo "[$(date '+%H:%M:%S')] [posthog-jr] $*" >> "$DEBUG_LOG"; }
 
-# Load POSTHOG_API_KEY from project .env (gitignored) if present and not already in env.
-if [ -z "$POSTHOG_API_KEY" ] && [ -f "$PROJECT_ROOT/.env" ]; then
+# Project-local .env wins over inherited shell env (PostHog Code wrapper sets its own pha_ key
+# that routes to a different project). Always source if present.
+if [ -f "$PROJECT_ROOT/.env" ]; then
     set -a
     # shellcheck disable=SC1091
     source "$PROJECT_ROOT/.env"

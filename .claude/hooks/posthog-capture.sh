@@ -17,6 +17,14 @@ DOW=$(date +"%A")
 mkdir -p "$PROJECT_ROOT/logs"
 log() { echo "[$(date '+%H:%M:%S')] [posthog] $*" >> "$DEBUG_LOG"; }
 
+# Project-local .env wins over inherited shell env (PostHog Code wrapper sets its own pha_ key).
+if [ -f "$PROJECT_ROOT/.env" ]; then
+    set -a
+    # shellcheck disable=SC1091
+    . "$PROJECT_ROOT/.env"
+    set +a
+fi
+
 if [ -z "$POSTHOG_API_KEY" ]; then
     exit 0
 fi
