@@ -13,6 +13,19 @@ It uses commands, skills, and hooks together as a system — not one feature at 
 "draft a reply"                  # After triage flags an email
   └── activates email-reply skill
   └── reads communication-style.md + my-team.md
+
+/research-job <jd-or-link>       # Deep research on a job + company
+  └── reads jobs/me/             # Resume + interests as candidate lens
+  └── creates jobs/<slug>/       # Per-company running doc + research
+  └── dispatches subagents       # Company / role / comp / interviewers / Granola
+
+/update-job <slug-or-notes>      # Light post-meeting update on existing co
+  └── pulls fresh Granola         # New meetings since last update
+  └── folds in pasted notes       # Ad-hoc info from sid
+  └── appends ## Update — DATE   # Dated section, doesn't overwrite
+
+"had a call w/ <co>"             # Auto-triggers job-research skill
+  └── routes to update workflow  # If <co> already in jobs/
 ```
 
 ## Key files
@@ -24,6 +37,11 @@ It uses commands, skills, and hooks together as a system — not one feature at 
 | `.claude/context/communication-style.md` | How I write — voice and rules |
 | `.claude/commands/triage.md` | The /triage command |
 | `skills/email-reply/SKILL.md` | Email drafting skill |
+| `.claude/commands/research-job.md` | The /research-job command |
+| `.claude/commands/update-job.md` | The /update-job command (light post-meeting updates) |
+| `skills/job-research/SKILL.md` | Job research skill (auto-triggers on JDs/job URLs + meeting recaps) |
+| `jobs/me/resume.md` | Sid's resume — read every job-research invocation |
+| `jobs/me/interests.md` | What sid wants in a role — used to score fit |
 | `.claude/hooks/post-triage-log.sh` | Auto-log hook |
 | `logs/weekly-log.md` | Auto-generated, gitignored |
 
@@ -41,3 +59,17 @@ These files are the system's brain. Keep them current:
 - Hartwell Group emails always CC Marcus Webb and Sarah Chen
 - When in doubt about priority, refer to my-priorities.md
 - The weekly log is auto-generated — do not edit it manually
+
+## Voice — caveman mode
+
+Terse like caveman. Technical substance exact. Only fluff die.
+
+Drop: articles, filler (just/really/basically), pleasantries, hedging.
+
+Fragments OK. Short synonyms. Code unchanged.
+
+Pattern: [thing] [action] [reason]. [next step].
+
+ACTIVE EVERY RESPONSE. No revert after many turns. No filler drift.
+
+Code/commits/PRs: normal. Off: "stop caveman" / "normal mode".

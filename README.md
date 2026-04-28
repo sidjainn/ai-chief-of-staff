@@ -1,20 +1,38 @@
-# AI Chief of Staff
+# Personal Assistant
 
-> Built with Claude Code. Commands + Skills + Hooks working as a system.
-> From the talk: *"Build Your AI Chief of Staff in 45 Minutes with Claude Code"*
+> Built on Claude Code. Commands + skills + hooks wired into one system that gets smarter the more context you give it.
+
+Top-level: a personal assistant that lives in this repo. Underneath: discrete **use cases**, each a self-contained workflow w/ its own commands, skills, and artifacts. Add new ones without disturbing the others.
 
 ---
 
-## What this is
+## Use cases
 
-Most people use Claude Code one feature at a time. This repo shows what happens
-when you wire commands, skills, and hooks together into a personal triage and
-comms system — one that gets smarter the more context you give it.
+| Use case | Status | Trigger | What it does |
+|---|---|---|---|
+| **Email Chief of Staff** | shipped | `/triage` | Daily triage across Gmail + Calendar. P0/P1/P2 brief tuned to your priorities, team, voice. Draft replies activate the `email-reply` skill — voice-matched, banned-phrase-aware, correct CCs. Hook auto-logs every run for monthly pattern review. |
+| **Job Researcher** | shipped | `/research-job <jd-or-link>` · `/update-job <slug>` · pasted JD / "interviewing at X" / "had a call w/ <co>" | Deep research per company w/ parallel subagents (company / role / comp / interviewers / Granola). Verification pass cross-checks numbers. Synthesizes candidate-personalized doc under `jobs/<slug>/`. Re-runs append dated updates — running doc as memory. Light update path pulls fresh Granola (w/ deeplink) + folds in notes, no re-research. |
+| **Growth Buddy** | upcoming | TBD | Tracks personal growth goals, weekly check-ins, surfaces drift vs stated intent. Reuses log/context spine. |
 
-**The system does three things:**
-1. Runs a daily triage across your email and calendar (`/triage`)
-2. Drafts replies that actually sound like you (`email-reply` skill)
-3. Logs every triage automatically to build a personal work pattern record (hook)
+---
+
+## How a use case is built
+
+Every use case follows the same pattern:
+
+```
+context/        # what Claude needs to know about you (priorities, voice, team, resume)
+commands/       # /slash entrypoints
+skills/         # auto-triggered behavior on natural-language signals
+hooks/          # silent persistence — logs, telemetry
+artifacts/      # running docs (logs/, jobs/<slug>/, ...) — memory, not snapshots
+```
+
+The split matters:
+- **Commands** = explicit. You type them.
+- **Skills** = implicit. They fire on phrases ("draft a reply", "interviewing at X", "had a call w/ <co>").
+- **Hooks** = invisible. Run after tool calls, persist state.
+- **Artifacts** = append-only. Re-runs add dated sections, never overwrite.
 
 ---
 
@@ -23,51 +41,48 @@ comms system — one that gets smarter the more context you give it.
 ```
 ai-chief-of-staff/
 ├── .claude/
-│   ├── CLAUDE.md                    # Project rules for Claude
-│   ├── settings.json                # MCP servers + hook config
-│   ├── context/
-│   │   ├── my-priorities.md         # Your Q1/Q2 focus areas
-│   │   ├── communication-style.md   # Your voice, tone, rules
-│   │   └── my-team.md               # Who people are and how to handle them
+│   ├── CLAUDE.md                       # Project rules
+│   ├── settings.json                   # MCP servers + hooks
+│   ├── context/                        # Shared spine across use cases
+│   │   ├── my-priorities.md            # Quarterly focus
+│   │   ├── my-team.md                  # Stakeholders + handling
+│   │   └── communication-style.md      # Voice + banned phrases
 │   ├── commands/
-│   │   └── triage.md                # /triage command
+│   │   ├── triage.md                   # /triage           (email-cos)
+│   │   ├── research-job.md             # /research-job     (job-researcher)
+│   │   └── update-job.md               # /update-job       (job-researcher)
 │   └── hooks/
-│       └── post-triage-log.sh       # Auto-log hook (runs after Gmail MCP calls)
+│       └── post-triage-log.sh          # Auto-log after Gmail MCP
 ├── skills/
-│   └── email-reply/
-│       └── SKILL.md                 # Email reply skill with voice instructions
-├── logs/
-│   └── .gitkeep                     # weekly-log.md lives here (gitignored)
-├── demo/
-│   ├── triage-before.md             # What triage looks like with no context
-│   ├── triage-after.md              # What triage looks like with context
-│   ├── email-draft-before.md        # Generic email draft (no skill)
-│   └── email-draft-after.md         # Voice-matched email draft (with skill)
-└── setup/
-    └── mcp-setup.md                 # Step-by-step Gmail + Calendar MCP setup
+│   ├── email-reply/SKILL.md            # email-cos
+│   └── job-research/SKILL.md           # job-researcher (full + light update)
+├── jobs/                               # job-researcher artifacts
+│   ├── me/
+│   │   ├── resume.md                   # Candidate lens
+│   │   └── interests.md                # Yes/no signals
+│   └── <company-slug>/                 # Auto-created per company
+│       ├── README.md                   # TL;DR + fit + questions
+│       ├── company.md, jd.md, comp.md
+│       ├── interviewers/<name>.md
+│       └── meetings/<date>-<slug>.md   # Granola summary w/ deeplink
+├── logs/                               # email-cos artifacts (gitignored)
+│   └── weekly-log.md
+├── demo/                               # Before/after walkthroughs
+└── setup/                              # MCP + PostHog setup guides
 ```
 
 ---
 
-## How it works
-
-### Act 1 — Command + Context
+## Use case 1 — Email Chief of Staff
 
 ```
 /triage
 ```
 
-Claude pulls your email (Gmail MCP) and calendar (Google Calendar MCP),
-reads your three context files, then produces a P0/P1/P2 triage brief.
+Pulls Gmail (Gmail MCP) + Calendar (Google Calendar MCP), reads `context/` files, produces P0/P1/P2 brief.
 
-Without context files: generic summaries, no prioritization.
-With context files: knows your stakeholders, your deadlines, your noise filters.
-
-See the difference: [`demo/triage-before.md`](demo/triage-before.md) vs [`demo/triage-after.md`](demo/triage-after.md)
-
----
-
-### Act 2 — Skill
+- **Without context:** generic summaries, no prioritization.
+- **With context:** knows stakeholders, deadlines, noise filters.
 
 After triage flags an email:
 
@@ -75,109 +90,111 @@ After triage flags an email:
 draft a reply to the Hartwell email
 ```
 
-The `email-reply` skill activates. It reads your `communication-style.md`
-and `my-team.md` before writing a single word.
+`email-reply` skill activates. Reads `communication-style.md` + `my-team.md` before writing. Output: short, direct, voice-matched, correct CCs. Banned phrases blocked.
 
-Without skill: polished, generic, full of banned phrases.
-With skill: short, direct, sounds like you, correct CCs.
+Every triage fires a `PostToolUse` hook → `logs/weekly-log.md`. After a month:
 
-See the difference: [`demo/email-draft-before.md`](demo/email-draft-before.md) vs [`demo/email-draft-after.md`](demo/email-draft-after.md)
+```
+"Look at last month of logs. What patterns? Where am I spending time
+ that doesn't match my stated priorities?"
+```
+
+See [`demo/triage-before.md`](demo/triage-before.md) vs [`demo/triage-after.md`](demo/triage-after.md), [`demo/email-draft-before.md`](demo/email-draft-before.md) vs [`demo/email-draft-after.md`](demo/email-draft-after.md).
 
 ---
 
-### Act 3 — Hook
-
-After every triage, a PostToolUse hook fires automatically:
-
-```json
-"PostToolUse": [{
-  "matcher": "mcp__gmail",
-  "hooks": [{ "type": "command", "command": "bash .claude/hooks/post-triage-log.sh" }]
-}]
-```
-
-This appends a structured entry to `logs/weekly-log.md`. After a month:
+## Use case 2 — Job Researcher
 
 ```
-"Look at my last month of logs. What patterns do you see?
- Where am I spending time that doesn't match my stated priorities?"
+/research-job https://jobs.lever.co/<co>/<id>
 ```
 
-The system gets smarter the longer you use it.
+Auto-triggers on JDs, job URLs, "interviewing at X", or pasted recruiter mail.
+
+**Full-research workflow:**
+
+1. Reads `jobs/me/resume.md` + `jobs/me/interests.md` — candidate lens.
+2. Dispatches parallel subagents: `company-researcher`, `role-analyzer`, `comp-triangulator`, `interviewer-profiler`, `granola-puller`. Each writes one file. Main agent never loads raw web fetches.
+3. Verification pass — cross-checks funding / headcount / comp / valuation across artifacts. Catches subagent hallucinations before synthesis.
+4. Synthesizes `jobs/<slug>/README.md` — TL;DR, fit score vs `interests.md`, comp band, interviewer notes, questions grouped by intent (preparation / de-risk / real problems).
+
+**Light update workflow:**
+
+```
+/update-job plum
+```
+
+Or natural: "had a call w/ Plum", "Plum debrief". Pulls fresh Granola (w/ deeplink), folds in pasted notes, appends `## Update — DATE` block. No re-research. Doc accumulates.
+
+**Hard rules:**
+- Auth-walled sources (LinkedIn, Levels.fyi) escalate to sandboxed Playwright profile at `~/.claude-playwright-profile`.
+- Every external reference embeds inline URL — no bare titles.
+- Every URL validated before write — no dead links propagated across artifacts.
+- Source-staleness tiers labeled: `priority` (last 6mo) / `context` (6mo–2yr) / `background` (>2yr).
+- Re-runs append, never overwrite. Running doc = memory.
+
+---
+
+## Use case 3 — Growth Buddy *(upcoming)*
+
+Personal-growth companion. Tracks goals across weeks, surfaces drift between stated intent and observed behavior, prompts weekly reviews. Will reuse the `logs/` spine + `context/my-priorities.md` so the same priority signal drives both work triage and personal growth.
+
+Status: design phase. Not yet wired.
 
 ---
 
 ## Quick start
 
-### 1. Clone and open
+### 1. Clone
 
 ```bash
 git clone https://github.com/Akshat2430/ai-chief-of-staff.git
 cd ai-chief-of-staff
-claude  # opens Claude Code in this directory
+claude
 ```
 
-### 2. Personalise your context files
+### 2. Personalize context
 
-Replace the dummy data in these three files with your own:
+Replace dummy data:
 
-- [`.claude/context/my-priorities.md`](.claude/context/my-priorities.md) — your Q1/Q2 goals
-- [`.claude/context/my-team.md`](.claude/context/my-team.md) — your manager, reports, key stakeholders
-- [`.claude/context/communication-style.md`](.claude/context/communication-style.md) — your voice and rules
+- [`.claude/context/my-priorities.md`](.claude/context/my-priorities.md) — quarterly goals
+- [`.claude/context/my-team.md`](.claude/context/my-team.md) — manager, reports, stakeholders
+- [`.claude/context/communication-style.md`](.claude/context/communication-style.md) — voice + rules
 
-This is the highest-leverage 20 minutes you'll spend.
+For job-researcher: also seed `jobs/me/resume.md` + `jobs/me/interests.md` (skill auto-fetches from your site if missing).
 
-### 3. Set up Gmail + Calendar MCPs (optional but recommended)
+Highest-leverage 20 minutes you'll spend.
 
-See [`setup/mcp-setup.md`](setup/mcp-setup.md) for the full guide (~2 minutes).
+### 3. Set up MCPs (optional)
 
-If you skip this: paste email content manually when running `/triage`.
-Everything else — the skill, the hook, the context — still works.
+- Gmail + Calendar: [`setup/mcp-setup.md`](setup/mcp-setup.md) (~2 min)
+- PostHog telemetry: [`setup/posthog-setup.md`](setup/posthog-setup.md)
+- Granola (job-researcher meeting pull): MCP entry already in `.mcp.json` — sign in once.
+- Playwright profile (auth-walled research): `~/.claude-playwright-profile` — sid logs into LinkedIn / Levels.fyi once, sessions persist.
 
-### 4. Run your first triage
-
-```
-/triage
-```
-
----
-
-## The system loop
+### 4. Run
 
 ```
-Morning                     Afternoon / Evening
-   │                               │
-/triage                    "Look at my logs.
-   │                        What patterns do
-   ├── reads context/        you see?"
-   │   (priorities,               │
-   │    team, style)        weekly-log.md
-   │                        → monthly review
-   ├── produces brief             │
-   │                        → update context
-   └── "draft a reply"           files
-         │
-    email-reply skill        System gets smarter
-         │                   every week
-    voice-matched draft
+/triage                                  # email-cos
+/research-job <jd-or-link>               # job-researcher
+/update-job <slug>                       # post-meeting light update
 ```
 
 ---
 
 ## Updating the system
 
-**Monthly:** Ask Claude to review `logs/weekly-log.md` and compare against `my-priorities.md`. Adjust context files based on what's drifted.
-
-**Quarterly:** Update `my-priorities.md`. The whole system reorients around it automatically.
-
-**When output feels off:** Correct Claude once, then update the relevant context file so you never have to correct it twice.
+- **Monthly:** review `logs/weekly-log.md` vs `my-priorities.md`. Adjust context files where output drifted.
+- **Quarterly:** update `my-priorities.md`. Whole system reorients.
+- **Output off?** Correct Claude once, then update the relevant context file. Never correct twice.
 
 ---
 
-## Talk resources
+## Resources
 
-- Demo walkthrough: see the `demo/` folder
+- Demo: [`demo/`](demo/)
 - MCP setup: [`setup/mcp-setup.md`](setup/mcp-setup.md)
+- PostHog setup: [`setup/posthog-setup.md`](setup/posthog-setup.md)
 
 ---
 
