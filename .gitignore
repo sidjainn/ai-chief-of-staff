@@ -1,6 +1,5 @@
-# Auto-generated triage logs — local only
-logs/weekly-log.md
-logs/*.log
+# Auto-generated logs — local only, never commit (may contain doc IDs / personal data)
+logs/
 
 # Environment variables — never commit
 .env
@@ -25,6 +24,9 @@ Thumbs.db
 
 # Job research — personal, not for repo
 jobs/
+
+# Weekly coach — personal, not for repo
+weeks/
 
 # Playwright MCP scratch dir
 .playwright-mcp/

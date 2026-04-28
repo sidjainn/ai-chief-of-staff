@@ -26,6 +26,12 @@ It uses commands, skills, and hooks together as a system — not one feature at 
 
 "had a call w/ <co>"             # Auto-triggers job-research skill
   └── routes to update workflow  # If <co> already in jobs/
+
+/weekly-coach                    # Weekly reflection + next-week planning
+  └── pulls charter + sheet + daily logs (gdrive MCP)
+  └── 6-week pattern detection   # Avoidance / drift / breakthroughs
+  └── writes weeks/<ISO>/        # reflection.md + plan.md + patterns.md
+  └── appends weekly-coach-log   # Hook captures counts to PostHog
 ```
 
 ## Key files
@@ -44,6 +50,11 @@ It uses commands, skills, and hooks together as a system — not one feature at 
 | `jobs/me/interests.md` | What sid wants in a role — used to score fit |
 | `.claude/hooks/post-triage-log.sh` | Auto-log hook |
 | `logs/weekly-log.md` | Auto-generated, gitignored |
+| `.claude/commands/weekly-coach.md` | The /weekly-coach command |
+| `skills/weekly-coach/SKILL.md` | Weekly reflection + planning skill (gdrive MCP) |
+| `.claude/hooks/posthog-weekly-coach-capture.sh` | PostHog event hook for weekly-coach |
+| `weeks/<ISO>/` | Per-week reflection, plan, patterns (gitignored) |
+| `logs/weekly-coach-log.md` | Append-only summary log (gitignored) |
 
 ## Updating your context
 
