@@ -181,7 +181,7 @@ Coach voice — pushes back. Names the question you're avoiding. Asks 3 sharp qu
 ### 1. Clone
 
 ```bash
-git clone https://github.com/Akshat2430/ai-chief-of-staff.git
+git clone https://github.com/sidjainn/ai-chief-of-staff.git
 cd ai-chief-of-staff
 claude
 ```
