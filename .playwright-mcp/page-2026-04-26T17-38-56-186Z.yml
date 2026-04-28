@@ -1,0 +1,985 @@
+- generic [active] [ref=e1]:
+  - generic:
+    - region "Toast message":
+      - heading "0 notifications total" [level=2] [ref=e3]
+      - alert
+  - generic [ref=e4]:
+    - generic [ref=e6]:
+      - button "Skip to search" [ref=e7] [cursor=pointer]:
+        - generic [ref=e8]: Skip to search
+      - button "Skip to main content" [ref=e9] [cursor=pointer]:
+        - generic [ref=e10]: Skip to main content
+      - button "Keyboard shortcuts" [ref=e11] [cursor=pointer]:
+        - generic [ref=e12]: Keyboard shortcuts
+      - button "Close jump menu" [ref=e13] [cursor=pointer]:
+        - img [ref=e14]
+        - generic [ref=e16]: Close jump menu
+    - banner "Global Navigation" [ref=e17]:
+      - generic [ref=e18]:
+        - link "LinkedIn" [ref=e19] [cursor=pointer]:
+          - /url: https://www.linkedin.com/feed/?nis=true
+          - img "LinkedIn" [ref=e22]:
+            - img [ref=e23]
+        - generic [ref=e27]:
+          - combobox "Search" [ref=e28]
+          - generic:
+            - img
+        - navigation "Primary Navigation" [ref=e29]:
+          - list [ref=e30]:
+            - listitem [ref=e31]:
+              - link "new feed updates notifications Home" [ref=e32] [cursor=pointer]:
+                - /url: https://www.linkedin.com/feed/?nis=true&
+                - generic [ref=e33]:
+                  - generic [ref=e36]: new feed updates notifications
+                  - img [ref=e40]
+                - generic "Home" [ref=e42]
+            - listitem [ref=e43]:
+              - link "My Network" [ref=e44] [cursor=pointer]:
+                - /url: https://www.linkedin.com/mynetwork/?
+                - img [ref=e48]
+                - generic "My Network" [ref=e50]
+            - listitem [ref=e51]:
+              - link "Jobs" [ref=e52] [cursor=pointer]:
+                - /url: https://www.linkedin.com/jobs/?
+                - img [ref=e56]
+                - generic "Jobs" [ref=e58]
+            - listitem [ref=e59]:
+              - link "Messaging" [ref=e60] [cursor=pointer]:
+                - /url: https://www.linkedin.com/messaging/?
+                - img [ref=e64]
+                - generic "Messaging" [ref=e66]
+            - listitem [ref=e67]:
+              - link "Notifications" [ref=e68] [cursor=pointer]:
+                - /url: https://www.linkedin.com/notifications/?
+                - img [ref=e72]
+                - generic "Notifications" [ref=e74]
+            - listitem [ref=e75]:
+              - button "Rekha Jain Me" [ref=e77] [cursor=pointer]:
+                - img "Rekha Jain" [ref=e78]
+                - generic [ref=e79]:
+                  - text: Me
+                  - img [ref=e80]
+            - listitem [ref=e82]:
+              - button "For Business" [ref=e84] [cursor=pointer]:
+                - img [ref=e88]
+                - generic "For Business" [ref=e90]:
+                  - text: For Business
+                  - img [ref=e91]
+            - listitem [ref=e93]:
+              - link "Try Premium for ₹0" [ref=e95] [cursor=pointer]:
+                - /url: javascript:void(0)
+                - generic [ref=e96]:
+                  - img [ref=e97]
+                  - generic [ref=e99]: Try Premium for ₹0
+    - generic [ref=e102]:
+      - generic [ref=e103]:
+        - generic [ref=e467]:
+          - generic [ref=e468] [cursor=pointer]:
+            - img "Saurabh Arora" [ref=e470]
+            - generic [ref=e471]:
+              - generic [ref=e472]: Saurabh Arora
+              - generic [ref=e473]: co-founder Plum. We're hiring across product & engineering roles. plumhq.com/careers
+          - generic [ref=e476]:
+            - button "More actions" [ref=e479] [cursor=pointer]:
+              - generic [ref=e480]: More
+            - button "Message Saurabh" [ref=e482] [cursor=pointer]:
+              - generic [ref=e483]: Message
+            - button "Follow Saurabh Arora" [ref=e484] [cursor=pointer]:
+              - img [ref=e485]
+              - generic [ref=e487]: Follow
+        - generic [ref=e105]:
+          - main [ref=e106]:
+            - generic [ref=e107]:
+              - button "Background Image" [ref=e110] [cursor=pointer]:
+                - img "Background Image" [ref=e112]
+              - generic [ref=e113]:
+                - button "open profile picture" [ref=e117] [cursor=pointer]:
+                  - img "Saurabh Arora" [ref=e118]
+                - generic [ref=e120]:
+                  - generic [ref=e121]:
+                    - link "Saurabh Arora" [ref=e124] [cursor=pointer]:
+                      - /url: /in/saurabhplum/overlay/about-this-profile/
+                      - heading "Saurabh Arora" [level=1] [ref=e125]
+                      - img [ref=e488]
+                    - generic [ref=e126]: co-founder Plum. We're hiring across product & engineering roles. plumhq.com/careers
+                  - list [ref=e490]:
+                    - listitem [ref=e491]:
+                      - 'button "Current company: Plum HQ. Click to skip to experience card" [ref=e492] [cursor=pointer]':
+                        - generic [ref=e494]: Plum HQ
+                    - listitem [ref=e495]:
+                      - 'button "Education: DTU - Technical University of Denmark. Click to skip to education card" [ref=e496] [cursor=pointer]':
+                        - generic [ref=e498]: DTU - Technical University of Denmark
+                  - generic [ref=e127]:
+                    - generic [ref=e128]: Bengaluru, Karnataka, India
+                    - generic [ref=e129]:
+                      - text: ·
+                      - link "Contact info" [ref=e130] [cursor=pointer]:
+                        - /url: /in/saurabhplum/overlay/contact-info/
+                - list [ref=e499]:
+                  - listitem [ref=e500]: 21,446 followers ·
+                  - listitem [ref=e501]:
+                    - generic [ref=e502]: 500+ connections
+                - generic [ref=e503]:
+                  - button "Follow Saurabh Arora" [ref=e504] [cursor=pointer]:
+                    - img [ref=e505]
+                    - generic [ref=e507]: Follow
+                  - button "Message Saurabh" [ref=e509] [cursor=pointer]:
+                    - generic [ref=e510]: Message
+                  - button "More actions" [ref=e512] [cursor=pointer]:
+                    - generic [ref=e513]: More
+            - generic [ref=e514]:
+              - generic [ref=e517]:
+                - generic [ref=e518]:
+                  - heading "Activity" [level=2] [ref=e519]:
+                    - generic [ref=e520]: Activity
+                    - generic [ref=e521]: Activity
+                  - paragraph [ref=e522]:
+                    - generic [ref=e523]: 21,446 followers
+                    - generic [ref=e524]: 21,446 followers
+                - button "Follow Saurabh Arora" [ref=e527] [cursor=pointer]:
+                  - img [ref=e528]
+                  - generic [ref=e530]: Follow
+              - group "Select type of recent activity" [ref=e533]:
+                - button "Posts" [pressed] [ref=e534] [cursor=pointer]:
+                  - generic [ref=e535]: Posts
+                - button "Comments" [ref=e536] [cursor=pointer]:
+                  - generic [ref=e537]: Comments
+                - button "Videos" [ref=e538] [cursor=pointer]:
+                  - generic [ref=e539]: Videos
+                - button "Images" [ref=e540] [cursor=pointer]:
+                  - generic [ref=e541]: Images
+              - generic [ref=e545]:
+                - generic [ref=e546]: Loaded 9 Posts posts
+                - generic [ref=e547]:
+                  - list [ref=e551]:
+                    - listitem [ref=e552]:
+                      - article [ref=e556]:
+                        - generic [ref=e559]:
+                          - generic [ref=e561]:
+                            - link "Saurabh’s profile photo" [ref=e562] [cursor=pointer]:
+                              - /url: https://www.linkedin.com/in/saurabhplum?miniProfileUrn=urn%3Ali%3Afsd_profile%3AACoAAACx3kQB4erGXjlYByDdatJTyl0WK7mN8S0
+                              - img "Saurabh’s profile photo" [ref=e565]
+                            - generic [ref=e566]: Saurabh Arora reposted this
+                          - button "Open control menu for post by NDTV Profit" [ref=e569] [cursor=pointer]:
+                            - img [ref=e570]
+                          - generic [ref=e573]:
+                            - link "NDTV Profit, graphic." [ref=e574] [cursor=pointer]:
+                              - /url: https://www.linkedin.com/company/ndtvprofit/posts
+                            - generic [ref=e578]:
+                              - 'link "View: NDTV Profit 131,027 followers" [ref=e579] [cursor=pointer]':
+                                - /url: https://www.linkedin.com/company/ndtvprofit/posts
+                                - generic [ref=e582]:
+                                  - generic [ref=e584]: NDTV Profit
+                                  - generic [ref=e586]: NDTV Profit
+                                - generic [ref=e587]:
+                                  - generic [ref=e588]: 131,027 followers
+                                  - generic [ref=e589]: 131,027 followers
+                              - generic [ref=e590]:
+                                - generic [ref=e591]:
+                                  - text: 2d •
+                                  - img [ref=e594]
+                                - generic [ref=e596]: 2 days ago • Visible to anyone on or off LinkedIn
+                          - generic [ref=e597]:
+                            - link "Catch Tamanna Inamdar in a compelling new episode of The Disruptors as she sits down with Abhishek Poddar (Co-founder & CEO) and Saurabh Arora (Co-founder & CTO) of Plum. Join them as they delve into their entrepreneurial journey and discuss how they are revolutionizing the health insurance industry. Tune in to the conversation today at 6 PM, exclusively on NDTV Profit. see more, visually reveals content which is already detected by screen readers" [ref=e599] [cursor=pointer]:
+                              - /url: /feed/update/urn:li:activity:7453472069566226432/
+                              - generic [ref=e600]:
+                                - generic [ref=e603]:
+                                  - text: Catch
+                                  - link "Tamanna Inamdar" [ref=e605]:
+                                    - /url: /in/tamanna-inamdar-6325557/
+                                  - text: in a compelling new episode of The Disruptors as she sits down with
+                                  - link "Abhishek Poddar" [ref=e607]:
+                                    - /url: /in/abhishek24/
+                                  - text: (Co-founder & CEO) and
+                                  - link "Saurabh Arora" [ref=e609]:
+                                    - /url: /in/saurabhplum/
+                                  - text: (Co-founder & CTO) of
+                                  - link "Plum" [ref=e610]:
+                                    - /url: https://www.linkedin.com/company/plumhq/
+                                    - generic [ref=e612]: Plum
+                                  - text: .
+                                  - text: Join them as they delve into their entrepreneurial journey and discuss how they are revolutionizing the health insurance industry.
+                                  - text: Tune in to the conversation today at 6 PM, exclusively on NDTV Profit.
+                                - link "see more, visually reveals content which is already detected by screen readers" [ref=e613]:
+                                  - generic [ref=e614]: …more
+                            - link "Play video" [ref=e618] [cursor=pointer]:
+                              - /url: /feed/update/urn:li:activity:7453472069566226432/
+                              - button "Play video" [ref=e619]:
+                                - paragraph [ref=e620]:
+                                  - img "Play video" [ref=e621]
+                          - generic [ref=e623]:
+                            - list [ref=e627]:
+                              - listitem [ref=e628]:
+                                - link "118 reactions" [ref=e629] [cursor=pointer]:
+                                  - img "like" [ref=e630]
+                                  - img "love" [ref=e631]
+                                  - img "celebrate" [ref=e632]
+                                  - generic [ref=e633]: "118"
+                                - text: ·
+                              - listitem [ref=e634]:
+                                - list [ref=e635]:
+                                  - listitem [ref=e636]:
+                                    - link "2 comments on NDTV Profit’s post" [ref=e637] [cursor=pointer]:
+                                      - generic [ref=e638]: 2 comments
+                                    - text: ·
+                                  - listitem [ref=e639]:
+                                    - link "13 reposts of NDTV Profit’s post" [ref=e640] [cursor=pointer]:
+                                      - generic [ref=e641]: 13 reposts
+                            - generic [ref=e642]:
+                              - generic [ref=e643]:
+                                - button "React Like" [ref=e644] [cursor=pointer]:
+                                  - img [ref=e647]
+                                - button "Open reactions menu":
+                                  - img [ref=e650] [cursor=pointer]
+                              - link "Comment" [ref=e654] [cursor=pointer]:
+                                - img [ref=e655]
+                              - button "Repost" [ref=e658] [cursor=pointer]:
+                                - img [ref=e659]
+                              - button "Send in a private message" [ref=e663] [cursor=pointer]:
+                                - img [ref=e664]
+                    - listitem [ref=e666]:
+                      - article [ref=e670]:
+                        - generic [ref=e673]:
+                          - generic [ref=e675]:
+                            - link "Saurabh’s profile photo" [ref=e676] [cursor=pointer]:
+                              - /url: https://www.linkedin.com/in/saurabhplum?miniProfileUrn=urn%3Ali%3Afsd_profile%3AACoAAACx3kQB4erGXjlYByDdatJTyl0WK7mN8S0
+                              - img "Saurabh’s profile photo" [ref=e679]
+                            - generic [ref=e680]: Saurabh Arora reposted this
+                          - button "Open control menu for post by Priya Sunil Srinivasan (she/her)" [ref=e683] [cursor=pointer]:
+                            - img [ref=e684]
+                          - generic [ref=e687]:
+                            - link "View Priya Sunil Srinivasan (she/her)’s graphic link" [ref=e688] [cursor=pointer]:
+                              - /url: https://www.linkedin.com/in/priya-sunil-srinivasan-she-her-04546b8?miniProfileUrn=urn%3Ali%3Afsd_profile%3AACoAAAF94HUBmQSLJ59tFeNXeTDOq-xxF4-vf-4
+                              - img "View Priya Sunil Srinivasan (she/her)’s graphic link" [ref=e692]
+                            - generic [ref=e693]:
+                              - 'link "View: Priya Sunil Srinivasan (she/her) Verified • 3rd+ Vice President, People &amp; Talent @plum | Setting the standard for Employee Health &amp; Insurance" [ref=e694] [cursor=pointer]':
+                                - /url: https://www.linkedin.com/in/priya-sunil-srinivasan-she-her-04546b8?miniProfileUrn=urn%3Ali%3Afsd_profile%3AACoAAAF94HUBmQSLJ59tFeNXeTDOq-xxF4-vf-4
+                                - generic [ref=e695]:
+                                  - generic [ref=e697]:
+                                    - generic [ref=e698]: Priya Sunil Srinivasan (she/her)
+                                    - generic [ref=e699]: Priya Sunil Srinivasan (she/her)
+                                  - generic [ref=e700]:
+                                    - generic [ref=e701]:
+                                      - img [ref=e702]
+                                      - text: • 3rd+
+                                    - generic [ref=e704]: Verified • 3rd+
+                                - generic [ref=e705]:
+                                  - generic [ref=e706]: Vice President, People & Talent @plum | Setting the standard for Employee Health & Insurance
+                                  - generic [ref=e707]: Vice President, People & Talent @plum | Setting the standard for Employee Health & Insurance
+                              - generic [ref=e708]:
+                                - generic [ref=e709]:
+                                  - text: 2w •
+                                  - img [ref=e712]
+                                - generic [ref=e714]: 2 weeks ago • Visible to anyone on or off LinkedIn
+                          - link [ref=e717] [cursor=pointer]:
+                            - /url: /feed/update/urn:li:activity:7448339311583846400/
+                            - generic [ref=e718]:
+                              - generic [ref=e721]:
+                                - text: Hot take on DEI, it won't work unless it is a human priority.
+                                - text: During COVID, I had the time to actually sit with this. I enrolled in a DEI course with TISS & ODA and one thing hit me harder than anything else, diversity requires tolerance towards people who are not "like you." People who don't look like you, think like you, act like you. The dissonance is uncomfortable, and businesses don't like discomfort. Anything that challenges that sense of predictability, or sameness, gets quietly deprioritized.
+                                - text: We also do not acknowledge that DEI is less about equality and more about equity. Equity requires trade-offs. Trade-offs challenge the pace at which orgs want to grow. And there is very little patience to allow humans to do the actual development work needed to thrive.
+                                - text: I'm that People leader who hates celebrating Women's Day and Pride Month, much to the dismay of my People Success team too. I hate giving away tokenistic gifts or doing activities that celebrate these groups of people for that day and then go back to business as usual the next day.
+                                - text: People are messy. And organizations like things neatly laid out, from policies to furniture. So the tick-in-the-box activity always feels easier. Build the gender neutral bathroom but don't think about educating the team that's going to have a trans person join. Interview and hire from different communities but don't do the social audit required to correct the language you use every day. Write the policy but don't sit with the discomfort of what it actually asks of your managers, your culture, your people.
+                                - text: We keep confusing infrastructure for inclusion. One is visible. The other is work.
+                                - link "🏳️‍🌈 Praful Baweja 🌻" [ref=e723]:
+                                  - /url: /in/prafulbaweja/
+                                - text: wrote something for Humanize,
+                                - link "Plum" [ref=e724]:
+                                  - /url: https://www.linkedin.com/company/plumhq/
+                                  - generic [ref=e726]: Plum
+                                - text: ", I couldn't stop thinking about. He talks about the \"hyphenated human\", the person who doesn't fit into one box. No single-axis policy was ever built to hold the full complexity of who your people actually are."
+                                - text: Go read this piece (Link in comments). It's one of the more honest and grounded things written on DEI in a long time, especially for the Indian workplace context.
+                              - link "see more, visually reveals content which is already detected by screen readers" [ref=e727]:
+                                - generic [ref=e728]: …more
+                          - generic [ref=e729]:
+                            - list [ref=e733]:
+                              - listitem [ref=e734]:
+                                - link "81 reactions" [ref=e735] [cursor=pointer]:
+                                  - img "like" [ref=e736]
+                                  - img "love" [ref=e737]
+                                  - img "celebrate" [ref=e738]
+                                  - generic [ref=e739]: "81"
+                                - text: ·
+                              - listitem [ref=e740]:
+                                - list [ref=e741]:
+                                  - listitem [ref=e742]:
+                                    - link "7 comments on Priya Sunil Srinivasan (she/her)’s post" [ref=e743] [cursor=pointer]:
+                                      - generic [ref=e744]: 7 comments
+                                    - text: ·
+                                  - listitem [ref=e745]:
+                                    - link "3 reposts of Priya Sunil Srinivasan (she/her)’s post" [ref=e746] [cursor=pointer]:
+                                      - generic [ref=e747]: 3 reposts
+                            - generic [ref=e748]:
+                              - generic [ref=e749]:
+                                - button "React Like" [ref=e750] [cursor=pointer]:
+                                  - img [ref=e753]
+                                - button "Open reactions menu":
+                                  - img [ref=e756] [cursor=pointer]
+                              - link "Comment" [ref=e760] [cursor=pointer]:
+                                - img [ref=e761]
+                              - button "Repost" [ref=e764] [cursor=pointer]:
+                                - img [ref=e765]
+                              - button "Send in a private message" [ref=e769] [cursor=pointer]:
+                                - img [ref=e770]
+                    - listitem [ref=e772]
+                    - listitem [ref=e774]
+                    - listitem [ref=e776]
+                    - listitem [ref=e778]
+                    - listitem [ref=e780]
+                    - listitem [ref=e782]
+                    - listitem [ref=e784]
+                  - button "Navigate to next update" [ref=e787] [cursor=pointer]:
+                    - img [ref=e788]
+              - link "Show all posts" [ref=e792] [cursor=pointer]:
+                - /url: https://www.linkedin.com/in/saurabhplum/recent-activity/all/
+                - img [ref=e793]
+                - generic [ref=e795]: Show all posts
+            - generic [ref=e796]:
+              - heading "Experience" [level=2] [ref=e801]:
+                - generic [ref=e802]: Experience
+                - generic [ref=e803]: Experience
+              - generic [ref=e804]:
+                - list [ref=e805]:
+                  - listitem [ref=e806]:
+                    - generic [ref=e807]:
+                      - link "Plum logo" [ref=e809] [cursor=pointer]:
+                        - /url: https://www.linkedin.com/company/28689540/
+                        - img "Plum logo" [ref=e812]
+                      - generic [ref=e813]:
+                        - link "Co-Founder and CTO Plum HQ · Full-time 2019 to Present · 7 yrs 4 mos Greater Bengaluru Area" [ref=e815] [cursor=pointer]:
+                          - /url: https://www.linkedin.com/company/28689540/
+                          - generic [ref=e819]:
+                            - generic [ref=e820]: Co-Founder and CTO
+                            - generic [ref=e821]: Co-Founder and CTO
+                          - generic [ref=e822]:
+                            - generic [ref=e823]: Plum HQ · Full-time
+                            - generic [ref=e824]: Plum HQ · Full-time
+                          - generic [ref=e825]:
+                            - generic [ref=e826]: 2019 - Present · 7 yrs 4 mos
+                            - generic [ref=e827]: 2019 to Present · 7 yrs 4 mos
+                          - generic [ref=e828]:
+                            - generic [ref=e829]: Greater Bengaluru Area
+                            - generic [ref=e830]: Greater Bengaluru Area
+                        - list [ref=e832]:
+                          - listitem [ref=e833]:
+                            - list [ref=e835]:
+                              - listitem [ref=e836]:
+                                - generic [ref=e840]:
+                                  - generic [ref=e841]: Plum helps companies care better for their employees by offering accessible, inclusive, and simple group health insurance and benefits. A Tiger Global & Sequoia-backed company, Plum provides affordable digital-led solutions for organisations of all sizes to manage their employee health insurance & benefits plans. We eliminate the complexities associated with insurance and make it easy for employees to understand their policies, use their insurance & benefits, and initiate claims.
+                                  - generic [ref=e842]: Plum helps companies care better for their employees by offering accessible, inclusive, and simple group health insurance and benefits. A Tiger Global & Sequoia-backed company, Plum provides affordable digital-led solutions for organisations of all sizes to manage their employee health insurance & benefits plans. We eliminate the complexities associated with insurance and make it easy for employees to understand their policies, use their insurance & benefits, and initiate claims.
+                                  - button "…see more" [ref=e1719] [cursor=pointer]
+                          - listitem [ref=e843]:
+                            - list [ref=e845]:
+                              - listitem [ref=e846]:
+                                - link "Thumbnail for Employee Healthcare and Medical Benefits - Buy Online Employee Healthcare and Medical Benefits - Buy Online Plum helps companies care better for their employees by offering group health insurance and benefits that are accessible, inclusive, and simple. A Tiger Global & Sequoia-backed company, Plum provides affordable digital-led solutions for organisations of all sizes to manage their employee health insurance & benefits plans. We eliminate the complexities associated with insurance and make it easy for employees to understand their policies, use their insurance & benefits, and initiate claims." [ref=e847] [cursor=pointer]:
+                                  - /url: https://www.linkedin.com/in/saurabhplum/overlay/1635505146062/single-media-viewer?type=LINK&profileId=ACoAAACx3kQB4erGXjlYByDdatJTyl0WK7mN8S0
+                                  - generic [ref=e848]:
+                                    - generic "Thumbnail for Employee Healthcare and Medical Benefits - Buy Online" [ref=e850]:
+                                      - figure [ref=e851]
+                                    - generic [ref=e852]:
+                                      - generic [ref=e853]:
+                                        - generic [ref=e854]: Employee Healthcare and Medical Benefits - Buy Online
+                                        - generic [ref=e855]: Employee Healthcare and Medical Benefits - Buy Online
+                                      - generic [ref=e859]:
+                                        - generic [ref=e860]: Plum helps companies care better for their employees by offering group health insurance and benefits that are accessible, inclusive, and simple. A Tiger Global & Sequoia-backed company, Plum provides affordable digital-led solutions for organisations of all sizes to manage their employee health insurance & benefits plans. We eliminate the complexities associated with insurance and make it easy for employees to understand their policies, use their insurance & benefits, and initiate claims.
+                                        - generic [ref=e861]: Plum helps companies care better for their employees by offering group health insurance and benefits that are accessible, inclusive, and simple. A Tiger Global & Sequoia-backed company, Plum provides affordable digital-led solutions for organisations of all sizes to manage their employee health insurance & benefits plans. We eliminate the complexities associated with insurance and make it easy for employees to understand their policies, use their insurance & benefits, and initiate claims.
+                  - listitem [ref=e862]:
+                    - generic [ref=e863]:
+                      - link "Life Beyond Work logo" [ref=e865] [cursor=pointer]:
+                        - /url: https://www.linkedin.com/company/108756025/
+                        - img "Life Beyond Work logo" [ref=e868]
+                      - link "Moonlighting Musician Life Beyond Work · Full-time Jan 2018 to Present · 8 yrs 4 mos On-site" [ref=e871] [cursor=pointer]:
+                        - /url: https://www.linkedin.com/company/108756025/
+                        - generic [ref=e875]:
+                          - generic [ref=e876]: Moonlighting Musician
+                          - generic [ref=e877]: Moonlighting Musician
+                        - generic [ref=e878]:
+                          - generic [ref=e879]: Life Beyond Work · Full-time
+                          - generic [ref=e880]: Life Beyond Work · Full-time
+                        - generic [ref=e881]:
+                          - generic [ref=e882]: Jan 2018 - Present · 8 yrs 4 mos
+                          - generic [ref=e883]: Jan 2018 to Present · 8 yrs 4 mos
+                        - generic [ref=e884]:
+                          - generic [ref=e885]: On-site
+                          - generic [ref=e886]: On-site
+                  - listitem [ref=e887]:
+                    - generic [ref=e888]:
+                      - link "Co-Founder" [ref=e890] [cursor=pointer]:
+                        - /url: https://www.linkedin.com/search/results/all/?keywords=Startereum
+                        - generic [ref=e894]: Co-Founder
+                      - generic [ref=e895]:
+                        - link "Co-Founder Startereum Jan 2018 to Oct 2018 · 10 mos Bangalore" [ref=e897] [cursor=pointer]:
+                          - /url: https://www.linkedin.com/search/results/all/?keywords=Startereum
+                          - generic [ref=e901]:
+                            - generic [ref=e902]: Co-Founder
+                            - generic [ref=e903]: Co-Founder
+                          - generic [ref=e904]:
+                            - generic [ref=e905]: Startereum
+                            - generic [ref=e906]: Startereum
+                          - generic [ref=e907]:
+                            - generic [ref=e908]: Jan 2018 - Oct 2018 · 10 mos
+                            - generic [ref=e909]: Jan 2018 to Oct 2018 · 10 mos
+                          - generic [ref=e910]:
+                            - generic [ref=e911]: Bangalore
+                            - generic [ref=e912]: Bangalore
+                        - list [ref=e914]:
+                          - listitem [ref=e915]:
+                            - list [ref=e917]:
+                              - listitem [ref=e918]:
+                                - generic [ref=e922]:
+                                  - generic [ref=e923]: decentralizing innovation funding through the startereum community, platform and token. Check out the github repo attached to learn more about the project.
+                                  - generic [ref=e924]: decentralizing innovation funding through the startereum community, platform and token. Check out the github repo attached to learn more about the project.
+                          - listitem [ref=e925]:
+                            - list [ref=e927]:
+                              - listitem [ref=e928]:
+                                - link "Thumbnail for startereum/start startereum/start Documentation for Startereum project. Contribute to startereum/start development by creating an account on GitHub." [ref=e929] [cursor=pointer]:
+                                  - /url: https://www.linkedin.com/in/saurabhplum/overlay/1561324107378/single-media-viewer?type=LINK&profileId=ACoAAACx3kQB4erGXjlYByDdatJTyl0WK7mN8S0
+                                  - generic [ref=e930]:
+                                    - generic "Thumbnail for startereum/start" [ref=e932]:
+                                      - figure [ref=e933]
+                                    - generic [ref=e934]:
+                                      - generic [ref=e935]:
+                                        - generic [ref=e936]: startereum/start
+                                        - generic [ref=e937]: startereum/start
+                                      - generic [ref=e941]:
+                                        - generic [ref=e942]: Documentation for Startereum project. Contribute to startereum/start development by creating an account on GitHub.
+                                        - generic [ref=e943]: Documentation for Startereum project. Contribute to startereum/start development by creating an account on GitHub.
+                  - listitem [ref=e944]:
+                    - generic [ref=e945]:
+                      - link "Freshworks logo" [ref=e947] [cursor=pointer]:
+                        - /url: https://www.linkedin.com/company/1377014/
+                        - img "Freshworks logo" [ref=e950]
+                      - generic [ref=e951]:
+                        - link "Product Head Freshworks Jan 2016 to Dec 2017 · 2 yrs Chennai, Tamil Nadu, India" [ref=e953] [cursor=pointer]:
+                          - /url: https://www.linkedin.com/company/1377014/
+                          - generic [ref=e957]:
+                            - generic [ref=e958]: Product Head
+                            - generic [ref=e959]: Product Head
+                          - generic [ref=e960]:
+                            - generic [ref=e961]: Freshworks
+                            - generic [ref=e962]: Freshworks
+                          - generic [ref=e963]:
+                            - generic [ref=e964]: Jan 2016 - Dec 2017 · 2 yrs
+                            - generic [ref=e965]: Jan 2016 to Dec 2017 · 2 yrs
+                          - generic [ref=e966]:
+                            - generic [ref=e967]: Chennai, Tamil Nadu, India
+                            - generic [ref=e968]: Chennai, Tamil Nadu, India
+                        - list [ref=e970]:
+                          - listitem [ref=e971]:
+                            - list [ref=e973]:
+                              - listitem [ref=e974]:
+                                - generic [ref=e978]:
+                                  - generic [ref=e979]:
+                                    - text: Integration of Airwoot with Freshdesk Social. Dialog systems/bots & Automation.
+                                    - text: Products, Marketing & People Ops initiatives.
+                                  - generic [ref=e981]: Integration of Airwoot with Freshdesk Social. Dialog systems/bots & Automation. Products, Marketing & People Ops initiatives.
+                                  - button "…see more" [ref=e1721] [cursor=pointer]
+                  - listitem [ref=e982]:
+                    - generic [ref=e983]:
+                      - link "Airwoot logo" [ref=e985] [cursor=pointer]:
+                        - /url: https://www.linkedin.com/company/3287432/
+                        - img "Airwoot logo" [ref=e988]
+                      - generic [ref=e989]:
+                        - link "Founder & CEO (Acquired by Freshworks) Airwoot Jan 2012 to Dec 2015 · 4 yrs Greater Delhi Area" [ref=e991] [cursor=pointer]:
+                          - /url: https://www.linkedin.com/company/3287432/
+                          - generic [ref=e995]:
+                            - generic [ref=e996]: Founder & CEO (Acquired by Freshworks)
+                            - generic [ref=e997]: Founder & CEO (Acquired by Freshworks)
+                          - generic [ref=e998]:
+                            - generic [ref=e999]: Airwoot
+                            - generic [ref=e1000]: Airwoot
+                          - generic [ref=e1001]:
+                            - generic [ref=e1002]: Jan 2012 - Dec 2015 · 4 yrs
+                            - generic [ref=e1003]: Jan 2012 to Dec 2015 · 4 yrs
+                          - generic [ref=e1004]:
+                            - generic [ref=e1005]: Greater Delhi Area
+                            - generic [ref=e1006]: Greater Delhi Area
+                        - list [ref=e1008]:
+                          - listitem [ref=e1009]:
+                            - list [ref=e1011]:
+                              - listitem [ref=e1012]:
+                                - generic [ref=e1016]:
+                                  - generic [ref=e1017]:
+                                    - text: Today, we live in a world where customer intimacy & support increasingly drive brand success and technology is playing a growing role in enabling those scenarios through social media.
+                                    - text: "We at Airwoot are in the business of helping brands setup social concierge desks to deliver pro-active, real-time social engagement & customer support through social, at scale. Airwoot is an intelligent customer experience platform which uses natural language processing and machine learning to automatically identify customers who need engagement and help brands: ► Reduce response time ► Uncover business insights behind conversations ► Know the customers like never before ► Increase customer satisfaction"
+                                  - generic [ref=e1019]: "Today, we live in a world where customer intimacy & support increasingly drive brand success and technology is playing a growing role in enabling those scenarios through social media. We at Airwoot are in the business of helping brands setup social concierge desks to deliver pro-active, real-time social engagement & customer support through social, at scale. Airwoot is an intelligent customer experience platform which uses natural language processing and machine learning to automatically identify customers who need engagement and help brands: ► Reduce response time ► Uncover business insights behind conversations ► Know the customers like never before ► Increase customer satisfaction"
+                                  - button "…see more" [ref=e1723] [cursor=pointer]
+                          - listitem [ref=e1020]:
+                            - list [ref=e1022]:
+                              - listitem [ref=e1023]:
+                                - link "Thumbnail for Airwoot Philosophy Airwoot Philosophy" [ref=e1024] [cursor=pointer]:
+                                  - /url: https://www.linkedin.com/in/saurabhplum/overlay/50118097/single-media-viewer?type=LINK&profileId=ACoAAACx3kQB4erGXjlYByDdatJTyl0WK7mN8S0
+                                  - generic [ref=e1025]:
+                                    - generic "Thumbnail for Airwoot Philosophy" [ref=e1027]:
+                                      - figure [ref=e1028]
+                                    - generic [ref=e1030]:
+                                      - generic [ref=e1031]: Airwoot Philosophy
+                                      - generic [ref=e1032]: Airwoot Philosophy
+                - link "Show all 11 experiences" [ref=e1036] [cursor=pointer]:
+                  - /url: https://www.linkedin.com/in/saurabhplum/details/experience?profileUrn=urn%3Ali%3Afsd_profile%3AACoAAACx3kQB4erGXjlYByDdatJTyl0WK7mN8S0
+                  - generic [ref=e1037]: Show all 11 experiences
+                  - img [ref=e1039]
+            - generic [ref=e1041]:
+              - heading "Education" [level=2] [ref=e1046]:
+                - generic [ref=e1047]: Education
+                - generic [ref=e1048]: Education
+              - generic [ref=e1049]:
+                - list [ref=e1050]:
+                  - listitem [ref=e1051]:
+                    - generic [ref=e1052]:
+                      - link "DTU - Technical University of Denmark logo" [ref=e1054] [cursor=pointer]:
+                        - /url: https://www.linkedin.com/company/3933/
+                        - img "DTU - Technical University of Denmark logo" [ref=e1057]
+                      - link "DTU - Technical University of Denmark Dual Degree M.S, security and mobile computing 2008 - 2009" [ref=e1060] [cursor=pointer]:
+                        - /url: https://www.linkedin.com/company/3933/
+                        - generic [ref=e1064]:
+                          - generic [ref=e1065]: DTU - Technical University of Denmark
+                          - generic [ref=e1066]: DTU - Technical University of Denmark
+                        - generic [ref=e1067]:
+                          - generic [ref=e1068]: Dual Degree M.S, security and mobile computing
+                          - generic [ref=e1069]: Dual Degree M.S, security and mobile computing
+                        - generic [ref=e1070]:
+                          - generic [ref=e1071]: 2008 - 2009
+                          - generic [ref=e1072]: 2008 - 2009
+                  - listitem [ref=e1073]:
+                    - generic [ref=e1074]:
+                      - link "KTH Royal Institute of Technology logo" [ref=e1076] [cursor=pointer]:
+                        - /url: https://www.linkedin.com/company/4814/
+                        - img "KTH Royal Institute of Technology logo" [ref=e1079]
+                      - link "KTH Royal Institute of Technology Dual Degree M.S, security and mobile computing 2007 - 2008" [ref=e1082] [cursor=pointer]:
+                        - /url: https://www.linkedin.com/company/4814/
+                        - generic [ref=e1086]:
+                          - generic [ref=e1087]: KTH Royal Institute of Technology
+                          - generic [ref=e1088]: KTH Royal Institute of Technology
+                        - generic [ref=e1089]:
+                          - generic [ref=e1090]: Dual Degree M.S, security and mobile computing
+                          - generic [ref=e1091]: Dual Degree M.S, security and mobile computing
+                        - generic [ref=e1092]:
+                          - generic [ref=e1093]: 2007 - 2008
+                          - generic [ref=e1094]: 2007 - 2008
+                - link "Show all 3 educations" [ref=e1098] [cursor=pointer]:
+                  - /url: https://www.linkedin.com/in/saurabhplum/details/education?profileUrn=urn%3Ali%3Afsd_profile%3AACoAAACx3kQB4erGXjlYByDdatJTyl0WK7mN8S0
+                  - generic [ref=e1099]: Show all 3 educations
+                  - img [ref=e1101]
+            - generic [ref=e1103]:
+              - heading "Skills" [level=2] [ref=e1108]:
+                - generic [ref=e1109]: Skills
+                - generic [ref=e1110]: Skills
+              - generic [ref=e1111]:
+                - list [ref=e1112]:
+                  - listitem [ref=e1113]:
+                    - generic [ref=e1115]:
+                      - link "Algorithms" [ref=e1117] [cursor=pointer]:
+                        - /url: https://www.linkedin.com/search/results/all/?keywords=Algorithms&origin=PROFILE_PAGE_SKILL_NAVIGATION
+                        - generic [ref=e1121]:
+                          - generic [ref=e1122]: Algorithms
+                          - generic [ref=e1123]: Algorithms
+                      - list [ref=e1125]:
+                        - listitem [ref=e1126]:
+                          - link "42 endorsements" [ref=e1128] [cursor=pointer]:
+                            - /url: https://www.linkedin.com/in/saurabhplum/details/skills/urn:li:fsd_skill:(ACoAAACx3kQB4erGXjlYByDdatJTyl0WK7mN8S0,2)/endorsers?profileUrn=urn%3Ali%3Afsd_profile%3AACoAAACx3kQB4erGXjlYByDdatJTyl0WK7mN8S0&tabIndex=0&modalTabIndex=0&detailScreenTabIndex=0
+                            - list [ref=e1130]:
+                              - listitem [ref=e1131]:
+                                - img [ref=e1133]
+                            - generic [ref=e1137]:
+                              - generic [ref=e1138]: 42 endorsements
+                              - generic [ref=e1139]: 42 endorsements
+                  - listitem [ref=e1140]:
+                    - generic [ref=e1142]:
+                      - link "Python" [ref=e1144] [cursor=pointer]:
+                        - /url: https://www.linkedin.com/search/results/all/?keywords=Python&origin=PROFILE_PAGE_SKILL_NAVIGATION
+                        - generic [ref=e1148]:
+                          - generic [ref=e1149]: Python
+                          - generic [ref=e1150]: Python
+                      - list [ref=e1152]:
+                        - listitem [ref=e1153]:
+                          - link "Manoj Pandey profile picture Endorsed by Manoj Pandey and 1 other who is highly skilled at this" [ref=e1155] [cursor=pointer]:
+                            - /url: https://www.linkedin.com/in/saurabhplum/overlay/urn:li:fsd_skill:(ACoAAACx3kQB4erGXjlYByDdatJTyl0WK7mN8S0,3)/endorsers?profileUrn=urn%3Ali%3Afsd_profile%3AACoAAACx3kQB4erGXjlYByDdatJTyl0WK7mN8S0&tabIndex=1&modalTabIndex=1
+                            - list [ref=e1157]:
+                              - listitem [ref=e1158]:
+                                - img "Manoj Pandey profile picture" [ref=e1160]
+                            - generic [ref=e1164]:
+                              - generic [ref=e1165]: Endorsed by Manoj Pandey and 1 other who is highly skilled at this
+                              - generic [ref=e1166]: Endorsed by Manoj Pandey and 1 other who is highly skilled at this
+                        - listitem [ref=e1167]:
+                          - link "Airwoot logo Endorsed by 2 colleagues at Airwoot" [ref=e1169] [cursor=pointer]:
+                            - /url: https://www.linkedin.com/in/saurabhplum/overlay/urn:li:fsd_skill:(ACoAAACx3kQB4erGXjlYByDdatJTyl0WK7mN8S0,3)/endorsers?profileUrn=urn%3Ali%3Afsd_profile%3AACoAAACx3kQB4erGXjlYByDdatJTyl0WK7mN8S0&tabIndex=2&modalTabIndex=2
+                            - list [ref=e1171]:
+                              - listitem [ref=e1172]:
+                                - img "Airwoot logo" [ref=e1174]
+                            - generic [ref=e1178]:
+                              - generic [ref=e1179]: Endorsed by 2 colleagues at Airwoot
+                              - generic [ref=e1180]: Endorsed by 2 colleagues at Airwoot
+                        - listitem [ref=e1181]:
+                          - link "29 endorsements" [ref=e1183] [cursor=pointer]:
+                            - /url: https://www.linkedin.com/in/saurabhplum/details/skills/urn:li:fsd_skill:(ACoAAACx3kQB4erGXjlYByDdatJTyl0WK7mN8S0,3)/endorsers?profileUrn=urn%3Ali%3Afsd_profile%3AACoAAACx3kQB4erGXjlYByDdatJTyl0WK7mN8S0&tabIndex=0&modalTabIndex=0&detailScreenTabIndex=0
+                            - list [ref=e1185]:
+                              - listitem [ref=e1186]:
+                                - img [ref=e1188]
+                            - generic [ref=e1192]:
+                              - generic [ref=e1193]: 29 endorsements
+                              - generic [ref=e1194]: 29 endorsements
+                - link "Show all 15 skills" [ref=e1198] [cursor=pointer]:
+                  - /url: https://www.linkedin.com/in/saurabhplum/details/skills?profileUrn=urn%3Ali%3Afsd_profile%3AACoAAACx3kQB4erGXjlYByDdatJTyl0WK7mN8S0
+                  - generic [ref=e1199]: Show all 15 skills
+                  - img [ref=e1201]
+            - generic [ref=e1203]:
+              - heading "Recommendations" [level=2] [ref=e1208]:
+                - generic [ref=e1209]: Recommendations
+                - generic [ref=e1210]: Recommendations
+              - generic [ref=e1211]:
+                - tablist [ref=e1212]:
+                  - tab "Received" [selected] [ref=e1213] [cursor=pointer]:
+                    - generic [ref=e1214]: Received
+                    - generic [ref=e1215]: Received
+                  - tab "Given" [ref=e1216] [cursor=pointer]:
+                    - generic [ref=e1217]: Given
+                    - generic [ref=e1218]: Given
+                - tabpanel "Received" [ref=e1219]:
+                  - generic [ref=e1223]:
+                    - generic [ref=e1227]:
+                      - generic [ref=e1228]: Nothing to see for now
+                      - generic [ref=e1229]: Nothing to see for now
+                    - generic [ref=e1230]:
+                      - generic [ref=e1231]: Recommendations that Saurabh receives will appear here.
+                      - generic [ref=e1232]: Recommendations that Saurabh receives will appear here.
+            - generic [ref=e1233]:
+              - heading "Interests" [level=2] [ref=e1238]:
+                - generic [ref=e1239]: Interests
+                - generic [ref=e1240]: Interests
+              - generic [ref=e1241]:
+                - tablist [ref=e1242]:
+                  - tab "Top Voices" [selected] [ref=e1243] [cursor=pointer]:
+                    - generic [ref=e1244]: Top Voices
+                    - generic [ref=e1245]: Top Voices
+                  - tab "Companies" [ref=e1246] [cursor=pointer]:
+                    - generic [ref=e1247]: Companies
+                    - generic [ref=e1248]: Companies
+                  - tab "Groups" [ref=e1249] [cursor=pointer]:
+                    - generic [ref=e1250]: Groups
+                    - generic [ref=e1251]: Groups
+                  - tab "Newsletters" [ref=e1252] [cursor=pointer]:
+                    - generic [ref=e1253]: Newsletters
+                    - generic [ref=e1254]: Newsletters
+                  - tab "Schools" [ref=e1255] [cursor=pointer]:
+                    - generic [ref=e1256]: Schools
+                    - generic [ref=e1257]: Schools
+                - tabpanel "Top Voices" [ref=e1258]:
+                  - generic [ref=e1259]:
+                    - list [ref=e1260]:
+                      - listitem [ref=e1261]:
+                        - generic [ref=e1262]:
+                          - link "Sanjiv Mehta" [ref=e1264] [cursor=pointer]:
+                            - /url: https://www.linkedin.com/in/sanjivmehtaunilever
+                            - img "Sanjiv Mehta" [ref=e1267]
+                          - generic [ref=e1268]:
+                            - link "Sanjiv Mehta Executive Chairman L Catterton India, Former Chair / CEO Hindustan Unilever & Member Unilever Global Exe Board; President Commissioner Unilever Indonesia, Non Exec Board Member Air India, Danone, Dr Reddy's Lab; 803,604 followers" [ref=e1270] [cursor=pointer]:
+                              - /url: https://www.linkedin.com/in/sanjivmehtaunilever
+                              - generic [ref=e1271]:
+                                - generic [ref=e1274]:
+                                  - generic [ref=e1275]: Sanjiv Mehta
+                                  - generic [ref=e1276]: Sanjiv Mehta
+                                - img [ref=e1280]
+                              - generic [ref=e1282]:
+                                - generic [ref=e1283]: Executive Chairman L Catterton India, Former Chair / CEO Hindustan Unilever & Member Unilever Global Exe Board; President Commissioner Unilever Indonesia, Non Exec Board Member Air India, Danone, Dr Reddy's Lab;
+                                - generic [ref=e1284]: Executive Chairman L Catterton India, Former Chair / CEO Hindustan Unilever & Member Unilever Global Exe Board; President Commissioner Unilever Indonesia, Non Exec Board Member Air India, Danone, Dr Reddy's Lab;
+                              - generic [ref=e1285]:
+                                - generic [ref=e1286]: 803,604 followers
+                                - generic [ref=e1287]: 803,604 followers
+                            - list [ref=e1289]:
+                              - listitem [ref=e1290]:
+                                - button "Follow Sanjiv Mehta" [ref=e1292] [cursor=pointer]:
+                                  - img [ref=e1293]
+                                  - generic [ref=e1295]: Follow
+                      - listitem [ref=e1296]:
+                        - generic [ref=e1297]:
+                          - link "Karthik Srinivasan" [ref=e1299] [cursor=pointer]:
+                            - /url: https://www.linkedin.com/in/karts
+                            - img "Karthik Srinivasan" [ref=e1302]
+                          - generic [ref=e1303]:
+                            - link "Karthik Srinivasan Communications strategy consultant. Connect with me for corporate workshops on personal branding. Ex-Ogilvy, ex-Flipkart, ex-Edelman. No paid posts - my words are not for sale. 371,130 followers" [ref=e1305] [cursor=pointer]:
+                              - /url: https://www.linkedin.com/in/karts
+                              - generic [ref=e1306]:
+                                - generic [ref=e1309]:
+                                  - generic [ref=e1310]: Karthik Srinivasan
+                                  - generic [ref=e1311]: Karthik Srinivasan
+                                - img [ref=e1315]
+                              - generic [ref=e1317]:
+                                - generic [ref=e1318]: Communications strategy consultant. Connect with me for corporate workshops on personal branding. Ex-Ogilvy, ex-Flipkart, ex-Edelman. No paid posts - my words are not for sale.
+                                - generic [ref=e1319]: Communications strategy consultant. Connect with me for corporate workshops on personal branding. Ex-Ogilvy, ex-Flipkart, ex-Edelman. No paid posts - my words are not for sale.
+                              - generic [ref=e1320]:
+                                - generic [ref=e1321]: 371,130 followers
+                                - generic [ref=e1322]: 371,130 followers
+                            - list [ref=e1324]:
+                              - listitem [ref=e1325]:
+                                - button "Follow Karthik Srinivasan" [ref=e1327] [cursor=pointer]:
+                                  - img [ref=e1328]
+                                  - generic [ref=e1330]: Follow
+                    - link "Show all Top Voices" [ref=e1334] [cursor=pointer]:
+                      - /url: https://www.linkedin.com/in/saurabhplum/details/interests?profileUrn=urn%3Ali%3Afsd_profile%3AACoAAACx3kQB4erGXjlYByDdatJTyl0WK7mN8S0&tabIndex=0&detailScreenTabIndex=0
+                      - generic [ref=e1335]: Show all Top Voices
+                      - img [ref=e1337]
+          - complementary [ref=e357]:
+            - generic [ref=e1339]:
+              - heading "More profiles for you" [level=2] [ref=e1344]:
+                - generic [ref=e1345]: More profiles for you
+                - generic [ref=e1346]: More profiles for you
+              - generic [ref=e1347]:
+                - list [ref=e1348]:
+                  - listitem [ref=e1349]:
+                    - generic [ref=e1350]:
+                      - link "Abhishek Poddar" [ref=e1352] [cursor=pointer]:
+                        - /url: https://www.linkedin.com/in/abhishek24?miniProfileUrn=urn%3Ali%3Afs_miniProfile%3AACoAAAGEgt0BFigQRzC_4Z2rIcr5_bGURxYDQTw
+                        - img "Abhishek Poddar" [ref=e1355]
+                      - generic [ref=e1356]:
+                        - link "Abhishek Poddar 3rd+ degree connection Founder at Plum. Are you a founder/people leader? Go to plumhq.com." [ref=e1358] [cursor=pointer]:
+                          - /url: https://www.linkedin.com/in/abhishek24?miniProfileUrn=urn%3Ali%3Afs_miniProfile%3AACoAAAGEgt0BFigQRzC_4Z2rIcr5_bGURxYDQTw
+                          - generic [ref=e1359]:
+                            - generic [ref=e1362]:
+                              - generic [ref=e1363]: Abhishek Poddar
+                              - generic [ref=e1364]: Abhishek Poddar
+                            - img [ref=e1367]:
+                              - img [ref=e1368]
+                            - generic [ref=e1370]:
+                              - generic [ref=e1371]: · 3rd+
+                              - generic [ref=e1372]: 3rd+ degree connection
+                          - generic [ref=e1376]:
+                            - generic [ref=e1377]: Founder at Plum. Are you a founder/people leader? Go to plumhq.com.
+                            - generic [ref=e1378]: Founder at Plum. Are you a founder/people leader? Go to plumhq.com.
+                        - list [ref=e1380]:
+                          - listitem [ref=e1381]:
+                            - button "Follow Abhishek Poddar" [ref=e1383] [cursor=pointer]:
+                              - img [ref=e1384]
+                              - generic [ref=e1386]: Follow
+                  - listitem [ref=e1387]:
+                    - generic [ref=e1388]:
+                      - link "Shreyas Achar" [ref=e1390] [cursor=pointer]:
+                        - /url: https://www.linkedin.com/in/shreyasachar?miniProfileUrn=urn%3Ali%3Afs_miniProfile%3AACoAACDsOh4BiguKAviP6ohjkofQwhzEPI68NSw
+                        - img "Shreyas Achar" [ref=e1393]
+                      - generic [ref=e1394]:
+                        - link "Shreyas Achar 3rd+ degree connection Head of Marketing at Plum Benefits | Setting the standard for Employee Health & Insurance" [ref=e1396] [cursor=pointer]:
+                          - /url: https://www.linkedin.com/in/shreyasachar?miniProfileUrn=urn%3Ali%3Afs_miniProfile%3AACoAACDsOh4BiguKAviP6ohjkofQwhzEPI68NSw
+                          - generic [ref=e1397]:
+                            - generic [ref=e1400]:
+                              - generic [ref=e1401]: Shreyas Achar
+                              - generic [ref=e1402]: Shreyas Achar
+                            - img [ref=e1405]
+                            - generic [ref=e1407]:
+                              - generic [ref=e1408]: · 3rd+
+                              - generic [ref=e1409]: 3rd+ degree connection
+                          - generic [ref=e1413]:
+                            - generic [ref=e1414]: Head of Marketing at Plum Benefits | Setting the standard for Employee Health & Insurance
+                            - generic [ref=e1415]: Head of Marketing at Plum Benefits | Setting the standard for Employee Health & Insurance
+                        - list [ref=e1417]:
+                          - listitem [ref=e1418]:
+                            - button "Follow Shreyas Achar" [ref=e1420] [cursor=pointer]:
+                              - img [ref=e1421]
+                              - generic [ref=e1423]: Follow
+                  - listitem [ref=e1424]:
+                    - generic [ref=e1425]:
+                      - link "Ankush Chugh" [ref=e1427] [cursor=pointer]:
+                        - /url: https://www.linkedin.com/in/ankush38u?miniProfileUrn=urn%3Ali%3Afs_miniProfile%3AACoAABqVf_gBq8Ls2yNE3AwCRq--Nma_CF7vVVM
+                        - img "Ankush Chugh" [ref=e1430]
+                      - generic [ref=e1431]:
+                        - link "Ankush Chugh 3rd+ degree connection Senior Engineering Manager at Plum | Prev Co- Founder, CTO at Dcoder | Techstars’19 | Google Launchpad" [ref=e1433] [cursor=pointer]:
+                          - /url: https://www.linkedin.com/in/ankush38u?miniProfileUrn=urn%3Ali%3Afs_miniProfile%3AACoAABqVf_gBq8Ls2yNE3AwCRq--Nma_CF7vVVM
+                          - generic [ref=e1434]:
+                            - generic [ref=e1437]:
+                              - generic [ref=e1438]: Ankush Chugh
+                              - generic [ref=e1439]: Ankush Chugh
+                            - img [ref=e1442]
+                            - generic [ref=e1444]:
+                              - generic [ref=e1445]: · 3rd+
+                              - generic [ref=e1446]: 3rd+ degree connection
+                          - generic [ref=e1450]:
+                            - generic [ref=e1451]: Senior Engineering Manager at Plum | Prev Co- Founder, CTO at Dcoder | Techstars’19 | Google Launchpad
+                            - generic [ref=e1452]: Senior Engineering Manager at Plum | Prev Co- Founder, CTO at Dcoder | Techstars’19 | Google Launchpad
+                        - list [ref=e1454]:
+                          - listitem [ref=e1455]:
+                            - button "Follow Ankush Chugh" [ref=e1457] [cursor=pointer]:
+                              - img [ref=e1458]
+                              - generic [ref=e1460]: Follow
+                  - listitem [ref=e1461]:
+                    - generic [ref=e1462]:
+                      - link "Mokshita ." [ref=e1464] [cursor=pointer]:
+                        - /url: https://www.linkedin.com/in/mokshitaaaa?miniProfileUrn=urn%3Ali%3Afs_miniProfile%3AACoAADEhqoIB3Wjjm8O2R_BaCr5peiPPqZxadwc
+                        - img "Mokshita ." [ref=e1467]
+                      - generic [ref=e1468]:
+                        - link "Mokshita . 3rd+ degree connection Intern @ Plum | Game Design & Development | BE-CSE (2022-26)" [ref=e1470] [cursor=pointer]:
+                          - /url: https://www.linkedin.com/in/mokshitaaaa?miniProfileUrn=urn%3Ali%3Afs_miniProfile%3AACoAADEhqoIB3Wjjm8O2R_BaCr5peiPPqZxadwc
+                          - generic [ref=e1471]:
+                            - generic [ref=e1474]:
+                              - generic [ref=e1475]: Mokshita .
+                              - generic [ref=e1476]: Mokshita .
+                            - img [ref=e1479]
+                            - generic [ref=e1481]:
+                              - generic [ref=e1482]: · 3rd+
+                              - generic [ref=e1483]: 3rd+ degree connection
+                          - generic [ref=e1487]:
+                            - generic [ref=e1488]: Intern @ Plum | Game Design & Development | BE-CSE (2022-26)
+                            - generic [ref=e1489]: Intern @ Plum | Game Design & Development | BE-CSE (2022-26)
+                        - list [ref=e1491]:
+                          - listitem [ref=e1492]:
+                            - button "Message" [ref=e1495] [cursor=pointer]:
+                              - generic [ref=e1496]: Message
+                  - listitem [ref=e1497]:
+                    - generic [ref=e1498]:
+                      - link "Sarthak Sinha" [ref=e1500] [cursor=pointer]:
+                        - /url: https://www.linkedin.com/in/sinhasarthak?miniProfileUrn=urn%3Ali%3Afs_miniProfile%3AACoAAA2GtvcBpUjh5Mh0ZnIrt54DkNPK8mbtlpk
+                        - img "Sarthak Sinha" [ref=e1503]
+                      - generic [ref=e1504]:
+                        - link "Sarthak Sinha 3rd+ degree connection Director Sales @ Plum | Ex Techstars | Growth and Business" [ref=e1506] [cursor=pointer]:
+                          - /url: https://www.linkedin.com/in/sinhasarthak?miniProfileUrn=urn%3Ali%3Afs_miniProfile%3AACoAAA2GtvcBpUjh5Mh0ZnIrt54DkNPK8mbtlpk
+                          - generic [ref=e1507]:
+                            - generic [ref=e1510]:
+                              - generic [ref=e1511]: Sarthak Sinha
+                              - generic [ref=e1512]: Sarthak Sinha
+                            - img [ref=e1515]
+                            - generic [ref=e1517]:
+                              - generic [ref=e1518]: · 3rd+
+                              - generic [ref=e1519]: 3rd+ degree connection
+                          - generic [ref=e1523]:
+                            - generic [ref=e1524]: Director Sales @ Plum | Ex Techstars | Growth and Business
+                            - generic [ref=e1525]: Director Sales @ Plum | Ex Techstars | Growth and Business
+                        - list [ref=e1527]:
+                          - listitem [ref=e1528]:
+                            - button "Message" [ref=e1531] [cursor=pointer]:
+                              - generic [ref=e1532]: Message
+                - link "Show all other similar profiles" [ref=e1536] [cursor=pointer]:
+                  - /url: https://www.linkedin.com/in/saurabhplum/overlay/browsemap-recommendations?isPrefetched=true&profileUrn=urn%3Ali%3Afsd_profile%3AACoAAACx3kQB4erGXjlYByDdatJTyl0WK7mN8S0
+                  - generic [ref=e1537]: Show all
+            - generic [ref=e1538]:
+              - heading "People you may know" [level=2] [ref=e1543]:
+                - generic [ref=e1544]: People you may know
+                - generic [ref=e1545]: People you may know
+              - generic [ref=e1546]:
+                - list [ref=e1547]:
+                  - listitem [ref=e1548]:
+                    - generic [ref=e1549]:
+                      - link "Sheela Christopher" [ref=e1551] [cursor=pointer]:
+                        - /url: https://www.linkedin.com/in/sheela-christopher-a85698318
+                        - img "Sheela Christopher" [ref=e1554]
+                      - generic [ref=e1555]:
+                        - link "Sheela Christopher Member of Archdiocese of Bengaluru" [ref=e1557] [cursor=pointer]:
+                          - /url: https://www.linkedin.com/in/sheela-christopher-a85698318?miniProfileUrn=urn%3Ali%3Afs_miniProfile%3AACoAAFCMHQUBAzjhAl0Rwd5T7ayoNByxTx8M1Fc
+                          - generic [ref=e1558]:
+                            - generic [ref=e1561]:
+                              - generic [ref=e1562]: Sheela Christopher
+                              - generic [ref=e1563]: Sheela Christopher
+                            - img [ref=e1566]:
+                              - img [ref=e1567]
+                          - generic [ref=e1572]:
+                            - generic [ref=e1573]: Member of Archdiocese of Bengaluru
+                            - generic [ref=e1574]: Member of Archdiocese of Bengaluru
+                        - list [ref=e1576]:
+                          - listitem [ref=e1577]:
+                            - button "Invite Sheela Christopher to connect" [ref=e1579] [cursor=pointer]:
+                              - img [ref=e1580]
+                              - generic [ref=e1582]: Add
+                  - listitem [ref=e1583]:
+                    - generic [ref=e1584]:
+                      - link "Madri Mohan Prasad" [ref=e1586] [cursor=pointer]:
+                        - /url: https://www.linkedin.com/in/themadhr
+                        - img "Madri Mohan Prasad" [ref=e1589]
+                      - generic [ref=e1590]:
+                        - 'link "Madri Mohan Prasad Startup People Advisor and all things People @LightMetrics, the #trailblazer & most popular video telematics platform" [ref=e1592] [cursor=pointer]':
+                          - /url: https://www.linkedin.com/in/themadhr?miniProfileUrn=urn%3Ali%3Afs_miniProfile%3AACoAAAH8OIkBHF3eTeYxRNc-oz33GLGBVCxzb0s
+                          - generic [ref=e1593]:
+                            - generic [ref=e1596]:
+                              - generic [ref=e1597]: Madri Mohan Prasad
+                              - generic [ref=e1598]: Madri Mohan Prasad
+                            - img [ref=e1601]
+                          - generic [ref=e1606]:
+                            - generic [ref=e1607]: "Startup People Advisor and all things People @LightMetrics, the #trailblazer & most popular video telematics platform"
+                            - generic [ref=e1608]: "Startup People Advisor and all things People @LightMetrics, the #trailblazer & most popular video telematics platform"
+                        - list [ref=e1610]:
+                          - listitem [ref=e1611]:
+                            - button "Invite Madri Mohan Prasad to connect" [ref=e1613] [cursor=pointer]:
+                              - img [ref=e1614]
+                              - generic [ref=e1616]: Add
+                  - listitem [ref=e1617]:
+                    - generic [ref=e1618]:
+                      - link "Ravi. R. Seshadri" [ref=e1620] [cursor=pointer]:
+                        - /url: https://www.linkedin.com/in/seshadriravi
+                        - img "Ravi. R. Seshadri" [ref=e1623]
+                      - generic [ref=e1624]:
+                        - link "Ravi. R. Seshadri Consultant, Design and Development, Manufacturing solutions. Precision Injection Molds, Dies and Fixtures. India, China, USA, Mexico, Taiwan. Connect for Queries." [ref=e1626] [cursor=pointer]:
+                          - /url: https://www.linkedin.com/in/seshadriravi?miniProfileUrn=urn%3Ali%3Afs_miniProfile%3AACoAAAu0LaEBRMl9vcVO-pti5XQ8rvapxDXknSk
+                          - generic [ref=e1627]:
+                            - generic [ref=e1630]:
+                              - generic [ref=e1631]: Ravi. R. Seshadri
+                              - generic [ref=e1632]: Ravi. R. Seshadri
+                            - img [ref=e1635]
+                          - generic [ref=e1640]:
+                            - generic [ref=e1641]: Consultant, Design and Development, Manufacturing solutions. Precision Injection Molds, Dies and Fixtures. India, China, USA, Mexico, Taiwan. Connect for Queries.
+                            - generic [ref=e1642]: Consultant, Design and Development, Manufacturing solutions. Precision Injection Molds, Dies and Fixtures. India, China, USA, Mexico, Taiwan. Connect for Queries.
+                        - list [ref=e1644]:
+                          - listitem [ref=e1645]:
+                            - button "Invite Ravi. R. Seshadri to connect" [ref=e1647] [cursor=pointer]:
+                              - img [ref=e1648]
+                              - generic [ref=e1650]: Add
+                  - listitem [ref=e1651]:
+                    - generic [ref=e1652]:
+                      - link "Jaya Raju" [ref=e1654] [cursor=pointer]:
+                        - /url: https://www.linkedin.com/in/jaya-raju-455873206
+                        - img "Jaya Raju" [ref=e1657]
+                      - generic [ref=e1658]:
+                        - link "Jaya Raju Homemaker" [ref=e1660] [cursor=pointer]:
+                          - /url: https://www.linkedin.com/in/jaya-raju-455873206?miniProfileUrn=urn%3Ali%3Afs_miniProfile%3AACoAADR0DcEB1u7XYRkd7d-UDmGelmirzd2A_pw
+                          - generic [ref=e1664]:
+                            - generic [ref=e1665]: Jaya Raju
+                            - generic [ref=e1666]: Jaya Raju
+                          - generic [ref=e1670]:
+                            - generic [ref=e1671]: Homemaker
+                            - generic [ref=e1672]: Homemaker
+                        - list [ref=e1674]:
+                          - listitem [ref=e1675]:
+                            - button "Invite Jaya Raju to connect" [ref=e1677] [cursor=pointer]:
+                              - img [ref=e1678]
+                              - generic [ref=e1680]: Add
+                  - listitem [ref=e1681]:
+                    - generic [ref=e1682]:
+                      - link "A. k. singhania" [ref=e1684] [cursor=pointer]:
+                        - /url: https://www.linkedin.com/in/a-k-singhania-95531b277
+                        - img "A. k. singhania" [ref=e1687]
+                      - generic [ref=e1688]:
+                        - link "A. k. singhania CEO & FOUNDER Apelic pharmaceutical pvt. ltd." [ref=e1690] [cursor=pointer]:
+                          - /url: https://www.linkedin.com/in/a-k-singhania-95531b277?miniProfileUrn=urn%3Ali%3Afs_miniProfile%3AACoAAEOANJEBpXbOu0yx-Tnq4_cD0COmql8lwbg
+                          - generic [ref=e1694]:
+                            - generic [ref=e1695]: A. k. singhania
+                            - generic [ref=e1696]: A. k. singhania
+                          - generic [ref=e1700]:
+                            - generic [ref=e1701]: CEO & FOUNDER Apelic pharmaceutical pvt. ltd.
+                            - generic [ref=e1702]: CEO & FOUNDER Apelic pharmaceutical pvt. ltd.
+                        - list [ref=e1704]:
+                          - listitem [ref=e1705]:
+                            - button "Invite A. k. singhania to connect" [ref=e1707] [cursor=pointer]:
+                              - img [ref=e1708]
+                              - generic [ref=e1710]: Add
+                - link "Show all people you may know" [ref=e1714] [cursor=pointer]:
+                  - /url: https://www.linkedin.com/in/saurabhplum/overlay/pymk-recommendations?isPrefetched=true&profileUrn=urn%3Ali%3Afsd_profile%3AACoAAACx3kQB4erGXjlYByDdatJTyl0WK7mN8S0
+                  - generic [ref=e1715]: Show all
+      - contentinfo [ref=e438]
+    - generic:
+      - generic:
+        - complementary:
+          - generic [ref=e441]:
+            - generic [ref=e443] [cursor=pointer]:
+              - generic [ref=e444]:
+                - img "Rekha Jain" [ref=e445]
+                - generic [ref=e1717]: Status is online
+              - button "You are on the messaging overlay. Press enter to open the list of conversations." [ref=e446]:
+                - generic [ref=e447]:
+                  - generic [ref=e448]: Messaging
+                  - generic [ref=e449]: You are on the messaging overlay. Press enter to open the list of conversations.
+            - generic [ref=e450]:
+              - button "Open messenger dropdown menu" [ref=e452] [cursor=pointer]:
+                - img "Open messenger dropdown menu" [ref=e453]
+              - button "Compose message" [ref=e456] [cursor=pointer]:
+                - img [ref=e457]
+                - generic [ref=e459]: Compose message
+              - button "You are on the messaging overlay. Press enter to open the list of conversations." [ref=e460] [cursor=pointer]:
+                - img [ref=e461]
+                - generic [ref=e463]: You are on the messaging overlay. Press enter to open the list of conversations.
+        - complementary "AI-powered assistant to get help with your career, jobs etc"
+  - region [ref=e464]

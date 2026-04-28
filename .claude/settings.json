@@ -1,15 +1,4 @@
 {
-  "mcpServers": {
-    "gmail": {
-      "type": "http",
-      "url": "https://gmail.mcp.claude.com/mcp"
-    }
-  },
-  "skills": {
-    "email-reply": {
-      "path": "skills/email-reply"
-    }
-  },
   "hooks": {
     "PostToolUse": [
       {
@@ -17,6 +6,14 @@
           {
             "type": "command",
             "command": "bash .claude/hooks/post-triage-log.sh"
+          },
+          {
+            "type": "command",
+            "command": "bash .claude/hooks/posthog-capture.sh"
+          },
+          {
+            "type": "command",
+            "command": "bash .claude/hooks/posthog-job-research-capture.sh"
           }
         ]
       }
@@ -27,9 +24,37 @@
           {
             "type": "command",
             "command": "bash .claude/hooks/post-triage-log.sh"
+          },
+          {
+            "type": "command",
+            "command": "bash .claude/hooks/posthog-capture.sh"
+          },
+          {
+            "type": "command",
+            "command": "bash .claude/hooks/posthog-job-research-capture.sh"
           }
         ]
       }
     ]
+  },
+  "enabledPlugins": {
+    "superpowers@claude-plugins-official": true,
+    "code-review@claude-plugins-official": true,
+    "skill-creator@claude-plugins-official": true,
+    "playwright@claude-plugins-official": true
+  },
+  "mcpServers": {
+    "gmail": {
+      "type": "http",
+      "url": "https://gmail.mcp.claude.com/mcp"
+    }
+  },
+  "skills": {
+    "email-reply": {
+      "path": "skills/email-reply"
+    },
+    "job-research": {
+      "path": "skills/job-research"
+    }
   }
 }

@@ -1,0 +1,299 @@
+- generic [active] [ref=e1]:
+  - generic:
+    - region "Toast message":
+      - heading "0 notifications total" [level=2] [ref=e3]
+      - alert
+  - region [ref=e15]
+  - generic [ref=e16]:
+    - generic [ref=e128]:
+      - button "Skip to search" [ref=e129] [cursor=pointer]:
+        - generic [ref=e130]: Skip to search
+      - button "Skip to main content" [ref=e131] [cursor=pointer]:
+        - generic [ref=e132]: Skip to main content
+      - button "Keyboard shortcuts" [ref=e133] [cursor=pointer]:
+        - generic [ref=e134]: Keyboard shortcuts
+      - button "Close jump menu" [ref=e135] [cursor=pointer]:
+        - img [ref=e136]
+        - generic [ref=e138]: Close jump menu
+    - banner "Global Navigation" [ref=e139]:
+      - generic [ref=e140]:
+        - link "LinkedIn" [ref=e141] [cursor=pointer]:
+          - /url: https://www.linkedin.com/feed/?nis=true
+          - img "LinkedIn" [ref=e144]:
+            - img [ref=e145]
+        - generic [ref=e149]:
+          - combobox "Search" [ref=e150]: Saurabh Arora Plum
+          - generic:
+            - img
+        - navigation "Primary Navigation" [ref=e151]:
+          - list [ref=e152]:
+            - listitem [ref=e153]:
+              - link "new feed updates notifications Home" [ref=e154] [cursor=pointer]:
+                - /url: https://www.linkedin.com/feed/?nis=true&
+                - generic [ref=e155]:
+                  - generic [ref=e158]: new feed updates notifications
+                  - img [ref=e162]
+                - generic "Home" [ref=e164]
+            - listitem [ref=e165]:
+              - link "My Network" [ref=e166] [cursor=pointer]:
+                - /url: https://www.linkedin.com/mynetwork/?
+                - img [ref=e170]
+                - generic "My Network" [ref=e172]
+            - listitem [ref=e173]:
+              - link "Jobs" [ref=e174] [cursor=pointer]:
+                - /url: https://www.linkedin.com/jobs/?
+                - img [ref=e178]
+                - generic "Jobs" [ref=e180]
+            - listitem [ref=e181]:
+              - link "Messaging" [ref=e182] [cursor=pointer]:
+                - /url: https://www.linkedin.com/messaging/?
+                - img [ref=e186]
+                - generic "Messaging" [ref=e188]
+            - listitem [ref=e189]:
+              - link "Notifications" [ref=e190] [cursor=pointer]:
+                - /url: https://www.linkedin.com/notifications/?
+                - img [ref=e194]
+                - generic "Notifications" [ref=e196]
+            - listitem [ref=e197]:
+              - button "Rekha Jain Me" [ref=e199] [cursor=pointer]:
+                - img "Rekha Jain" [ref=e200]
+                - generic [ref=e201]:
+                  - text: Me
+                  - img [ref=e202]
+            - listitem [ref=e204]:
+              - button "For Business" [ref=e206] [cursor=pointer]:
+                - img [ref=e210]
+                - generic "For Business" [ref=e212]:
+                  - text: For Business
+                  - img [ref=e213]
+            - listitem [ref=e215]:
+              - link "Try Premium for ₹0" [ref=e217] [cursor=pointer]:
+                - /url: javascript:void(0)
+                - generic [ref=e218]:
+                  - img [ref=e219]
+                  - generic [ref=e221]: Try Premium for ₹0
+    - generic [ref=e222]:
+      - navigation "Search filters" [ref=e225]:
+        - generic [ref=e226]:
+          - list [ref=e227]:
+            - listitem [ref=e228]:
+              - 'button "Filter by: People" [ref=e230] [cursor=pointer]':
+                - text: People
+                - img [ref=e231]
+            - listitem [ref=e233]
+            - listitem [ref=e234]:
+              - group "Connections filter" [ref=e236]:
+                - generic [ref=e237]: Connections filter
+                - list [ref=e238]:
+                  - listitem [ref=e239]:
+                    - button "1st" [ref=e240] [cursor=pointer]
+                  - listitem [ref=e241]:
+                    - button "2nd" [ref=e242] [cursor=pointer]
+                  - listitem [ref=e243]:
+                    - button "3rd+" [ref=e244] [cursor=pointer]
+            - listitem [ref=e245]:
+              - button "Locations filter. Clicking this button displays all Locations filter options." [ref=e248] [cursor=pointer]:
+                - text: Locations
+                - img [ref=e249]
+            - listitem [ref=e251]:
+              - button "Current company filter. Clicking this button displays all Current company filter options." [ref=e254] [cursor=pointer]:
+                - text: Current company
+                - img [ref=e255]
+          - button "Show all filters. Clicking this button displays all available filter options." [ref=e260] [cursor=pointer]: All filters
+      - generic [ref=e261]:
+        - generic [ref=e262]:
+          - main [ref=e263]:
+            - heading "Search results for Saurabh Arora Plum. There are 10 results. Currently on the page 1 of 1 search result page." [level=1] [ref=e264]
+            - generic [ref=e266]:
+              - list [ref=e269]:
+                - listitem [ref=e270]:
+                  - generic [ref=e273] [cursor=pointer]:
+                    - link "Saurabh Arora" [ref=e276]:
+                      - /url: https://www.linkedin.com/in/saurabhplum?miniProfileUrn=urn%3Ali%3Afs_miniProfile%3AACoAAACx3kQB4erGXjlYByDdatJTyl0WK7mN8S0
+                      - img "Saurabh Arora" [ref=e280]
+                    - generic [ref=e281]:
+                      - generic [ref=e282]:
+                        - generic [ref=e286]:
+                          - link "View Saurabh Arora’s profile" [ref=e287]:
+                            - /url: https://www.linkedin.com/in/saurabhplum?miniProfileUrn=urn%3Ali%3Afs_miniProfile%3AACoAAACx3kQB4erGXjlYByDdatJTyl0WK7mN8S0
+                            - generic [ref=e288]:
+                              - generic [ref=e289]: Saurabh Arora
+                              - generic [ref=e290]: View Saurabh Arora’s profile
+                          - generic [ref=e292]:
+                            - button "Verified member" [ref=e294]:
+                              - img "Verified member" [ref=e297]
+                            - generic [ref=e299]:
+                              - generic [ref=e300]: • 3rd+
+                              - generic [ref=e301]: 3rd+ degree connection
+                        - generic [ref=e302]: co-founder Plum. We're hiring across product & engineering roles. plumhq.com/careers
+                        - generic [ref=e303]: Bengaluru
+                      - generic [ref=e305]:
+                        - img [ref=e309]
+                        - generic [ref=e312]: 21K followers
+                    - button "Follow Saurabh Arora" [ref=e315]:
+                      - generic [ref=e316]: Follow
+                - listitem [ref=e317]:
+                  - generic [ref=e320] [cursor=pointer]:
+                    - link "Saurabh Arora" [ref=e323]:
+                      - /url: https://www.linkedin.com/in/saurabh-arora-9118aa60?miniProfileUrn=urn%3Ali%3Afs_miniProfile%3AACoAAAzyUp0Byl3sFR7yOMOZTYBfbs2YpeKP6y0
+                      - img "Saurabh Arora" [ref=e327]
+                    - generic [ref=e329]:
+                      - generic [ref=e333]:
+                        - link "View Saurabh Arora’s profile" [ref=e334]:
+                          - /url: https://www.linkedin.com/in/saurabh-arora-9118aa60?miniProfileUrn=urn%3Ali%3Afs_miniProfile%3AACoAAAzyUp0Byl3sFR7yOMOZTYBfbs2YpeKP6y0
+                          - generic [ref=e335]:
+                            - generic [ref=e336]: Saurabh Arora
+                            - generic [ref=e337]: View Saurabh Arora’s profile
+                        - generic [ref=e339]:
+                          - button "Verified member" [ref=e341]:
+                            - img "Verified member" [ref=e344]
+                          - generic [ref=e346]:
+                            - generic [ref=e347]: • 3rd+
+                            - generic [ref=e348]: 3rd+ degree connection
+                      - generic [ref=e349]: Application Development Associate Manager at Accenture
+                      - generic [ref=e350]: Bengaluru
+                    - button "Invite Saurabh Arora to connect" [ref=e353]:
+                      - generic [ref=e354]: Add
+              - list [ref=e357]:
+                - listitem [ref=e358]:
+                  - generic [ref=e359]:
+                    - generic [ref=e360]:
+                      - paragraph [ref=e361]: Are these results helpful?
+                      - paragraph [ref=e362]: Your feedback helps us improve search results
+                    - generic [ref=e363]:
+                      - button "Are these results helpful? Yes, these search results are helpful" [ref=e364] [cursor=pointer]:
+                        - img [ref=e365]
+                      - button "Are these results helpful? No, these search results are not helpful" [ref=e368] [cursor=pointer]:
+                        - img [ref=e369]
+          - complementary "Search suggestions" [ref=e372]
+        - contentinfo [ref=e374]:
+          - generic [ref=e376]:
+            - generic [ref=e377]:
+              - navigation [ref=e378]:
+                - list [ref=e379]:
+                  - listitem [ref=e380]:
+                    - link "About" [ref=e381] [cursor=pointer]:
+                      - /url: https://about.linkedin.com/
+                  - listitem [ref=e382]:
+                    - link "Accessibility" [ref=e383] [cursor=pointer]:
+                      - /url: https://www.linkedin.com/accessibility
+                  - listitem [ref=e384]:
+                    - link "Talent Solutions" [ref=e385] [cursor=pointer]:
+                      - /url: https://business.linkedin.com/en-in/talent-solutions?trk=flagship_nav&veh=li-footer-lts-control-en-in&src=li-footer
+                  - listitem [ref=e386]:
+                    - link "Professional Community Policies" [ref=e387] [cursor=pointer]:
+                      - /url: https://www.linkedin.com/legal/professional-community-policies
+                  - listitem [ref=e388]:
+                    - link "Careers" [ref=e389] [cursor=pointer]:
+                      - /url: https://careers.linkedin.com/
+                  - listitem [ref=e390]:
+                    - link "Marketing Solutions" [ref=e391] [cursor=pointer]:
+                      - /url: https://business.linkedin.com/marketing-solutions?trk=n_nav_lms_f&src=li-footer
+                  - listitem [ref=e392]:
+                    - button "Privacy & Terms" [ref=e394] [cursor=pointer]:
+                      - generic [ref=e396]:
+                        - text: Privacy & Terms
+                        - img [ref=e397]
+                  - listitem [ref=e399]:
+                    - link "Ad Choices" [ref=e400] [cursor=pointer]:
+                      - /url: https://www.linkedin.com/help/linkedin/answer/62931
+                  - listitem [ref=e401]:
+                    - link "Advertising" [ref=e402] [cursor=pointer]:
+                      - /url: https://business.linkedin.com/marketing-solutions/ads?trk=n_nav_ads_f
+                  - listitem [ref=e403]:
+                    - link "Sales Solutions" [ref=e404] [cursor=pointer]:
+                      - /url: https://business.linkedin.com/sales-solutions?trk=flagship_nav&veh=li-footer-lss-control&src=li-footer
+                  - listitem [ref=e405]:
+                    - link "Mobile" [ref=e406] [cursor=pointer]:
+                      - /url: https://mobile.linkedin.com/
+                  - listitem [ref=e407]:
+                    - link "Small Business" [ref=e408] [cursor=pointer]:
+                      - /url: https://smallbusiness.linkedin.com?&src=li-footer
+                  - listitem [ref=e409]:
+                    - link "Safety Center" [ref=e410] [cursor=pointer]:
+                      - /url: https://safety.linkedin.com
+              - generic [ref=e412]:
+                - list [ref=e413]:
+                  - listitem [ref=e414]:
+                    - img [ref=e415]
+                    - generic [ref=e417]:
+                      - link "Questions? Visit our Help Center." [ref=e418] [cursor=pointer]:
+                        - /url: https://www.linkedin.com/help/linkedin?trk=d_flagship3_search_srp_people
+                        - text: Questions?
+                      - paragraph [ref=e419]: Visit our Help Center.
+                  - listitem [ref=e420]:
+                    - img [ref=e421]
+                    - generic [ref=e423]:
+                      - link "Manage your account and privacy Go to your Settings." [ref=e424] [cursor=pointer]:
+                        - /url: https://www.linkedin.com/psettings/
+                        - text: Manage your account and privacy
+                      - paragraph [ref=e425]: Go to your Settings.
+                  - listitem [ref=e426]:
+                    - img [ref=e427]
+                    - generic [ref=e429]:
+                      - link "Recommendation transparency Learn more about Recommended Content." [ref=e430] [cursor=pointer]:
+                        - /url: https://www.linkedin.com/help/linkedin/answer/a1339724
+                        - text: Recommendation transparency
+                      - paragraph [ref=e431]: Learn more about Recommended Content.
+                - generic [ref=e432]:
+                  - generic [ref=e433]: Select Language
+                  - combobox "Select Language" [ref=e434]:
+                    - option "العربية (Arabic)"
+                    - option "বাংলা (Bangla)"
+                    - option "Čeština (Czech)"
+                    - option "Dansk (Danish)"
+                    - option "Deutsch (German)"
+                    - option "Ελληνικά (Greek)"
+                    - option "English (English)" [selected]
+                    - option "Español (Spanish)"
+                    - option "فارسی (Persian)"
+                    - option "Suomi (Finnish)"
+                    - option "Français (French)"
+                    - option "हिंदी (Hindi)"
+                    - option "Magyar (Hungarian)"
+                    - option "Bahasa Indonesia (Indonesian)"
+                    - option "Italiano (Italian)"
+                    - option "עברית (Hebrew)"
+                    - option "日本語 (Japanese)"
+                    - option "한국어 (Korean)"
+                    - option "मराठी (Marathi)"
+                    - option "Bahasa Malaysia (Malay)"
+                    - option "Nederlands (Dutch)"
+                    - option "Norsk (Norwegian)"
+                    - option "ਪੰਜਾਬੀ (Punjabi)"
+                    - option "Polski (Polish)"
+                    - option "Português (Portuguese)"
+                    - option "Română (Romanian)"
+                    - option "Русский (Russian)"
+                    - option "Svenska (Swedish)"
+                    - option "తెలుగు (Telugu)"
+                    - option "ภาษาไทย (Thai)"
+                    - option "Tagalog (Tagalog)"
+                    - option "Türkçe (Turkish)"
+                    - option "Українська (Ukrainian)"
+                    - option "Tiếng Việt (Vietnamese)"
+                    - option "简体中文 (Chinese (Simplified))"
+                    - option "正體中文 (Chinese (Traditional))"
+            - paragraph [ref=e435]: LinkedIn Corporation © 2026
+    - generic:
+      - generic:
+        - complementary:
+          - generic [ref=e437]:
+            - generic [ref=e439] [cursor=pointer]:
+              - generic [ref=e440]:
+                - img "Rekha Jain" [ref=e441]
+                - generic [ref=e443]: Status is online
+              - button "You are on the messaging overlay. Press enter to open the list of conversations." [ref=e444]:
+                - generic [ref=e445]:
+                  - generic [ref=e446]: Messaging
+                  - generic [ref=e447]: You are on the messaging overlay. Press enter to open the list of conversations.
+            - generic [ref=e448]:
+              - button "Open messenger dropdown menu" [ref=e450] [cursor=pointer]:
+                - img "Open messenger dropdown menu" [ref=e451]
+              - button "Compose message" [ref=e454] [cursor=pointer]:
+                - img [ref=e455]
+                - generic [ref=e457]: Compose message
+              - button "You are on the messaging overlay. Press enter to open the list of conversations." [ref=e458] [cursor=pointer]:
+                - img [ref=e459]
+                - generic [ref=e461]: You are on the messaging overlay. Press enter to open the list of conversations.
+        - complementary "AI-powered assistant to get help with your career, jobs etc"

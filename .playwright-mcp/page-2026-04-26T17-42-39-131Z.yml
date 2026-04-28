@@ -1,0 +1,120 @@
+- generic [active] [ref=e1]:
+  - generic:
+    - region "Toast message":
+      - heading "0 notifications total" [level=2] [ref=e3]
+      - alert
+  - generic [ref=e4]:
+    - generic [ref=e6]:
+      - button "Skip to search" [ref=e7] [cursor=pointer]:
+        - generic [ref=e8]: Skip to search
+      - button "Skip to main content" [ref=e9] [cursor=pointer]:
+        - generic [ref=e10]: Skip to main content
+      - button "Keyboard shortcuts" [ref=e11] [cursor=pointer]:
+        - generic [ref=e12]: Keyboard shortcuts
+      - button "Close jump menu" [ref=e13] [cursor=pointer]:
+        - img [ref=e14]
+        - generic [ref=e16]: Close jump menu
+    - banner "Global Navigation" [ref=e17]:
+      - generic [ref=e18]:
+        - link "LinkedIn" [ref=e19] [cursor=pointer]:
+          - /url: https://www.linkedin.com/feed/?nis=true
+          - img "LinkedIn" [ref=e22]:
+            - img [ref=e23]
+        - generic [ref=e27]:
+          - combobox "Search" [ref=e28]
+          - generic:
+            - img
+        - navigation "Primary Navigation" [ref=e29]:
+          - list [ref=e30]:
+            - listitem [ref=e31]:
+              - link "new feed updates notifications Home" [ref=e32] [cursor=pointer]:
+                - /url: https://www.linkedin.com/feed/?nis=true&
+                - generic [ref=e33]:
+                  - generic [ref=e36]: new feed updates notifications
+                  - img [ref=e40]
+                - generic "Home" [ref=e42]
+            - listitem [ref=e43]:
+              - link "My Network" [ref=e44] [cursor=pointer]:
+                - /url: https://www.linkedin.com/mynetwork/?
+                - img [ref=e48]
+                - generic "My Network" [ref=e50]
+            - listitem [ref=e51]:
+              - link "Jobs" [ref=e52] [cursor=pointer]:
+                - /url: https://www.linkedin.com/jobs/?
+                - img [ref=e56]
+                - generic "Jobs" [ref=e58]
+            - listitem [ref=e59]:
+              - link "Messaging" [ref=e60] [cursor=pointer]:
+                - /url: https://www.linkedin.com/messaging/?
+                - img [ref=e64]
+                - generic "Messaging" [ref=e66]
+            - listitem [ref=e67]:
+              - link "Notifications" [ref=e68] [cursor=pointer]:
+                - /url: https://www.linkedin.com/notifications/?
+                - img [ref=e72]
+                - generic "Notifications" [ref=e74]
+            - listitem [ref=e75]:
+              - button "Rekha Jain Me" [ref=e77] [cursor=pointer]:
+                - img "Rekha Jain" [ref=e78]
+                - generic [ref=e79]:
+                  - text: Me
+                  - img [ref=e80]
+            - listitem [ref=e82]:
+              - button "For Business" [ref=e84] [cursor=pointer]:
+                - img [ref=e88]
+                - generic "For Business" [ref=e90]:
+                  - text: For Business
+                  - img [ref=e91]
+            - listitem [ref=e93]:
+              - link "Try Premium for ₹0" [ref=e95] [cursor=pointer]:
+                - /url: javascript:void(0)
+                - generic [ref=e96]:
+                  - img [ref=e97]
+                  - generic [ref=e99]: Try Premium for ₹0
+    - generic [ref=e102]:
+      - generic [ref=e105]:
+        - main [ref=e106]:
+          - generic [ref=e107]:
+            - button "Background Image" [ref=e110] [cursor=pointer]:
+              - img "Background Image" [ref=e112]
+            - generic [ref=e113]:
+              - button "open profile picture" [ref=e117] [cursor=pointer]:
+                - img "Shreyas Achar" [ref=e118]
+              - generic [ref=e120]:
+                - generic [ref=e121]:
+                  - generic [ref=e122]:
+                    - link "Shreyas Achar" [ref=e124] [cursor=pointer]:
+                      - /url: /in/shreyasachar/overlay/about-this-profile/
+                      - heading "Shreyas Achar" [level=1] [ref=e125]
+                    - generic [ref=e126]: He/Him
+                  - generic [ref=e127]: Head of Marketing at Plum Benefits | Setting the standard for Employee Health & Insurance
+                - generic [ref=e128]:
+                  - generic [ref=e129]: Bengaluru, Karnataka, India
+                  - generic [ref=e130]:
+                    - text: ·
+                    - link "Contact info" [ref=e131] [cursor=pointer]:
+                      - /url: /in/shreyasachar/overlay/contact-info/
+              - list
+        - complementary [ref=e358]
+      - contentinfo [ref=e439]
+    - generic:
+      - generic:
+        - complementary:
+          - generic [ref=e442]:
+            - generic [ref=e444] [cursor=pointer]:
+              - img "Rekha Jain" [ref=e446]
+              - button "You are on the messaging overlay. Press enter to open the list of conversations." [ref=e447]:
+                - generic [ref=e448]:
+                  - generic [ref=e449]: Messaging
+                  - generic [ref=e450]: You are on the messaging overlay. Press enter to open the list of conversations.
+            - generic [ref=e451]:
+              - button "Open messenger dropdown menu" [ref=e453] [cursor=pointer]:
+                - img "Open messenger dropdown menu" [ref=e454]
+              - button "Compose message" [ref=e457] [cursor=pointer]:
+                - img [ref=e458]
+                - generic [ref=e460]: Compose message
+              - button "You are on the messaging overlay. Press enter to open the list of conversations." [ref=e461] [cursor=pointer]:
+                - img [ref=e462]
+                - generic [ref=e464]: You are on the messaging overlay. Press enter to open the list of conversations.
+        - complementary "AI-powered assistant to get help with your career, jobs etc"
+  - region [ref=e465]

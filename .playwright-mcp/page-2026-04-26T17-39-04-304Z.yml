@@ -1,0 +1,34 @@
+- generic [active] [ref=e1]:
+  - generic:
+    - region "Toast message":
+      - heading "0 notifications total" [level=2] [ref=e3]
+      - alert
+  - img [ref=e9]
+  - generic [ref=e15]:
+    - generic [ref=e17]:
+      - list [ref=e20]:
+        - listitem [ref=e21]
+        - listitem [ref=e22]
+        - listitem [ref=e23]
+        - listitem [ref=e24]
+        - listitem [ref=e25]
+        - listitem [ref=e26]
+        - listitem [ref=e27]
+      - generic [ref=e29]:
+        - main [ref=e30]:
+          - list [ref=e35]:
+            - listitem [ref=e36]
+            - listitem [ref=e43]
+            - listitem [ref=e50]
+            - listitem [ref=e57]
+            - listitem [ref=e64]
+            - listitem [ref=e71]
+            - listitem [ref=e78]
+            - listitem [ref=e85]
+            - listitem [ref=e92]
+            - listitem [ref=e99]
+        - complementary [ref=e108]
+    - generic:
+      - generic:
+        - complementary "AI-powered assistant to get help with your career, jobs etc"
+  - region [ref=e114]
