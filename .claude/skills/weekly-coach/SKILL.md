@@ -85,7 +85,7 @@ Charter pillars run on different clocks. Treating every pillar as weekly-cadence
 - **episodic** — served in bursts, not weekly (deep retreats, long travel, sabbaticals, big creative blocks, family visits)
 - **hybrid** — has a weekly floor + occasional bursts (relationships, music practice if "play daily OR jam session monthly")
 
-Cache file: `.claude/context/charter-pillar-modes.md`. Format:
+Cache file: `.claude/skills/weekly-coach/charter-pillar-modes.md`. Format:
 
 ```markdown
 # Charter pillar modes
@@ -286,7 +286,7 @@ After sid responds:
 - Plan table columns match the sheet exactly?
 - Plan table is forward-looking — day/status cells blank, no "done" copied from prior week?
 - Every plan item maps to a charter pillar?
-- Pillar-mode cache (`.claude/context/charter-pillar-modes.md`) was read or inferred + asked to confirm?
+- Pillar-mode cache (`.claude/skills/weekly-coach/charter-pillar-modes.md`) was read or inferred + asked to confirm?
 - Charter coverage: ran compensating-signal scan on every at-risk pillar before declaring drift?
 - 3 coach questions are uncomfortable and specific (not generic "what do you want to focus on")?
 - Chat output is TL;DR + patterns + questions only — full plan stays in file?
