@@ -28,6 +28,9 @@ jobs/
 # Weekly coach — personal, not for repo
 weeks/
 
+# Email triage runs — personal, not for repo
+email-runs/
+
 # Playwright MCP scratch dir
 .playwright-mcp/
 .claude/skills/weekly-coach/charter-pillar-modes.md
