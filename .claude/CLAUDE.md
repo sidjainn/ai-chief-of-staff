@@ -48,12 +48,14 @@ It uses skills and hooks together as a system — not one feature at a time. Eve
 | `.claude/skills/email-reply/SKILL.md` | Email drafting skill — auto-triggers on "draft a reply" |
 | `jobs/me/resume.md` | Sid's resume — read every job-research invocation |
 | `jobs/me/interests.md` | What sid wants in a role — used to score fit |
-| `.claude/hooks/post-triage-log.sh` | Auto-log hook (writes to `email-runs/<DATE>.md`) |
+| `.claude/hooks/_hook_common.py` | Shared library — transcript resolution, .env loading, JSONL parse, idempotency, PostHog capture, pre-gate cache |
+| `.claude/hooks/post_triage_log.py` | Auto-log hook (writes to `email-runs/<DATE>.md`) |
 | `email-runs/<DATE>.md` | Per-day triage runs (gitignored) — one file per day, one section per run |
-| `.claude/hooks/posthog-capture.sh` | PostHog event hook for email-triage |
+| `.claude/hooks/posthog_capture.py` | PostHog event hook for email-triage |
 | `logs/posthog-email-triage-sent.log` | Idempotency ledger — sent triage events (gitignored) |
 | `.claude/skills/weekly-coach/charter-pillar-modes.md` | Pillar-mode tags (cadence/episodic/hybrid) — coach lens for charter coverage |
-| `.claude/hooks/posthog-weekly-coach-capture.sh` | PostHog event hook for weekly-coach |
+| `.claude/hooks/posthog_weekly_coach_capture.py` | PostHog event hook for weekly-coach |
+| `.claude/hooks/posthog_job_research_capture.py` | PostHog event hook for job-research |
 | `weeks/<ISO>/` | Per-week reflection, plan, patterns (gitignored) |
 | `logs/weekly-coach-log.md` | Append-only summary log (gitignored) |
 
