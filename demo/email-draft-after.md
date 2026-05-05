@@ -1,7 +1,7 @@
 # Demo: Email Draft — AFTER (with email-reply skill)
 
 > Same email. "Draft a reply." — but now the skill is active.
-> Reads `.claude/context/communication-style.md` + `my-team.md` first.
+> Reads `.claude/skills/email-triage/context/communication-style.md` + `my-team.md` first.
 
 ---
 

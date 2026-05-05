@@ -28,6 +28,12 @@ jobs/
 # Weekly coach — personal, not for repo
 weeks/
 
+# Email triage runs — personal, not for repo
+email-runs/
+
+# Email triage real context — personal (priorities/team/voice). example.context/ is the public template.
+.claude/skills/email-triage/context/
+
 # Playwright MCP scratch dir
 .playwright-mcp/
 .claude/skills/weekly-coach/charter-pillar-modes.md

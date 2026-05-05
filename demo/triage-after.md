@@ -5,7 +5,7 @@
 
 ---
 
-**Prompt used:** `/triage`
+**Prompt used:** `/email-triage`
 
 ---
 
