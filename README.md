@@ -126,7 +126,7 @@ Auto-triggers on JDs, job URLs, "interviewing at X", or pasted recruiter mail.
 **Light update workflow:**
 
 ```
-/update-job plum
+/update-job company_ref
 ```
 
 Or natural: "had a call w/ Posthog", "Posthog debrief". Pulls fresh Granola (w/ deeplink), folds in pasted notes, appends `## Update — DATE` block. No re-research. Doc accumulates.
