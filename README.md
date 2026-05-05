@@ -25,13 +25,11 @@ Every workflow is a skill — so the same setup ports cleanly to Codex or any ot
 Every use case follows the same pattern:
 
 ```
-.claude/skills/    # workflows — slash-invokable (/skill-name) and auto-triggered on natural-language signals
+.claude/skills/    # workflows — slash-invokable (/skill-name) and auto-triggered 
                    # each skill keeps its own context: example.context/ (public template) + context/ (gitignored real content)
 .claude/hooks/     # silent persistence — logs, telemetry
 artifacts/         # running docs (logs/, jobs/<slug>/, ...) — memory, not snapshots
 ```
-
-The split matters:
 
 - **Skills** = the workflow. Type `/<skill-name>` to invoke, or trigger via natural-language phrases ("draft a reply", "interviewing at X", "had a call w/ ").
 - **Hooks** = invisible. Run after tool calls, persist state. Useful for transmitting events to posthog.
