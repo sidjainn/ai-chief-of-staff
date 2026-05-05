@@ -38,9 +38,10 @@ It uses skills and hooks together as a system — not one feature at a time. Eve
 
 | File | Purpose |
 |------|---------|
-| `.claude/context/my-priorities.md` | What matters this quarter |
-| `.claude/context/my-team.md` | Who people are and how to handle them |
-| `.claude/context/communication-style.md` | How I write — voice and rules |
+| `.claude/skills/email-triage/context/my-priorities.md` | What matters this quarter (gitignored, real personal content) |
+| `.claude/skills/email-triage/context/my-team.md` | Who people are and how to handle them (gitignored) |
+| `.claude/skills/email-triage/context/communication-style.md` | How I write — voice and rules (gitignored) |
+| `.claude/skills/email-triage/example.context/` | Public template — sample dummy context committed for repo readers; never read at runtime |
 | `.claude/skills/weekly-coach/SKILL.md` | Weekly reflection + planning skill — slash `/weekly-coach` |
 | `.claude/skills/job-research/SKILL.md` | Job research skill — slash `/research-job` + `/update-job`; auto-triggers on JDs / job URLs / meeting recaps |
 | `.claude/skills/email-triage/SKILL.md` | Morning email + calendar triage — slash `/email-triage` |
@@ -51,7 +52,7 @@ It uses skills and hooks together as a system — not one feature at a time. Eve
 | `email-runs/<DATE>.md` | Per-day triage runs (gitignored) — one file per day, one section per run |
 | `.claude/hooks/posthog-capture.sh` | PostHog event hook for email-triage |
 | `logs/posthog-email-triage-sent.log` | Idempotency ledger — sent triage events (gitignored) |
-| `.claude/context/charter-pillar-modes.md` | Pillar-mode tags (cadence/episodic/hybrid) — coach lens for charter coverage |
+| `.claude/skills/weekly-coach/charter-pillar-modes.md` | Pillar-mode tags (cadence/episodic/hybrid) — coach lens for charter coverage |
 | `.claude/hooks/posthog-weekly-coach-capture.sh` | PostHog event hook for weekly-coach |
 | `weeks/<ISO>/` | Per-week reflection, plan, patterns (gitignored) |
 | `logs/weekly-coach-log.md` | Append-only summary log (gitignored) |

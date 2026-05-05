@@ -25,8 +25,8 @@ Every workflow is a skill — so the same setup ports cleanly to Codex or any ot
 Every use case follows the same pattern:
 
 ```
-.claude/context/   # what Claude needs to know about you (priorities, voice, team, resume)
 .claude/skills/    # workflows — slash-invokable (/skill-name) and auto-triggered on natural-language signals
+                   # each skill keeps its own context: example.context/ (public template) + context/ (gitignored real content)
 .claude/hooks/     # silent persistence — logs, telemetry
 artifacts/         # running docs (logs/, jobs/<slug>/, ...) — memory, not snapshots
 ```
@@ -46,14 +46,13 @@ ai-chief-of-staff/
 ├── .claude/
 │   ├── CLAUDE.md                       # Project rules
 │   ├── settings.json                   # MCP servers + hooks
-│   ├── context/                        # Shared spine across use cases
-│   │   ├── my-priorities.md            # Quarterly focus
-│   │   ├── my-team.md                  # Stakeholders + handling
-│   │   └── communication-style.md      # Voice + banned phrases
 │   ├── skills/
 │   │   ├── weekly-coach/SKILL.md       # growth-buddy (reflection + planning)  — /weekly-coach
 │   │   ├── job-research/SKILL.md       # job-researcher (full + light update)   — /research-job, /update-job
-│   │   ├── email-triage/SKILL.md       # email-triage (P0/P1/P2 brief)          — /email-triage
+│   │   ├── email-triage/
+│   │   │   ├── SKILL.md                # email-triage (P0/P1/P2 brief)          — /email-triage
+│   │   │   ├── example.context/        # Public template — sample priorities/team/voice
+│   │   │   └── context/                # Real personal content (gitignored)
 │   │   └── email-reply/SKILL.md        # email-reply (voice-matched draft)      — auto on "draft a reply"
 │   ├── scripts/
 │   │   └── fetch-coach-sources.sh      # Pulls charter/sheet/daily-log via public export
@@ -188,9 +187,18 @@ claude
 
 Replace dummy data:
 
-- `[.claude/context/my-priorities.md](.claude/context/my-priorities.md)` — quarterly goals
-- `[.claude/context/my-team.md](.claude/context/my-team.md)` — manager, reports, stakeholders
-- `[.claude/context/communication-style.md](.claude/context/communication-style.md)` — voice + rules
+Email-triage + email-reply read context from `.claude/skills/email-triage/context/`. The repo ships a public template at `.claude/skills/email-triage/example.context/` — copy it and edit:
+
+```bash
+cp -r .claude/skills/email-triage/example.context .claude/skills/email-triage/context
+# then edit the 3 files inside .claude/skills/email-triage/context/ (gitignored)
+```
+
+Files to fill in:
+
+- `my-priorities.md` — quarterly goals
+- `my-team.md` — manager, reports, stakeholders
+- `communication-style.md` — voice + rules
 
 For job-researcher: also seed `jobs/me/resume.md` + `jobs/me/interests.md` (skill auto-fetches from your site if missing).
 

@@ -4,9 +4,9 @@ description: Morning email + calendar triage. Triggers on /email-triage, "mornin
 version: 1.0
 author: sid
 referenced_files:
-  - .claude/context/my-priorities.md
-  - .claude/context/my-team.md
-  - .claude/context/communication-style.md
+  - .claude/skills/email-triage/context/my-priorities.md
+  - .claude/skills/email-triage/context/my-team.md
+  - .claude/skills/email-triage/context/communication-style.md
 ---
 
 # Email Triage Skill
@@ -26,9 +26,9 @@ Use the Google Calendar MCP to fetch if available:
 ## Step 2 — Load context
 
 Before assessing anything, read these three files:
-- `.claude/context/my-priorities.md` — what matters this quarter
-- `.claude/context/my-team.md` — who sent this and why it matters
-- `.claude/context/communication-style.md` — how sid communicates (used for draft suggestions)
+- `.claude/skills/email-triage/context/my-priorities.md` — what matters this quarter
+- `.claude/skills/email-triage/context/my-team.md` — who sent this and why it matters
+- `.claude/skills/email-triage/context/communication-style.md` — how sid communicates (used for draft suggestions)
 
 ## Step 3 — Triage and categorize
 
@@ -40,8 +40,8 @@ For each email and calendar event, assign a priority:
 **Archive** — noise, handle silently
 
 Apply this logic:
-- Cross-reference senders against `.claude/context/my-team.md`
-- Cross-reference topics against `.claude/context/my-priorities.md`
+- Cross-reference senders against `.claude/skills/email-triage/context/my-team.md`
+- Cross-reference topics against `.claude/skills/email-triage/context/my-priorities.md`
 - An email from a P0 stakeholder (Sarah, Hartwell, board) about a P0 topic is always P0
 - Automated reports, vendor pitches, newsletters → Archive unless there's an anomaly
 - Flag if an email implies a decision sid needs to make or a commitment he hasn't acknowledged
