@@ -91,15 +91,55 @@ slug_path_re = re.compile(r"jobs/([a-z0-9][a-z0-9\-]*)/")
 research_cmd_re = re.compile(r"/research-job\b", re.IGNORECASE)
 update_cmd_re = re.compile(r"/update-job\b", re.IGNORECASE)
 
-slug_candidates = []
-subagent_dispatches = 0
-last_user_after_cmd = ""
-seen_cmd = False
 
+def extract_text_blocks(content):
+    blocks = []
+    if isinstance(content, str):
+        blocks.append(content)
+    elif isinstance(content, list):
+        for b in content:
+            if isinstance(b, dict) and b.get("type") == "text":
+                blocks.append(b.get("text", ""))
+    return blocks
+
+
+entries = []
 for line in lines:
     try:
-        entry = json.loads(line.strip())
+        entries.append(json.loads(line.strip()))
     except:
+        entries.append(None)
+
+# Pass 1: locate the *last* user message containing /research-job or /update-job.
+# Tallies must scope to this command's segment only — otherwise prior /research-job
+# subagent dispatches and slug mentions leak into a later /update-job event.
+cmd_idx = -1
+cmd_type = None
+cmd_text = ""
+for i, entry in enumerate(entries):
+    if entry is None:
+        continue
+    msg = entry.get("message", entry)
+    if msg.get("role") != "user":
+        continue
+    joined = "\n".join(extract_text_blocks(msg.get("content", "")))
+    if research_cmd_re.search(joined):
+        cmd_idx, cmd_type, cmd_text = i, "research-job", joined
+    elif update_cmd_re.search(joined):
+        cmd_idx, cmd_type, cmd_text = i, "update-job", joined
+
+if cmd_idx < 0:
+    print(json.dumps(result))
+    sys.exit(0)
+
+result["command"] = cmd_type
+result["user_input"] = cmd_text[:500]
+
+# Pass 2: tally only entries from the command line onward.
+slug_candidates = []
+subagent_dispatches = 0
+for entry in entries[cmd_idx:]:
+    if entry is None:
         continue
     msg = entry.get("message", entry)
     role = msg.get("role", "")
@@ -110,43 +150,32 @@ for line in lines:
         text_blocks.append(content)
     elif isinstance(content, list):
         for block in content:
-            if isinstance(block, dict):
-                if block.get("type") == "text":
-                    text_blocks.append(block.get("text", ""))
-                elif block.get("type") == "tool_use":
-                    name = block.get("name", "")
-                    if name == "Agent":
-                        subagent_dispatches += 1
+            if not isinstance(block, dict):
+                continue
+            if block.get("type") == "text":
+                text_blocks.append(block.get("text", ""))
+            elif block.get("type") == "tool_use" and block.get("name") == "Agent":
+                subagent_dispatches += 1
 
     joined = "\n".join(text_blocks)
 
-    if role == "user":
-        if research_cmd_re.search(joined):
-            result["command"] = "research-job"
-            seen_cmd = True
-            last_user_after_cmd = joined
-        elif update_cmd_re.search(joined):
-            result["command"] = "update-job"
-            seen_cmd = True
-            last_user_after_cmd = joined
-
     for m in slug_path_re.finditer(joined):
         candidate = m.group(1)
-        if candidate not in ("me",):
+        if candidate != "me":
             slug_candidates.append(candidate)
 
-    if role == "assistant" and seen_cmd:
-        if "creating jobs/" in joined.lower() or "create jobs/" in joined.lower() or "created folder" in joined.lower():
+    if role == "assistant":
+        low = joined.lower()
+        if "creating jobs/" in low or "create jobs/" in low or "created folder" in low:
             result["readme_created"] = True
-        if "## update —" in joined.lower() or "appending" in joined.lower() or "appended a dated" in joined.lower():
+        if "## update —" in low or "appending" in low or "appended a dated" in low:
             result["readme_appended"] = True
 
-if seen_cmd and slug_candidates:
+if slug_candidates:
     from collections import Counter
     result["slug"] = Counter(slug_candidates).most_common(1)[0][0]
 
 result["subagent_count"] = subagent_dispatches
-result["user_input"] = last_user_after_cmd[:500]
 
 print(json.dumps(result))
 EOF
