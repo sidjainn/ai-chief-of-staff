@@ -37,7 +37,7 @@ claude
 
 Run `/mcp` — you should see `gmail` and `gcal` listed as active.
 
-Then run `/triage` to pull live data.
+Then run `/email-triage` to pull live data.
 
 ---
 

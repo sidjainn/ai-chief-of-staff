@@ -1,18 +1,16 @@
 # Chief of Staff — Project Instructions
 
 This project is a personal AI Chief of Staff built on Claude Code.
-It uses commands, skills, and hooks together as a system — not one feature at a time.
+It uses skills and hooks together as a system — not one feature at a time. Every workflow lives as a skill so it ports cleanly to other harnesses (Codex etc.).
 
 ## How this system works
 
 ```
-/triage                          # Run morning triage (email + calendar)
-  └── reads context/             # Priorities, team, comms style
-  └── triggers hook              # Logs triage to weekly-log.md
-
-"draft a reply"                  # After triage flags an email
-  └── activates email-reply skill
-  └── reads communication-style.md + my-team.md
+/weekly-coach                    # Weekly reflection + next-week planning
+  └── pulls charter + sheet + daily logs (public Google export endpoints)
+  └── 6-week pattern detection   # Avoidance / drift / breakthroughs
+  └── writes weeks/<ISO>/        # reflection.md + plan.md + patterns.md
+  └── appends weekly-coach-log   # Hook captures counts to PostHog
 
 /research-job <jd-or-link>       # Deep research on a job + company
   └── reads jobs/me/             # Resume + interests as candidate lens
@@ -27,32 +25,34 @@ It uses commands, skills, and hooks together as a system — not one feature at 
 "had a call w/ <co>"             # Auto-triggers job-research skill
   └── routes to update workflow  # If <co> already in jobs/
 
-/weekly-coach                    # Weekly reflection + next-week planning
-  └── pulls charter + sheet + daily logs (gdrive MCP)
-  └── 6-week pattern detection   # Avoidance / drift / breakthroughs
-  └── writes weeks/<ISO>/        # reflection.md + plan.md + patterns.md
-  └── appends weekly-coach-log   # Hook captures counts to PostHog
+/email-triage                    # Morning triage (email + calendar)
+  └── reads context/             # Priorities, team, comms style
+  └── triggers hook              # Logs triage to email-runs/<DATE>.md
+
+"draft a reply"                  # After triage flags an email
+  └── activates email-reply skill
+  └── reads communication-style.md + my-team.md
 ```
 
 ## Key files
 
 | File | Purpose |
 |------|---------|
-| `.claude/context/my-priorities.md` | What matters this quarter |
-| `.claude/context/my-team.md` | Who people are and how to handle them |
-| `.claude/context/communication-style.md` | How I write — voice and rules |
-| `.claude/commands/triage.md` | The /triage command |
-| `.claude/skills/email-reply/SKILL.md` | Email drafting skill |
-| `.claude/commands/research-job.md` | The /research-job command |
-| `.claude/commands/update-job.md` | The /update-job command (light post-meeting updates) |
-| `.claude/skills/job-research/SKILL.md` | Job research skill (auto-triggers on JDs/job URLs + meeting recaps) |
+| `.claude/skills/email-triage/context/my-priorities.md` | What matters this quarter (gitignored, real personal content) |
+| `.claude/skills/email-triage/context/my-team.md` | Who people are and how to handle them (gitignored) |
+| `.claude/skills/email-triage/context/communication-style.md` | How I write — voice and rules (gitignored) |
+| `.claude/skills/email-triage/example.context/` | Public template — sample dummy context committed for repo readers; never read at runtime |
+| `.claude/skills/weekly-coach/SKILL.md` | Weekly reflection + planning skill — slash `/weekly-coach` |
+| `.claude/skills/job-research/SKILL.md` | Job research skill — slash `/research-job` + `/update-job`; auto-triggers on JDs / job URLs / meeting recaps |
+| `.claude/skills/email-triage/SKILL.md` | Morning email + calendar triage — slash `/email-triage` |
+| `.claude/skills/email-reply/SKILL.md` | Email drafting skill — auto-triggers on "draft a reply" |
 | `jobs/me/resume.md` | Sid's resume — read every job-research invocation |
 | `jobs/me/interests.md` | What sid wants in a role — used to score fit |
-| `.claude/hooks/post-triage-log.sh` | Auto-log hook |
-| `logs/weekly-log.md` | Auto-generated, gitignored |
-| `.claude/commands/weekly-coach.md` | The /weekly-coach command |
-| `.claude/skills/weekly-coach/SKILL.md` | Weekly reflection + planning skill (gdrive MCP) |
-| `.claude/context/charter-pillar-modes.md` | Pillar-mode tags (cadence/episodic/hybrid) — coach lens for charter coverage |
+| `.claude/hooks/post-triage-log.sh` | Auto-log hook (writes to `email-runs/<DATE>.md`) |
+| `email-runs/<DATE>.md` | Per-day triage runs (gitignored) — one file per day, one section per run |
+| `.claude/hooks/posthog-capture.sh` | PostHog event hook for email-triage |
+| `logs/posthog-email-triage-sent.log` | Idempotency ledger — sent triage events (gitignored) |
+| `.claude/skills/weekly-coach/charter-pillar-modes.md` | Pillar-mode tags (cadence/episodic/hybrid) — coach lens for charter coverage |
 | `.claude/hooks/posthog-weekly-coach-capture.sh` | PostHog event hook for weekly-coach |
 | `weeks/<ISO>/` | Per-week reflection, plan, patterns (gitignored) |
 | `logs/weekly-coach-log.md` | Append-only summary log (gitignored) |

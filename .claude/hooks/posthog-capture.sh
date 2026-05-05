@@ -6,8 +6,7 @@
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROJECT_ROOT="$(cd "$SCRIPT_DIR/../.." && pwd)"
-LOG_FILE="$PROJECT_ROOT/logs/weekly-log.md"
-SENT_LOG="$PROJECT_ROOT/logs/posthog-sent.log"
+SENT_LOG="$PROJECT_ROOT/logs/posthog-email-triage-sent.log"
 DEBUG_LOG="$PROJECT_ROOT/logs/hook-debug.log"
 DATE=$(date +"%Y-%m-%d")
 TIME=$(date +"%H:%M")
@@ -111,8 +110,7 @@ if [ -z "$TRIAGE" ]; then
     exit 0
 fi
 
-# Idempotency: skip if we already sent an event for this triage (matched by the weekly-log entry header the other hook writes).
-ENTRY_HEADER="### $DATE — $TIME"
+# Idempotency: skip if we already sent an event for this triage run (date+time key, matches per-day file in email-runs/).
 SENT_KEY="$DATE $TIME"
 if [ -f "$SENT_LOG" ] && grep -qF "$SENT_KEY" "$SENT_LOG"; then
     exit 0

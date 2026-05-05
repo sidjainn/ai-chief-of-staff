@@ -4,9 +4,9 @@ description: Draft a reply to an email in sid's voice — direct, concise, relat
 version: 1.0
 author: sid
 referenced_files:
-  - .claude/context/communication-style.md
-  - .claude/context/my-team.md
-  - .claude/context/my-priorities.md
+  - .claude/skills/email-triage/context/communication-style.md
+  - .claude/skills/email-triage/context/my-team.md
+  - .claude/skills/email-triage/context/my-priorities.md
 ---
 
 # Email Reply Skill
@@ -14,8 +14,8 @@ referenced_files:
 ## What this skill does
 
 Drafts email replies that sound like me — not like a polished AI assistant.
-Before writing anything, read `.claude/context/communication-style.md` in full.
-Then read `.claude/context/my-team.md` to understand who I'm writing to.
+Before writing anything, read `.claude/skills/email-triage/context/communication-style.md` in full.
+Then read `.claude/skills/email-triage/context/my-team.md` to understand who I'm writing to.
 
 ## How to use
 
@@ -30,7 +30,7 @@ When asked to draft a response, place the draft in the same thread.
 
 ### Step 1 — Identify the relationship
 
-Look up the sender in `.claude/context/my-team.md`.
+Look up the sender in `.claude/skills/email-triage/context/my-team.md`.
 
 - Direct report → casual, warm, short
 - Manager → structured, proactive, no fluff

@@ -1,6 +1,6 @@
 # PostHog Setup Guide — Analytics for the Chief of Staff
 
-Track how often `/triage` runs, the P0/P1/P2 mix over time, and build a dashboard over it. Setup takes about 5 minutes.
+Track how often `/email-triage` runs, the P0/P1/P2 mix over time, and build a dashboard over it. Setup takes about 5 minutes.
 
 > Use a **new, personal PostHog project** — not a shared/production one. The hook sends data on every triage run.
 
@@ -92,22 +92,22 @@ In a Claude session, ask: "Use the PostHog MCP to get the current project detail
 ### Hook fires
 
 ```bash
-# Send a test event directly (sanity check before running /triage):
+# Send a test event directly (sanity check before running /email-triage):
 curl -s -X POST -H "Content-Type: application/json" \
   -d "{\"api_key\":\"$POSTHOG_API_KEY\",\"event\":\"setup_test\",\"distinct_id\":\"$(whoami)\"}" \
   "$POSTHOG_HOST/i/v0/e/"
 # Expect: {"status":1} or similar 1xx status
 ```
 
-Then run `/triage` in Claude Code. After it completes:
+Then run `/email-triage` in Claude Code. After it completes:
 
-- `logs/weekly-log.md` gets a new `### YYYY-MM-DD — HH:MM` entry.
+- `email-runs/<YYYY-MM-DD>.md` gets a new `## HH:MM` section (file is created if first run of the day).
 - `logs/hook-debug.log` shows `[posthog] PostHog response: {"status":1}`.
 - In PostHog, **Activity → Live events** shows `triage_run` with `p0_count`, `p1_count`, `p2_count` properties.
 
 ### Graceful degradation
 
-`unset POSTHOG_API_KEY` in a shell, run `/triage`, and confirm the triage still logs to `weekly-log.md` (the hook exits 0 silently when the key is missing).
+`unset POSTHOG_API_KEY` in a shell, run `/email-triage`, and confirm the triage still logs to `email-runs/<DATE>.md` (the hook exits 0 silently when the key is missing).
 
 ---
 
