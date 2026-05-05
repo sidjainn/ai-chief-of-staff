@@ -29,8 +29,46 @@ HOOK_NAME = "posthog-triage"
 SENT_LOG = PROJECT_ROOT / "logs" / "posthog-email-triage-sent.log"
 
 
+_SECTION_BREAK = re.compile(r"^\s*(?:\*\*|##|---)", re.MULTILINE)
+
+
 def _count_marker(text: str, label: str) -> int:
-    return len(re.findall(rf"(?:^|[^A-Za-z]){re.escape(label)}(?:[^A-Za-z]|$)", text))
+    """Count actual list items under the **<label> ...** section.
+
+    Triage output looks like:
+
+        **P0 — Act Now**
+        - item one
+        - item two
+
+        **P1 — Act Today**
+        - None.
+
+    A section header like `**P0 — Act Now**` must NOT count as 1 item — that
+    was the prior bug (matched the label substring directly). Empty sections
+    such as `- None.` or `- Nothing.` resolve to 0.
+    """
+    header_re = re.compile(rf"\*\*{re.escape(label)}\b[^*]*\*\*", re.IGNORECASE)
+    m = header_re.search(text)
+    if not m:
+        return 0
+    rest = text[m.end():]
+    nxt = _SECTION_BREAK.search(rest)
+    body = rest[: nxt.start()] if nxt else rest
+
+    items = 0
+    for line in body.splitlines():
+        stripped = line.strip()
+        if not stripped.startswith(("-", "*")):
+            continue
+        content = stripped.lstrip("-* ").strip().rstrip(".").lower()
+        if content in {"", "none", "nothing", "n/a", "no items"}:
+            continue
+        if content.startswith("none"):
+            # "None. No team..." style filler
+            continue
+        items += 1
+    return items
 
 
 def main() -> int:

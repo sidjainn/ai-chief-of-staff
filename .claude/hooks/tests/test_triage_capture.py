@@ -17,30 +17,49 @@ sys.path.insert(0, str(HOOKS_DIR))
 import posthog_capture as ph  # noqa: E402
 
 
-TRIAGE_TEXT = """# Morning Triage — 2026-05-05
+TRIAGE_TEXT = """### Morning Triage — 2026-05-05
 
-## P0
+**P0 — Act Now**
 - Hartwell Group thread (Marcus Webb)
 
-## P1
+**P1 — Act Today**
 - Quarterly review prep
 - Mid-week sync notes
 
-## P2
+**P2 — On My Radar**
 - Conference invite
 - Newsletter sign-up
 """
 
 
-class CountMarkerTest(unittest.TestCase):
-    def test_counts_p_levels(self):
-        self.assertEqual(ph._count_marker(TRIAGE_TEXT, "P0"), 1)
-        self.assertEqual(ph._count_marker(TRIAGE_TEXT, "P1"), 1)
-        self.assertEqual(ph._count_marker(TRIAGE_TEXT, "P2"), 1)
+EMPTY_SECTIONS_TRIAGE = """### Morning Triage — 2026-05-05
 
-    def test_doesnt_match_substring(self):
-        self.assertEqual(ph._count_marker("xPOyy P0!", "P0"), 1)
-        self.assertEqual(ph._count_marker("APPLE", "P0"), 0)
+**P0 — Act Now**
+- None. No team, Sarah, Hartwell, churn traffic in last 24h.
+
+**P1 — Act Today**
+- None.
+
+**P2 — On My Radar**
+- LinkedIn job alert
+- Wellfound 14 new jobs
+"""
+
+
+class CountMarkerTest(unittest.TestCase):
+    def test_counts_real_items(self):
+        self.assertEqual(ph._count_marker(TRIAGE_TEXT, "P0"), 1)
+        self.assertEqual(ph._count_marker(TRIAGE_TEXT, "P1"), 2)
+        self.assertEqual(ph._count_marker(TRIAGE_TEXT, "P2"), 2)
+
+    def test_empty_sections_count_zero(self):
+        # Regression: "**P0 ...**" header + "- None." body must NOT count as 1 item.
+        self.assertEqual(ph._count_marker(EMPTY_SECTIONS_TRIAGE, "P0"), 0)
+        self.assertEqual(ph._count_marker(EMPTY_SECTIONS_TRIAGE, "P1"), 0)
+        self.assertEqual(ph._count_marker(EMPTY_SECTIONS_TRIAGE, "P2"), 2)
+
+    def test_missing_section_counts_zero(self):
+        self.assertEqual(ph._count_marker("no sections here", "P0"), 0)
 
 
 class TriageHookSmokeTest(unittest.TestCase):
