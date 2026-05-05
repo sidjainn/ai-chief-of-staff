@@ -5,19 +5,19 @@
         "hooks": [
           {
             "type": "command",
-            "command": "bash .claude/hooks/post-triage-log.sh"
+            "command": "python3 .claude/hooks/post_triage_log.py"
           },
           {
             "type": "command",
-            "command": "bash .claude/hooks/posthog-capture.sh"
+            "command": "python3 .claude/hooks/posthog_capture.py"
           },
           {
             "type": "command",
-            "command": "bash .claude/hooks/posthog-job-research-capture.sh"
+            "command": "python3 .claude/hooks/posthog_job_research_capture.py"
           },
           {
             "type": "command",
-            "command": "bash .claude/hooks/posthog-weekly-coach-capture.sh"
+            "command": "python3 .claude/hooks/posthog_weekly_coach_capture.py"
           }
         ]
       }
@@ -27,19 +27,19 @@
         "hooks": [
           {
             "type": "command",
-            "command": "bash .claude/hooks/post-triage-log.sh"
+            "command": "python3 .claude/hooks/post_triage_log.py"
           },
           {
             "type": "command",
-            "command": "bash .claude/hooks/posthog-capture.sh"
+            "command": "python3 .claude/hooks/posthog_capture.py"
           },
           {
             "type": "command",
-            "command": "bash .claude/hooks/posthog-job-research-capture.sh"
+            "command": "python3 .claude/hooks/posthog_job_research_capture.py"
           },
           {
             "type": "command",
-            "command": "bash .claude/hooks/posthog-weekly-coach-capture.sh"
+            "command": "python3 .claude/hooks/posthog_weekly_coach_capture.py"
           }
         ]
       }

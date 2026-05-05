@@ -22,6 +22,10 @@ Thumbs.db
 .idea/
 *.swp
 
+# Python
+__pycache__/
+*.pyc
+
 # Job research — personal, not for repo
 jobs/
 
