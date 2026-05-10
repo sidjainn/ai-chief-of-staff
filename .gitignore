@@ -1,5 +1,7 @@
-# Auto-generated logs — local only, never commit (may contain doc IDs / personal data)
-logs/
+# Auto-generated logs — local only, never commit (may contain doc IDs / personal data).
+# No trailing slash so symlinks (to private repo) are also ignored.
+logs
+/logs/
 
 # Environment variables — never commit
 .env
@@ -26,14 +28,17 @@ Thumbs.db
 __pycache__/
 *.pyc
 
-# Job research — personal, not for repo
-jobs/
+# Job research — personal, not for repo 
+jobs
+/jobs/
 
-# Weekly coach — personal, not for repo
-weeks/
+# Weekly coach — personal, not for repo 
+weeks
+/weeks/
 
-# Email triage runs — personal, not for repo
-email-runs/
+# Email triage runs — personal, not for repo 
+email-runs
+/email-runs/
 
 # Email triage real context — personal (priorities/team/voice). example.context/ is the public template.
 .claude/skills/email-triage/context/
