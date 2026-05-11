@@ -127,7 +127,7 @@ For each shortlist item check 3-4 retailers. Always:
 - Flipkart
 - Amazon.in
 - Brand-direct (if brand sells direct)
-- One specialist retailer based on category (Croma / Decathlon / Reliance Digital / Pepperfry / Urban Ladder / Nykaa / Decathlon / etc.)
+- One specialist retailer based on category (Croma / Decathlon / Reliance Digital / Pepperfry / Urban Ladder / Nykaa / etc.)
 
 Record per retailer: listed price, current discount, total after discount (pre-card). Note stock status.
 
@@ -232,6 +232,8 @@ links + scores: .shopping/reccos/office-chair/verdict.md
 
 Append the following block (verbatim format — the hook parses it) to `logs/shopping-advise-log.md`. Create the file if it does not exist.
 
+**Header MUST use em-dash (U+2014, ` — `), not ASCII hyphen.** The hook regex looks for `## <slug> — advise`. ASCII `-` or `--` will silently break PostHog capture.
+
 ```markdown
 ## <slug> — advise
 
@@ -251,10 +253,10 @@ _Generated <YYYY-MM-DD HH:MM>. Caveman log._
 Field rules (must be traceable for the hook):
 - `slug`: lowercase kebab-case, no spaces, no `/`
 - `top_pick`: quoted string + ` | ` + URL
-- `retailer`: bare domain (`amazon.in`, `flipkart.com`, `wakefit.co`, etc.)
+- `retailer`: bare domain only (`amazon.in`, `flipkart.com`, `wakefit.co`, etc.). No parenthetical notes (e.g. NOT `amazon.in (Prime exclusive)`). Max 80 chars.
 - `best_card`: exact name from `profile.md ## Payment methods`
 - `list_price` + `effective_price`: integer rupees, no decimals, no commas
-- `alts`: JSON-ish list of 0-2 strings
+- `alts`: JSON-ish list of 0-2 strings. If fewer than 2 alts, emit only the ones that exist; empty list `[]` allowed. Never pad with empty strings.
 - `values_winner`: one of the five rubric dims
 - `recco_path`: relative path from repo root
 
