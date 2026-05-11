@@ -1,7 +1,7 @@
 ---
 name: weekly-coach
 description: Weekly reflection + next-week planning coach for sid. Triggers on /weekly-coach, "weekly review", "plan my week", "Monday planning", "let's reflect on the week", or when sid says he wants to think through the past week and plan ahead. Pulls annual charter, weekly to-do sheet (all dated tabs), daily-log monthly docs via public Google export endpoints (no MCP, no GCP project — sid's docs are shared "anyone with the link"). Surfaces multi-week patterns (avoidance, breakthroughs, charter coverage), writes reflection + plan to weeks, asks 3 sharp coach questions back. Plan rendered as a markdown table in sid's exact sheet column format for paste into a new sheet tab.
-version: 1.1
+version: 1.2
 author: sid
 fetcher_script: .claude/scripts/fetch-coach-sources.sh
 sources:
@@ -68,6 +68,7 @@ It exits with the manifest path on stdout (e.g. `/tmp/weekly-coach/<UTC-ts>/mani
 - **Charter:** read `charter.txt` end-to-end. Extract focus areas / pillars verbatim. These are the lens for every observation and plan item.
 - **Sheet:** from `_tabs.json`, filter to **dated weekly tabs only** (name matches `DD-MM-YYYY`). Sort by date desc. The most recent tab = prior week (reflection target). Take the next 5 = lookback. Skip "Learning resources", "Curiosities", and any non-date tabs unless sid asks. Read each tab's CSV.
 - **Daily logs:** from `_docs.json`, identify the current month + previous month docs by title (e.g. "Apr daily log 2026", "Mar daily log 2026"). Read both. Focus parsing on entries within the 6-week window.
+- **Prior reflections:** list `weeks/` directory, sort ISO-week subdirs desc, read **last 4 weeks of `reflection.md` + `plan.md`** (e.g. `weeks/2026-W19/`, `weeks/2026-W18/`, …). Skip current target week if scaffolded. These give: prior intents, prior coach-flagged patterns, prior at-risk pillars, prior coach questions. Source of truth for "did sid follow through on what coach pushed last week?"
 
 If the script fails (manifest missing, all fetches 0 bytes), stop and tell sid: docs may have been un-shared or the share-link permission downgraded. Don't proceed without source data.
 
@@ -118,6 +119,8 @@ Across the 6-week window (cadence pillars) and 12-week / quarter window (episodi
 | **Breakthroughs**       | Completed items that took multi-week prep, or wins called out in daily logs                                   | What enabled it — replicate it                                |
 | **Energy signals**      | Reflection text in daily logs — recurring frustrations, fatigue, excitement                                   | Where sid is alive vs depleted                                |
 | **Cadence collapse**    | Days w/ no log entry, weeks w/ no movement on a cadence pillar                                                | Blind spots / quiet collapses                                 |
+| **Intent vs execution** | Prior `plan.md` "Intent for the week" + DUE-tagged items + coach questions → check against this week's sheet + daily logs | Did sid follow through on what he committed / what coach pushed? Surface gaps explicitly |
+| **Meta-pattern**        | Same pillar flagged at-risk in ≥2 prior `reflection.md` scorecards; same coach question recurring             | Pattern is not 1-off — name the recurrence count, raise stakes |
 
 
 **Charter coverage logic (replaces old "drift %" calc):**
@@ -141,7 +144,15 @@ For each pattern found, cite specifics: "Item X appeared in W14, W15, W16, W17 �
 ```markdown
 # Reflection — Week <ISO> (covering <prior ISO>)
 
-_Generated <YYYY-MM-DD>. Source: charter doc + last 6 sheet tabs + last 14 daily logs._
+_Generated <YYYY-MM-DD>. Source: charter doc + last 6 sheet tabs + last 14 daily logs + last 4 prior reflections (`weeks/<W-1>` … `weeks/<W-4>`)._
+
+## Carry-forward check (prior coaching → this week's execution)
+
+| Last week | Status | Evidence |
+|---|---|---|
+| Intent: "<verbatim intent from prior plan.md>" | hit / partial / missed | <sheet + daily log citation> |
+| DUE-tagged item: "<item>" | done / open | <citation> |
+| Coach question: "<verbatim Q>" | answered & acted / answered not acted / unanswered | <citation> |
 
 ## Wins (last week)
 - <bullet — verbatim if from sid's own log>
@@ -154,6 +165,7 @@ _Generated <YYYY-MM-DD>. Source: charter doc + last 6 sheet tabs + last 14 daily
 - **Breakthrough:** <one line, w/ what enabled it>
 - **Coverage question:** <pillar X looks at-risk by sheet — last block / compensating signal? confirm or flag>
 - **Energy:** <recurring signal from daily logs>
+- **Meta-pattern:** <recurrence count from prior reflections — e.g. "Pillar Y at-risk in W17, W18, W19 reflections — 3rd consecutive flag">
 
 ## Charter coverage scorecard
 
@@ -280,8 +292,9 @@ After sid responds:
 
 ## Self-check before finishing
 
-- Did I pull from all 3 sources (charter, sheet, daily logs) — not just one?
+- Did I pull from all 4 sources (charter, sheet, daily logs, **prior `weeks/` reflections + plans**) — not just one?
 - Lookback covered 6 weeks (cadence) / 12 weeks (episodic), not just last week?
+- Read last 4 `weeks/<ISO>/reflection.md` + `plan.md` to extract prior intent + DUE items + coach questions for the carry-forward table?
 - Every pattern cited a specific week / day / item — no hand-wave generalities?
 - Plan table columns match the sheet exactly?
 - Plan table is forward-looking — day/status cells blank, no "done" copied from prior week?
@@ -306,4 +319,5 @@ If any check fails, fix before output.
 - **Plan table as tracker.** plan.md is for the *next* week. Day cells, status cells, completion marks → blank. Never copy "done" from prior week. Coach plans, sid executes, sid fills.
 - **False drift on episodic pillars.** Don't flag "nature" or "rest" as drifting just because no weekly sheet rows — scan daily logs / known life events for compensating blocks first. A month in Auroville credits "nature" even with zero sheet entries.
 - **Declarative drift before asking.** When a pillar looks at-risk after the compensating scan, surface as a question to sid before treating as fact. False positives kill coach trust.
+- **Ignoring prior reflections.** `weeks/` is memory across coaching sessions. Skipping prior `reflection.md` + `plan.md` means coach can't check intent-vs-execution or call out recurring at-risk patterns. Always read last 4 weeks before writing this week's reflection.
 
