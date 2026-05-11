@@ -67,10 +67,6 @@ def _grab_string(block: str, key: str, max_len: int = 400) -> str:
     val = m.group(1).strip()
     if (val.startswith('"') and val.endswith('"')) or (val.startswith("'") and val.endswith("'")):
         val = val[1:-1]
-    elif val.startswith('"'):
-        val = val[1:]
-    elif val.startswith("'"):
-        val = val[1:]
     return val[:max_len]
 
 
@@ -85,10 +81,25 @@ def _grab_list(block: str, key: str) -> list[str]:
     return [x for x in items if x]
 
 
+def _parse_top_pick(block: str) -> tuple[str, str]:
+    """Parse `top_pick: "name" | url` into (name, url). Returns ("", "") if not present."""
+    raw = _grab_string(block, "top_pick", 600)
+    if not raw:
+        return "", ""
+    # Format: "name" | url  — or just name | url  — or just name (no url)
+    m = re.match(r'^\s*"?([^"|]+?)"?\s*(?:\|\s*(\S+))?\s*$', raw)
+    if not m:
+        return raw, ""
+    name = m.group(1).strip()
+    url = (m.group(2) or "").strip()
+    return name[:300], url[:300]
+
+
 def _parse_advise_log(path) -> dict:
     result = {
         "slug": "",
-        "top_pick": "",
+        "top_pick_name": "",
+        "top_pick_url": "",
         "retailer": "",
         "best_card": "",
         "list_price": 0,
@@ -116,7 +127,9 @@ def _parse_advise_log(path) -> dict:
     block_end = last.end() + next_header.start() if next_header else len(text)
     block = text[last.start():block_end]
 
-    result["top_pick"] = _grab_string(block, "top_pick")
+    name, url = _parse_top_pick(block)
+    result["top_pick_name"] = name
+    result["top_pick_url"] = url
     result["retailer"] = _grab_string(block, "retailer", 80)
     result["best_card"] = _grab_string(block, "best_card", 100)
     result["list_price"] = _grab_int(block, "list_price")
@@ -187,15 +200,17 @@ def main() -> int:
             return 0
         debug_log(
             HOOK_NAME,
-            f"capturing shopping_advise_run slug={slug} retailer={counts.get('retailer')} "
-            f"eff={counts.get('effective_price')} card={counts.get('best_card')}",
+            f"capturing shopping_advise_run slug={slug} pick={counts.get('top_pick_name')} "
+            f"retailer={counts.get('retailer')} eff={counts.get('effective_price')} "
+            f"card={counts.get('best_card')}",
         )
         ok = posthog_capture(
             "shopping_advise_run",
             {
                 **props_date,
                 "slug": slug,
-                "top_pick": counts.get("top_pick") or None,
+                "top_pick_name": counts.get("top_pick_name") or None,
+                "top_pick_url": counts.get("top_pick_url") or None,
                 "retailer": counts.get("retailer") or None,
                 "best_card": counts.get("best_card") or None,
                 "list_price": int(counts.get("list_price") or 0),

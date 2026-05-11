@@ -70,8 +70,9 @@ def test_parse_advise_returns_latest_block(tmp_path):
     log.write_text(ADVISE_LOG_SAMPLE, encoding="utf-8")
     result = hook._parse_advise_log(str(log))
     assert result["slug"] == "cookware-set"
-    assert result["top_pick"].startswith("Hawkins Futura Hard Anodised")
-    assert "hawkinscookers.com" in result["top_pick"]
+    # Full-string equality — no embedded dangling quotes
+    assert result["top_pick_name"] == "Hawkins Futura Hard Anodised 5-Piece"
+    assert result["top_pick_url"] == "https://hawkinscookers.com/futura-set"
     assert result["retailer"] == "flipkart.com"
     assert result["best_card"] == "Flipkart Axis Bank Credit Card"
     assert result["list_price"] == 5999
@@ -144,3 +145,31 @@ def test_grab_list_returns_items():
 def test_grab_list_empty():
     block = "- slugs: []\n"
     assert hook._grab_list(block, "slugs") == []
+
+
+def test_parse_top_pick_quoted_name_with_url():
+    block = '- top_pick: "Featherlite Optima Plus" | https://featherlite.in/optima-plus\n'
+    name, url = hook._parse_top_pick(block)
+    assert name == "Featherlite Optima Plus"
+    assert url == "https://featherlite.in/optima-plus"
+
+
+def test_parse_top_pick_unquoted_name_with_url():
+    block = '- top_pick: Wakefit Ergo X | https://wakefit.co/ergo-x\n'
+    name, url = hook._parse_top_pick(block)
+    assert name == "Wakefit Ergo X"
+    assert url == "https://wakefit.co/ergo-x"
+
+
+def test_parse_top_pick_name_only():
+    block = '- top_pick: "Bare Name Only"\n'
+    name, url = hook._parse_top_pick(block)
+    assert name == "Bare Name Only"
+    assert url == ""
+
+
+def test_parse_top_pick_missing_field():
+    block = "- slug: foo\n- retailer: bar\n"
+    name, url = hook._parse_top_pick(block)
+    assert name == ""
+    assert url == ""
