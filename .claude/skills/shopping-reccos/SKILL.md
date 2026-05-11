@@ -30,7 +30,9 @@ Length budget:
 
 ### Step 1 — Read context
 
-Same 5 files as `shopping-assist`. Focus on:
+Read the same 5 context files as `shopping-assist` (profile / inventory / interests / budget-rules / data-sources), PLUS the latest week's reflection for stuck-on signals.
+
+Focus on:
 - `interests.md` — hard interests + active curiosities + active to-dos with purchase implications
 - `inventory.md` — items showing wear ("must replace", "feels like a problem") + gaps + recent dates
 - `weeks/<latest-ISO>/reflection.md` — "stuck-on" items that might be unblocked with a purchase
@@ -52,14 +54,17 @@ Each must fit one tag:
 | `[interest-match]` | Recent daily-log mention of curiosity ("excited to try X", "want to explore Y") |
 | `[swap-from-current]` | Repeat-buy in xlsx that could be replaced by a better-aligned alternative |
 
-Filter: skip if in `profile.md ## No-go` or if budget-rules ceiling makes it implausible. Don't surface things sid clearly already owns.
+Filter:
+- Skip if in `profile.md ## No-go` (banned brands/categories)
+- Skip if budget-rules ceiling makes it implausible
+- Cross-check `inventory.md` for exact-category match — if owned AND no wear signal in inventory notes → skip
 
 ### Step 4 — Render
 
 For each item, in chat output:
 
 ```markdown
-N. [<tag>] **<product type — brand model>** — <one-line why for sid>
+N. [<tag>] **<product type — brand model>** (slug: `<kebab-slug>`) — <one-line why, citing source like "inventory.md: HOF mesh chair, 2yr, lumbar pain" or "interests.md ## Endurance / charter goal #4">
    - alt: <brand model>
    - top dim: <value | nature | user-friendly | reviews | budget-fit>
    - links: [mfr](<url>) · [retailer](<url>) · [<social-source>](<url>)
