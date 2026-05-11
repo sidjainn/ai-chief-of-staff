@@ -32,6 +32,21 @@ It uses skills and hooks together as a system — not one feature at a time. Eve
 "draft a reply"                  # After triage flags an email
   └── activates email-reply skill
   └── reads communication-style.md + my-team.md
+
+/advise <product>                # Pre-purchase advisor
+  └── reads shopping-context/    # profile, inventory, interests, budget, sources
+  └── reads Flipkart + Swiggy xlsx + Gmail (recent orders)
+  └── 3-candidate shortlist w/ 5-dim scoring + cross-platform price parity
+  └── card-discount math (Flipkart Axis / SBI Rupay / Swiggy HDFC)
+  └── writes .shopping/reccos/<slug>/{brief,shortlist,price-parity,verdict}.md
+  └── appends shopping-advise-log; hook captures to PostHog
+
+/reccos [topic]                  # Proactive discovery
+  └── same shopping-context/
+  └── 3-5 tagged items ([upgrade]/[gap]/[interest-match]/[swap-from-current])
+  └── always includes mfr + retailer + 1 social link
+  └── deep-dive via /advise <slug>
+  └── appends shopping-reccos-log; hook captures to PostHog
 ```
 
 ## Key files
@@ -58,6 +73,14 @@ It uses skills and hooks together as a system — not one feature at a time. Eve
 | `.claude/hooks/posthog_job_research_capture.py` | PostHog event hook for job-research |
 | `weeks/<ISO>/` | Per-week reflection, plan, patterns (gitignored) |
 | `logs/weekly-coach-log.md` | Append-only summary log (gitignored) |
+| `.claude/skills/shopping-assist/SKILL.md` | Pre-purchase advisor — slash `/advise <product>` |
+| `.claude/skills/shopping-reccos/SKILL.md` | Proactive discovery — slash `/reccos [topic]` |
+| `.claude/skills/shopping-context/*.md` | Shared shopping context (gitignored): profile, inventory, interests, budget-rules, data-sources |
+| `.shopping/reccos/<slug>/` | Per-advise output: brief + shortlist + price-parity + verdict (gitignored) |
+| `.claude/hooks/posthog_shopping_capture.py` | PostHog event hook for shopping-assist + shopping-reccos |
+| `logs/shopping-advise-log.md` | Per-/advise log blocks (gitignored) |
+| `logs/shopping-reccos-log.md` | Per-/reccos log blocks (gitignored) |
+| `logs/posthog-shopping-sent.log` | Idempotency ledger for shopping PostHog events (gitignored) |
 
 ## Updating your context
 
