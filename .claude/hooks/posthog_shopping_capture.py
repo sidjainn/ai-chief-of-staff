@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Send `shopping_advise_run` or `shopping_reccos_run` event to PostHog.
 
-Detects invocation by scanning the transcript for /advise or /reccos in user msgs.
+Detects invocation by scanning the transcript for /shopping-assist or /reccos in user msgs.
 Extracts metric fields from the latest section of logs/shopping-advise-log.md
 or logs/shopping-reccos-log.md.
 """
@@ -31,9 +31,9 @@ SENT_LOG = PROJECT_ROOT / "logs" / "posthog-shopping-sent.log"
 ADVISE_LOG = PROJECT_ROOT / "logs" / "shopping-advise-log.md"
 RECCOS_LOG = PROJECT_ROOT / "logs" / "shopping-reccos-log.md"
 
-ADVISE_CMD_REGEX = r"/advise\b"
+ADVISE_CMD_REGEX = r"/shopping-assist\b"
 RECCOS_CMD_REGEX = r"/reccos\b"
-ANY_CMD_REGEX = r"/(?:advise|reccos)\b"
+ANY_CMD_REGEX = r"/(?:shopping-assist|reccos)\b"
 
 
 def _scan_command(transcript) -> tuple[str, str]:
@@ -44,7 +44,7 @@ def _scan_command(transcript) -> tuple[str, str]:
         joined = "\n".join(blocks)
         if re.search(ADVISE_CMD_REGEX, joined, re.IGNORECASE):
             mode = "advise"
-            m = re.search(r"/advise\s+([\w-]+)", joined, re.IGNORECASE)
+            m = re.search(r"/shopping-assist\s+([\w-]+)", joined, re.IGNORECASE)
             if m:
                 hint = m.group(1).lower()
         elif re.search(RECCOS_CMD_REGEX, joined, re.IGNORECASE):
