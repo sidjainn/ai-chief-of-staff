@@ -1,6 +1,6 @@
 ---
 name: shopping-assist
-description: Pre-purchase advisor for sid. Triggers on /advise, "advise me on …", "what should I buy for …", "help me pick a …", "/shop", or any explicit pre-purchase ask where the user names a product category they're about to buy. Reads .claude/skills/shopping-context/ + Flipkart/Swiggy xlsx + Gmail to ground recommendations in sid's values (highest-value, nature-friendly, user-friendly, positive reviews) + household + inventory + budget. Outputs ranked shortlist with cross-platform price parity, card-discount math, working links to manufacturer/retailer/Reddit/YouTube. Writes `.shopping/reccos/<slug>/` (gitignored). Appends to `logs/shopping-advise-log.md` for PostHog capture.
+description: Pre-purchase advisor for sid. Triggers on /shopping-assist, "advise me on …", "what should I buy for …", "help me pick a …", "/shop", or any explicit pre-purchase ask where the user names a product category they're about to buy. Reads .claude/skills/shopping-context/ + Flipkart/Swiggy xlsx + Gmail to ground recommendations in sid's values (highest-value, nature-friendly, user-friendly, positive reviews) + household + inventory + budget. Outputs ranked shortlist with cross-platform price parity, card-discount math, working links to manufacturer/retailer/Reddit/YouTube. Writes `.shopping/reccos/<slug>/` (gitignored). Appends to `logs/shopping-advise-log.md` for PostHog capture.
 version: 1.0
 author: sid
 ---
@@ -9,7 +9,7 @@ author: sid
 
 ## What this skill does
 
-When sid says "I want to buy X" or invokes `/advise <thing>`, this skill:
+When sid says "I want to buy X" or invokes `/shopping-assist <thing>`, this skill:
 
 1. Reads his shared context (profile, inventory, interests, budget-rules, data-sources).
 2. Pulls relevant order history (Flipkart xlsx, Swiggy xlsx if food-adjacent, Gmail for everything else).
@@ -25,7 +25,7 @@ When sid says "I want to buy X" or invokes `/advise <thing>`, this skill:
 
 ## Core invariants
 
-1. **One product per `/advise`.** If sid asks for multiple things, split into separate runs.
+1. **One product per `/shopping-assist`.** If sid asks for multiple things, split into separate runs.
 2. **Always cite links.** Every candidate, every review citation MUST be a clickable URL. No bare brand names.
 3. **Cross-platform price parity is mandatory.** Min 3 retailers checked per shortlist item.
 4. **Card-discount layer is mandatory.** Effective price after best owned card is the headline number.
@@ -260,6 +260,51 @@ Field rules (must be traceable for the hook):
 - `values_winner`: one of the five rubric dims
 - `recco_path`: relative path from repo root
 
+## Context Capture
+
+Sid often surfaces preferences mid-conversation that belong in shared context. Catch them and offer to persist.
+
+### Writable files
+
+- `profile.md` — values, leanings, no-go list, payment methods, household additions
+- `interests.md` — new hobbies, "want to try", "stopped caring about X", domain curiosities
+- `budget-rules.md` — ceiling changes, new no-go brands, new buy-once-cry-once entries
+
+### Never auto-write
+
+- `inventory.md` — purchase events only, declarations don't count. Sid updates manually post-purchase.
+- `data-sources.md` — paths rarely change.
+
+### Signal types
+
+**Explicit (write immediately):**
+- "save: <thing>" / "remember <thing>" / "add to profile/interests/budget"
+- "update <file>.md to reflect …"
+
+**Soft (propose diff, ask y/n before writing):**
+- Preference statements: "I hate plastic", "I don't trust Chinese OEM clones", "no leather"
+- Budget shifts: "₹15K ceiling for headphones now", "raise mattress BOCO to ₹30K"
+- New interests/hobbies: "got into pickleball", "starting to learn watercolour"
+- Lifestyle changes: "moved to vegan-only meals", "WFH 5 days now, not 3"
+- Card changes: "got HDFC Diners now", "lost SBI Rupay card"
+- Household changes: "partner moved in", "friend X visits often"
+
+### Flow
+
+1. Detect signal mid-convo. Don't break the shopping flow — surface inline.
+2. Format: `[context-signal] <one-line restatement> → <target file>.md ## <section>`
+3. Show proposed diff (2-5 lines max). Use Edit-style old→new.
+4. Ask: `Save to <file>.md? (y/n)`
+5. On `y` → run Edit tool. On `n` or no response → drop silently, continue shopping flow.
+6. Explicit signals skip the y/n; just edit + confirm in 1 line.
+
+### Boundaries
+
+- Max 1 capture per /shopping-assist run unless sid pushes multiples.
+- Never invent preferences not stated. Restatement must be verbatim or near-verbatim.
+- Don't capture during card-discount math or scoring — interrupts flow. Defer to end.
+- If file/section doesn't exist, propose creating it, don't auto-create.
+
 ## Failure modes to avoid
 
 - **Vibes scoring.** Every 1-5 score needs an external citation + 1-line reason.
@@ -268,7 +313,7 @@ Field rules (must be traceable for the hook):
 - **Card math hand-waving.** Show the cashback subtraction explicitly.
 - **Slug drift.** If you change the slug between brief.md and verdict.md, the hook breaks. Pick once, use everywhere in the run.
 - **Writing to inventory.md.** Don't. Sid updates inventory manually post-purchase.
-- **Multi-product bundling.** One product per /advise. If sid asks for "chair + monitor", suggest two separate runs.
+- **Multi-product bundling.** One product per /shopping-assist. If sid asks for "chair + monitor", suggest two separate runs.
 - **Skipping the log block.** Without it, the PostHog hook never fires.
 
 ## Self-check before finishing

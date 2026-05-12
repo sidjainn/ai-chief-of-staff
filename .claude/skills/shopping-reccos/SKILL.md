@@ -1,6 +1,6 @@
 ---
 name: shopping-reccos
-description: Proactive product-discovery skill for sid. Triggers on /reccos, /reccos <topic>, "recommend me something", "what should I buy", "surprise me with products", "I'm bored, what's on my radar", or any open-ended discovery ask. Reads .claude/skills/shopping-context/ (focus on interests + inventory gaps + recent order patterns) to surface 3-5 things sid would plausibly want — tagged [upgrade] / [gap] / [interest-match] / [swap-from-current]. Each item: 1-line why-for-you + 1 alt + values fit. Always includes manufacturer + retailer + 1 social link. Lightweight (no file artifacts); deep-dive any pick via /advise <slug>. Appends to `logs/shopping-reccos-log.md` for PostHog capture.
+description: Proactive product-discovery skill for sid. Triggers on /reccos, /reccos <topic>, "recommend me something", "what should I buy", "surprise me with products", "I'm bored, what's on my radar", or any open-ended discovery ask. Reads .claude/skills/shopping-context/ (focus on interests + inventory gaps + recent order patterns) to surface 3-5 things sid would plausibly want — tagged [upgrade] / [gap] / [interest-match] / [swap-from-current]. Each item: 1-line why-for-you + 1 alt + values fit. Always includes manufacturer + retailer + 1 social link. Lightweight (no file artifacts); deep-dive any pick via /shopping-assist <slug>. Appends to `logs/shopping-reccos-log.md` for PostHog capture.
 version: 1.0
 author: sid
 ---
@@ -9,7 +9,7 @@ author: sid
 
 ## What this skill does
 
-Surfaces 3-5 products sid would plausibly want, with rationale tags. Lightweight — no per-item file dump. If a recco resonates, sid runs `/advise <slug>` to deep-dive.
+Surfaces 3-5 products sid would plausibly want, with rationale tags. Lightweight — no per-item file dump. If a recco resonates, sid runs `/shopping-assist <slug>` to deep-dive.
 
 ## Core invariants
 
@@ -70,7 +70,7 @@ N. [<tag>] **<product type — brand model>** (slug: `<kebab-slug>`) — <one-li
    - links: [mfr](<url>) · [retailer](<url>) · [<social-source>](<url>)
 ```
 
-End with: `Deep-dive any pick: /advise <slug>` and list the 3-5 slug candidates.
+End with: `Deep-dive any pick: /shopping-assist <slug>` and list the 3-5 slug candidates.
 
 ### Step 5 — Append log block
 
@@ -96,6 +96,50 @@ Field rules:
 - `slugs`: JSON-ish list, kebab-case, parallel to tags
 - `tags`: JSON-ish list, parallel to slugs (same order, same count)
 - `top_reason`: quoted string, ≤200 chars
+
+## Context Capture
+
+Sid often surfaces preferences mid-conversation that belong in shared context. Catch them and offer to persist.
+
+### Writable files
+
+- `profile.md` — values, leanings, no-go list, payment methods, household additions
+- `interests.md` — new hobbies, "want to try", "stopped caring about X", domain curiosities
+- `budget-rules.md` — ceiling changes, new no-go brands, new buy-once-cry-once entries
+
+### Never auto-write
+
+- `inventory.md` — purchase events only, declarations don't count. Sid updates manually post-purchase.
+- `data-sources.md` — paths rarely change.
+
+### Signal types
+
+**Explicit (write immediately):**
+- "save: <thing>" / "remember <thing>" / "add to profile/interests/budget"
+- "update <file>.md to reflect …"
+
+**Soft (propose diff, ask y/n before writing):**
+- Preference statements: "I hate plastic", "I don't trust Chinese OEM clones", "no leather"
+- Budget shifts: "₹15K ceiling for headphones now", "raise mattress BOCO to ₹30K"
+- New interests/hobbies: "got into pickleball", "starting to learn watercolour"
+- Lifestyle changes: "moved to vegan-only meals", "WFH 5 days now, not 3"
+- Card changes: "got HDFC Diners now", "lost SBI Rupay card"
+- Household changes: "partner moved in", "friend X visits often"
+
+### Flow
+
+1. Detect signal mid-convo. Don't break the reccos flow — surface inline.
+2. Format: `[context-signal] <one-line restatement> → <target file>.md ## <section>`
+3. Show proposed diff (2-5 lines max). Use Edit-style old→new.
+4. Ask: `Save to <file>.md? (y/n)`
+5. On `y` → run Edit tool. On `n` or no response → drop silently, continue.
+6. Explicit signals skip the y/n; just edit + confirm in 1 line.
+
+### Boundaries
+
+- Max 1 capture per /reccos run unless sid pushes multiples.
+- Never invent preferences not stated. Restatement must be verbatim or near-verbatim.
+- If file/section doesn't exist, propose creating it, don't auto-create.
 
 ## Failure modes to avoid
 
