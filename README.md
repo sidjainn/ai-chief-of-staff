@@ -16,6 +16,7 @@ Every workflow is a skill — so the same setup ports cleanly to Codex or any ot
 | **Growth Buddy**               | `/weekly-coach`                                                                                          | Monday reflection + planning coach. Pulls annual charter, weekly to-do sheet, daily-log monthly Docs via public Google export endpoints (no GCP, no MCP). Surfaces 6-week patterns — avoidance, drift, breakthroughs. Writes `weeks/<ISO>/` (reflection / plan / patterns). Plan rendered in your exact sheet column format. Stop-hook posts `weekly_coach_run` event to PostHog w/ counts. |
 | **Job Researcher**             | `/research-job <jd-or-link>` · `/update-job <slug>` · pasted JD / "interviewing at X" / "had a call w/ " | Deep research per company w/ parallel subagents (company / role / comp / interviewers / Granola). Verification pass cross-checks numbers. Synthesizes candidate-personalized doc under `jobs/<slug>/`. Re-runs append dated updates — running doc as memory. Light update path pulls fresh Granola (w/ deeplink) + folds in notes, no re-research.                                          |
 | **Email Triage (WIP)**         | `/email-triage`                                                                                          | Daily triage across Gmail + Calendar. P0/P1/P2 brief tuned to your priorities, team, voice. Draft replies activate the `email-reply` skill — voice-matched, banned-phrase-aware, correct CCs. Hook auto-logs every run for monthly pattern review. Context refinement pending, gcal mcp connection pending.                                                                                |
+| **Shopping Advisor**           | `/shopping-assist <product>` · `/reccos [topic]`                                                          | Pre-purchase advisor + proactive discovery. Reads shared `shopping-context/` (profile, inventory, interests, budget-rules, data-sources) + Flipkart/Swiggy xlsx + Gmail to ground every recommendation in your values, household, owned cards, and order history. `/shopping-assist` returns a 3-candidate shortlist w/ 5-dim scoring, cross-platform price-parity, card-discount math (Flipkart Axis / SBI Rupay / Swiggy HDFC). `/reccos` surfaces 3-5 tagged items ([upgrade] / [gap] / [interest-match] / [swap-from-current]) for discovery. Context-capture catches preferences mid-convo and offers to persist them. Hook posts `shopping_advise_run` / `shopping_reccos_run` events to PostHog. |
 
 
 ---
@@ -51,14 +52,18 @@ ai-chief-of-staff/
 │   │   │   ├── SKILL.md                # email-triage (P0/P1/P2 brief)          — /email-triage
 │   │   │   ├── example.context/        # Public template — sample priorities/team/voice
 │   │   │   └── context/                # Real personal content (gitignored)
-│   │   └── email-reply/SKILL.md        # email-reply (voice-matched draft)      — auto on "draft a reply"
+│   │   ├── email-reply/SKILL.md        # email-reply (voice-matched draft)      — auto on "draft a reply"
+│   │   ├── shopping-assist/SKILL.md    # pre-purchase advisor                   — /shopping-assist
+│   │   ├── shopping-reccos/SKILL.md    # proactive discovery                    — /reccos
+│   │   └── shopping-context/*.md       # Shared shopping context (gitignored): profile, inventory, interests, budget-rules, data-sources
 │   ├── scripts/
 │   │   └── fetch-coach-sources.sh      # Pulls charter/sheet/daily-log via public export
 │   └── hooks/
 │       ├── post-triage-log.sh          # Auto-log after Gmail MCP → email-runs/<DATE>.md
 │       ├── posthog-capture.sh          # Triage telemetry → PostHog
 │       ├── posthog-job-research-capture.sh  # Job-research telemetry → PostHog
-│       └── posthog-weekly-coach-capture.sh  # Weekly-coach telemetry → PostHog
+│       ├── posthog-weekly-coach-capture.sh  # Weekly-coach telemetry → PostHog
+│       └── posthog_shopping_capture.py       # Shopping (advise + reccos) telemetry → PostHog
 ├── email-runs/<DATE>.md                # email-triage artifacts (gitignored) — one file per day, one section per run
 ├── jobs/                               # job-researcher artifacts
 │   ├── me/
@@ -73,7 +78,8 @@ ai-chief-of-staff/
 │   ├── reflection.md
 │   ├── plan.md
 │   └── patterns.md
-├── logs/                               # hook idempotency ledgers + debug log (gitignored)
+├── .shopping/reccos/<slug>/            # shopping-advisor artifacts (gitignored) — brief / shortlist / price-parity / verdict
+├── logs/                               # hook idempotency ledgers + per-run log blocks (gitignored)
 ├── demo/                               # Before/after walkthroughs
 └── setup/                              # MCP + PostHog setup guides
 ```
@@ -171,6 +177,42 @@ See `[demo/triage-before.md](demo/triage-before.md)` vs `[demo/triage-after.md](
 
 ---
 
+## Use case 4 — Shopping Advisor
+
+```
+/shopping-assist <product>
+/reccos [topic]
+```
+
+Pre-purchase advisor + proactive discovery. Two skills, one shared context store.
+
+**`/shopping-assist`** — paste what you're about to buy ("office chair, current HOF mesh, 2yr, lumbar pain after 6h"). Skill:
+
+1. Reads all five `shopping-context/` files (profile / inventory / interests / budget-rules / data-sources).
+2. Pulls relevant order history — Flipkart xlsx, Swiggy xlsx if food-adjacent, Gmail for anything else.
+3. Researches 5-8 candidates on the open web (Reddit, YouTube, manufacturer pages, Indian retailer reviews).
+4. Filters to a 3-candidate shortlist on disqualifiers (out-of-budget / out-of-stock / banned brand or category).
+5. Scores each on 5 dims: **value · nature · user-friendly · reviews · budget-fit** — every score backed by a citation link.
+6. Runs cross-platform price-parity (≥3 retailers per item) + applies card-discount math using your owned cards (Flipkart Axis / SBI Rupay / Swiggy HDFC) — flags borrowable-card opportunities only when material.
+7. Writes `.shopping/reccos/<slug>/` w/ four artifacts: `brief.md`, `shortlist.md`, `price-parity.md`, `verdict.md`. Renders terse inline verdict.
+8. Stop-hook posts `shopping_advise_run` to PostHog w/ top pick + retailer + effective price + values winner.
+
+**`/reccos`** — proactive discovery. Optional topic arg (`/reccos kitchen`, `/reccos endurance`) or broad scan. Surfaces 3-5 items tagged `[upgrade]` / `[gap]` / `[interest-match]` / `[swap-from-current]`. Each item: 1-line why-for-you + 1 alt + manufacturer / retailer / 1 social link (Reddit / YouTube / Twitter). Lightweight — no per-item file dump. Deep-dive any pick via `/shopping-assist <slug>`. Hook posts `shopping_reccos_run` to PostHog.
+
+**Context capture (mid-conversation):** if you surface a preference while talking ("no leather", "raise headphone ceiling to ₹15K", "got into pickleball"), skill proposes a diff to the right file (`profile.md` / `interests.md` / `budget-rules.md`) and asks `y/n` before writing. Explicit signals (`save: X`, `remember Y`) skip the prompt. Never auto-writes `inventory.md` — purchases only.
+
+**Hard rules:**
+
+- Always link — every candidate, every review citation. No bare brand names.
+- Min 3 retailers in price-parity. Non-negotiable.
+- Card-discount layer mandatory — effective price (after best owned card) is the headline number.
+- Default "for self, in Bangalore" — explicit override required for Agra / dad / friends.
+- Ovo-veg default for food-adjacent.
+- Re-running same slug overwrites `.shopping/reccos/<slug>/` (clean re-run).
+- Never writes to `inventory.md` (recommendation ≠ purchase).
+
+---
+
 ## Quick start
 
 ### 1. Clone
@@ -202,6 +244,16 @@ For job-researcher: also seed `jobs/me/resume.md` + `jobs/me/interests.md` (skil
 
 For growth-buddy: copy `.env.example` → `.env`, fill three Google file IDs (`WEEKLY_COACH_CHARTER_DOC_ID`, `WEEKLY_COACH_SHEET_ID`, `WEEKLY_COACH_DAILY_LOG_FOLDER_ID`). All three docs must be shared "anyone with the link". `.env` is gitignored.
 
+For shopping-advisor: scaffold `.claude/skills/shopping-context/` with five files (gitignored):
+
+- `profile.md` — identity, household(s), values, payment methods (Flipkart Axis / SBI Rupay / Swiggy HDFC etc.), no-go list
+- `inventory.md` — durable goods owned, tagged by address; never auto-updated from advisor output
+- `interests.md` — hobbies, curiosities, active to-dos w/ purchase implications
+- `budget-rules.md` — per-category ceilings + buy-once-cry-once caps + no-go brands
+- `data-sources.md` — paths to Flipkart / Swiggy xlsx + Gmail query template
+
+First-time bootstrap: ask Claude to draft all five from your order-history xlsx + charter + daily logs, then review.
+
 Highest-leverage 20 minutes you'll spend.
 
 ### 3. Set up MCPs (optional)
@@ -219,6 +271,8 @@ Highest-leverage 20 minutes you'll spend.
 /research-job <jd-or-link>               # job-researcher
 /update-job <slug>                       # post-meeting light update
 /email-triage                            # email-triage
+/shopping-assist <product>               # shopping-advisor (pre-purchase)
+/reccos [topic]                          # shopping-advisor (proactive discovery)
 ```
 
 ---
@@ -226,6 +280,7 @@ Highest-leverage 20 minutes you'll spend.
 ## Updating the system
 
 - **Daily:** `/email-triage`. Hook auto-logs.
+- **Pre-purchase:** `/shopping-assist <product>` — 3-candidate shortlist w/ price-parity + card-discount math. `/reccos` for discovery.
 - **Post-meeting:** `/update-job <slug>` or "had a call w/ " — running doc accumulates.
 - **Weekly (Mon):** `/weekly-coach` — patterns file gets richer w/ every week of data.
 - **Monthly:** review `email-runs/` vs `my-priorities.md`. Adjust context files where output drifted.
