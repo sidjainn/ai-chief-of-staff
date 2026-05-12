@@ -18,6 +18,10 @@
           {
             "type": "command",
             "command": "python3 .claude/hooks/posthog_weekly_coach_capture.py"
+          },
+          {
+            "type": "command",
+            "command": "python3 .claude/hooks/posthog_shopping_capture.py"
           }
         ]
       }
@@ -40,6 +44,10 @@
           {
             "type": "command",
             "command": "python3 .claude/hooks/posthog_weekly_coach_capture.py"
+          },
+          {
+            "type": "command",
+            "command": "python3 .claude/hooks/posthog_shopping_capture.py"
           }
         ]
       }
