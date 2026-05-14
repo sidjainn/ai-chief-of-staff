@@ -41,13 +41,18 @@ email-runs
 /email-runs/
 
 # Email triage real context — personal (priorities/team/voice). example.context/ is the public template.
+# Now lives in ai-chief-of-staff-private; symlinked back. No trailing slash so symlink also ignored.
+.claude/skills/email-triage/context
 .claude/skills/email-triage/context/
+
+# Shopping context — personal (profile/inventory/interests/budget/data-sources). Lives in private repo via symlink.
+.claude/skills/shopping-context
+.claude/skills/shopping-context/
 
 # Playwright MCP scratch dir
 .playwright-mcp/
 .claude/skills/weekly-coach/charter-pillar-modes.md
 
-# Shopping skills — personal context, not for repo
-.claude/skills/shopping-context/
+# Shopping reccos output — lives in private repo via symlink
 .shopping
 /.shopping/
