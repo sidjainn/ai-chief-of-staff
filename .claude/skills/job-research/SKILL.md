@@ -1,6 +1,6 @@
 ---
 name: job-research
-description: Deep research on a job + company whenever sid pastes a JD, a job link (Greenhouse/Lever/Ashby/Workday/LinkedIn etc.), mentions interviewing somewhere, asks "what should I know about [company]" in a hiring context, OR says anything that sounds like a meeting/call recap with a company already in jobs/ ("had a call with [co]", "met [interviewer-name]", "[co] debrief", pasted meeting notes mentioning a tracked co). Pulls company info, role breakdown, comp triangulation, interviewer profiles, Granola meeting context, and questions to ask — all written into a per-company folder under jobs/. On meeting/recap signals, uses the lighter §Update Workflow that pulls fresh Granola + folds in sid's notes + appends a dated update — no full re-research. Use this skill any time the conversation is about evaluating, preparing for, interviewing at, or following up on a specific company, even when sid doesn't say "research this job" explicitly.
+description: Deep first-pass research on a job + company. Triggers on `/job-research`, a pasted JD, a job link (Greenhouse/Lever/Ashby/Workday/LinkedIn etc.), "I'm interviewing at [company]", or "what should I know about [company]" in a hiring context. Creates a per-company folder under `jobs/<slug>/` with company info, role breakdown, comp triangulation, interviewer profiles, Granola meeting context, and questions to ask. Dispatches subagents in parallel and runs a verification pass before synthesis. For post-meeting or ad-hoc updates on a company that's ALREADY tracked under `jobs/<slug>/` (recaps, "had a call with [co]", pasted notes), use the lighter `update-job` skill instead — this skill is the heavy new-co flow.
 version: 1.0
 author: sid
 referenced_files:
@@ -95,7 +95,7 @@ Rules for subagents (especially `interviewer-profiler`, `comp-triangulator`, `co
    - `browser_snapshot` to capture rendered DOM
    - Parse the snapshot for the structured data needed (job titles, tenure, recent posts, comp bands, etc.)
 3. **If Playwright also hits a login wall** → the user hasn't logged in to that source yet. Write the artifact with what's available, flag the gap explicitly: `⚠️ <source>: login required, persistent session not yet authenticated. Sid runs setup at .claude-playwright-profile/.`
-4. **Volume discipline.** No more than ~5 LinkedIn profile fetches per `/research-job` invocation. LinkedIn rate-limits and flags accounts with bot-like access patterns. If more interviewers need profiling, batch across multiple sessions.
+4. **Volume discipline.** No more than ~5 LinkedIn profile fetches per `/job-research` invocation. LinkedIn rate-limits and flags accounts with bot-like access patterns. If more interviewers need profiling, batch across multiple sessions.
 5. **Never use sid's daily-driver Chrome profile.** The dedicated `~/.claude-playwright-profile` is sandboxed — if that account gets restricted, sid's main account is untouched.
 6. **Don't attempt to bypass paywalls** (Levels.fyi premium, LinkedIn Sales Navigator, Glassdoor's gated reports). Free tier only.
 7. **ToS reality.** LinkedIn ToS prohibits automated access even from logged-in sessions. The escalation exists for low-volume professional research, not bulk scraping.
@@ -258,60 +258,11 @@ If any check fails, fix it before showing output.
 
 ---
 
-## Update Workflow (light, post-meeting / ad-hoc notes)
+## Updates on an already-tracked company
 
-For post-meeting recaps, ad-hoc notes, or any signal that an existing `jobs/<slug>/` folder needs updating — **don't run the full workflow**. Use this lighter path:
+For post-meeting recaps, ad-hoc notes, or any signal that an existing `jobs/<slug>/` folder needs updating — **don't run this workflow**. Use the sibling `update-job` skill (`/update-job <slug-or-notes>`). It pulls fresh Granola, folds in sid's pasted notes, and appends a dated `## Update — YYYY-MM-DD` block to the folder's README without overwriting prior research.
 
-### When to enter this path
-
-- User says: "had a call with [co]", "met [interviewer-name]", "[co] recap/debrief", "[co] follow-up", "update my Plum doc"
-- User pastes meeting notes that mention a company already in `jobs/`
-- `/update-job <slug-or-notes>` is invoked
-- A Granola sync surfaced new meetings with a tracked company
-
-### Steps
-
-1. **Resolve the folder.** From the user input or pasted notes, identify which `jobs/<slug>/` to update. If the company isn't tracked, fall back to full `/research-job`.
-
-2. **Pull fresh Granola.** Call `mcp__granola__query_granola_meetings` with company name + interviewer names. Compare against existing files in `meetings/`. For any new meeting:
-   - Call `mcp__granola__get_meetings` w/ the meeting_id to grab metadata + deeplink.
-   - Save transcript summary to `meetings/<YYYY-MM-DD>-<short-slug>.md` using the standard meeting template (decisions / open threads / quotes / contradicts-public-narrative / what-this-changes).
-   - Header MUST include Granola deeplink: `_Granola: [<title>](https://notes.granola.ai/d/<meeting_id>)_` (or `share_url`/`url` from `get_meetings` if returned). Without link, sid can't reopen the source — non-negotiable.
-
-3. **Fold user's free-text notes.** If user pasted notes in chat, save them to `meetings/<YYYY-MM-DD>-<topic>.md` with `_Source: sid notes_` header. Don't paraphrase aggressively — keep sid's words.
-
-4. **Append a dated update to README.md.** Use this template (caveman-terse, ≤25 lines):
-
-```markdown
-## Update — YYYY-MM-DD
-
-_Source: <granola: <meeting-id> / sid notes / both>_
-
-### What changed
-- <bullet>
-
-### Updated recommendation
-- <one line — investigate / pass / push hard, w/ reason for change>
-
-### Resolved questions
-- <bullet from prior Open Questions, now answered, w/ answer>
-
-### New open questions
-- <bullet>
-```
-
-5. **Move resolved items.** Strike through resolved items in main "Open questions" section, or move them inline to the Update's "Resolved questions" block.
-
-6. **Don't re-run** company-researcher / role-analyzer / comp-triangulator / interviewer-profiler subagents unless user explicitly asks ("re-research <X>", "comp got stale, refresh"). The whole point is light.
-
-7. **Output to chat:**
-   - Path to updated folder
-   - The new `## Update —` block verbatim
-   - "Want me to dig deeper on anything?"
-
-### Why a separate workflow
-
-Full `/research-job` re-runs 7 subagents — heavy + slow. Most updates after the first pass = "Granola has new meeting + here's what I learned." Light path keeps it cheap and preserves the running-doc-as-memory invariant.
+This skill is the heavy first-pass flow only. If the company isn't tracked yet, do the full workflow above. If it is tracked, stop and route to `update-job`.
 
 ## Failure modes to avoid
 

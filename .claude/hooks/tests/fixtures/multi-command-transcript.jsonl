@@ -1,8 +1,8 @@
-{"message":{"role":"user","content":"/research-job https://example.com/jobs/company-a"}}
+{"message":{"role":"user","content":"/job-research https://example.com/jobs/company-a"}}
 {"message":{"role":"assistant","content":[{"type":"text","text":"Researching. Creating jobs/company-a/ folder."},{"type":"tool_use","name":"Agent","input":{}}]}}
 {"message":{"role":"assistant","content":[{"type":"tool_use","name":"Agent","input":{}}]}}
 {"message":{"role":"assistant","content":[{"type":"tool_use","name":"Agent","input":{}}]}}
 {"message":{"role":"assistant","content":[{"type":"text","text":"Wrote jobs/company-a/README.md."}]}}
-{"message":{"role":"user","content":"/research-job https://example.com/jobs/company-b"}}
+{"message":{"role":"user","content":"/job-research https://example.com/jobs/company-b"}}
 {"message":{"role":"assistant","content":[{"type":"text","text":"Researching. Creating jobs/company-b/ folder."},{"type":"tool_use","name":"Agent","input":{}}]}}
 {"message":{"role":"assistant","content":[{"type":"text","text":"Wrote jobs/company-b/README.md."}]}}

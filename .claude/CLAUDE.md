@@ -12,7 +12,7 @@ It uses skills and hooks together as a system — not one feature at a time. Eve
   └── writes weeks/<ISO>/        # reflection.md + plan.md + patterns.md
   └── appends weekly-coach-log   # Hook captures counts to PostHog
 
-/research-job <jd-or-link>       # Deep research on a job + company
+/job-research <jd-or-link>       # Deep research on a job + company
   └── reads jobs/me/             # Resume + interests as candidate lens
   └── creates jobs/<slug>/       # Per-company running doc + research
   └── dispatches subagents       # Company / role / comp / interviewers / Granola
@@ -58,7 +58,8 @@ It uses skills and hooks together as a system — not one feature at a time. Eve
 | `.claude/skills/email-triage/context/communication-style.md` | How I write — voice and rules (gitignored) |
 | `.claude/skills/email-triage/example.context/` | Public template — sample dummy context committed for repo readers; never read at runtime |
 | `.claude/skills/weekly-coach/SKILL.md` | Weekly reflection + planning skill — slash `/weekly-coach` |
-| `.claude/skills/job-research/SKILL.md` | Job research skill — slash `/research-job` + `/update-job`; auto-triggers on JDs / job URLs / meeting recaps |
+| `.claude/skills/job-research/SKILL.md` | Heavy first-pass research on a new company — slash `/job-research`; auto-triggers on JDs / job URLs / "interviewing at X" |
+| `.claude/skills/update-job/SKILL.md` | Light post-meeting update on an already-tracked company — slash `/update-job`; auto-triggers on meeting recaps / "had a call with X" / pasted notes mentioning a tracked co |
 | `.claude/skills/email-triage/SKILL.md` | Morning email + calendar triage — slash `/email-triage` |
 | `.claude/skills/email-reply/SKILL.md` | Email drafting skill — auto-triggers on "draft a reply" |
 | `jobs/me/resume.md` | Sid's resume — read every job-research invocation |

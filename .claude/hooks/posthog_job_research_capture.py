@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-"""Send `job_research_run` or `job_research_update` event when /research-job
+"""Send `job_research_run` or `job_research_update` event when /job-research
 or /update-job completes.
 
 Detects invocation by scanning the transcript for the slash command in user
 messages, then tallies subagent dispatches and slug mentions ONLY in the
-segment after the most recent command — a previous /research-job's tally must
+segment after the most recent command — a previous /job-research's tally must
 not leak into a later /update-job event (commit 3b62c5b).
 """
 
@@ -31,9 +31,9 @@ from _hook_common import (
 HOOK_NAME = "posthog-jr"
 SENT_LOG = PROJECT_ROOT / "logs" / "posthog-job-research-sent.log"
 
-CMD_REGEX = r"/(?:research|update)-job\b"
+CMD_REGEX = r"/(?:job-research|update-job)\b"
 SLUG_PATH_RE = re.compile(r"jobs/([a-z0-9][a-z0-9\-]*)/")
-RESEARCH_RE = re.compile(r"/research-job\b", re.IGNORECASE)
+RESEARCH_RE = re.compile(r"/job-research\b", re.IGNORECASE)
 UPDATE_RE = re.compile(r"/update-job\b", re.IGNORECASE)
 
 
@@ -63,7 +63,7 @@ def _scan(entries: list[dict]) -> dict:
             continue
         joined = "\n".join(_text_blocks(msg.get("content", "")))
         if RESEARCH_RE.search(joined):
-            cmd_idx, cmd_type, cmd_text = i, "research-job", joined
+            cmd_idx, cmd_type, cmd_text = i, "job-research", joined
         elif UPDATE_RE.search(joined):
             cmd_idx, cmd_type, cmd_text = i, "update-job", joined
 

@@ -1,6 +1,6 @@
 """Reuses fixtures/multi-command-transcript.jsonl to assert the scoping fix
 from commit 3b62c5b: subagent + slug tally must scope to the latest command's
-segment only — not across earlier /research-job invocations."""
+segment only — not across earlier /job-research invocations."""
 
 from __future__ import annotations
 
@@ -21,7 +21,7 @@ class JobResearchScanTest(unittest.TestCase):
     def test_scopes_to_latest_command(self):
         entries = parse_transcript(FIXTURE)
         result = _scan(entries)
-        self.assertEqual(result["command"], "research-job")
+        self.assertEqual(result["command"], "job-research")
         self.assertEqual(result["slug"], "company-b")
         self.assertEqual(result["subagent_count"], 1)
 

@@ -128,16 +128,16 @@ class ShouldRunTest(unittest.TestCase):
     def test_runs_when_tail_contains_command(self):
         with tempfile.TemporaryDirectory() as d:
             t = Path(d) / "x.jsonl"
-            t.write_text(json.dumps({"message": {"role": "user", "content": "/research-job foo"}}) + "\n")
+            t.write_text(json.dumps({"message": {"role": "user", "content": "/job-research foo"}}) + "\n")
             cache_orig = hc.CACHE_DIR
             hc.CACHE_DIR = Path(d) / ".cache"
             try:
                 self.assertTrue(hc.should_run(
-                    {}, hook_name="jr", transcript=t, command_regex=r"/research-job\b",
+                    {}, hook_name="jr", transcript=t, command_regex=r"/job-research\b",
                 ))
                 # Second call: cache says nothing changed → skip.
                 self.assertFalse(hc.should_run(
-                    {}, hook_name="jr", transcript=t, command_regex=r"/research-job\b",
+                    {}, hook_name="jr", transcript=t, command_regex=r"/job-research\b",
                 ))
             finally:
                 hc.CACHE_DIR = cache_orig
