@@ -27,6 +27,7 @@ All artifacts and chat output write in **caveman-full** voice:
 - Tables and bullets > prose paragraphs. Numbers + sources, not narration.
 - Code, exact quotes from JDs, exact compensation strings — render normal, unchanged.
 - Hyperlink rule applies: every external reference (post, article, Granola note, tweet) must embed its URL inline.
+- **Absolute-date rule (mandatory).** NEVER write relative dates: "today", "tomorrow", "yesterday", "last week", "next week", "morning of," "in 2 days." Always use ISO/calendar dates: `2026-05-19`, `Tue 2026-05-19, 5:30 PM IST`. Even section headers — write `## 2026-05-19 — Abhishek (call flow)` not `## Tomorrow — Abhishek`. **Reason:** these docs are running memory read days/weeks later. "Tomorrow" rots the instant the calendar turns. Exceptions: (a) verbatim quoted interview questions where "today" means "in your current operations" (time-agnostic conversational use), (b) spoken-script lines wrapped in quotes only if explicitly tagged `[spoken on DATE]`. Default = absolute. When user pastes a meeting note w/ relative dates, convert to absolute before writing.
 
 ---
 
