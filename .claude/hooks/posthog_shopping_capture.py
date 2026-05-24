@@ -195,7 +195,7 @@ def main() -> int:
         slug = counts.get("slug") or hint or ""
         if not slug:
             return 0
-        sent_key = f"{props_date['date']} {props_date['time']} shopping-advise {slug}"
+        sent_key = f"{props_date['date']} shopping-advise {slug}"
         if idempotency_check(SENT_LOG, sent_key):
             return 0
         debug_log(
@@ -229,7 +229,7 @@ def main() -> int:
     if mode == "reccos":
         counts = _parse_reccos_log(str(RECCOS_LOG))
         topic = counts.get("topic") or hint or "broad"
-        sent_key = f"{props_date['date']} {props_date['time']} shopping-reccos {topic}"
+        sent_key = f"{props_date['date']} shopping-reccos {topic}"
         if idempotency_check(SENT_LOG, sent_key):
             return 0
         debug_log(

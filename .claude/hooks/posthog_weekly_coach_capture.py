@@ -142,7 +142,7 @@ def main() -> int:
     iso_week = counts.get("iso_week") or ""
 
     props_date = date_props()
-    sent_key = f"{props_date['date']} {props_date['time']} weekly-coach {iso_week}"
+    sent_key = f"{props_date['date']} weekly-coach {iso_week}"
     if idempotency_check(SENT_LOG, sent_key):
         return 0
 

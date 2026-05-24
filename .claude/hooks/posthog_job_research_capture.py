@@ -129,7 +129,7 @@ def main() -> int:
 
     slug = scan.get("slug") or ""
     props_date = date_props()
-    sent_key = f"{props_date['date']} {props_date['time']} {command} {slug}"
+    sent_key = f"{props_date['date']} {command} {slug}"
     if idempotency_check(SENT_LOG, sent_key):
         return 0
 

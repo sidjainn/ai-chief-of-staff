@@ -92,7 +92,7 @@ def main() -> int:
         return 0
 
     props = date_props()
-    key = f"{props['date']} {props['time']}"
+    key = f"{props['date']} triage"
     if idempotency_check(SENT_LOG, key):
         return 0
 
