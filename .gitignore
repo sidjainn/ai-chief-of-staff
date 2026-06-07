@@ -32,9 +32,13 @@ __pycache__/
 jobs
 /jobs/
 
-# Weekly coach — personal, not for repo 
+# Weekly coach — personal, not for repo
 weeks
 /weeks/
+
+# Immunity map — deeply personal (competing commitments / big assumptions), not for repo
+maps
+/maps/
 
 # Email triage runs — personal, not for repo 
 email-runs

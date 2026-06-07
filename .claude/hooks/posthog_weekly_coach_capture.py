@@ -2,7 +2,7 @@
 """Send `weekly_coach_run` event to PostHog when /weekly-coach completes.
 
 Detects invocation by scanning the transcript for /weekly-coach in user msgs.
-Extracts metric counts from the latest section of logs/weekly-coach-log.md.
+Extracts metric counts from the latest section of maps/weekly-coach-log.md.
 """
 
 from __future__ import annotations
@@ -27,7 +27,7 @@ from _hook_common import (
 
 HOOK_NAME = "posthog-wc"
 SENT_LOG = PROJECT_ROOT / "logs" / "posthog-weekly-coach-sent.log"
-COACH_LOG = PROJECT_ROOT / "logs" / "weekly-coach-log.md"
+COACH_LOG = PROJECT_ROOT / "maps" / "weekly-coach-log.md"
 
 CMD_REGEX = r"/weekly-coach\b"
 ISO_RE = re.compile(r"\b(\d{4}-W\d{2})\b")
@@ -59,6 +59,12 @@ def _parse_coach_log(path, hint_iso: str) -> dict:
         "pillars_episodic_due": [],
         "top_question": "",
         "intent": "",
+        # NEW (skill 1.4) — additive fields; absent in pre-1.4 log blocks → defaults stand
+        "state": "",
+        "intervention_acted": 0,
+        "intervention_total": 0,
+        "interference_top": "",
+        "chronic_in_immunity_map": 0,
     }
     if not os.path.exists(path):
         return result
@@ -121,6 +127,13 @@ def _parse_coach_log(path, hint_iso: str) -> dict:
     result["pillars_episodic_due_count"] = len(ep_due)
     result["top_question"] = grab_string("top_question")
     result["intent"] = grab_string("intent", 200)
+    # NEW (skill 1.4) — additive; pre-1.4 blocks lack these keys → defaults (0 / "") stand
+    result["state"] = grab_string("state", 50)
+    acted, total = grab_ratio("intervention_hit_rate")
+    result["intervention_acted"] = acted
+    result["intervention_total"] = total
+    result["interference_top"] = grab_string("interference_top", 50)
+    result["chronic_in_immunity_map"] = grab_int("chronic_in_immunity_map")
     return result
 
 
@@ -168,6 +181,17 @@ def main() -> int:
             "pillars_episodic_due": counts.get("pillars_episodic_due") or [],
             "top_question": counts.get("top_question") or None,
             "intent": counts.get("intent") or None,
+            # NEW (skill 1.4)
+            "state": counts.get("state") or None,
+            "intervention_acted": int(counts.get("intervention_acted") or 0),
+            "intervention_total": int(counts.get("intervention_total") or 0),
+            "intervention_hit_rate": (
+                round(int(counts.get("intervention_acted") or 0) / int(counts.get("intervention_total") or 0), 3)
+                if int(counts.get("intervention_total") or 0) > 0
+                else None
+            ),
+            "interference_top": counts.get("interference_top") or None,
+            "chronic_in_immunity_map": int(counts.get("chronic_in_immunity_map") or 0),
         },
     )
     if ok:
