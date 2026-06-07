@@ -13,7 +13,7 @@ Every workflow is a skill — so the same setup ports cleanly to Codex or any ot
 
 | Use case                       | Trigger                                                                                                  | What it does                                                                                                                                                                                                                                                                                                                                                                                |
 | ------------------------------ | -------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **Growth Buddy**               | `/weekly-coach`                                                                                          | Monday reflection + planning coach. Pulls annual charter, weekly to-do sheet, daily-log monthly Docs via public Google export endpoints (no GCP, no MCP). Surfaces 6-week patterns — avoidance, drift, breakthroughs. Writes `weeks/<ISO>/` (reflection / plan / patterns). Plan rendered in your exact sheet column format. Stop-hook posts `weekly_coach_run` event to PostHog w/ counts. |
+| **Growth Buddy**               | `/weekly-coach`                                                                                          | Monday reflection + planning coach. Pulls annual charter, weekly to-do sheet, daily-log monthly Docs via public Google export endpoints (no GCP, no MCP). Surfaces 6-week patterns — avoidance, drift, breakthroughs. Writes `weeks/<ISO>/reflection.md` — single doc folding in multi-week patterns + 2-4 suggested major items for next week. Stop-hook posts `weekly_coach_run` event to PostHog w/ counts. |
 | **Job Researcher**             | `/job-research <jd-or-link>` · `/update-job <slug>` · pasted JD / "interviewing at X" / "had a call w/ " | Deep research per company w/ parallel subagents (company / role / comp / interviewers / Granola). Verification pass cross-checks numbers. Synthesizes candidate-personalized doc under `jobs/<slug>/`. Re-runs append dated updates — running doc as memory. Light update path pulls fresh Granola (w/ deeplink) + folds in notes, no re-research.                                          |
 | **Email Triage (WIP)**         | `/email-triage`                                                                                          | Daily triage across Gmail + Calendar. P0/P1/P2 brief tuned to your priorities, team, voice. Draft replies activate the `email-reply` skill — voice-matched, banned-phrase-aware, correct CCs. Hook auto-logs every run for monthly pattern review. Context refinement pending, gcal mcp connection pending.                                                                                |
 | **Shopping Advisor**           | `/shopping-assist <product>` · `/reccos [topic]`                                                          | Pre-purchase advisor + proactive discovery. Reads shared `shopping-context/` (profile, inventory, interests, budget-rules, data-sources) + Flipkart/Swiggy xlsx + Gmail to ground every recommendation in your values, household, owned cards, and order history. `/shopping-assist` returns a 3-candidate shortlist w/ 5-dim scoring, cross-platform price-parity, card-discount math (Flipkart Axis / SBI Rupay / Swiggy HDFC). `/reccos` surfaces 3-5 tagged items ([upgrade] / [gap] / [interest-match] / [swap-from-current]) for discovery. Context-capture catches preferences mid-convo and offers to persist them. Hook posts `shopping_advise_run` / `shopping_reccos_run` events to PostHog. |
@@ -76,9 +76,7 @@ ai-chief-of-staff/
 │       ├── interviewers/<name>.md
 │       └── meetings/<date>-<slug>.md   # Granola summary w/ deeplink
 ├── weeks/<ISO-week>/                   # growth-buddy artifacts (gitignored)
-│   ├── reflection.md
-│   ├── plan.md
-│   └── patterns.md
+│   └── reflection.md                   # single doc — patterns + next-week major items folded in
 ├── .shopping/reccos/<slug>/            # shopping-advisor artifacts (gitignored) — brief / shortlist / price-parity / verdict
 ├── logs/                               # hook idempotency ledgers + per-run log blocks (gitignored)
 ├── demo/                               # Before/after walkthroughs
@@ -105,9 +103,7 @@ All three docs must be shared "anyone with the link". IDs live in `.env` (gitign
 
 **Outputs to `weeks/<ISO-week>/`** (gitignored — personal):
 
-- `reflection.md` — what last week revealed
-- `plan.md` — next week's plan in your exact sheet column format, paste-ready
-- `patterns.md` — multi-week avoidance / drift / breakthrough threads
+- `reflection.md` — single doc: what last week revealed, multi-week avoidance / drift / breakthrough threads, and 2-4 suggested major items for next week (you plan the detail in your own sheet)
 
 Coach voice — pushes back. Names the question you're avoiding. Asks 3 sharp questions back. No assistant fluff.
 
@@ -283,7 +279,7 @@ Highest-leverage 20 minutes you'll spend.
 - **Daily:** `/email-triage`. Hook auto-logs.
 - **Pre-purchase:** `/shopping-assist <product>` — 3-candidate shortlist w/ price-parity + card-discount math. `/reccos` for discovery.
 - **Post-meeting:** `/update-job <slug>` or "had a call w/ " — running doc accumulates.
-- **Weekly (Mon):** `/weekly-coach` — patterns file gets richer w/ every week of data.
+- **Weekly (Mon):** `/weekly-coach` — reflection doc gets richer w/ every week of data.
 - **Monthly:** review `email-runs/` vs `my-priorities.md`. Adjust context files where output drifted.
 - **Quarterly:** update `my-priorities.md` + annual charter. Whole system reorients.
 - **Output off?** Correct Claude once, then update the relevant context file. Never correct twice.

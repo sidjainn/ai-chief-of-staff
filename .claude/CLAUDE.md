@@ -9,7 +9,7 @@ It uses skills and hooks together as a system — not one feature at a time. Eve
 /weekly-coach                    # Weekly reflection + next-week planning
   └── pulls charter + sheet + daily logs (public Google export endpoints)
   └── 6-week pattern detection   # Avoidance / drift / breakthroughs
-  └── writes weeks/<ISO>/        # reflection.md + plan.md + patterns.md
+  └── writes weeks/<ISO>/        # reflection.md (single doc — patterns + 2-4 major items folded in)
   └── appends weekly-coach-log   # Hook captures counts to PostHog
 
 /job-research <jd-or-link>       # Deep research on a job + company
@@ -72,7 +72,7 @@ It uses skills and hooks together as a system — not one feature at a time. Eve
 | `.claude/skills/weekly-coach/charter-pillar-modes.md` | Pillar-mode tags (cadence/episodic/hybrid) — coach lens for charter coverage |
 | `.claude/hooks/posthog_weekly_coach_capture.py` | PostHog event hook for weekly-coach |
 | `.claude/hooks/posthog_job_research_capture.py` | PostHog event hook for job-research |
-| `weeks/<ISO>/` | Per-week reflection, plan, patterns (gitignored) |
+| `weeks/<ISO>/` | Per-week reflection.md — single doc (gitignored) |
 | `logs/weekly-coach-log.md` | Append-only summary log (gitignored) |
 | `.claude/skills/shopping-assist/SKILL.md` | Pre-purchase advisor — slash `/shopping-assist <product>` |
 | `.claude/skills/shopping-reccos/SKILL.md` | Proactive discovery — slash `/reccos [topic]` |
