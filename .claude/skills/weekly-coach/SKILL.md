@@ -12,8 +12,9 @@ sources:
 persistent_files:
   - weeks/<ISO-week>/reflection.md   # per-week reflection, append a new folder each week
   - maps/weekly-coach-log.md          # machine-readable summary log, PostHog hook scans this
-  - maps/immunity-map.md              # NEW (1.4) — root-cause per chronic-stuck item, append-only
-  - maps/intervention-ledger.md       # NEW (1.4) — every coach push tagged + outcome, append-only
+  - maps/immunity-map.md              # root-cause per chronic-stuck item
+  - maps/intervention-ledger.md       # every coach push tagged + outcome; §1 current read (rewritten each run) + §2 rolling table (last 6 wks)
+  - maps/intervention-archive.md      # frozen verbatim trail of weeks aged out of the ledger — never rewritten
   - .claude/skills/weekly-coach/charter-pillar-modes.md  # pillar cadence/episodic/hybrid cache
 notes:
   - Sheet tabs are named by week-start date (DD-MM-YYYY). Skip non-weekly tabs ("Learning resources", "Curiosities").
@@ -23,13 +24,13 @@ notes:
 # Weekly Coach Skill
 ## What this skill does
 Runs the user's Monday morning ritual: reflect on the prior week, surface patterns across the last 6 weeks (not just one), name what he's avoiding AND why it sticks, name what's breaking through AND what enabled it, learn which coaching moves actually work on him, suggest 2-4 major items for the upcoming week scaled to his current energy and aligned to his annual charter — all in a single reflection doc.
-The doc is a memory, not a snapshot. Every week appends. Patterns surface over time. The coach gets smarter about the user specifically the longer it runs.
+The doc is a memory, not a snapshot. Patterns surface over time. The coach gets smarter about the user specifically the longer it runs — provided the memory stays readable.
 ## Core invariants
 1. **Multi-week lookback always.** Single-week reflection is shallow — patterns only emerge across 4-6 weeks.
 2. **Charter is the lens.** Every observation, every plan item maps to a focus area in the annual charter. Items that don't map = noise to challenge.
 3. **Coach voice, not assistant voice.** Push back. Ask the question the user is avoiding. Name the pattern even when uncomfortable.
 4. **Suggest, don't plan.** Coach names 2-4 major items for next week tied to pillars — not a full weekly plan. The user plans the detail in his sheet himself.
-5. **Append, never overwrite.** `weeks/<ISO-week>/reflection.md` per week. `maps/` files (weekly-coach-log, intervention-ledger, immunity-map) append.
+5. **Keep the trail, curate the read.** History is the value — never delete a scored outcome, a correction, or a retracted hypothesis. But a memory nobody can read coaches nobody: distil the current read, freeze the raw trail. `weeks/<ISO-week>/reflection.md` is per-week. `maps/` files carry a short rewritable "current read" section plus the dated record; when a record outgrows its lookback window, move the old part verbatim into a frozen `*-archive.md`. Use judgement about what belongs where — no per-file exceptions.
 6. **Diagnose, don't just flag (1.4).** A stuck item gets a *why* — interference type or competing-commitment hypothesis — not just a repeat-count. "Do it harder" is the weakest possible intervention.
 7. **Load scales to state (1.4).** Read journal energy first. A depleted week gets fewer, smaller items — not four big rocks. Coaching a tired person harder is how you get a quiet collapse.
 8. **The coach learns the user (1.4).** Every push is logged and scored next week. Over time, lead with the intervention types the user actually acts on; stop prescribing the ones he reliably deflects.
@@ -43,7 +44,7 @@ Caveman voice for all artifacts and chat output:
 Length budget:
 - `reflection.md` — 110 lines max (carry-forward + state + wins/stuck + patterns + scorecard + major items)
 - `immunity-map.md` block — 8 lines max per item
-- `intervention-ledger.md` — one table row per push
+- `intervention-ledger.md` — §1 standing register 60 lines max; §2 one table row per push, 6 weeks
 - chat output — TL;DR + 3 patterns + 3 questions. Nothing more.
 ## Workflow
 ### Step 1 — Pull source data via fetch script
@@ -126,6 +127,12 @@ Before writing anything new, grade what the coach pushed last week. This is the 
 ```
 
 Type taxonomy: `time-block` · `shrink-it` (minimum next action) · `drop-it` · `reframe-as-question` · `identity-reframe` · `big-rock` · `immunity-test` · `replicate-condition`.
+
+**Ledger structure (maintain it — do not append prose to the bottom):**
+- **§1 Standing register** — rewrite every run. What lands · what doesn't · coach failure modes · **retired reads (do not re-raise)** · live watches · hit tally. Keep it short enough to act on.
+- **§2 Rolling table** — one row per push, newest week first, **last 6 weeks only**. When a 7th week lands, move the oldest week verbatim into `maps/intervention-archive.md`.
+- A retracted hypothesis moves to the retired-reads table with a one-line status. Its full reasoning stays in the archive. Never leave a dead hypothesis loose in prose where a future run can re-raise it as live.
+- `intervention_hit_rate` scores the **coach's** prescriptions, not the user's week. Report it as "0 of 5 pushes fully landed" — never "a zero-acted week." The user's week may have been excellent while every prescription missed.
 4. **Read the tally across all weeks.** Which types does the user act on? Which does he deflect? Produce a one-line read: e.g. "shrink-it 4/4 acted, time-block 0/3 acted → stop prescribing time-blocks for this kind of item, prescribe smallest-next-action." This read shapes Step 5's stuck-item fixes AND Step 7's questions.
 If the ledger is empty (first 1.4 run), seed it from the last reflection's pushes scored against this week, and note the sample is thin.
 ### Step 5 — Diagnose the stuck (interference + immunity)
@@ -139,7 +146,7 @@ Performance = Potential − Interference. The fix is usually to *remove* interfe
 - **self-criticism** — the doing is tangled with fear of judgment → escalate toward Tier 2
 For each, write the **minimum viable next action** (MVNA) — deliberately the *opposite* of a major item. Small enough that failure is impossible.
 **Tier 2 — Immunity map (any item rolled 3+ weeks, or interference = self-criticism).**
-This is a genuine avoidance, not a logistics problem. Build/update a Kegan Immunity-to-Change block in `maps/immunity-map.md`. Append-only — never rewrite a prior hypothesis; add a dated update line beneath it so the evolution stays visible.
+This is a genuine avoidance, not a logistics problem. Build/update a Kegan Immunity-to-Change block in `maps/immunity-map.md`. Add a dated update line beneath the prior hypothesis rather than replacing it, so the evolution stays visible.
 
 ```markdown
 ## long-form essay (personal / vulnerable) — first flagged W18, 5+ wks
@@ -258,7 +265,7 @@ Do NOT paste the full reflection inline. The file is the durable artifact; chat 
 ### Step 10 — Iterate
 After the user responds:
 - Update "Next week — major items" per his decisions.
-- If he corrects an immunity hypothesis, append the correction (dated line) — don't rewrite.
+- If he corrects an immunity hypothesis, add the correction as a dated line beneath it.
 - Re-print **only** the updated major items in chat.
 - Update `maps/weekly-coach-log.md` if counts changed.
 ## Self-check before finishing
@@ -283,7 +290,7 @@ If any check fails, fix before output.
 - **Treating hypotheses as verdicts.** The competing commitment and big assumption are guesses. Offer them tentatively; let the user correct them.
 - **Generic coaching.** Every question references a real observed signal.
 - **Mining the journal for tasks.** It's a state-and-attention record. Pull energy, identity, antecedents, what-stayed — not completion.
-- **Overwriting memory.** New week = new folder. Immunity-map and ledger append only. The history IS the value.
+- **Losing the trail, or drowning in it.** Both fail. Never delete a scored outcome or a correction — but never let the ledger grow into prose nobody can act on either. Distil §1, freeze the rest into the archive.
 - **Soft-pedaling avoidance.** If an item rolled 4+ weeks, name it and build the immunity map. The user hired the coach for honesty.
 - **False drift on episodic pillars.** A multi-week off-grid retreat credits Nature even with zero sheet rows. Scan logs / life events first.
 - **Major items as a tracker.** Forward-looking big rocks only — no status, no completion marks.
