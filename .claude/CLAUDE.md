@@ -12,6 +12,7 @@ It uses skills and hooks together as a system — not one feature at a time. Eve
   └── scores last week's coaching moves # intervention ledger — learns what moves sid
   └── state-scaled major items   # depleted week → fewer/smaller items (read journal energy first)
   └── writes weeks/<ISO>/        # reflection.md (single doc — patterns + 2-4 major items folded in)
+  └── reads maps/strengths.md      # majors must point his edge at something worth it
   └── updates immunity-map + intervention-ledger (§1 rewritten, §2 rolled) + weekly-coach-log
   └── hook captures counts + state + intervention-hit-rate + interference to PostHog
 
@@ -79,6 +80,7 @@ It uses skills and hooks together as a system — not one feature at a time. Eve
 | `maps/weekly-coach-log.md` | Machine-readable summary log, one block per run — PostHog hook scans this (gitignored, symlinked to private repo) |
 | `maps/immunity-map.md` | Root-cause (competing commitment + big assumption) per chronic-stuck item; corrections added as dated lines (gitignored, symlinked to private repo) |
 | `maps/intervention-ledger.md` | Every coach push tagged by type + outcome — learns what moves sid. §1 standing register (rewritten each run: what lands, what doesn't, retired reads) + §2 rolling table, last 6 weeks (gitignored, symlinked to private repo) |
+| `maps/strengths.md` | Demonstrated strengths from 6mo of evidence — the engine (generate alone / unstick via contact), the unlock mechanism for 3+ week stuck items, retracted coach reads (gitignored, symlinked to private repo) |
 | `maps/intervention-archive.md` | Frozen verbatim ledger trail for weeks aged out of §2 — never rewritten (gitignored, symlinked to private repo) |
 | `.claude/skills/shopping-assist/SKILL.md` | Pre-purchase advisor — slash `/shopping-assist <product>` |
 | `.claude/skills/shopping-reccos/SKILL.md` | Proactive discovery — slash `/reccos [topic]` |
