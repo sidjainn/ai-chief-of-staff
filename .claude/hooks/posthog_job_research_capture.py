@@ -128,8 +128,19 @@ def main() -> int:
         return 0
 
     slug = scan.get("slug") or ""
+    if not slug:
+        # The command regex also matches sessions that merely discuss the skill.
+        # Those resolve no jobs/<slug>/ path, so the event would carry a null
+        # slug and every flag false — no run to report.
+        debug_log(HOOK_NAME, f"{command} matched but no slug resolved — skipping")
+        return 0
+
+    # Key on the session rather than the date. The hook fires repeatedly across
+    # one run, and a dated key also let a later session that still referenced
+    # jobs/<slug>/ re-send a run already captured days earlier. Session identity
+    # keeps a deliberate re-research — a genuinely new run — capturable.
     props_date = date_props()
-    sent_key = f"{props_date['date']} {command} {slug}"
+    sent_key = f"{transcript.stem} {command} {slug}"
     if idempotency_check(SENT_LOG, sent_key):
         return 0
 
