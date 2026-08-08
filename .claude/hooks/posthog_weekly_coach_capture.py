@@ -30,25 +30,24 @@ SENT_LOG = PROJECT_ROOT / "logs" / "posthog-weekly-coach-sent.log"
 COACH_LOG = PROJECT_ROOT / "maps" / "weekly-coach-log.md"
 
 CMD_REGEX = r"/weekly-coach\b"
-ISO_RE = re.compile(r"\b(\d{4}-W\d{2})\b")
 
 
-def _scan_iso_hint(transcript) -> tuple[bool, str]:
-    seen = False
-    iso_hint = ""
+def _scan_invoked(transcript) -> bool:
     for blocks in iter_user_messages(transcript):
-        joined = "\n".join(blocks)
-        if re.search(CMD_REGEX, joined, re.IGNORECASE):
-            seen = True
-            m = ISO_RE.search(joined)
-            if m:
-                iso_hint = m.group(1)
-    return seen, iso_hint
+        if re.search(CMD_REGEX, "\n".join(blocks), re.IGNORECASE):
+            return True
+    return False
 
 
-def _parse_coach_log(path, hint_iso: str) -> dict:
+def _parse_coach_log(path) -> dict | None:
+    """Return the latest coaching block's metrics, or None if none is parseable.
+
+    None means "no data" — the caller must not emit. maps/weekly-coach-log.md is
+    a symlink into a private repo, so an unreadable file is a real possibility;
+    guessing an iso_week and shipping zeros pollutes the event stream.
+    """
     result = {
-        "iso_week": hint_iso or "",
+        "iso_week": "",
         "next_week_items": 0,
         "rolled_over_items": 0,
         "pillars_served": 0,
@@ -67,17 +66,17 @@ def _parse_coach_log(path, hint_iso: str) -> dict:
         "chronic_in_immunity_map": 0,
     }
     if not os.path.exists(path):
-        return result
+        return None
     try:
         text = open(path).read()
     except Exception:
-        return result
+        return None
 
     sections = list(re.finditer(r"^## Week (\S+)\s+\u2014\s+coaching", text, flags=re.MULTILINE))
     if not sections:
         sections = list(re.finditer(r"^## Week (\S+)\s+(?:-|\u2014)\s+coaching", text, flags=re.MULTILINE))
     if not sections:
-        return result
+        return None
 
     last = sections[-1]
     result["iso_week"] = last.group(1)
@@ -147,15 +146,21 @@ def main() -> int:
     if transcript is None:
         return 0
 
-    seen, iso_hint = _scan_iso_hint(transcript)
-    if not seen:
+    if not _scan_invoked(transcript):
         return 0
 
-    counts = _parse_coach_log(str(COACH_LOG), iso_hint)
-    iso_week = counts.get("iso_week") or ""
+    counts = _parse_coach_log(str(COACH_LOG))
+    if counts is None:
+        debug_log(HOOK_NAME, "no parseable coaching block — skipping")
+        return 0
+    iso_week = counts["iso_week"]
 
+    # Key on iso_week alone. The hook fires many times across a single run, and
+    # the coach log — which supplies iso_week — is rewritten partway through it.
+    # A dated key therefore changed mid-run and let the same run emit twice:
+    # once carrying last week's block, once carrying this week's.
     props_date = date_props()
-    sent_key = f"{props_date['date']} weekly-coach {iso_week}"
+    sent_key = f"weekly-coach {iso_week}"
     if idempotency_check(SENT_LOG, sent_key):
         return 0
 
