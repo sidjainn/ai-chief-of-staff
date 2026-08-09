@@ -31,6 +31,16 @@ COACH_LOG = PROJECT_ROOT / "maps" / "weekly-coach-log.md"
 
 CMD_REGEX = r"/weekly-coach\b"
 
+# Log lines pad the value, then annotate it:
+#   - state: steady                    # steady-to-peak in body, thin on hope
+# The annotation is prose and may contain its own '#' ("re-framing #1"), so the
+# boundary is the run of padding, not the '#' alone.
+ANNOTATION_RE = re.compile(r"\s{2,}#")
+
+
+def _strip_annotation(value: str) -> str:
+    return ANNOTATION_RE.split(value, maxsplit=1)[0].strip()
+
 
 def _scan_invoked(transcript) -> bool:
     for blocks in iter_user_messages(transcript):
@@ -92,7 +102,7 @@ def _parse_coach_log(path) -> dict | None:
         m = re.search(rf"{key}\s*:\s*(.+)", block, flags=re.IGNORECASE)
         if not m:
             return ""
-        val = m.group(1).strip()
+        val = _strip_annotation(m.group(1))
         if (val.startswith('"') and val.endswith('"')) or (val.startswith("'") and val.endswith("'")):
             val = val[1:-1]
         return val[:max_len]
@@ -124,7 +134,8 @@ def _parse_coach_log(path) -> dict | None:
     ep_due = grab_list("pillars_episodic_due")
     result["pillars_episodic_due"] = ep_due
     result["pillars_episodic_due_count"] = len(ep_due)
-    result["top_question"] = grab_string("top_question")
+    # The question is the payload — the old 400 cap cut it off mid-sentence.
+    result["top_question"] = grab_string("top_question", 1500)
     result["intent"] = grab_string("intent", 200)
     # NEW (skill 1.4) — additive; pre-1.4 blocks lack these keys → defaults (0 / "") stand
     result["state"] = grab_string("state", 50)

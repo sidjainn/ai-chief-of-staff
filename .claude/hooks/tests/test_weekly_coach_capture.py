@@ -37,6 +37,30 @@ W32_BLOCK = """\
 """
 
 
+# Real blocks pad the value, then annotate it. The annotation is prose and can
+# itself contain a '#', so only 2+ spaces before the '#' marks the boundary.
+ANNOTATED_BLOCK = """\
+## Week 2026-W33 — coaching
+
+- next_week_items: 2
+- rolled_over_items: 21                           # blank in both tabs (scripted diff)
+- pillars_served: 8/9                             # +1 on WATCH, not at-risk
+- pillars_at_risk: []                             # one pillar on WATCH, not drift
+- state: steady                                   # steady-to-peak in body, thin on hope
+- intervention_hit_rate: 3/7                      # all three that landed were stand-downs
+- interference_top: unclear                       # task-shape rows most frequent
+- chronic_in_immunity_map: 2                      # two open blocks
+- top_question: "Ship the thing you already wrote, or say out loud that it is parked \
+— which is it? The rewrite is not the blocker and you named that yourself on Friday, \
+so the only open question left is whether the thread is live at all this week or \
+whether it goes on the shelf until the other one lands. Three people asked for the \
+same artifact and none of them has been told either way, which is its own answer if \
+it runs another week. The honest version costs one sentence; the avoidant version \
+costs a month and you have run that experiment twice already this quarter."
+- intent: Turn the open question into a list I can answer.
+"""
+
+
 def _wire(monkeypatch, tmp_path, coach_log_text):
     """Point the hook at temp files and stub everything outside the unit."""
     coach_log = tmp_path / "weekly-coach-log.md"
@@ -118,3 +142,56 @@ def test_missing_coach_log_emits_nothing(monkeypatch, tmp_path):
     hook.main()
 
     assert captured == []
+
+
+def test_inline_annotation_stripped_from_string_values(monkeypatch, tmp_path):
+    """Values are padded then annotated; only the value belongs in the event.
+
+    Before this was handled, `state` shipped as 'steady' + 41 spaces + '# steady-'
+    — the padding and the comment ate the 50-char budget.
+    """
+    _, captured = _wire(monkeypatch, tmp_path, ANNOTATED_BLOCK)
+
+    hook.main()
+
+    _, props = captured[0]
+    assert props["state"] == "steady"
+    assert props["interference_top"] == "unclear"
+
+
+def test_annotation_stripping_leaves_numeric_fields_alone(monkeypatch, tmp_path):
+    """The numeric grabbers match narrow patterns and were never affected."""
+    _, captured = _wire(monkeypatch, tmp_path, ANNOTATED_BLOCK)
+
+    hook.main()
+
+    _, props = captured[0]
+    assert props["rolled_over_items"] == 21
+    assert props["pillars_served"] == 8
+    assert props["pillars_total"] == 9
+    assert props["chronic_in_immunity_map"] == 2
+    assert props["intervention_hit_rate"] == round(3 / 7, 3)
+    assert props["pillars_at_risk"] == []
+
+
+def test_top_question_survives_intact(monkeypatch, tmp_path):
+    """The question is the payload — a 400-char cap cut off its ending."""
+    _, captured = _wire(monkeypatch, tmp_path, ANNOTATED_BLOCK)
+
+    hook.main()
+
+    _, props = captured[0]
+    question = props["top_question"]
+    assert len(question) > 400, "fixture must exceed the old cap to be a regression"
+    assert question.startswith("Ship the thing you already wrote")
+    assert question.endswith("run that experiment twice already this quarter.")
+    assert not question.startswith('"')
+
+
+def test_hash_inside_prose_is_not_treated_as_annotation():
+    """A single space before '#' is prose; 2+ spaces marks the annotation."""
+    prose = "Revisit re-framing #1 and the #2 follow-up before Sunday."
+    assert hook._strip_annotation(prose) == prose
+    assert hook._strip_annotation("steady    # steady-to-peak in body") == "steady"
+    assert hook._strip_annotation("unclear  # task-shape rows most frequent") == "unclear"
+    assert hook._strip_annotation("no annotation here") == "no annotation here"
