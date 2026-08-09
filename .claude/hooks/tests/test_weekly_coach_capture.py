@@ -89,9 +89,14 @@ def test_one_event_per_run_despite_repeated_fires(monkeypatch, tmp_path):
     Only the new week may emit — last week's block was already sent last week.
     """
     coach_log, captured = _wire(monkeypatch, tmp_path, W31_BLOCK)
-    hook.SENT_LOG.write_text("weekly-coach 2026-W31\n", encoding="utf-8")
 
-    # Early fires: skill hasn't written the W32 block yet.
+    # Last week's run recorded W31 under its own payload fingerprint.
+    hook.main()
+    assert [p["iso_week"] for _, p in captured] == ["2026-W31"]
+    captured.clear()
+
+    # Early fires this week: skill hasn't written the W32 block yet, so the
+    # parse still yields W31 unchanged and must not re-send it.
     hook.main()
     hook.main()
     assert captured == [], "re-emitted last week's block"
@@ -110,14 +115,23 @@ def test_one_event_per_run_despite_repeated_fires(monkeypatch, tmp_path):
     assert props["next_week_items"] == 2
 
 
-def test_old_dated_ledger_entries_still_dedupe(monkeypatch, tmp_path):
-    """Pre-fix ledger lines carry a date prefix; they must keep suppressing."""
+def test_pre_revision_ledger_line_migrates_once_then_settles(monkeypatch, tmp_path):
+    """Ledger lines written before payload fingerprints exist carry no hash.
+
+    They can't match a fingerprinted key, so the week emits once more — which is
+    wanted, since that older event holds only the opening draft. It must then
+    settle, not re-emit on every fire.
+    """
     _, captured = _wire(monkeypatch, tmp_path, W31_BLOCK + "\n" + W32_BLOCK)
     hook.SENT_LOG.write_text("2026-08-02 weekly-coach 2026-W32\n", encoding="utf-8")
 
     hook.main()
+    hook.main()
+    hook.main()
 
-    assert captured == []
+    assert len(captured) == 1
+    assert captured[0][1]["iso_week"] == "2026-W32"
+    assert captured[0][1]["revision"] == 2, "counts the pre-fingerprint event"
 
 
 def test_unreadable_coach_log_emits_nothing(monkeypatch, tmp_path):
@@ -195,3 +209,97 @@ def test_hash_inside_prose_is_not_treated_as_annotation():
     assert hook._strip_annotation("steady    # steady-to-peak in body") == "steady"
     assert hook._strip_annotation("unclear  # task-shape rows most frequent") == "unclear"
     assert hook._strip_annotation("no annotation here") == "no annotation here"
+
+
+# The narrative section is free-form by design: across 16 weeks, 92 of 102
+# distinct keys appear in only one week. The hook pins the envelope, not names.
+NARRATIVE_BLOCK = """\
+## Week 2026-W34 — coaching
+
+- next_week_items: 2
+- state: steady                                   # padded annotation, stripped
+- top_question: "Is the thread live or parked?"
+- load_decision: ceiling 3, taking 2 — hours are not the constraint
+- one_off_finding_nobody_will_repeat: a thing observed once, never again
+- CORRECTION_2026-08-16_misread: coach read the pain as solvency; it was scaffolding
+- majors_2026-08-16: (1) Record it once (2) Process the list you already wrote
+"""
+
+
+def test_narrative_rows_captured_verbatim(monkeypatch, tmp_path):
+    """Every non-core row ships, whatever it is called this week."""
+    _, captured = _wire(monkeypatch, tmp_path, NARRATIVE_BLOCK)
+
+    hook.main()
+
+    _, props = captured[0]
+    assert props["narrative_count"] == 4
+    assert props["narrative_keys"] == [
+        "load_decision",
+        "one_off_finding_nobody_will_repeat",
+        "CORRECTION_2026-08-16_misread",
+        "majors_2026-08-16",
+    ]
+    joined = "\n".join(props["narrative"])
+    assert "ceiling 3, taking 2" in joined
+    assert "it was scaffolding" in joined
+    assert "Record it once" in joined
+    assert props["narrative_chars"] > 0
+
+
+def test_narrative_excludes_core_scalar_rows(monkeypatch, tmp_path):
+    """Core fields have their own properties — they must not be duplicated."""
+    _, captured = _wire(monkeypatch, tmp_path, NARRATIVE_BLOCK)
+
+    hook.main()
+
+    _, props = captured[0]
+    for core in ("next_week_items", "state", "top_question"):
+        assert core not in props["narrative_keys"]
+    assert props["state"] == "steady"
+
+
+def test_revised_block_emits_a_new_revision(monkeypatch, tmp_path):
+    """The session keeps editing the block for an hour after the first fire.
+
+    The captured payload changed, so a further event must ship, tagged as a
+    later revision. Reading the week means taking the newest one.
+    """
+    coach_log, captured = _wire(monkeypatch, tmp_path, NARRATIVE_BLOCK)
+
+    hook.main()
+    assert captured[0][1]["revision"] == 1
+
+    # Discussion adds a finding and revises the majors.
+    coach_log.write_text(
+        NARRATIVE_BLOCK + "- late_finding_from_discussion: surfaced at the end\n",
+        encoding="utf-8",
+    )
+    hook.main()
+
+    assert len(captured) == 2
+    assert captured[1][1]["revision"] == 2
+    assert captured[1][1]["narrative_count"] == 5
+    assert "late_finding_from_discussion" in captured[1][1]["narrative_keys"]
+
+
+def test_unchanged_block_does_not_re_emit(monkeypatch, tmp_path):
+    """Repeated fires with no edit stay a single event — the #10 guarantee."""
+    _, captured = _wire(monkeypatch, tmp_path, NARRATIVE_BLOCK)
+
+    hook.main()
+    hook.main()
+    hook.main()
+
+    assert len(captured) == 1
+
+
+def test_prefix_ledger_line_from_before_revisions_does_not_block(monkeypatch, tmp_path):
+    """Old ledger lines have no payload hash; they must not suppress forever."""
+    _, captured = _wire(monkeypatch, tmp_path, NARRATIVE_BLOCK)
+    hook.SENT_LOG.write_text("weekly-coach 2026-W34\n", encoding="utf-8")
+
+    hook.main()
+
+    assert len(captured) == 1
+    assert captured[0][1]["revision"] == 2

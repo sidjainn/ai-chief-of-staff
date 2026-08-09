@@ -7,6 +7,8 @@ Extracts metric counts from the latest section of maps/weekly-coach-log.md.
 
 from __future__ import annotations
 
+import hashlib
+import json
 import os
 import re
 import sys
@@ -40,6 +42,51 @@ ANNOTATION_RE = re.compile(r"\s{2,}#")
 
 def _strip_annotation(value: str) -> str:
     return ANNOTATION_RE.split(value, maxsplit=1)[0].strip()
+
+
+# Rows the hook maps to their own typed properties. Everything else in the block
+# is narrative and travels under the generic fields below.
+CORE_KEYS = frozenset({
+    "next_week_items",
+    "rolled_over_items",
+    "pillars_served",
+    "pillars_at_risk",
+    "pillars_episodic_due",
+    "state",
+    "intervention_hit_rate",
+    "interference_top",
+    "chronic_in_immunity_map",
+    "top_question",
+    "intent",
+})
+
+# Keys carry dates and counters (`majors_2026-08-09`, `coach_failure_mode_7_added`),
+# so hyphens and digits are part of the name.
+ROW_RE = re.compile(r"^- ([A-Za-z0-9_\-]+):[ \t]*(.*)$", re.MULTILINE)
+
+NARRATIVE_VALUE_MAX = 2000
+
+# Recomputed every run; excluded from the payload fingerprint so a second fire in
+# a later minute doesn't read as a revision.
+VOLATILE_PROPS = frozenset({"date", "time", "week", "day_of_week", "revision", "source"})
+
+
+def _fingerprint(payload: dict) -> str:
+    stable = {k: v for k, v in payload.items() if k not in VOLATILE_PROPS}
+    blob = json.dumps(stable, sort_keys=True, default=str)
+    return hashlib.sha1(blob.encode("utf-8")).hexdigest()[:12]
+
+
+def _revision_for(iso_week: str) -> int:
+    """How many events this week has already produced, whatever the key format."""
+    if not SENT_LOG.exists():
+        return 0
+    needle = f"weekly-coach {iso_week}"
+    try:
+        with SENT_LOG.open() as fh:
+            return sum(1 for line in fh if needle in line)
+    except Exception:
+        return 0
 
 
 def _scan_invoked(transcript) -> bool:
@@ -144,6 +191,20 @@ def _parse_coach_log(path) -> dict | None:
     result["intervention_total"] = total
     result["interference_top"] = grab_string("interference_top", 50)
     result["chronic_in_immunity_map"] = grab_int("chronic_in_immunity_map")
+
+    # The narrative rows are where the session's thinking lands, and they are
+    # free-form: across 16 weeks, 92 of 102 distinct keys appear in exactly one
+    # week. There is no stable set of names to map, so the hook pins the
+    # envelope — every non-core row travels verbatim, under its own key.
+    narrative = [
+        (key, value.strip())
+        for key, value in ROW_RE.findall(block)
+        if key not in CORE_KEYS and value.strip()
+    ]
+    result["narrative"] = [f"{k}: {v[:NARRATIVE_VALUE_MAX]}" for k, v in narrative]
+    result["narrative_keys"] = [k for k, _ in narrative]
+    result["narrative_count"] = len(narrative)
+    result["narrative_chars"] = sum(len(v) for _, v in narrative)
     return result
 
 
@@ -166,26 +227,8 @@ def main() -> int:
         return 0
     iso_week = counts["iso_week"]
 
-    # Key on iso_week alone. The hook fires many times across a single run, and
-    # the coach log — which supplies iso_week — is rewritten partway through it.
-    # A dated key therefore changed mid-run and let the same run emit twice:
-    # once carrying last week's block, once carrying this week's.
     props_date = date_props()
-    sent_key = f"weekly-coach {iso_week}"
-    if idempotency_check(SENT_LOG, sent_key):
-        return 0
-
-    debug_log(
-        HOOK_NAME,
-        f"capturing weekly_coach_run iso={iso_week} items={counts.get('next_week_items')} "
-        f"rolled={counts.get('rolled_over_items')} pillars={counts.get('pillars_served')}/"
-        f"{counts.get('pillars_total')} at_risk={counts.get('pillars_at_risk_count')}",
-    )
-
-    ok = posthog_capture(
-        "weekly_coach_run",
-        {
-            **props_date,
+    payload_props = {
             "iso_week": iso_week or None,
             "next_week_items": int(counts.get("next_week_items") or 0),
             "rolled_over_items": int(counts.get("rolled_over_items") or 0),
@@ -208,7 +251,35 @@ def main() -> int:
             ),
             "interference_top": counts.get("interference_top") or None,
             "chronic_in_immunity_map": int(counts.get("chronic_in_immunity_map") or 0),
-        },
+            # Free-form section — see _parse_coach_log.
+            "narrative": counts.get("narrative") or [],
+            "narrative_keys": counts.get("narrative_keys") or [],
+            "narrative_count": int(counts.get("narrative_count") or 0),
+            "narrative_chars": int(counts.get("narrative_chars") or 0),
+    }
+
+    # Key on the payload, not the week. A /weekly-coach session keeps editing the
+    # block long after the first fire — last week the block was still being
+    # revised 94 minutes in — so a week-only key froze the opening draft and
+    # dropped everything the discussion produced. Each substantive edit now ships
+    # as a further revision; read a week with argMax(timestamp), not by assuming
+    # one row. Identical re-fires still collapse to nothing.
+    fingerprint = _fingerprint(payload_props)
+    sent_key = f"weekly-coach {iso_week} {fingerprint}"
+    if idempotency_check(SENT_LOG, sent_key):
+        return 0
+
+    revision = _revision_for(iso_week) + 1
+    debug_log(
+        HOOK_NAME,
+        f"capturing weekly_coach_run iso={iso_week} rev={revision} "
+        f"items={counts.get('next_week_items')} rolled={counts.get('rolled_over_items')} "
+        f"narrative={counts.get('narrative_count')} fp={fingerprint}",
+    )
+
+    ok = posthog_capture(
+        "weekly_coach_run",
+        {**props_date, **payload_props, "revision": revision},
     )
     if ok:
         idempotency_record(SENT_LOG, sent_key)
