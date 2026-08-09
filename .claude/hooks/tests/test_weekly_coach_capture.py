@@ -70,11 +70,9 @@ def _wire(monkeypatch, tmp_path, coach_log_text):
     captured = []
     monkeypatch.setattr(hook, "COACH_LOG", coach_log)
     monkeypatch.setattr(hook, "SENT_LOG", sent_log)
+    # Nothing transcript-shaped is stubbed: the hook triggers on the log block.
     monkeypatch.setattr(hook, "read_stdin_payload", lambda: {"session_id": "s1"})
     monkeypatch.setattr(hook, "load_project_env", lambda: None)
-    monkeypatch.setattr(hook, "resolve_transcript", lambda payload: tmp_path / "t.jsonl")
-    monkeypatch.setattr(hook, "should_run", lambda *a, **k: True)
-    monkeypatch.setattr(hook, "_scan_invoked", lambda transcript: True)
     monkeypatch.setattr(
         hook,
         "posthog_capture",
@@ -303,3 +301,33 @@ def test_prefix_ledger_line_from_before_revisions_does_not_block(monkeypatch, tm
 
     assert len(captured) == 1
     assert captured[0][1]["revision"] == 2
+
+
+def test_emits_with_no_transcript_evidence_at_all(monkeypatch, tmp_path):
+    """The trigger is the log block changing, not the transcript.
+
+    should_run scanned only the last 64 KB for /weekly-coach. Sessions here run
+    800 KB-8 MB, so the invocation scrolled out of that window mid-session and
+    every later revision was lost — dead in 3 of 8 real transcripts. The hook no
+    longer consults the transcript, so a stdin payload with nothing in it still
+    captures a changed block.
+    """
+    _, captured = _wire(monkeypatch, tmp_path, NARRATIVE_BLOCK)
+    monkeypatch.setattr(hook, "read_stdin_payload", lambda: {})
+
+    hook.main()
+
+    assert len(captured) == 1
+    assert captured[0][1]["iso_week"] == "2026-W34"
+
+
+def test_still_silent_when_block_unchanged_and_no_transcript(monkeypatch, tmp_path):
+    """Dropping the transcript gate must not turn every Stop into an event."""
+    _, captured = _wire(monkeypatch, tmp_path, NARRATIVE_BLOCK)
+    monkeypatch.setattr(hook, "read_stdin_payload", lambda: {})
+
+    hook.main()
+    for _ in range(5):
+        hook.main()
+
+    assert len(captured) == 1

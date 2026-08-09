@@ -19,19 +19,14 @@ from _hook_common import (
     debug_log,
     idempotency_check,
     idempotency_record,
-    iter_user_messages,
     load_project_env,
     posthog_capture,
     read_stdin_payload,
-    resolve_transcript,
-    should_run,
 )
 
 HOOK_NAME = "posthog-wc"
 SENT_LOG = PROJECT_ROOT / "logs" / "posthog-weekly-coach-sent.log"
 COACH_LOG = PROJECT_ROOT / "maps" / "weekly-coach-log.md"
-
-CMD_REGEX = r"/weekly-coach\b"
 
 # Log lines pad the value, then annotate it:
 #   - state: steady                    # steady-to-peak in body, thin on hope
@@ -87,13 +82,6 @@ def _revision_for(iso_week: str) -> int:
             return sum(1 for line in fh if needle in line)
     except Exception:
         return 0
-
-
-def _scan_invoked(transcript) -> bool:
-    for blocks in iter_user_messages(transcript):
-        if re.search(CMD_REGEX, "\n".join(blocks), re.IGNORECASE):
-            return True
-    return False
 
 
 def _parse_coach_log(path) -> dict | None:
@@ -209,17 +197,15 @@ def _parse_coach_log(path) -> dict | None:
 
 
 def main() -> int:
-    payload = read_stdin_payload()
+    # Drained so the caller's write always completes; nothing in the payload is
+    # needed. The trigger is the coach log, not the transcript: should_run only
+    # scanned the last 64 KB for /weekly-coach, and sessions here run 800 KB-8 MB,
+    # so the invocation scrolled out of that window mid-session and every later
+    # revision was dropped — measured dead in 3 of 8 real transcripts. Reading the
+    # log on every Stop costs one file read; the payload fingerprint below is what
+    # actually decides whether anything is sent.
+    read_stdin_payload()
     load_project_env()
-
-    transcript = resolve_transcript(payload)
-    if not should_run(payload, hook_name=HOOK_NAME, transcript=transcript, command_regex=CMD_REGEX):
-        return 0
-    if transcript is None:
-        return 0
-
-    if not _scan_invoked(transcript):
-        return 0
 
     counts = _parse_coach_log(str(COACH_LOG))
     if counts is None:
