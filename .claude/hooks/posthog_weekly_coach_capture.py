@@ -39,6 +39,30 @@ def _strip_annotation(value: str) -> str:
     return ANNOTATION_RE.split(value, maxsplit=1)[0].strip()
 
 
+def _split_entries(raw: str) -> list[str]:
+    """Split a list value on commas that sit outside parentheses.
+
+    Entries are unquoted and carry parenthetical notes of their own, e.g.
+    `[Nature (episodic — trek 0 progress, window expires W23)]`. Splitting on
+    every comma tore that single pillar into two bogus entries.
+    """
+    items: list[str] = []
+    depth = 0
+    current: list[str] = []
+    for char in raw:
+        if char in "([":
+            depth += 1
+        elif char in ")]":
+            depth = max(0, depth - 1)
+        if char == "," and depth == 0:
+            items.append("".join(current))
+            current = []
+        else:
+            current.append(char)
+    items.append("".join(current))
+    return [i.strip().strip('"').strip("'") for i in items if i.strip()]
+
+
 # Rows the hook maps to their own typed properties. Everything else in the block
 # is narrative and travels under the generic fields below.
 CORE_KEYS = frozenset({
@@ -152,11 +176,7 @@ def _parse_coach_log(path) -> dict | None:
         m = re.search(rf"{key}\s*:\s*\[([^\]]*)\]", block, flags=re.IGNORECASE)
         if not m:
             return []
-        raw = m.group(1).strip()
-        if not raw:
-            return []
-        items = [x.strip().strip('"').strip("'") for x in raw.split(",")]
-        return [x for x in items if x]
+        return _split_entries(m.group(1).strip())
 
     result["next_week_items"] = grab_int("next_week_items")
     result["rolled_over_items"] = grab_int("rolled_over_items")
@@ -177,7 +197,9 @@ def _parse_coach_log(path) -> dict | None:
     acted, total = grab_ratio("intervention_hit_rate")
     result["intervention_acted"] = acted
     result["intervention_total"] = total
-    result["interference_top"] = grab_string("interference_top", 50)
+    # Values reach 132 chars — the taxonomy tag is often followed by a
+    # parenthetical qualifier, and a 50 cap cut those mid-phrase.
+    result["interference_top"] = grab_string("interference_top", 300)
     result["chronic_in_immunity_map"] = grab_int("chronic_in_immunity_map")
 
     # The narrative rows are where the session's thinking lands, and they are
