@@ -331,3 +331,52 @@ def test_still_silent_when_block_unchanged_and_no_transcript(monkeypatch, tmp_pa
         hook.main()
 
     assert len(captured) == 1
+
+
+# Entries are unquoted and carry parenthetical notes that contain commas, so a
+# bare comma split shatters one pillar into two.
+LIST_BLOCK = """\
+## Week 2026-W35 — coaching
+
+- next_week_items: 2
+- pillars_at_risk: [Alpha, Beta (readings 0 in 6w), Gamma, Delta]
+- pillars_episodic_due: [Epsilon (episodic — 0 progress, window expires W23 next week)]
+- interference_top: friction/exposure (polishing the artifact before handing it to a real person; only meaningful rolled core item)
+"""
+
+
+def test_list_entries_keep_their_parenthetical_commas(monkeypatch, tmp_path):
+    _, captured = _wire(monkeypatch, tmp_path, LIST_BLOCK)
+
+    hook.main()
+
+    _, props = captured[0]
+    assert props["pillars_at_risk"] == [
+        "Alpha",
+        "Beta (readings 0 in 6w)",
+        "Gamma",
+        "Delta",
+    ]
+    assert props["pillars_at_risk_count"] == 4
+    assert props["pillars_episodic_due"] == [
+        "Epsilon (episodic — 0 progress, window expires W23 next week)"
+    ]
+    assert props["pillars_episodic_due_count"] == 1
+
+
+def test_interference_top_not_truncated_mid_phrase(monkeypatch, tmp_path):
+    """Real values reach 132 chars; the 50 cap cut them mid-word."""
+    _, captured = _wire(monkeypatch, tmp_path, LIST_BLOCK)
+
+    hook.main()
+
+    _, props = captured[0]
+    assert props["interference_top"].startswith("friction/exposure (polishing")
+    assert props["interference_top"].endswith("only meaningful rolled core item)")
+
+
+def test_empty_and_simple_lists_still_parse():
+    assert hook._split_entries("") == []
+    assert hook._split_entries("Alpha, Beta") == ["Alpha", "Beta"]
+    assert hook._split_entries('"quoted", \'single\'') == ["quoted", "single"]
+    assert hook._split_entries("A (x, y), B") == ["A (x, y)", "B"]
