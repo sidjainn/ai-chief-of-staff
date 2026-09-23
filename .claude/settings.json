@@ -43,6 +43,10 @@
           },
           {
             "type": "command",
+            "command": "python3 .claude/hooks/posthog_what_i_got_done_capture.py"
+          },
+          {
+            "type": "command",
             "command": "python3 .claude/hooks/posthog_shopping_capture.py"
           }
         ]
