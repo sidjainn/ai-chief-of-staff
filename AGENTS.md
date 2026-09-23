@@ -19,6 +19,7 @@ It uses skills and hooks together as a system — not one feature at a time. Eve
 /what-did-i-get-done-today       # Nightly 10pm note — accountability + closure for the day
   └── reads Instinct + own WhatsApp msgs, Gmail, Calendar, Granola, Claude Code + Codex sessions
   └── writes what-i-got-done/<YYYY>/<DATE>.md, commit + push in private repo
+  └── hook sends what_i_got_done to PostHog w/ the full note body + section counts
 
 /job-research <jd-or-link>       # Deep research on a job + company
   └── reads jobs/me/             # Resume + interests as candidate lens
@@ -83,6 +84,8 @@ It uses skills and hooks together as a system — not one feature at a time. Eve
 | `.claude/skills/weekly-coach/charter-pillar-modes.md` | Pillar-mode tags (cadence/episodic/hybrid) — coach lens for charter coverage |
 | `.claude/hooks/posthog_weekly_coach_capture.py` | PostHog event hook for weekly-coach |
 | `.claude/hooks/posthog_job_research_capture.py` | PostHog event hook for job-research |
+| `.claude/hooks/posthog_what_i_got_done_capture.py` | PostHog event hook for what-did-i-get-done-today — Stop hook, also called directly by the skill |
+| `logs/posthog-what-i-got-done-sent.log` | Idempotency ledger — one line per note date + body hash (gitignored) |
 | `weeks/<ISO>/` | Per-week reflection.md — single doc (gitignored) |
 | `maps/weekly-coach-log.md` | Machine-readable summary log, one block per run — PostHog hook scans this (gitignored, symlinked to private repo) |
 | `maps/immunity-map.md` | Root-cause (competing commitment + big assumption) per chronic-stuck item; corrections added as dated lines (gitignored, symlinked to private repo) |

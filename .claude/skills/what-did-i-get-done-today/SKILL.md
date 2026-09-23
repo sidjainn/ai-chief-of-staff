@@ -1,6 +1,6 @@
 ---
 name: what-did-i-get-done-today
-description: Build sid's end-of-day "what did i get done today?" note from Instinct and WhatsApp, Gmail, Calendar, Granola and Claude Code/Codex sessions, and push it to the private repo. Use for the nightly 10 pm routine or when sid asks what he got done today.
+description: Build sid's end-of-day "what did i get done today?" note from Instinct and WhatsApp, Gmail, Calendar, Granola and Claude Code/Codex sessions, push it to the private repo and send it to PostHog. Use for the nightly 10 pm routine or when sid asks what he got done today.
 ---
 
 # what did i get done today
@@ -14,6 +14,7 @@ Repo: `~/ai-chief-of-staff`. Paths below are relative to it. Timezone is IST (As
 - `.claude/skills/what-did-i-get-done-today/context/sources.md` - WhatsApp ids and the voice guide id. Private (gitignored, symlinked to the private repo). Read it first. `example.context/sources.md` shows the shape.
 - `.claude/skills/what-did-i-get-done-today/scripts/harness_activity.py` - prints sid's Claude Code and Codex prompts and git commits for a window.
 - `what-i-got-done/YYYY/YYYY-MM-DD.md` - one note per day. Pushed to the private repo as soon as it is written.
+- `.claude/hooks/posthog_what_i_got_done_capture.py` - sends each new note to PostHog as a `what_i_got_done` event with the full body. It also runs as a Stop hook in Claude Code. A ledger stops double sends.
 
 `what-i-got-done/` is a symlink to `~/ai-chief-of-staff-private/what-i-got-done`.
 
@@ -131,8 +132,9 @@ The note is written as sid, in first person, for himself. Read the full voice gu
 - Never: delve, tapestry, synergy, robust, seamless, unlock, supercharge, game-changer, "excited to".
 - Do not invent feelings. If the day's mood is not in the data, leave it out.
 
-## 5. Push and show
+## 5. Push, send, show
 
 1. In `~/ai-chief-of-staff-private`: `git add what-i-got-done/YYYY/YYYY-MM-DD.md && git commit -m "day: YYYY-MM-DD" && git push -q origin main`. If the push fails, say so. The note is safe in the local commit, and the next auto-sync push carries it.
-2. Post the full note in chat. Under it, list every line that is an inference with its source.
-3. If sid asks for changes, edit the note in place and run step 1 again. The fix goes out as a new commit.
+2. Send it to PostHog: `python3 .claude/hooks/posthog_what_i_got_done_capture.py`. Codex and other harnesses without Claude Code hooks need this call. In Claude Code the Stop hook would send it too, and the ledger keeps it to one event.
+3. Post the full note in chat. Under it, list every line that is an inference with its source.
+4. If sid asks for changes, edit the note in place and run steps 1 and 2 again. The fix goes out as a new commit and a new event with a higher `revision`.
