@@ -18,8 +18,7 @@ It uses skills and hooks together as a system — not one feature at a time. Eve
 
 /what-did-i-get-done-today       # Nightly 10pm note — accountability + closure for the day
   └── reads Instinct + own WhatsApp msgs, Gmail, Calendar, Granola, Claude Code + Codex sessions
-  └── writes what-i-got-done/.drafts/<DATE>.md    # gitignored in private repo — waits for sid's review
-  └── on approval → what-i-got-done/<YYYY>/<DATE>.md, commit + push in private repo
+  └── writes what-i-got-done/<YYYY>/<DATE>.md, commit + push in private repo
 
 /job-research <jd-or-link>       # Deep research on a job + company
   └── reads jobs/me/             # Resume + interests as candidate lens
@@ -69,7 +68,7 @@ It uses skills and hooks together as a system — not one feature at a time. Eve
 | `.claude/skills/weekly-coach/SKILL.md` | Weekly reflection + planning skill — slash `/weekly-coach` |
 | `.claude/skills/what-did-i-get-done-today/SKILL.md` | Nightly "what did i get done" note — slash `/what-did-i-get-done-today`; scheduled 10pm IST |
 | `.claude/skills/what-did-i-get-done-today/context/sources.md` | WhatsApp ids + voice guide id (gitignored, symlinked to private repo) |
-| `what-i-got-done/<YYYY>/<DATE>.md` | Reviewed daily notes (gitignored, symlinked to private repo). Drafts wait in `what-i-got-done/.drafts/` |
+| `what-i-got-done/<YYYY>/<DATE>.md` | Daily notes (gitignored, symlinked to private repo) |
 | `.claude/skills/job-research/SKILL.md` | Heavy first-pass research on a new company — slash `/job-research`; auto-triggers on JDs / job URLs / "interviewing at X" |
 | `.claude/skills/update-job/SKILL.md` | Light post-meeting update on an already-tracked company — slash `/update-job`; auto-triggers on meeting recaps / "had a call with X" / pasted notes mentioning a tracked co |
 | `.claude/skills/email-triage/SKILL.md` | Morning email + calendar triage — slash `/email-triage` |
