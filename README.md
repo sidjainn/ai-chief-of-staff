@@ -14,6 +14,7 @@ Every workflow is a skill — so the same setup ports cleanly to Codex or any ot
 | Use case                       | Trigger                                                                                                  | What it does                                                                                                                                                                                                                                                                                                                                                                                |
 | ------------------------------ | -------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | **Growth Buddy**               | `/weekly-coach`                                                                                          | Monday reflection + planning coach. Pulls annual charter, weekly to-do sheet, daily-log monthly Docs via public Google export endpoints (no GCP, no MCP). Surfaces 6-week patterns — avoidance, drift, breakthroughs — and diagnoses *why* items stick (interference + immunity-to-change). Scores last week's coaching moves to learn what actually moves sid. Writes `weeks/<ISO>/reflection.md` (single doc, state-scaled 2-4 major items) + appends coach memory under `maps/` (immunity-map, intervention-ledger, summary log). Stop-hook posts `weekly_coach_run` to PostHog w/ counts + state + intervention-hit-rate. |
+| **Day Closer**                 | `/what-did-i-get-done-today` · scheduled 10pm                                                             | Nightly "what did i get done today?" note for accountability + closure. Reads the day's delta from Instinct (WhatsApp to-do agent) + own WhatsApp messages, Gmail, Calendar, Granola, and Claude Code / Codex sessions + git commits. Writes a short note in sid's voice — done / let go / moved forward / tomorrow. Draft waits for review; on approval it syncs to the private repo under `days/`. |
 | **Job Researcher**             | `/job-research <jd-or-link>` · `/update-job <slug>` · pasted JD / "interviewing at X" / "had a call w/ " | Deep research per company w/ parallel subagents (company / role / comp / interviewers / Granola). Verification pass cross-checks numbers. Synthesizes candidate-personalized doc under `jobs/<slug>/`. Re-runs append dated updates — running doc as memory. Light update path pulls fresh Granola (w/ deeplink) + folds in notes, no re-research.                                          |
 | **Email Triage (WIP)**         | `/email-triage`                                                                                          | Daily triage across Gmail + Calendar. P0/P1/P2 brief tuned to your priorities, team, voice. Draft replies activate the `email-reply` skill — voice-matched, banned-phrase-aware, correct CCs. Hook auto-logs every run for monthly pattern review. Context refinement pending, gcal mcp connection pending.                                                                                |
 | **Shopping Advisor**           | `/shopping-assist <product>` · `/reccos [topic]`                                                          | Pre-purchase advisor + proactive discovery. Reads shared `shopping-context/` (profile, inventory, interests, budget-rules, data-sources) + Flipkart/Swiggy xlsx + Gmail to ground every recommendation in your values, household, owned cards, and order history. `/shopping-assist` returns a 3-candidate shortlist w/ 5-dim scoring, cross-platform price-parity, card-discount math (Flipkart Axis / SBI Rupay / Swiggy HDFC). `/reccos` surfaces 3-5 tagged items ([upgrade] / [gap] / [interest-match] / [swap-from-current]) for discovery. Context-capture catches preferences mid-convo and offers to persist them. Hook posts `shopping_advise_run` / `shopping_reccos_run` events to PostHog. |
@@ -42,11 +43,17 @@ artifacts/         # running docs (logs/, jobs/<slug>/, ...) — memory, not sna
 
 ```
 ai-chief-of-staff/
+├── AGENTS.md                           # Project rules — read by every harness (Codex, Claude Code, ...)
 ├── .claude/
-│   ├── CLAUDE.md                       # Project rules
+│   ├── CLAUDE.md                       # Symlink → ../AGENTS.md so Claude Code loads the same rules
 │   ├── settings.json                   # MCP servers + hooks
 │   ├── skills/
 │   │   ├── weekly-coach/SKILL.md       # growth-buddy (reflection + planning)  — /weekly-coach
+│   │   ├── what-did-i-get-done-today/  # day-closer (nightly note)              — /what-did-i-get-done-today
+│   │   │   ├── SKILL.md
+│   │   │   ├── scripts/harness_activity.py  # Claude Code + Codex prompts and git commits for a window
+│   │   │   ├── example.context/        # Public template — WhatsApp ids, voice guide id
+│   │   │   └── context/                # Real ids (gitignored)
 │   │   ├── job-research/SKILL.md       # job-researcher (heavy first-pass)      — /job-research
 │   │   ├── update-job/SKILL.md         # post-meeting light update              — /update-job
 │   │   ├── email-triage/
@@ -75,6 +82,7 @@ ai-chief-of-staff/
 │       ├── company.md, jd.md, comp.md
 │       ├── interviewers/<name>.md
 │       └── meetings/<date>-<slug>.md   # Granola summary w/ deeplink
+├── days/<YYYY>/<DATE>.md               # day-closer notes (gitignored, symlinked to private) — drafts in days/.drafts/ until reviewed
 ├── weeks/<ISO-week>/                   # growth-buddy artifacts (gitignored)
 │   └── reflection.md                   # single doc — patterns + next-week major items folded in
 ├── maps/                               # growth-buddy memory (gitignored, symlinked to private): immunity-map · intervention-ledger · weekly-coach-log
