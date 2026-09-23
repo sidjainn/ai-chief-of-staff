@@ -62,8 +62,8 @@ email-runs
 /.shopping/
 
 # Daily "what did i get done" notes — personal, live in private repo via symlink
-days
-/days/
+what-i-got-done
+/what-i-got-done/
 
 # what-did-i-get-done-today real context (WhatsApp ids, voice guide id). example.context/ is the public template.
 .claude/skills/what-did-i-get-done-today/context

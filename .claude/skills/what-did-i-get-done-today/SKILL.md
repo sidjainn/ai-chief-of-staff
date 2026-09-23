@@ -13,15 +13,15 @@ Repo: `~/ai-chief-of-staff`. Paths below are relative to it. Timezone is IST (As
 
 - `.claude/skills/what-did-i-get-done-today/context/sources.md` - WhatsApp ids and the voice guide id. Private (gitignored, symlinked to the private repo). Read it first. `example.context/sources.md` shows the shape.
 - `.claude/skills/what-did-i-get-done-today/scripts/harness_activity.py` - prints sid's Claude Code and Codex prompts and git commits for a window.
-- `days/.drafts/YYYY-MM-DD.md` - notes waiting for review. Gitignored in the private repo, so they never sync.
-- `days/YYYY/YYYY-MM-DD.md` - approved notes. They sync to the private repo.
+- `what-i-got-done/.drafts/YYYY-MM-DD.md` - notes waiting for review. Gitignored in the private repo, so they never sync.
+- `what-i-got-done/YYYY/YYYY-MM-DD.md` - approved notes. They sync to the private repo.
 
-`days/` is a symlink to `~/ai-chief-of-staff-private/days`.
+`what-i-got-done/` is a symlink to `~/ai-chief-of-staff-private/what-i-got-done`.
 
 ## Hard rules
 
 - Read-only on every source. Never send a WhatsApp message, email or invite. Never mark anything read.
-- Nothing leaves `days/.drafts/` until sid has read the note and approved it in chat.
+- Nothing leaves `what-i-got-done/.drafts/` until sid has read the note and approved it in chat.
 - No phone numbers, account numbers, bib numbers or money amounts in a note. Say what moved, not the figures.
 - Skip banter and private personal chats. The note covers what sid did or decided, not what friends said.
 - If a source fails, keep going with the rest. Record it in `sources_missing`.
@@ -29,10 +29,10 @@ Repo: `~/ai-chief-of-staff`. Paths below are relative to it. Timezone is IST (As
 ## 1. Work out the window
 
 - `window_end` is now.
-- `window_start` is the latest `window_end` found in the frontmatter of any note under `days/`, drafts included. If there is none, use 00:00 IST today.
+- `window_start` is the latest `window_end` found in the frontmatter of any note under `what-i-got-done/`, drafts included. If there is none, use 00:00 IST today.
 - If a note for this date already exists, you are re-running. Keep its `window_start`, move `window_end` to now and rebuild it in place.
 - If the window covers more than one calendar day, say so in the note's first line.
-- If older drafts are still in `days/.drafts/`, tell sid which dates are waiting.
+- If older drafts are still in `what-i-got-done/.drafts/`, tell sid which dates are waiting.
 
 ## 2. Gather
 
@@ -88,7 +88,7 @@ It prints each session's title, folder and sid's prompts, then git commits from 
 
 ## 4. Write the draft
 
-Write to `days/.drafts/YYYY-MM-DD.md`, dated by `window_end` in IST. If the run happens after midnight, date it by the day that just ended.
+Write to `what-i-got-done/.drafts/YYYY-MM-DD.md`, dated by `window_end` in IST. If the run happens after midnight, date it by the day that just ended.
 
 ```
 ---
@@ -145,6 +145,6 @@ Post the full note in chat. Under it, list every line that is an inference with 
 ## 6. Sync after approval
 
 1. Set `status: reviewed` in the frontmatter.
-2. Move the file from `days/.drafts/` to `days/YYYY/`.
-3. In `~/ai-chief-of-staff-private`: `git add days/YYYY/YYYY-MM-DD.md && git commit -m "day: YYYY-MM-DD" && git push -q origin main`.
+2. Move the file from `what-i-got-done/.drafts/` to `what-i-got-done/YYYY/`.
+3. In `~/ai-chief-of-staff-private`: `git add what-i-got-done/YYYY/YYYY-MM-DD.md && git commit -m "day: YYYY-MM-DD" && git push -q origin main`.
 4. If the push fails, say so. The note is safe in the local commit.
