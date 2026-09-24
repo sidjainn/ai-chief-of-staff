@@ -84,7 +84,6 @@ It prints each session's title, folder and sid's prompts, then git commits from 
 
 - done: finished, sent, submitted, shipped, attended, booked. Needs evidence from a source.
 - let go: dropped from the list, declined, untracked on purpose. This is closure. Always include it when there is any.
-- moved forward: real progress without finishing. Nudges sent, waiting on someone, a draft that went out.
 - tomorrow: the top 3 open items from Instinct's last `*Today*` list, plus anything booked for tomorrow. Three items at most.
 - Things Instinct did on its own count only where they moved one of sid's items.
 - One event, one line. Merge duplicates across sources.
@@ -109,9 +108,6 @@ done:
 - ...
 
 let go:
-- ...
-
-moved forward:
 - ...
 
 tomorrow:
