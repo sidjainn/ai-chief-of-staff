@@ -31,10 +31,15 @@ Repo: `~/ai-chief-of-staff`. Paths below are relative to it. Timezone is IST (As
 - `window_start` is the latest `window_end` found in the frontmatter of any note under `what-i-got-done/`. If there is none, use 00:00 IST today.
 - If a note for this date already exists, you are re-running. Keep its `window_start`, move `window_end` to now and rebuild it in place. Then run step 5 again.
 - If the window covers more than one calendar day, say so in the note's first line.
+- If the newest note lists anything in `sources_missing`, backfill it first. Fetch those sources for that note's window, fold what they add into that note, update its `sources_missing`, and run step 5 for it. Then build tonight's note.
 
 ## 2. Gather
 
 Run these in parallel.
+
+Use the claude.ai connectors for Gmail, Calendar and Granola. Their tool names look like `mcp__<id>__search_threads`, `mcp__<id>__list_events` and `mcp__<id>__list_meetings`. Load them with ToolSearch by tool name. The `gmail`, `gcal` and `granola` entries in `.mcp.json` and the project config are broken. Ignore their startup errors ("ENOTFOUND", "needs auth"). Do not mark a source missing until its connector tool has been called and has failed.
+
+A connector can return "The connector's server isn't responding" for a stretch of minutes. Granola did this on Sep 24 from 22:51 to 23:13, then worked again. So when a call fails, gather the other sources first, then retry it. Retry once more just before writing the note. If it still fails, record it in `sources_missing` and move on. The next run backfills it (step 1).
 
 ### Instinct (the main source)
 
