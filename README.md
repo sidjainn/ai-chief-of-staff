@@ -49,6 +49,7 @@ ai-chief-of-staff/
 │   ├── settings.json                   # MCP servers + hooks
 │   ├── skills/
 │   │   ├── weekly-coach/SKILL.md       # growth-buddy (reflection + planning)  — /weekly-coach
+│   │   ├── garmin-monthly-coach/       # Garmin incremental sync + monthly review skill
 │   │   ├── what-did-i-get-done-today/  # day-closer (nightly note)              — /what-did-i-get-done-today
 │   │   │   ├── SKILL.md
 │   │   │   ├── scripts/harness_activity.py  # Claude Code + Codex prompts and git commits for a window
@@ -86,6 +87,7 @@ ai-chief-of-staff/
 ├── what-i-got-done/<YYYY>/<DATE>.md    # day-closer notes (gitignored, symlinked to private)
 ├── weeks/<ISO-week>/                   # growth-buddy artifacts (gitignored)
 │   └── reflection.md                   # single doc — patterns + next-week major items folded in
+├── garmin/                             # private symlink to ai-chief-of-staff-private/garmin; never commit Garmin data
 ├── maps/                               # growth-buddy memory (gitignored, symlinked to private): immunity-map · intervention-ledger · weekly-coach-log
 ├── .shopping/reccos/<slug>/            # shopping-advisor artifacts (gitignored) — brief / shortlist / price-parity / verdict
 ├── logs/                               # hook idempotency ledgers + per-run log blocks (gitignored)
@@ -116,10 +118,13 @@ All three docs must be shared "anyone with the link". IDs live in `.env` (gitign
 - `reflection.md` — single doc: what last week revealed, multi-week avoidance / drift / breakthrough threads, *why* the stuck things stick, and 2-4 major items for next week scaled to your current energy (you plan the detail in your own sheet)
 - `maps/immunity-map.md` — for anything stuck 3+ weeks: the competing-commitment hypothesis + big assumption + a safe smallest test to disprove it. Append-only — the evolution stays visible.
 - `maps/intervention-ledger.md` — every coaching push tagged by type + scored next week (acted / deflected). Over time the coach leads with the moves you actually act on.
+- `Running (Garmin)` — when private Garmin data is available, the reflection includes run volume, easy-long and structured-session adherence, data freshness, and relevant dated trend context. The source database and athlete-specific profile stay in the private companion repository.
 
 Coach voice — pushes back. Names the question you're avoiding. Diagnoses, doesn't just flag. Scales the load to your state — a depleted week gets fewer, smaller items, not four big rocks. Asks 3 sharp questions back. No assistant fluff.
 
 **Hook:** Stop-hook fires after the run, posts `weekly_coach_run` event to PostHog w/ item counts + state (depleted/steady/charged) + intervention-hit-rate + top interference type. Planning trends *and* what-works-on-you become observable over time.
+
+**Garmin integration:** The reusable protocol lives in `.claude/skills/garmin-monthly-coach/`. One canonical database, athlete-specific profile, and timestamped reviews live in the private companion repo under `garmin/`. `/weekly-coach` adds a dated running summary to its private reflection; the monthly Garmin routine runs the full trend review.
 
 ---
 

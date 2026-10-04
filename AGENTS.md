@@ -8,6 +8,7 @@ It uses skills and hooks together as a system — not one feature at a time. Eve
 ```
 /weekly-coach                    # Weekly reflection + next-week planning
   └── pulls charter + sheet + daily logs (public Google export endpoints)
+  └── reads latest private Garmin data for a dated running summary in the weekly reflection
   └── 6-week patterns + WHY-it-sticks   # interference + immunity-to-change diagnosis
   └── scores last week's coaching moves # intervention ledger — learns what moves sid
   └── state-scaled major items   # depleted week → fewer/smaller items (read journal energy first)
@@ -67,6 +68,8 @@ It uses skills and hooks together as a system — not one feature at a time. Eve
 | `.claude/skills/email-triage/context/communication-style.md` | How I write — voice and rules (gitignored) |
 | `.claude/skills/email-triage/example.context/` | Public template — sample dummy context committed for repo readers; never read at runtime |
 | `.claude/skills/weekly-coach/SKILL.md` | Weekly reflection + planning skill — slash `/weekly-coach` |
+| `.claude/skills/garmin-monthly-coach/SKILL.md` | Garmin incremental refresh, monthly review, and weekly-report method |
+| `garmin/` | Private Garmin database and coaching profile, symlinked from `ai-chief-of-staff-private`; ignored by Git in this public repo |
 | `.claude/skills/what-did-i-get-done-today/SKILL.md` | Nightly "what did i get done" note — slash `/what-did-i-get-done-today`; scheduled 10pm IST |
 | `.claude/skills/what-did-i-get-done-today/context/sources.md` | WhatsApp ids + voice guide id (gitignored, symlinked to private repo) |
 | `what-i-got-done/<YYYY>/<DATE>.md` | Daily notes (gitignored, symlinked to private repo) |

@@ -1,6 +1,6 @@
 ---
 name: weekly-coach
-description: Weekly reflection coach for the user. Triggers on /weekly-coach, "weekly review", "plan my week", "Monday planning", "let's reflect on the week", or when the user says he wants to think through the past week and plan ahead. Pulls annual charter, weekly to-do sheet (all dated tabs), daily-log monthly docs via public Google export endpoints (no MCP, no GCP project — the user's docs are shared "anyone with the link"). Surfaces multi-week patterns (avoidance, breakthroughs, charter coverage), diagnoses WHY items stick (interference + immunity-to-change), learns which coaching moves actually move the user (intervention ledger), writes a single reflection doc to weeks with 2-4 state-scaled major items for next week, asks 3 sharp coach questions back.
+description: Weekly reflection coach for the user. Triggers on /weekly-coach, "weekly review", "plan my week", "Monday planning", "let's reflect on the week", or when the user says he wants to think through the past week and plan ahead. Pulls annual charter, weekly to-do sheet (all dated tabs), and daily-log monthly docs via public Google export endpoints (no Drive MCP or GCP project); uses private Garmin records when available. Surfaces multi-week patterns (avoidance, breakthroughs, charter coverage), diagnoses WHY items stick (interference + immunity-to-change), learns which coaching moves actually move the user (intervention ledger), writes a single reflection doc to weeks with 2-4 state-scaled major items for next week, asks 3 sharp coach questions back.
 version: 1.5
 author: the user
 fetcher_script: .claude/scripts/fetch-coach-sources.sh
@@ -17,6 +17,7 @@ persistent_files:
   - maps/intervention-archive.md      # frozen verbatim trail of weeks aged out of the ledger — never rewritten
   - maps/strengths.md                 # demonstrated strengths + the unlock mechanism; the lens for whether majors point his edge at anything
   - .claude/skills/weekly-coach/charter-pillar-modes.md  # pillar cadence/episodic/hybrid cache
+  - garmin/                          # private Garmin database, symlinked from ai-chief-of-staff-private
 notes:
   - Sheet tabs are named by week-start date (DD-MM-YYYY). Skip non-weekly tabs ("Learning resources", "Curiosities").
   - Daily-log docs are one Google Doc per month titled " daily log YYYY". Each doc uses the Google Docs Tabs feature (one tab per day). Plain-text export concatenates all tabs.
@@ -69,6 +70,8 @@ It exits with the manifest path on stdout (e.g. `/tmp/weekly-coach/<UTC-ts>/mani
 - **Intervention ledger (1.4):** read `maps/intervention-ledger.md` if it exists. Tells you what kinds of push the user acts on vs deflects — this shapes how you phrase everything downstream.
 - **Strengths map (1.5):** read `maps/strengths.md` if it exists. §2 = what he's demonstrably good at; §4 = the unlock mechanism for anything stuck 3+ weeks; §7 = how to use it; §8 = retracted reads. Its §1 (generate alone / unstick through contact) governs how you read a low-output week: check solitude and sleep before inferring resistance.
 If the script fails (manifest missing, all fetches 0 bytes), stop and tell the user: docs may have been un-shared or the share-link permission downgraded. Don't proceed without source data.
+
+**Garmin running data:** Before writing the weekly reflection, read `.claude/skills/garmin-monthly-coach/SKILL.md` and follow its incremental data-refresh mode when the Garmin connector is available. The canonical database and athlete-specific profile live in private `garmin/`. If refresh is unavailable, use the stored snapshot, state its last sync date and mark the week incomplete if the data does not cover the full Monday-Sunday window. Never report "no runs" from stale or incomplete data. Add one compact `Running (Garmin)` section to the private weekly reflection; do not duplicate activity rows or create a second data store.
 ### Step 2 — Classify pillar modes (cache, infer once, ask once)
 Charter pillars run on different clocks. Treating every pillar as weekly-cadence produces false drift signals (e.g. flagging "Nature" as drifting right after a multi-week off-grid retreat). Before pattern analysis, classify each pillar:
 - **cadence** — needs weekly tempo (Builder/Craft, Music practice, Physical health, Create/Brand, Jobs/Career)
@@ -181,6 +184,11 @@ _Generated <YYYY-MM-DD>. Source: charter + last 6 sheet tabs + last 14 daily log
 <depleted / steady / charged> — <verbatim evidence line>. Load next week capped at <2/3/4>.
 ## Wins (last week)
 - <bullet — verbatim if from the user's own log> [antecedent: <day-shape that preceded it, if visible>]
+## Running (Garmin)
+- Data freshness: <last successful sync date; complete / partial / unavailable for this week>
+- Training process: <run count, distance/time, easy-long runs, verified structured sessions and recoveries>
+- Garmin outcomes: <dated VO2 max / threshold / load context, only when available and relevant>
+- Read: <one evidence-based sentence; distinguish recorded data from interpretation>
 ## Stuck-on (interference + next action)
 | Item | Wks rolled | Interference | Min viable next action |
 |---|---|---|---|
@@ -283,6 +291,7 @@ After the user responds:
 - Every pattern cited a specific week / day / item — no hand-wave?
 - Ran the compensating-signal scan on every at-risk pillar before declaring drift?
 - Read `maps/strengths.md` and checked the majors point his edge at something worth it?
+- Garmin weekly section reports sync freshness and coverage; stale data is not treated as proof of no running?
 - For every 3+ week stuck item, reached for the §4 unlock mechanism (named person + shrunk below the quality bar + scary part decoupled) rather than a block or more resolve?
 - Chat output is TL;DR + state/intervention line + patterns + questions only?
 - Summary appended with the new machine-readable fields (no renames/drops of old ones)?

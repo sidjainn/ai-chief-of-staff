@@ -65,6 +65,10 @@ email-runs
 what-i-got-done
 /what-i-got-done/
 
+# Garmin health metrics and route data — private repo via symlink
+garmin
+/garmin/
+
 # what-did-i-get-done-today real context (WhatsApp ids, voice guide id). example.context/ is the public template.
 .claude/skills/what-did-i-get-done-today/context
 .claude/skills/what-did-i-get-done-today/context/

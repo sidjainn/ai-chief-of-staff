@@ -1,0 +1,7 @@
+interface:
+  display_name: "Garmin Monthly Coach"
+  short_description: "Review Garmin training process and trends"
+  default_prompt: "Use $garmin-monthly-coach to run the latest Garmin training review."
+
+policy:
+  allow_implicit_invocation: true
