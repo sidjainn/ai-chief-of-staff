@@ -1,11 +1,11 @@
 ---
 name: what-did-i-get-done-today
-description: Build sid's end-of-day "what did i get done today?" note from Instinct and WhatsApp, Gmail, Calendar, Granola and Claude Code/Codex sessions, push it to the private repo and send it to PostHog. Use for the nightly 10 pm routine or when sid asks what he got done today.
+description: Build sid's daily "what did i get done?" note from Instinct and WhatsApp, the daily log, Gmail, Calendar, Granola and Claude Code/Codex sessions, then push it to the private repo and send it to PostHog. Use for the 9 am next-morning routine or when sid asks what he got done on a date.
 ---
 
 # what did i get done today
 
-A nightly note of what sid got done. It exists for accountability and for closure. The day ends, the note says what moved, what got let go and what carries into tomorrow. Then the day is done.
+A next-morning note of what sid got done the previous day. It exists for accountability and closure: what moved, what got let go and what carries forward.
 
 Repo: `~/ai-chief-of-staff`. Paths below are relative to it. Timezone is IST (Asia/Kolkata).
 
@@ -27,15 +27,29 @@ Repo: `~/ai-chief-of-staff`. Paths below are relative to it. Timezone is IST (As
 
 ## 1. Work out the window
 
-- `window_end` is now.
-- `window_start` is the latest `window_end` found in the frontmatter of any note under `what-i-got-done/`. If there is none, use 00:00 IST today.
-- If a note for this date already exists, you are re-running. Keep its `window_start`, move `window_end` to now and rebuild it in place. Then run step 5 again.
-- If the window covers more than one calendar day, say so in the note's first line.
-- If the newest note lists anything in `sources_missing`, backfill it first. Fetch those sources for that note's window, fold what they add into that note, update its `sources_missing`, and run step 5 for it. Then build tonight's note.
+- At the scheduled 09:00 Asia/Kolkata run, set `target_date` to yesterday. Set `window_end` to `target_date 23:59:59+05:30`; do not date the note by the 09:00 run time.
+- For a manual run, use the date sid requested. If no date is specified, use today through now.
+- `window_start` is the latest `window_end` in an existing note. If there is no earlier note, use 00:00 IST on `target_date` (or on the manual run's date). Preserve the existing `window_start` when rebuilding a note.
+- Write exactly one note for each target calendar date. If days were missed, backfill each missing date in chronological order, with its own end-of-day boundary and note. Do not combine several dates into one note.
+- If a note for `target_date` already exists, rebuild it in place using the same window and the newer source data, then run step 5 again.
+- If a note's window covers more than one calendar day, say so in its first line.
+- Before writing the next note, backfill the newest existing note if it lists anything in `sources_missing`. Fetch those sources for that note's window, fold in new evidence, update `sources_missing`, and run step 5 for it.
 
 ## 2. Gather
 
 Run these in parallel.
+
+### Daily log in My Drive
+
+The chief-of-staff repo's `.claude/scripts/fetch-coach-sources.sh` fetches the monthly Google Docs in sid's My Drive daily-log folder. From the repo root, run it with a fresh temporary output directory:
+
+```bash
+bash .claude/scripts/fetch-coach-sources.sh --out "$(mktemp -d /tmp/what-did-i-get-done-XXXXXX)"
+```
+
+Read the manifest path printed by the script, then read `daily.docs_json` from that manifest. Find the monthly document titled for the target month (for example, `Oct daily log 2026`), open its fetched text export, and use only the section headed with the target date. Monthly Google Docs contain a tab per day; the plain-text export concatenates the tabs, so stop at the next date heading. For a window spanning dates, read each relevant daily section.
+
+Treat this as sid's journal and first-person context, not as a task list. Use it to catch late work, decisions, and reflections that other sources missed; reconcile it with WhatsApp and the other evidence. Keep private relationship details and unrelated journal material out of the work note. Do not paste the raw journal into chat, PostHog, or the repo note. If the fetch or matching daily section is unavailable, record `Google Drive daily log` in `sources_missing` and continue; a later run should backfill it.
 
 Use the claude.ai connectors for Gmail, Calendar and Granola. Their tool names look like `mcp__<id>__search_threads`, `mcp__<id>__list_events` and `mcp__<id>__list_meetings`. Load them with ToolSearch by tool name. The `gmail`, `gcal` and `granola` entries in `.mcp.json` and the project config are broken. Ignore their startup errors ("ENOTFOUND", "needs auth"). Do not mark a source missing until its connector tool has been called and has failed.
 
@@ -90,7 +104,7 @@ It prints each session's title, folder and sid's prompts, then git commits from 
 
 ## 4. Write the note
 
-Write to `what-i-got-done/YYYY/YYYY-MM-DD.md`, dated by `window_end` in IST. If the run happens after midnight, date it by the day that just ended.
+Write to `what-i-got-done/YYYY/YYYY-MM-DD.md`, dated by `target_date` in IST. For the scheduled 09:00 run, this is yesterday even though the note is written the next morning.
 
 ```
 ---
